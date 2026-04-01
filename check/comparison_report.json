@@ -1,0 +1,802 @@
+{
+  "1": {
+    "origin_para_count": 47,
+    "docs_para_count": 48,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第一于阗国三藏实叉难陀奉制译世主妙严品第一之",
+      "docs_context": "于阗国三藏实叉难陀奉制译世主妙严品第一之一如是我闻：一时，佛"
+    }
+  },
+  "2": {
+    "origin_para_count": 41,
+    "docs_para_count": 42,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二于阗国三藏实叉难陀奉制译世主妙严品第一之",
+      "docs_context": "于阗国三藏实叉难陀奉制译世主妙严品第一之二尔时，如来道场众海"
+    }
+  },
+  "3": {
+    "origin_para_count": 43,
+    "docs_para_count": 44,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三于阗国三藏实叉难陀奉制译世主妙严品第一之",
+      "docs_context": "于阗国三藏实叉难陀奉制译世主妙严品第一之三复次，持国乾闼婆王"
+    }
+  },
+  "4": {
+    "origin_para_count": 46,
+    "docs_para_count": 47,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四于阗国三藏实叉难陀奉制译世主妙严品第一之",
+      "docs_context": "于阗国三藏实叉难陀奉制译世主妙严品第一之四复次，普光焰藏主火"
+    }
+  },
+  "5": {
+    "origin_para_count": 35,
+    "docs_para_count": 36,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五于阗国三藏实叉难陀奉制译世主妙严品第一之",
+      "docs_context": "于阗国三藏实叉难陀奉制译世主妙严品第一之五复次，普贤菩萨摩诃"
+    }
+  },
+  "6": {
+    "origin_para_count": 48,
+    "docs_para_count": 49,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六于阗国三藏实叉难陀奉制译如来现相品第二尔",
+      "docs_context": "于阗国三藏实叉难陀奉制译如来现相品第二尔时，诸菩萨及一切世间"
+    }
+  },
+  "7": {
+    "origin_para_count": 48,
+    "docs_para_count": 49,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七于阗国三藏实叉难陀奉制译普贤三昧品第三尔",
+      "docs_context": "于阗国三藏实叉难陀奉制译普贤三昧品第三尔时，普贤菩萨摩诃萨于"
+    }
+  },
+  "8": {
+    "origin_para_count": 35,
+    "docs_para_count": 29,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第八于阗国三藏实叉难陀奉制译华藏世界品第五之",
+      "docs_context": "于阗国三藏实叉难陀奉制译华藏世界品第五之一尔时，普贤菩萨复告"
+    }
+  },
+  "9": {
+    "origin_para_count": 15,
+    "docs_para_count": 16,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第九于阗国三藏实叉难陀奉制译华藏世界品第五之",
+      "docs_context": "于阗国三藏实叉难陀奉制译华藏世界品第五之二尔时，普贤菩萨复告"
+    }
+  },
+  "10": {
+    "origin_para_count": 18,
+    "docs_para_count": 19,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十于阗国三藏实叉难陀奉制译华藏世界品第五之",
+      "docs_context": "于阗国三藏实叉难陀奉制译华藏世界品第五之三尔时，普贤菩萨复告"
+    }
+  },
+  "11": {
+    "origin_para_count": 34,
+    "docs_para_count": 35,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十一于阗国三藏实叉难陀奉制译毗卢遮那品第六",
+      "docs_context": "于阗国三藏实叉难陀奉制译毗卢遮那品第六尔时，普贤菩萨复告大众"
+    }
+  },
+  "12": {
+    "origin_para_count": 47,
+    "docs_para_count": 48,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十二于阗国三藏实叉难陀奉制译如来名号品第七",
+      "docs_context": "于阗国三藏实叉难陀奉制译如来名号品第七尔时，世尊在摩竭提国阿"
+    }
+  },
+  "13": {
+    "origin_para_count": 60,
+    "docs_para_count": 61,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十三于阗国三藏实叉难陀奉制译光明觉品第九尔",
+      "docs_context": "于阗国三藏实叉难陀奉制译光明觉品第九尔时，世尊从两足轮下放百"
+    }
+  },
+  "14": {
+    "origin_para_count": 14,
+    "docs_para_count": 15,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十四于阗国三藏实叉难陀奉制译净行品第十一尔",
+      "docs_context": "于阗国三藏实叉难陀奉制译净行品第十一尔时，智首菩萨问文殊师利"
+    }
+  },
+  "15": {
+    "origin_para_count": 6,
+    "docs_para_count": 7,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十五于阗国三藏实叉难陀奉制译贤首品第十二之",
+      "docs_context": "于阗国三藏实叉难陀奉制译贤首品第十二之二“有胜三昧名安乐，能"
+    }
+  },
+  "16": {
+    "origin_para_count": 49,
+    "docs_para_count": 50,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十六于阗国三藏实叉难陀奉制译升须弥山顶品第",
+      "docs_context": "于阗国三藏实叉难陀奉制译升须弥山顶品第十三尔时，如来威神力故"
+    }
+  },
+  "17": {
+    "origin_para_count": 37,
+    "docs_para_count": 37,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十七于阗国三藏实叉难陀奉制译梵行品第十六尔",
+      "docs_context": "于阗国三藏实叉难陀奉制译梵行品第十六尔时，正念天子白法慧菩萨"
+    }
+  },
+  "18": {
+    "origin_para_count": 33,
+    "docs_para_count": 34,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十八于阗国三藏实叉难陀奉制译明法品第十八尔",
+      "docs_context": "于阗国三藏实叉难陀奉制译明法品第十八尔时，精进慧菩萨白法慧菩"
+    }
+  },
+  "19": {
+    "origin_para_count": 46,
+    "docs_para_count": 148,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第十九于阗国三藏实叉难陀奉制译升夜摩天宫品第",
+      "docs_context": "于阗国三藏实叉难陀奉制译升夜摩天宫品第十九尔时，如来威神力故"
+    }
+  },
+  "20": {
+    "origin_para_count": 12,
+    "docs_para_count": 113,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十于阗国三藏实叉难陀奉制译十行品第二十一",
+      "docs_context": "于阗国三藏实叉难陀奉制译十行品第二十一之二“佛子！何等为菩萨"
+    }
+  },
+  "21": {
+    "origin_para_count": 17,
+    "docs_para_count": 18,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十一于阗国三藏实叉难陀奉制译十无尽藏品第",
+      "docs_context": "于阗国三藏实叉难陀奉制译十无尽藏品第二十二尔时，功德林菩萨复"
+    }
+  },
+  "22": {
+    "origin_para_count": 24,
+    "docs_para_count": 34,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十二于阗国三藏实叉难陀奉制译升兜率天宫品",
+      "docs_context": "于阗国三藏实叉难陀奉制译升兜率天宫品第二十三尔时，佛神力故，"
+    }
+  },
+  "23": {
+    "origin_para_count": 41,
+    "docs_para_count": 159,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十三于阗国三藏实叉难陀奉制译兜率宫中偈赞",
+      "docs_context": "于阗国三藏实叉难陀奉制译兜率宫中偈赞品第二十四尔时，佛神力故"
+    }
+  },
+  "24": {
+    "origin_para_count": 33,
+    "docs_para_count": 91,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十四于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之二“佛子！云何为菩"
+    }
+  },
+  "25": {
+    "origin_para_count": 29,
+    "docs_para_count": 54,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十五于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之三“佛子！云何为菩"
+    }
+  },
+  "26": {
+    "origin_para_count": 20,
+    "docs_para_count": 21,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十六于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之四“佛子！菩萨摩诃"
+    }
+  },
+  "27": {
+    "origin_para_count": 24,
+    "docs_para_count": 25,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十七于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之五“佛子！菩萨摩诃"
+    }
+  },
+  "28": {
+    "origin_para_count": 25,
+    "docs_para_count": 26,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十八于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": ".于阗国三藏实叉难陀奉制译.十回向品第二十五之六“佛子！菩萨"
+    }
+  },
+  "29": {
+    "origin_para_count": 21,
+    "docs_para_count": 22,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第二十九于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之七“佛子！云何为菩"
+    }
+  },
+  "30": {
+    "origin_para_count": 14,
+    "docs_para_count": 16,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十于阗国三藏实叉难陀奉制译十回向品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之八“佛子！何者是菩"
+    }
+  },
+  "31": {
+    "origin_para_count": 12,
+    "docs_para_count": 14,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十一于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之九“佛子！云何为菩"
+    }
+  },
+  "32": {
+    "origin_para_count": 23,
+    "docs_para_count": 24,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十二于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之十“佛子！云何为菩"
+    }
+  },
+  "33": {
+    "origin_para_count": 16,
+    "docs_para_count": 110,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十三于阗国三藏实叉难陀奉制译十回向品第二",
+      "docs_context": "于阗国三藏实叉难陀奉制译十回向品第二十五之十一“佛子！菩萨摩"
+    }
+  },
+  "34": {
+    "origin_para_count": 46,
+    "docs_para_count": 208,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十四于阗国三藏实叉难陀奉制译十地品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十地品第二十六之一尔时，世尊在他化自"
+    }
+  },
+  "35": {
+    "origin_para_count": 29,
+    "docs_para_count": 114,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十五于阗国三藏实叉难陀奉制译十地品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十地品第二十六之二第二地诸菩萨闻此，"
+    }
+  },
+  "36": {
+    "origin_para_count": 29,
+    "docs_para_count": 135,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十六于阗国三藏实叉难陀奉制译十地品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十地品第二十六之三第四地佛子闻此广大"
+    }
+  },
+  "37": {
+    "origin_para_count": 45,
+    "docs_para_count": 170,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十七于阗国三藏实叉难陀奉制译十地品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十地品第二十六之四第六地菩萨既闻诸胜"
+    }
+  },
+  "38": {
+    "origin_para_count": 33,
+    "docs_para_count": 172,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十八于阗国三藏实叉难陀奉制译十地品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十地品第二十六之五第八地是时天王及天"
+    }
+  },
+  "39": {
+    "origin_para_count": 45,
+    "docs_para_count": 160,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第三十九于阗国三藏实叉难陀奉制译十地品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十地品第二十六之六第十地净居天众那由"
+    }
+  },
+  "40": {
+    "origin_para_count": 21,
+    "docs_para_count": 22,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十于阗国三藏实叉难陀奉制译十定品第二十七",
+      "docs_context": "于阗国三藏实叉难陀奉制译十定品第二十七之一尔时，世尊在摩竭提"
+    }
+  },
+  "41": {
+    "origin_para_count": 14,
+    "docs_para_count": 15,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十一于阗国三藏实叉难陀奉制译十定品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十定品第二十七之二“佛子！云何为菩萨"
+    }
+  },
+  "42": {
+    "origin_para_count": 16,
+    "docs_para_count": 17,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十二于阗国三藏实叉难陀奉制译十定品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十定品第二十七之三“佛子！云何为菩萨"
+    }
+  },
+  "43": {
+    "origin_para_count": 22,
+    "docs_para_count": 23,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十三于阗国三藏实叉难陀奉制译十定品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十定品第二十七之四“佛子！云何为菩萨"
+    }
+  },
+  "44": {
+    "origin_para_count": 33,
+    "docs_para_count": 34,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十四于阗国三藏实叉难陀奉制译十通品第二十",
+      "docs_context": "于阗国三藏实叉难陀奉制译十通品第二十八尔时，普贤菩萨摩诃萨告"
+    }
+  },
+  "45": {
+    "origin_para_count": 14,
+    "docs_para_count": 15,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十五于阗国三藏实叉难陀奉制译阿僧祇品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译阿僧祇品第三十尔时，心王菩萨白佛言："
+    }
+  },
+  "46": {
+    "origin_para_count": 28,
+    "docs_para_count": 29,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十六于阗国三藏实叉难陀奉制译佛不思议法品",
+      "docs_context": "于阗国三藏实叉难陀奉制译佛不思议法品第三十三之一尔时，大会中"
+    }
+  },
+  "47": {
+    "origin_para_count": 37,
+    "docs_para_count": 38,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十七于阗国三藏实叉难陀奉制译佛不思议法品",
+      "docs_context": "于阗国三藏实叉难陀奉制译佛不思议法品第三十三之二“佛子！诸佛"
+    }
+  },
+  "48": {
+    "origin_para_count": 26,
+    "docs_para_count": 27,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十八于阗国三藏实叉难陀奉制译如来十身相海",
+      "docs_context": "于阗国三藏实叉难陀奉制译如来十身相海品第三十四尔时，普贤菩萨"
+    }
+  },
+  "49": {
+    "origin_para_count": 17,
+    "docs_para_count": 259,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第四十九于阗国三藏实叉难陀奉制译普贤行品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译普贤行品第三十六尔时，普贤菩萨摩诃萨"
+    }
+  },
+  "50": {
+    "origin_para_count": 39,
+    "docs_para_count": 190,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十于阗国三藏实叉难陀奉制译如来出现品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译如来出现品第三十七之一尔时，世尊从眉"
+    }
+  },
+  "51": {
+    "origin_para_count": 35,
+    "docs_para_count": 118,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十一于阗国三藏实叉难陀奉制译如来出现品第",
+      "docs_context": "于阗国三藏实叉难陀奉制译如来出现品第三十七之二“佛子！菩萨摩"
+    }
+  },
+  "52": {
+    "origin_para_count": 39,
+    "docs_para_count": 103,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十二于阗国三藏实叉难陀奉制译如来出现品第",
+      "docs_context": "于阗国三藏实叉难陀奉制译如来出现品第三十七之三“佛子！菩萨摩"
+    }
+  },
+  "53": {
+    "origin_para_count": 49,
+    "docs_para_count": 50,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十三于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之一尔时，世尊在摩竭"
+    }
+  },
+  "54": {
+    "origin_para_count": 30,
+    "docs_para_count": 31,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十四于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之二“佛子！菩萨摩诃"
+    }
+  },
+  "55": {
+    "origin_para_count": 19,
+    "docs_para_count": 20,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十五于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之三“佛子！菩萨摩诃"
+    }
+  },
+  "56": {
+    "origin_para_count": 40,
+    "docs_para_count": 41,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十六于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之四“佛子！菩萨摩诃"
+    }
+  },
+  "57": {
+    "origin_para_count": 43,
+    "docs_para_count": 43,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十七于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之五“佛子！菩萨摩诃"
+    }
+  },
+  "58": {
+    "origin_para_count": 34,
+    "docs_para_count": 35,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十八于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之六“佛子！菩萨摩诃"
+    }
+  },
+  "59": {
+    "origin_para_count": 25,
+    "docs_para_count": 26,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第五十九于阗国三藏实叉难陀奉制译离世间品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译离世间品第三十八之七“佛子！菩萨摩诃"
+    }
+  },
+  "60": {
+    "origin_para_count": 43,
+    "docs_para_count": 44,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十于阗国三藏实叉难陀奉制译入法界品第三十",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之一尔时，世尊在室罗"
+    }
+  },
+  "61": {
+    "origin_para_count": 26,
+    "docs_para_count": 27,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十一于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之二尔时，普贤菩萨摩"
+    }
+  },
+  "62": {
+    "origin_para_count": 54,
+    "docs_para_count": 54,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十二于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之三尔时，文殊师利菩"
+    }
+  },
+  "63": {
+    "origin_para_count": 58,
+    "docs_para_count": 58,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十三于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之四尔时，善财童子一"
+    }
+  },
+  "64": {
+    "origin_para_count": 78,
+    "docs_para_count": 78,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十四于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之五尔时，善财童子蒙"
+    }
+  },
+  "65": {
+    "origin_para_count": 72,
+    "docs_para_count": 72,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十五于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之六尔时，善财童子于"
+    }
+  },
+  "66": {
+    "origin_para_count": 96,
+    "docs_para_count": 96,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十六于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之七尔时，善财童子于"
+    }
+  },
+  "67": {
+    "origin_para_count": 66,
+    "docs_para_count": 66,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十七于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之八尔时，善财童子于"
+    }
+  },
+  "68": {
+    "origin_para_count": 118,
+    "docs_para_count": 118,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十八于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之九尔时，善财童子，"
+    }
+  },
+  "69": {
+    "origin_para_count": 48,
+    "docs_para_count": 48,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第六十九于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十尔时，善财童子了"
+    }
+  },
+  "70": {
+    "origin_para_count": 44,
+    "docs_para_count": 44,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十于阗国三藏实叉难陀奉制译入法界品第三十",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十一尔时，善财童子"
+    }
+  },
+  "71": {
+    "origin_para_count": 59,
+    "docs_para_count": 31,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十一于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十二尔时，善财童子"
+    }
+  },
+  "72": {
+    "origin_para_count": 46,
+    "docs_para_count": 46,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十二于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十三尔时，善财童子"
+    }
+  },
+  "73": {
+    "origin_para_count": 46,
+    "docs_para_count": 47,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十三于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十四尔时，善财童子"
+    }
+  },
+  "74": {
+    "origin_para_count": 50,
+    "docs_para_count": 50,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十四于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十五尔时，善财童子"
+    }
+  },
+  "75": {
+    "origin_para_count": 65,
+    "docs_para_count": 66,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十五于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十六尔时，善财童子"
+    }
+  },
+  "76": {
+    "origin_para_count": 77,
+    "docs_para_count": 50,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十六于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十七尔时，善财童子"
+    }
+  },
+  "77": {
+    "origin_para_count": 39,
+    "docs_para_count": 39,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十七于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十八尔时，善财童子"
+    }
+  },
+  "78": {
+    "origin_para_count": 125,
+    "docs_para_count": 125,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十八于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之十九尔时，善财童子"
+    }
+  },
+  "79": {
+    "origin_para_count": 69,
+    "docs_para_count": 69,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 0,
+      "origin_context": "大方广佛华严经卷第七十九于阗国三藏实叉难陀奉制译入法界品第三",
+      "docs_context": "于阗国三藏实叉难陀奉制译入法界品第三十九之二十尔时，善财童子"
+    }
+  },
+  "80": {
+    "origin_para_count": 38,
+    "docs_para_count": 38,
+    "full_match": false,
+    "mismatch_details": {
+      "pos": 3295,
+      "origin_context": "即得一切佛刹微尘数三昧门，各以一切佛刹微尘数三昧而为眷属；一一三昧，悉见昔所未见一切佛刹微尘数佛大海",
+      "docs_context": "即得一切佛刹微尘数三昧门，各以一切佛刹微塵數三昧而為眷屬；一一三昧，悉見昔所未見一切佛剎微塵數佛大海"
+    }
+  }
+}
