@@ -1,1 +1,16 @@
-{}
+{
+  "𪗇 (U+2A5C7)": {
+    "char": "𪗇",
+    "hex": "U+2A5C7",
+    "type": "Unicode扩展区B",
+    "count": 1,
+    "replacement": "",
+    "occurrences": [
+      {
+        "file": "76.md",
+        "index": 14539,
+        "context": "十方世界无量诸佛将成佛时，皆于𪗇中放大光明，来照我身及我所住宫"
+      }
+    ]
+  }
+}

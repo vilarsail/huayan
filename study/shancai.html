@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>善财童子五十三参 · 旅程图</title>
+<style>
+:root{
+  --ink:#0c1220; --ink2:#121a2e; --ink3:#182238; --ink4:#1f2b45;
+  --gold:#c9a45c; --gold2:#e2c98f; --gold-dim:#8a7340;
+  --ivory:#e9e1cd; --muted:#a89f8a; --faint:#7d7666;
+  --line:rgba(201,164,92,.22); --line2:rgba(201,164,92,.4);
+  --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+::selection{background:rgba(201,164,92,.35)}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:#fff}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+section{padding:56px 0 20px}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}
+.sec-head .sub{color:var(--muted);font-size:14.5px}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
+.rule::after{background:linear-gradient(90deg,var(--line2),transparent)}
+.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}
+details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold .body p{margin:8px 0}
+details.fold .body b{color:var(--ivory);font-weight:600}
+
+/* hero */
+.hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
+  background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transparent 60%),
+             radial-gradient(760px 380px at 88% 22%,rgba(143,159,217,.07),transparent 60%),var(--ink)}
+.hero .stars{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.hero .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold2);opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
+.hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
+.hero h1{font-size:clamp(32px,5.6vw,48px);font-weight:700;letter-spacing:.16em}
+.hero h1 span{color:var(--gold2)}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
+.hero .lead{max-width:620px;margin:24px auto 0;color:var(--muted);font-size:15.5px}
+.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
+.hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px);box-shadow:0 4px 22px rgba(201,164,92,.18)}
+
+/* 序幕 */
+.prologue{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.prologue{grid-template-columns:1fr}}
+.pnode{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:20px 20px 14px;position:relative}
+.pnode .pj{font-size:12px;color:var(--gold);letter-spacing:.25em}
+.pnode h3{font-size:18px;margin:6px 0 2px}
+.pnode p{font-size:13.5px;color:var(--muted);margin-top:8px}
+
+/* 模板五步 */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:8px}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{border:1px solid var(--line);border-radius:10px;background:var(--ink2);padding:16px 14px;cursor:pointer;transition:.2s;position:relative}
+.step:hover,.step.on{border-color:var(--gold);background:var(--ink3);transform:translateY(-2px)}
+.step .sn{font-size:11px;color:var(--gold);letter-spacing:.2em}
+.step h4{font-size:16.5px;margin:4px 0}
+.step p{font-size:12.5px;color:var(--faint);line-height:1.8}
+.step .pat{font-size:12px;color:var(--muted);margin-top:8px;padding:6px 8px;background:rgba(255,255,255,.03);border-radius:6px}
+#stepDetail{margin-top:16px;border:1px dashed var(--line2);border-radius:10px;padding:14px 20px;font-size:14.5px;color:var(--muted);min-height:64px}
+#stepDetail b{color:var(--gold2)}
+
+/* 阶段进度条 */
+.stagebar{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:0 auto 8px;max-width:860px}
+.stagebar .sb{flex:1;text-align:center;padding:10px 2px;cursor:pointer;transition:.2s;border-right:1px solid var(--line)}
+.stagebar .sb:last-child{border-right:none}
+.stagebar .sb .n{font-size:15px;color:var(--ivory)}
+.stagebar .sb .c{font-size:11px;color:var(--faint)}
+.stagebar .sb:hover{background:rgba(201,164,92,.10)}
+.sb-1{flex:.7}.sb-7{flex:.8}
+.stagebar-cap{text-align:center;font-size:12.5px;color:var(--faint);margin-bottom:30px}
+
+/* 筛选 */
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0 8px}
+.fchip{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);border:1px solid transparent;border-radius:999px;padding:4px 12px;cursor:pointer;user-select:none;transition:.2s}
+.fchip .sw{width:10px;height:10px;border-radius:3px}
+.fchip:hover{color:var(--ivory)}
+.fchip.off{opacity:.3;filter:grayscale(.7)}
+.fchip.hot{border-color:var(--line2);background:rgba(201,164,92,.08);color:var(--ivory)}
+.searchbar{text-align:center;margin-bottom:26px}
+.searchbar input{width:min(380px,88%);background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:14px;padding:8px 18px;outline:none;text-align:center}
+.searchbar input:focus{border-color:var(--gold)}
+#counter{text-align:center;font-size:13px;color:var(--faint);margin-bottom:22px}
+
+/* 旅程 */
+.journey{position:relative;padding:6px 0}
+.journey::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,var(--gold) 4%,var(--gold-dim) 50%,var(--gold) 96%,transparent)}
+.stage-divider{position:relative;z-index:2;text-align:center;margin:44px 0 26px}
+.stage-divider .sd-in{display:inline-flex;align-items:center;gap:12px;background:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:8px 26px}
+.stage-divider .sd-in .nm{font-size:17px;color:var(--gold2);letter-spacing:.2em}
+.stage-divider .sd-in .ct{font-size:12px;color:var(--faint)}
+.visit{position:relative;width:calc(50% - 44px);margin-bottom:18px;cursor:pointer}
+.visit.right{margin-left:auto}
+.visit .vc{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:13px 18px;transition:.22s;position:relative}
+.visit:hover .vc{border-color:var(--gold2)}
+.visit.open .vc{border-color:var(--gold);background:var(--ink3)}
+.visit .dot{position:absolute;top:20px;width:13px;height:13px;border-radius:50%;border:2px solid var(--gold);background:var(--ink)}
+.visit:not(.right) .dot{left:-51px}
+.visit.right .dot{right:-51px}
+.visit .dot::after{content:"";position:absolute;inset:2px;border-radius:50%;background:var(--tc)}
+.visit .r1{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.visit .vn{font-size:12px;color:var(--gold);min-width:30px}
+.visit .vname{font-size:17.5px;font-weight:600;color:var(--ivory)}
+.visit .vtype{font-size:11.5px;color:var(--faint)}
+.visit .vdh{font-size:13px;color:var(--tc);margin-top:2px}
+.visit .vmore{font-size:11px;color:var(--gold-dim);margin-left:auto}
+.visit .vbody{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
+.visit.open .vbody{display:block}
+.visit .vplace{font-size:13px;color:var(--gold2)}
+.visit .vbrief{margin-top:4px}
+.visit .vmeta{margin-top:6px;font-size:12px;color:var(--faint);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.badge{font-size:11px;border:1px solid var(--line2);color:var(--gold2);border-radius:999px;padding:1px 9px}
+.badge.nest{color:#cc7fa3;border-color:rgba(204,127,163,.4)}
+.badge.corr{color:#e08a8a;border-color:rgba(224,138,138,.45)}
+.visit.dim{display:none}
+
+/* 套盒 */
+.nestbox{display:flex;justify-content:center;margin:10px 0 6px}
+.frames{position:relative;width:min(560px,100%);aspect-ratio:2.05}
+.frames .fr{position:absolute;border-radius:12px;display:flex;align-items:flex-start;justify-content:center;padding-top:12px}
+.frames .fr span{font-size:13px;letter-spacing:.1em}
+.fr1{inset:0;background:rgba(204,127,163,.07);border:1px solid rgba(204,127,163,.3)}
+.fr2{inset:11% 9%;background:rgba(154,143,208,.08);border:1px solid rgba(154,143,208,.32)}
+.fr3{inset:23% 19%;background:rgba(110,163,204,.09);border:1px solid rgba(110,163,204,.35)}
+.fr4{inset:37% 31%;background:rgba(201,164,92,.12);border:1px solid rgba(201,164,92,.5)}
+.frames .cap{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:12.5px;color:var(--faint)}
+
+/* 校勘 */
+.corr-card{border:1px solid rgba(224,138,138,.35);background:rgba(224,138,138,.05);border-radius:12px;padding:20px 24px;margin-top:12px}
+.corr-card h4{color:#e0a3a3;font-size:15.5px;margin-bottom:4px}
+.corr-card p{font-size:14px;color:var(--muted)}
+.corr-card b{color:var(--ivory)}
+
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}
+footer p{margin:6px 0}
+.topnav{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;gap:8px}
+.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s}
+.topnav a:hover{color:#fff;border-color:var(--gold)}
+@media(max-width:760px){
+  .journey::before{left:14px}
+  .visit{width:100%;margin-left:0 !important;padding-left:34px}
+  .visit .dot{left:8px !important;right:auto !important}
+}
+</style>
+</head>
+<body id="top">
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="ornament">❖ 入 法 界 ❖</div>
+  <h1>善财童子<span>五十三参</span></h1>
+  <div class="meta">入法界品 · 卷六十至八十 · 占全经四分之一</div>
+  <p class="lead">八十卷《华严经》的最后二十一卷，是一个故事：福城一位少年因听闻文殊说法而发心，
+  从此一路向南，<b>参访五十三位善知识</b>——比丘与船师、童女与外道、暴君与佛母、夜神与菩萨。
+  每一位只教他一扇门，又为他指向下一位。<b>五十三参，是把菩萨道走给人看。</b></p>
+  <div class="cta">
+    <a class="primary" href="#journey">进入旅程</a>
+    <a href="index.html">← 全经地图</a>
+    <a href="jingxing.html">净行品一百四十一愿</a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="no">壹</div><h2>旅程开始之前</h2>
+      <div class="sub">三段序幕 · 卷六十至六十二</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="prologue" id="prologue"></div>
+    <details class="fold"><summary>零基础 · 什么是「善知识」？为什么这一品叫「入法界」？</summary>
+      <div class="body">
+        <p><b>善知识</b>：佛教中对良师益友的通称——能引导人发心、修行、见正道的师长。《入法界品》把「亲近善知识」提到极高位置：文殊告诫善财「亲近供养诸善知识，是具一切智最初因缘，勿生疲厌」。</p>
+        <p><b>五十三位老师几乎是刻意挑选的反差组合</b>：有比丘也有妓女（婆须蜜多），有暴君也有外道，有船师也有菩萨——意在打破「老师必须像什么样子」的设定：法门处处，老师无常形。</p>
+        <p><b>「入法界」</b>：法界即一切法的总体。「入」不是走进一个地方，而是以智慧与愿行契入这全体——善财的旅程本身，就是「入」的示范。</p>
+        <p><b>与全经的关系</b>：前面七会讲完了信、住、行、回向、地、佛果的全部教法，入法界品让一个凡夫青年把这条路完整走一遍，故传统判为全经之「证」——教理的实证篇。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="no">贰</div><h2>每一参，都是同一个五步模板</h2>
+      <div class="sub">认出模板，你就获得了阅读这一万七千偈的钥匙</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="steps" id="steps"></div>
+    <div id="stepDetail">点击上方任意一步，查看说明与原文例句。</div>
+    <div class="tip-note">发现了吗？<b>五十三参的模板，正是你在《全经地图》里见过的「叙事参访体」句式</b>。
+    读入法界品不必逐字苦读：认出模板后，把注意力放在三处——这位善知识的<b>身份反差</b>、他的<b>法门名</b>、和他指路时的<b>一句嘱咐</b>。</div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">叁</div><h2>五十三参 · 旅程图</h2>
+      <div class="sub">金色路径即善财的行踪 · 颜色是身份 · 点击每一参展开详情</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="stagebar" id="stagebar"></div>
+    <div class="stagebar-cap">善财的旅程同时是菩萨阶位的展开（传统「寄位」之说）：发心 → 十住 → 十行 → 十回向 → 十地 → 等觉 → 妙觉</div>
+    <div class="filters" id="filters"></div>
+    <div class="searchbar"><input id="q" type="text" placeholder="搜索名号 / 法门 / 处所，如：夜神、念佛、弥勒"></div>
+    <div id="counter"></div>
+    <div class="journey" id="jl"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="no">肆</div><h2>故事里的故事 · 本生套盒</h2>
+      <div class="sub">卷六十九至七十四：华严叙事的最深处</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="nestbox"><div class="frames">
+      <div class="fr fr1"><span style="color:#cc9db8">善财的参访 · 现在</span></div>
+      <div class="fr fr2"><span style="color:#b3abe0">夜神说法 · 现在的法门</span></div>
+      <div class="fr fr3"><span style="color:#9cc2e0">往昔本生 · 无量劫前</span></div>
+      <div class="fr fr4"><span style="color:var(--gold2)">本生中又有本生</span></div>
+      <div class="cap">一层套一层：读这些卷时，随时提醒自己「我现在在第几层」</div>
+    </div></div>
+    <p style="max-width:720px;margin:14px auto;color:var(--muted);font-size:15px;text-align:justify">
+      旅程后半的诸位夜神，几乎每位都会向善财讲述自己<b style="color:var(--ivory)">往昔多劫的修行故事</b>（本生），
+      而这些故事里又嵌着更早的故事。最深处如开敷一切树华夜神（第三十七参）：
+      她的本生「一切法音圆满盖王」中，又有宝光明女以偈赞王——<b style="color:var(--gold2)">四层叙事层层相扣，
+      正是华严「一重映一重、重重无尽」的文学化呈现</b>。旅程图中带「本生」标记的参即属此类。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="no">伍</div><h2>校勘记</h2>
+      <div class="sub">两处文本缺损，已按通行本补译还原</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="corr-card">
+      <h4>一、卷七十一末 · 缺「守护一切城夜神」一参</h4>
+      <p>依《大正藏》通行本，寂静音海夜神（第三十五参）之后、开敷一切树华夜神（第三十七参）之前，
+      尚有<b>守护一切城增长威力夜神</b>（第三十六参，得「甚深自在妙音解脱门」）。本站电子文本中，
+      寂静音海夜神直接指点开敷一切树华，且卷七十二开头「尔时善财童子入菩萨甚深自在妙音解脱门」一句
+      成了无所承接的孤文——正说明此处脱漏。<b>现已按通行本补译还原此参全部原文与译文，旅程图不再需要校补标记。</b></p>
+    </div>
+    <div class="corr-card">
+      <h4>二、卷七十三 · 内容与卷七十二重复</h4>
+      <p>本站电子文本的卷七十三与卷七十二几乎完全相同（仅卷首多出一句大愿精进力夜神的叙述）。
+      依通行本，卷七十三应为<b>大愿精进力救护一切众生夜神</b>（第三十八参）之参。
+      <b>现已按通行本整卷重译还原，原文与译文均已补全。</b></p>
+    </div>
+    <div class="tip-note">这两处缺损也提醒我们：读电子佛典时，<b>结构对不上往往就是文本有误的信号</b>——
+    指路链断了一环，正是五十三参「链式结构」带来的意外校勘功能。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="font-size:15px;color:var(--gold2)">一路南行，处处是师</p>
+    <p><a href="index.html">← 全经地图</a> · <a href="jingxing.html">净行品一百四十一愿</a></p>
+    <p>依据《大方广佛华严经》八十卷本（实叉难陀译）及本站卷六十至八十原文、译文与导读编制。</p>
+  </div>
+</footer>
+
+<div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
+
+<script>
+const DATA = {"note": "以德云比丘为第一参、普贤菩萨为第五十三参（主流计数）；文殊师利为发心起点，标为第零参。守护一切城夜神（第36参）与大愿精进力夜神（第38参）原为 docs 译文缺损，已按通行本（origin 底本）补译还原。", "teachers": [{"no": 0, "name": "文殊师利菩萨", "type": "pusa", "place": "福城东·庄严幢娑罗林", "dharma": "（劝发菩提心）", "juan": 62, "brief": "一切的起点：教善财发心，示「亲近善知识」为一切智之最初因缘", "stage": "发心", "nested": false}, {"no": 1, "name": "德云比丘", "type": "biqiu", "place": "胜乐国·妙峰山", "dharma": "忆念一切诸佛境界智慧光明普见法门", "juan": 62, "brief": "第一参：寻访七日方得见。忆念诸佛，心念所至诸佛现前", "stage": "十住", "nested": false}, {"no": 2, "name": "海云比丘", "type": "biqiu", "place": "海门国", "dharma": "普眼法门", "juan": 62, "brief": "住海门十二年观海，见海生大莲华、佛坐其上，得普眼法门", "stage": "十住", "nested": false}, {"no": 3, "name": "善住比丘", "type": "biqiu", "place": "楞伽道·海岸聚落", "dharma": "普速疾供养诸佛成就众生无碍解脱门", "juan": 62, "brief": "于虚空中来往经行，八部众围绕供养——无碍解脱的第一次直观", "stage": "十住", "nested": false}, {"no": 4, "name": "弥伽居士", "type": "zhangzhe", "place": "达里鼻荼国·自在城", "dharma": "妙音陀罗尼光明法门", "juan": 63, "brief": "升座说妙音轮，种种众生各闻其音、各得其解", "stage": "十住", "nested": false}, {"no": 5, "name": "解脱长者", "type": "zhangzhe", "place": "住林聚落", "dharma": "普摄一切佛刹无边旋陀罗尼", "juan": 63, "brief": "入三昧，于自身中现十方诸佛——诸佛如影，皆由自心而见", "stage": "十住", "nested": false}, {"no": 6, "name": "海幢比丘", "type": "biqiu", "place": "摩利伽罗聚落", "dharma": "般若波罗蜜三昧光明", "juan": 63, "brief": "三昧中从足下、毛孔出无量身云——身即法界的壮观演示", "stage": "十住", "nested": false}, {"no": 7, "name": "休舍优婆夷", "type": "youpoyi", "place": "海潮处·普庄严园", "dharma": "离忧安隐幢", "juan": 64, "brief": "「庄严世界尽，我愿乃尽」——愿无尽故行无尽，园中众生皆不退转", "stage": "十住", "nested": false}, {"no": 8, "name": "毗目瞿沙仙人", "type": "xianren", "place": "伊沙那聚落", "dharma": "无胜幢解脱", "juan": 64, "brief": "一执手，刹那游无量佛刹；一放手，豁然如故", "stage": "十住", "nested": false}, {"no": 9, "name": "胜热婆罗门", "type": "xianren", "place": "南方·刀山火聚", "dharma": "无尽轮解脱", "juan": 64, "brief": "登刀山、投火聚：「我身触时安隐快乐」——烦恼即菩提的极限示现", "stage": "十住", "nested": false}, {"no": 10, "name": "慈行童女", "type": "tongzi", "place": "师子奋迅城", "dharma": "般若波罗蜜普庄严门", "juan": 65, "brief": "一字一句中流出无量法门——般若庄严一切", "stage": "十住", "nested": false}, {"no": 11, "name": "善见比丘", "type": "biqiu", "place": "南方城中", "dharma": "随顺灯解脱门", "juan": 65, "brief": "端正无比，见者破障碍山、拔不善根", "stage": "十行", "nested": false}, {"no": 12, "name": "自在主童子", "type": "tongzi", "place": "名闻国·河渚", "dharma": "一切工巧大神通智光明法门", "juan": 65, "brief": "与十千童子聚沙为戏，于中修算法、工巧、医方明——菩萨道里的「工程师」", "stage": "十行", "nested": false}, {"no": 13, "name": "具足优婆夷", "type": "youpoyi", "place": "海住城", "dharma": "无尽福德藏解脱门", "juan": 65, "brief": "一小器饮食，普施无量众而取之不尽", "stage": "十行", "nested": false}, {"no": 14, "name": "明智居士", "type": "zhangzhe", "place": "大兴城·市四衢道", "dharma": "随意出生福德藏解脱门", "juan": 65, "brief": "众生所需从地涌出；先安其心，后施其物", "stage": "十行", "nested": false}, {"no": 15, "name": "法宝髻长者", "type": "zhangzhe", "place": "师子宫城", "dharma": "无量福德宝藏解脱门", "juan": 66, "brief": "以遍身福德宝藏，普施一切众生", "stage": "十行", "nested": false}, {"no": 16, "name": "普眼长者", "type": "zhangzhe", "place": "藤根国·普门城", "dharma": "令一切众生普见诸佛欢喜法门", "juan": 66, "brief": "教人普见诸佛、生大欢喜", "stage": "十行", "nested": false}, {"no": 17, "name": "无厌足王", "type": "wang", "place": "多罗幢城", "dharma": "如幻解脱", "juan": 66, "brief": "「暴君」的真相：所斩杀皆是幻化恶人，以恐怖折伏、以如幻净化", "stage": "十行", "nested": false}, {"no": 18, "name": "大光王", "type": "wang", "place": "妙光城", "dharma": "大慈为首随顺世间三昧门", "juan": 66, "brief": "城中草木大地皆从慈心流出；随顺众生之所欲", "stage": "十行", "nested": false}, {"no": 19, "name": "不动优婆夷", "type": "youpoyi", "place": "安住王都", "dharma": "求一切法无厌足三昧光明", "juan": 66, "brief": "年华似童女，久修不退；一坐之间入一万三昧门", "stage": "十行", "nested": false}, {"no": 20, "name": "遍行外道", "type": "xianren", "place": "无量都萨罗·善得山", "dharma": "至一切处菩萨行", "juan": 67, "brief": "「外道」也是善知识：已安住至一切处菩萨行", "stage": "十行", "nested": false}, {"no": 21, "name": "优钵罗华长者", "type": "zhangzhe", "place": "广大国", "dharma": "调和香法", "juan": 67, "brief": "鬻香而说法：知一切香之起没、合香之方，以香庄严说法", "stage": "十回向", "nested": false}, {"no": 22, "name": "婆施罗船师", "type": "zhangzhe", "place": "楼阁城·大海之滨", "dharma": "大悲幢行", "juan": 67, "brief": "商船往来海险之中，「见我闻我皆悉不空」——大悲护念众生", "stage": "十回向", "nested": false}, {"no": 23, "name": "无上胜长者", "type": "zhangzhe", "place": "可乐城", "dharma": "至一切处修菩萨行清净法门（无依无作神通之力）", "juan": 67, "brief": "城东大庄严处，遍答无量众生之问", "stage": "十回向", "nested": false}, {"no": 24, "name": "师子频申比丘尼", "type": "biqiuni", "place": "输那国·迦陵迦林日光园", "dharma": "成就一切智解脱", "juan": 67, "brief": "园林一一树皆出法音；一身端坐，普现法界", "stage": "十回向", "nested": false}, {"no": 25, "name": "婆须蜜多女", "type": "wang", "place": "宝庄严城", "dharma": "离贪欲际解脱", "juan": 68, "brief": "「天见我为天女，人见我为人女」——五十三参中最惊世的一参：欲乐当体即空", "stage": "十回向", "nested": false}, {"no": 26, "name": "鞞瑟胝罗居士", "type": "zhangzhe", "place": "善度城", "dharma": "不般涅槃际解脱", "juan": 68, "brief": "常供养栴檀座佛塔；观十方诸佛皆不曾入灭——佛寿无际", "stage": "十回向", "nested": false}, {"no": 27, "name": "观自在菩萨", "type": "pusa", "place": "补怛洛迦山", "dharma": "菩萨大悲行门", "juan": 68, "brief": "即观世音：以大悲行门，令众生离一切怖畏", "stage": "十回向", "nested": false}, {"no": 28, "name": "正趣菩萨", "type": "pusa", "place": "从虚空中倏然而至", "dharma": "普门速疾行解脱", "juan": 68, "brief": "一念之间周遍到一切处，救度众生如疾风", "stage": "十回向", "nested": false}, {"no": 29, "name": "大天神", "type": "tianshen", "place": "堕罗钵底城", "dharma": "云网解脱", "juan": 68, "brief": "现四臂，示现金山、衣山、华山——先以「巨富」考验求法者", "stage": "十回向", "nested": false}, {"no": 30, "name": "安住地神", "type": "tianshen", "place": "摩竭提国·菩提场中", "dharma": "不可坏智慧藏法门", "juan": 68, "brief": "百千伏藏自然踊现——大地本身即是说法者", "stage": "十回向", "nested": false}, {"no": 31, "name": "婆珊婆演底夜神", "type": "tianshen", "place": "妙门城", "dharma": "破一切众生痴暗法光明解脱", "juan": 68, "brief": "主夜之神：于黑暗中守护众生，破无明暗", "stage": "十地", "nested": false}, {"no": 32, "name": "普德净光夜神", "type": "tianshen", "place": "菩提场·如来会中", "dharma": "寂静禅定乐普游步解脱门", "juan": 69, "brief": "由此回到菩提场：此后诸夜神皆在此会中，法会与旅程合流", "stage": "十地", "nested": false}, {"no": 33, "name": "喜目观察众生夜神", "type": "tianshen", "place": "菩提场", "dharma": "大势力普喜幢解脱门", "juan": 69, "brief": "毛孔中现十波罗蜜身云；自述历劫供佛之本生", "stage": "十地", "nested": true}, {"no": 34, "name": "普救众生妙德夜神", "type": "tianshen", "place": "菩提场", "dharma": "普现一切世间调伏众生解脱", "juan": 70, "brief": "整卷几乎都是她的本生：转轮王女妙德眼见普贤发心，历劫九身侍佛", "stage": "十地", "nested": true}, {"no": 35, "name": "寂静音海夜神", "type": "tianshen", "place": "菩提场", "dharma": "念念出生广大喜庄严解脱门", "juan": 71, "brief": "以二十七重譬喻演说广大喜；自述历十佛之本生", "stage": "十地", "nested": true}, {"no": 36, "name": "守护一切城增长威力夜神", "type": "tianshen", "place": "菩提场·如来会中", "dharma": "甚深自在妙音解脱门", "juan": 71, "brief": "守护诸城、增长威力，普现色身演说法音", "stage": "十地", "nested": false}, {"no": 37, "name": "开敷一切树华夜神", "type": "tianshen", "place": "菩提场", "dharma": "出生广大喜光明解脱门", "juan": 72, "brief": "日没之时密护众生；本生为一切法音圆满盖王，五浊恶世行无遮大施，宝光明女以偈赞王", "stage": "十地", "nested": true}, {"no": 38, "name": "大愿精进力救护一切众生夜神", "type": "tianshen", "place": "菩提场", "dharma": "大愿救护众生行（法性无差别而示现无量色身）", "juan": 73, "brief": "乘大愿力，昼夜救护众生", "stage": "十地", "nested": true}, {"no": 39, "name": "岚毗尼林神（妙德神）", "type": "tianshen", "place": "岚毗尼林", "dharma": "遍一切处示现受生自在解脱", "juan": 74, "brief": "佛诞之园的守护者：摩耶将诞十神变；本生为乳母净光，捧持初生菩萨", "stage": "十地", "nested": true}, {"no": 40, "name": "释迦瞿波女", "type": "wang", "place": "迦毗罗城", "dharma": "观察菩萨三昧海解脱", "juan": 75, "brief": "佛为太子时的宫中眷属：自述威德主太子与妙德童女之本生", "stage": "十地", "nested": true}, {"no": 41, "name": "摩耶夫人", "type": "wang", "place": "此世界·虚空会中", "dharma": "大愿智幻解脱门", "juan": 76, "brief": "一切诸佛之母：愿为千佛之母，一念之间现为一切佛母", "stage": "等觉", "nested": false}, {"no": 42, "name": "天主光童女", "type": "tongzi", "place": "三十三天·正念王宫", "dharma": "无碍念清净解脱", "juan": 76, "brief": "天王之女，念劫自在，于一念中忆念不可说劫事", "stage": "等觉", "nested": false}, {"no": 43, "name": "遍友童子师", "type": "tongzi", "place": "三十三天", "dharma": "（自言无法可说）", "juan": 76, "brief": "「我无可为汝说」——坦承无法的老师，指向自己的弟子善知众艺", "stage": "等觉", "nested": false}, {"no": 44, "name": "善知众艺童子", "type": "tongzi", "place": "三十三天", "dharma": "善知众艺菩萨解脱（四十二字母）", "juan": 76, "brief": "恒唱四十二字母：「唱阿字时，入般若波罗蜜门」——一字即一法门", "stage": "等觉", "nested": false}, {"no": 45, "name": "贤胜优婆夷", "type": "youpoyi", "place": "婆呾那城", "dharma": "无依处道场解脱", "juan": 76, "brief": "无依处即是道场——自开解，复为人说", "stage": "等觉", "nested": false}, {"no": 46, "name": "坚固解脱长者", "type": "zhangzhe", "place": "沃田城", "dharma": "无著念清净庄严解脱", "juan": 76, "brief": "于一切法无著无依，念念清净庄严", "stage": "等觉", "nested": false}, {"no": 47, "name": "妙月长者", "type": "zhangzhe", "place": "出生城", "dharma": "净智光明解脱", "juan": 76, "brief": "智光如月，清凉照物", "stage": "等觉", "nested": false}, {"no": 48, "name": "无胜军长者", "type": "zhangzhe", "place": "南方城中", "dharma": "无尽相解脱", "juan": 76, "brief": "法相无尽，故其解脱亦无尽", "stage": "等觉", "nested": false}, {"no": 49, "name": "最寂静婆罗门", "type": "xianren", "place": "南方城中", "dharma": "诚愿语解脱", "juan": 76, "brief": "三世菩萨皆以「诚愿语」成就——真实语的力量", "stage": "等觉", "nested": false}, {"no": 50, "name": "德生童子·有德童女", "type": "tongzi", "place": "妙意华门城", "dharma": "幻住解脱", "juan": 77, "brief": "「一切世界皆幻住，因缘所生故」；于此广说善知识之义，为全经善知识教法之总纲", "stage": "等觉", "nested": false}, {"no": 51, "name": "弥勒菩萨", "type": "pusa", "place": "海岸国·大庄严园·毗卢遮那庄严藏楼阁", "dharma": "（开楼阁·授一生补处记）", "juan": 77, "brief": "弹指开弥勒楼阁：善财入重重无尽境界；记其一生超越无量劫修行", "stage": "等觉", "nested": true}, {"no": 52, "name": "文殊师利（再会）", "type": "pusa", "place": "一百一十由旬外·遥伸右手", "dharma": "（按顶印可，令入普贤行）", "juan": 80, "brief": "不现身而遥伸右手按顶——印证圆成，方堪见普贤", "stage": "妙觉", "nested": false}, {"no": 53, "name": "普贤菩萨", "type": "pusa", "place": "菩提场·金刚藏座", "dharma": "普贤行愿海（与佛同等）", "juan": 80, "brief": "毛孔含摄刹海，善财与普贤同等——旅程的终点，恰是世界的全体", "stage": "妙觉", "nested": false}], "prologue": [{"name": "逝多林大法会", "juan": 60, "brief": "世尊入师子频申三昧，逝多林顿现华藏庄严；「声闻如聋如盲」——在场的罗汉们看不见这场境界"}, {"name": "文殊南行", "juan": 61, "brief": "文殊辞佛南行，于途中度六千比丘发菩提心，直至福城"}, {"name": "福城初发心", "juan": 62, "brief": "善财童子闻法发心；文殊嘱其「亲近善知识，勿生疲厌」——旅程由此开始"}], "types": {"pusa": {"name": "菩萨", "color": "#d8b96a"}, "biqiu": {"name": "比丘", "color": "#6ea3cc"}, "biqiuni": {"name": "比丘尼", "color": "#7fb3dd"}, "zhangzhe": {"name": "长者·居士", "color": "#6db3a1"}, "tongzi": {"name": "童子·童女", "color": "#cc7fa3"}, "xianren": {"name": "仙人·外道·婆罗门", "color": "#c96f6f"}, "youpoyi": {"name": "优婆夷", "color": "#9a8fd0"}, "wang": {"name": "王与女众", "color": "#d29a5e"}, "tianshen": {"name": "天·夜·地神", "color": "#8f9fd9"}}, "stages": ["发心", "十住", "十行", "十回向", "十地", "等觉", "妙觉"]};
+const T = DATA.types, TEACHERS = DATA.teachers, STAGES = DATA.stages;
+
+(()=>{const s=document.getElementById("stars");for(let i=0;i<40;i++){const d=document.createElement("i");
+d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";
+d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
+
+/* 序幕 */
+DATA.prologue.forEach(p=>{
+  const d=document.createElement("div");d.className="pnode";
+  d.innerHTML=`<div class="pj">卷${p.juan}</div><h3>${p.name}</h3><p>${p.brief}</p>`;
+  document.getElementById("prologue").appendChild(d);
+});
+
+/* 五步模板 */
+const STEPS=[
+ {n:"壹",t:"闻名",p:"从上一师指路中闻知名号",d:"每一位善知识在告别时，都会告诉善财「南方某处有某人」，并附一句推赞。善财便带着这个名字上路。",pat:"「善男子！于此南方有○○，名：×××。汝诣彼问……」"},
+ {n:"贰",t:"寻访",p:"渐次南行，周遍推求",d:"旅途从不轻松：找德云比丘用了七天，找休舍优婆夷周遍观察整座园林。寻访本身就是修行。",pat:"「尔时善财童子，渐次南行，至○○国○○处，周遍推求……」"},
+ {n:"叁",t:"礼问",p:"顶礼绕匝，自陈来意",p2:"",d:"一套固定的问礼：顶礼佛足、右绕数匝、合掌而立，然后说出那段著名的自我介绍。",pat:"「圣者！我已先发阿耨多罗三藐三菩提心，而未知菩萨云何学菩萨行、修菩萨道……」"},
+ {n:"肆",t:"受法",p:"善知识自述一扇门",d:"每位善知识只讲自己亲证的一门——「我唯得此／我唯知此○○解脱门」，永远自谦「其余非我能知」。",pat:"「我唯得此○○解脱门。如诸菩萨摩诃萨……而我云何能知能说彼功德行？」"},
+ {n:"伍",t:"指路",p:"指向下一位，旅程继续",d:"受法之后必有指路——链环相扣，直至普贤。五十三参因此形成一条可以校对完整性的「链」。",pat:"「善男子！于此南方复有○○……汝诣彼问。尔时善财礼足，辞退而去。」"}
+];
+const stepsEl=document.getElementById("steps"), stepDetail=document.getElementById("stepDetail");
+STEPS.forEach((s,i)=>{
+  const d=document.createElement("div");d.className="step";
+  d.innerHTML=`<div class="sn">第${s.n}步</div><h4>${s.t}</h4><p>${s.p}</p><div class="pat">${s.pat}</div>`;
+  d.addEventListener("click",()=>{
+    document.querySelectorAll(".step").forEach(x=>x.classList.remove("on"));d.classList.add("on");
+    stepDetail.innerHTML=`<b>${s.t}</b> —— ${s.d}`;
+  });
+  stepsEl.appendChild(d);
+});
+
+/* 阶段条 */
+const counts={};TEACHERS.forEach(t=>counts[t.stage]=(counts[t.stage]||0)+1);
+const stagebar=document.getElementById("stagebar");
+STAGES.forEach(st=>{
+  const d=document.createElement("div");d.className="sb";d.dataset.st=st;
+  d.innerHTML=`<div class="n">${st}</div><div class="c">${counts[st]||0} 参</div>`;
+  d.addEventListener("click",()=>{document.getElementById("sd-"+st).scrollIntoView({behavior:"smooth",block:"center"});});
+  stagebar.appendChild(d);
+});
+
+/* 筛选 */
+let filterType=null;
+const filtersEl=document.getElementById("filters");
+Object.keys(T).forEach(k=>{
+  const d=document.createElement("div");d.className="fchip";d.dataset.k=k;
+  d.innerHTML=`<span class="sw" style="background:${T[k].color}"></span>${T[k].name}`;
+  d.addEventListener("click",()=>{
+    filterType=filterType===k?null:k;
+    document.querySelectorAll(".fchip").forEach(x=>x.classList.toggle("hot",x.dataset.k===filterType));
+    applyFilter();
+  });
+  filtersEl.appendChild(d);
+});
+
+/* 旅程 */
+const jl=document.getElementById("jl");
+let curStage=null;
+TEACHERS.forEach(t=>{
+  if(t.stage!==curStage){
+    curStage=t.stage;
+    const sd=document.createElement("div");sd.className="stage-divider";sd.id="sd-"+t.stage;
+    sd.innerHTML=`<div class="sd-in"><span class="nm">${t.stage}</span><span class="ct">${counts[t.stage]} 参</span></div>`;
+    jl.appendChild(sd);
+  }
+  const v=document.createElement("div");
+  v.className="visit";v.dataset.k=t.type;v.dataset.s=t.stage;v.dataset.no=t.no;
+  if(TEACHERS.indexOf(t)%2===1)v.classList.add("right");
+  v.style.setProperty("--tc",T[t.type].color);
+  const badges=[];
+  if(t.nested)badges.push('<span class="badge nest">本生套盒</span>');
+  v.innerHTML=`
+    <span class="dot"></span>
+    <div class="vc">
+      <div class="r1"><span class="vn">${t.no===0?"起":("第"+t.no+"参")}</span>
+        <span class="vname">${t.name}</span>
+        <span class="vtype">${T[t.type].name}</span>
+        <span class="vmore">▾ 展开</span></div>
+      <div class="vdh">${t.dharma}</div>
+      <div class="vbody">
+        <div class="vplace">◎ ${t.place}</div>
+        <div class="vbrief">${t.brief}</div>
+        <div class="vmeta"><span>经卷${t.juan}</span><span>${t.stage}</span>${badges.join("")}</div>
+      </div>
+    </div>`;
+  v.addEventListener("click",()=>v.classList.toggle("open"));
+  jl.appendChild(v);
+});
+function applyFilter(){
+  const q=document.getElementById("q").value.trim();
+  let shown=0;
+  document.querySelectorAll(".visit").forEach(el=>{
+    const obj=TEACHERS.find(x=>String(x.no)===el.dataset.no);
+    let show=true;
+    if(filterType)show=el.dataset.k===filterType;
+    if(q&&obj)show=show&&(obj.name.includes(q)||obj.dharma.includes(q)||obj.place.includes(q)||obj.brief.includes(q));
+    el.classList.toggle("dim",!show);
+    if(show)shown++;
+  });
+  document.getElementById("counter").textContent=`显示 ${shown} / 54 个节点（含起点文殊）`;
+}
+document.getElementById("q").addEventListener("input",applyFilter);
+applyFilter();
+</script>
+</body>
+</html>
