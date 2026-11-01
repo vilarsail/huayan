@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大方广佛华严经 · 全经地图</title>
+<style>
+:root{
+  --ink:#0c1220; --ink2:#121a2e; --ink3:#182238; --ink4:#1f2b45;
+  --gold:#c9a45c; --gold2:#e2c98f; --gold-dim:#8a7340;
+  --ivory:#e9e1cd; --muted:#a89f8a; --faint:#7d7666;
+  --line:rgba(201,164,92,.22); --line2:rgba(201,164,92,.4);
+  --t-scene:#6ea3cc; --t-cat:#9a8fd0; --t-verse:#d29a5e;
+  --t-doc:#6db3a1; --t-prac:#c96f6f; --t-story:#cc7fa3;
+  --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+::selection{background:rgba(201,164,92,.35)}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:#fff}
+
+/* ---------- 通用 ---------- */
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:64px 0 24px}
+.sec-head{text-align:center;margin-bottom:38px}
+.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:27px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}
+.sec-head .sub{color:var(--muted);font-size:14.5px}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
+.rule::after{background:linear-gradient(90deg,var(--line2),transparent)}
+.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}
+details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold .body p{margin:8px 0}
+details.fold .body b{color:var(--ivory);font-weight:600}
+
+/* ---------- 侧边导航 ---------- */
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav::-webkit-scrollbar{width:4px}
+.sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
+.sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
+.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
+.sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
+.sn-no{font-size:11px;color:var(--gold-dim);flex-shrink:0}
+.sn-item.on .sn-no{color:var(--gold)}
+.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-item:hover .sn-glyph{color:var(--gold2)}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-toggle:hover{border-color:var(--gold);color:#fff}
+.sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
+@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(max-width:1099px){
+  .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
+  .sidenav.open{transform:none}
+  .sn-toggle{display:flex}
+  .sn-mask.open{display:block}
+  body.nav-open{overflow:hidden}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;text-align:center;padding:100px 20px 70px;overflow:hidden;
+  background:radial-gradient(1200px 500px at 50% -80px,rgba(201,164,92,.10),transparent 60%),
+             radial-gradient(800px 400px at 85% 20%,rgba(110,163,204,.07),transparent 60%),
+             radial-gradient(700px 500px at 12% 30%,rgba(154,143,208,.05),transparent 60%),var(--ink)}
+.hero .stars{position:absolute;inset:0;pointer-events:none;opacity:.55}
+.hero .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold2);opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:.75}}
+.hero .ornament{color:var(--gold);font-size:20px;letter-spacing:.6em;text-indent:.6em;margin-bottom:22px}
+.hero h1{font-size:clamp(34px,6vw,54px);font-weight:700;letter-spacing:.18em;color:var(--ivory)}
+.hero h1 span{color:var(--gold2)}
+.hero .meta{margin-top:16px;color:var(--muted);font-size:15px;letter-spacing:.2em}
+.hero .lead{max-width:640px;margin:26px auto 0;color:var(--muted);font-size:15.5px;text-align:center}
+.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.hero .cta a{display:block;padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
+.hero .cta a:hover{color:#fff;border-color:var(--gold);box-shadow:0 4px 22px rgba(201,164,92,.18);transform:translateY(-1px)}
+
+/* ---------- 九会升处 ---------- */
+.hui-list{display:flex;flex-direction:column;gap:6px;position:relative}
+.hui-list::before{content:"";position:absolute;left:34px;top:10px;bottom:10px;width:1px;background:linear-gradient(180deg,transparent,var(--line2) 8%,var(--line2) 92%,transparent)}
+.hui{display:grid;grid-template-columns:70px 1fr;gap:0;border-radius:10px;position:relative;transition:.2s}
+.hui .idx{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:1}
+.hui .idx .cnum{width:44px;height:44px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--gold2);font-weight:600}
+.hui .idx .hui-cn{font-size:11px;color:var(--faint);margin-top:4px;letter-spacing:.2em}
+.hui .card{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:16px 20px;cursor:pointer;transition:.25s;margin-bottom:8px}
+.hui .card:hover{border-color:var(--gold);transform:translateX(4px)}
+.hui .card.active{border-color:var(--gold);background:var(--ink3);box-shadow:0 0 24px rgba(201,164,92,.12)}
+.hui .r1{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hui .place{font-size:19px;font-weight:600;color:var(--ivory)}
+.hui .realm{font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--gold2)}
+.hui .realm.heaven{color:#9fc3e8;border-color:rgba(110,163,204,.4)}
+.hui .vols{font-size:13px;color:var(--faint);margin-left:auto}
+.hui .stage{font-size:13px;color:var(--gold)}
+.hui .pins{margin-top:6px;font-size:13.5px;color:var(--muted)}
+.hui .pins em{font-style:normal;color:var(--ivory)}
+.hui .desc{margin-top:6px;font-size:14px;color:var(--muted)}
+.hui-lift-1{padding-left:6%}.hui-lift-2{padding-left:12%}.hui-lift-3{padding-left:18%}.hui-lift-4{padding-left:24%}
+.lift-tag{font-size:11px;color:var(--faint);align-self:center;white-space:nowrap}
+
+/* ---------- 阶梯 ---------- */
+.stage-ladder{display:flex;gap:0;overflow-x:auto;padding:6px 2px 14px}
+.stage-step{flex:1;min-width:96px;text-align:center;position:relative;padding:22px 6px 12px;cursor:pointer;border-radius:8px 8px 0 0;transition:.25s}
+.stage-step::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--line);transition:.25s}
+.stage-step:nth-child(2)::before{left:8%}.stage-step:nth-child(3)::before{left:16%}.stage-step:nth-child(4)::before{left:24%}
+.stage-step:nth-child(5)::before{left:32%}.stage-step:nth-child(6)::before{left:40%}.stage-step:nth-child(7)::before{left:48%}.stage-step:nth-child(8)::before{left:56%}.stage-step:nth-child(9)::before{left:64%}
+.stage-step:hover::before,.stage-step.on::before{background:var(--gold)}
+.stage-step:hover,.stage-step.on{background:rgba(201,164,92,.07)}
+.stage-step .nm{font-size:17px;color:var(--ivory);font-weight:600}
+.stage-step .cd{font-size:12px;color:var(--gold);margin-top:2px}
+.stage-step .rg{font-size:11.5px;color:var(--faint);margin-top:4px}
+
+/* ---------- 图例/筛选 ---------- */
+.legend{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0 18px}
+.lg{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--muted);border:1px solid transparent;border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
+.lg .sw{width:11px;height:11px;border-radius:3px}
+.lg:hover{color:var(--ivory)}
+.lg.off{opacity:.32;filter:grayscale(.7)}
+.lg.hot{border-color:var(--line2);background:rgba(201,164,92,.08);color:var(--ivory)}
+.searchbar{text-align:center;margin-bottom:20px}
+.searchbar input{width:min(420px,90%);background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:14.5px;padding:9px 20px;outline:none;text-align:center;letter-spacing:.05em}
+.searchbar input:focus{border-color:var(--gold)}
+
+/* ---------- 80卷全景 ---------- */
+.chart-scroll{overflow-x:auto;padding-bottom:6px}
+.chart{min-width:860px;display:flex;flex-direction:column;gap:7px}
+.chart-row{display:grid;grid-template-columns:150px 1fr;align-items:stretch;gap:10px}
+.chart-row .rowlabel{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding-right:14px;border-right:1px solid var(--line);text-align:right}
+.chart-row .rowlabel .a{font-size:14px;color:var(--ivory)}
+.chart-row .rowlabel .b{font-size:11.5px;color:var(--faint)}
+.chart-row .blocks{display:flex;gap:4px;align-items:stretch}
+.blk{flex:1;min-width:8px;border-radius:3px;cursor:pointer;position:relative;transition:.18s;opacity:.85;border:none}
+.blk .n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:rgba(10,14,24,.75);font-weight:700;opacity:0;transition:.18s}
+.blk:hover,.blk.hl{opacity:1;transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.blk:hover .n,.blk.hl .n{opacity:.95}
+.blk.sel{opacity:1;outline:2px solid var(--gold2);outline-offset:1px}
+.blk.dim{opacity:.16}
+.blk.pilot::after{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:5px;height:5px;background:var(--gold2)}
+#tooltip{position:fixed;z-index:99;pointer-events:none;background:#0a0f1bf2;border:1px solid var(--line2);border-radius:8px;padding:10px 14px;font-size:13px;max-width:300px;display:none;box-shadow:0 8px 28px rgba(0,0,0,.5);line-height:1.7}
+#tooltip .t1{color:var(--gold2)}
+#tooltip .t2{color:var(--ivory);font-size:13.5px}
+#tooltip .t3{color:var(--muted);font-size:12.5px}
+#tooltip .t4{color:var(--faint);font-size:12px}
+
+/* 详情面板 */
+.detail{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:var(--ink2);overflow:hidden}
+.detail .dhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:20px 24px 0}
+.detail .dhead .dj{font-size:14px;color:var(--gold)}
+.detail .dhead .dp{font-size:21px;font-weight:600}
+.detail .dhead .dst{font-size:13px;color:var(--muted)}
+.detail .dtags{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.detail .dtag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:2px 10px;border-radius:999px}
+.detail .dbody{padding:12px 24px 8px;display:grid;grid-template-columns:1fr 1fr;gap:8px 34px}
+.detail .dbody h4{font-size:13px;color:var(--gold);letter-spacing:.25em;margin:10px 0 4px}
+.detail .dbody p{font-size:14px;color:var(--muted);text-align:justify}
+.detail .dfoot{display:flex;gap:12px;align-items:center;padding:12px 24px 18px;flex-wrap:wrap}
+.detail .dfoot .btn{display:inline-block;padding:7px 18px;border-radius:999px;border:1px solid var(--gold);color:var(--gold2);font-size:13.5px;transition:.2s}
+.detail .dfoot .btn:hover{background:rgba(201,164,92,.15);color:#fff}
+.detail .dfoot .sz{font-size:12px;color:var(--faint)}
+.placeholder{padding:40px;text-align:center;color:var(--faint);font-size:14px}
+
+/* ---------- 四种读法 ---------- */
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.mode{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:20px 20px 16px;position:relative;overflow:hidden;transition:.25s}
+.mode::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--mc)}
+.mode:hover{transform:translateY(-3px);border-color:var(--line2)}
+.mode h3{font-size:17.5px;margin-bottom:2px}
+.mode .mt{font-size:12px;color:var(--mc);letter-spacing:.15em}
+.mode .how{font-size:13.5px;color:var(--muted);margin-top:10px}
+.mode .pat{font-size:12.5px;color:var(--faint);margin-top:8px;padding:8px 10px;background:rgba(255,255,255,.03);border-radius:6px;line-height:1.8}
+.mode .pat b{color:var(--gold2);font-weight:600}
+.mode .ex{margin-top:10px;font-size:12.5px;color:var(--gold)}
+
+/* ---------- 学习路径 ---------- */
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.route{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
+.route h3{font-size:17px;color:var(--gold2);display:flex;align-items:center;gap:10px}
+.route h3 .rn{font-size:12px;border:1px solid var(--line2);border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;color:var(--gold)}
+.route .for{font-size:12.5px;color:var(--faint);margin:4px 0 12px}
+.route ol{list-style:none;display:flex;flex-direction:column;gap:9px}
+.route ol li{display:flex;gap:10px;font-size:14px;color:var(--muted);align-items:baseline}
+.route ol li .st{color:var(--gold-dim);font-size:12px;flex-shrink:0}
+.route ol li b{color:var(--ivory);font-weight:600}
+.route ol li a{font-size:12.5px;white-space:nowrap}
+
+/* ---------- 试点卡 ---------- */
+.pilots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+@media(max-width:760px){.pilots{grid-template-columns:1fr}}
+.pilot-card{position:relative;display:block;border:1px solid var(--line);border-radius:14px;padding:30px 28px 24px;background:linear-gradient(160deg,var(--ink3),var(--ink2));transition:.25s;overflow:hidden}
+.pilot-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.pilot-card .tag{font-size:12px;color:var(--gold);letter-spacing:.3em}
+.pilot-card h3{font-size:24px;margin:8px 0 4px;color:var(--ivory)}
+.pilot-card .where{font-size:13px;color:var(--faint)}
+.pilot-card p{margin-top:12px;font-size:14px;color:var(--muted)}
+.pilot-card .go{margin-top:16px;font-size:13.5px;color:var(--gold2)}
+.pilot-card .glyph{position:absolute;right:18px;top:14px;font-size:60px;opacity:.08;color:var(--gold)}
+
+/* ---------- footer ---------- */
+footer{margin-top:70px;border-top:1px solid var(--line);padding:36px 0 46px;color:var(--faint);font-size:13px}
+footer .fgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+footer p{margin:6px 0}
+footer .fq{color:var(--muted)}
+@media(max-width:760px){footer .fgrid{grid-template-columns:1fr}.detail .dbody{grid-template-columns:1fr}.hui .vols{margin-left:0}}
+.topnav{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;gap:8px}
+.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s}
+.topnav a:hover{color:#fff;border-color:var(--gold)}
+
+/* ---------- 专题学习页快捷条 ---------- */
+.pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
+.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
+.pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+</style>
+</head>
+<body id="top">
+
+<button class="sn-toggle" id="snToggle" aria-label="打开侧边导航" aria-expanded="false">☰</button>
+<div class="sn-mask" id="snMask"></div>
+<aside class="sidenav" id="sideNav" aria-label="全页导航">
+  <div class="sn-brand"><span class="sn-mark">華</span><div><b>华严</b><small>全经地图</small></div></div>
+  <a class="sn-item" href="#top" data-sec="top"><span class="sn-no">卷</span>卷首</a>
+  <a class="sn-item" href="#intro" data-sec="intro"><span class="sn-no">壹</span>先看一眼地图</a>
+  <a class="sn-item" href="#hui" data-sec="hui"><span class="sn-no">贰</span>九会升处</a>
+  <a class="sn-item" href="#stages" data-sec="stages"><span class="sn-no">叁</span>位阶梯</a>
+  <a class="sn-item" href="#map" data-sec="map"><span class="sn-no">肆</span>八十卷全景</a>
+  <a class="sn-item" href="#modes" data-sec="modes"><span class="sn-no">伍</span>四种读法</a>
+  <a class="sn-item" href="#routes" data-sec="routes"><span class="sn-no">陆</span>从哪里开始读</a>
+  <a class="sn-item" href="#pilots" data-sec="pilots"><span class="sn-no">柒</span>专题学习页</a>
+  <div class="sn-sub">专题学习页</div>
+  <a class="sn-item" href="jingxing.html"><span class="sn-glyph">願</span>净行品一百四十一愿</a>
+  <a class="sn-item" href="shancai.html"><span class="sn-glyph">參</span>善财五十三参</a>
+  <a class="sn-item" href="shengzhong.html"><span class="sn-glyph">衆</span>世主妙严圣众</a>
+  <a class="sn-item" href="huazang.html"><span class="sn-glyph">藏</span>华藏世界地图</a>
+  <a class="sn-item" href="jieti.html"><span class="sn-glyph">階</span>菩萨道阶梯</a>
+  <a class="sn-item" href="shidi.html"><span class="sn-glyph">地</span>十地品精读</a>
+  <a class="sn-item" href="wenming.html"><span class="sn-glyph">問</span>问明品九问</a>
+  <a class="sn-item" href="chuxian.html"><span class="sn-glyph">現</span>如来出现喻林</a>
+  <div class="sn-foot">八十卷 · 七处九会<br>单文件离线 · 无外部依赖</div>
+</aside>
+
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="ornament">❖ 華 嚴 ❖</div>
+  <h1>大方广佛<span>华严经</span></h1>
+  <div class="meta">八十卷 · 唐于阗三藏实叉难陀奉诏译 · 七处九会</div>
+  <p class="lead"><b>传说中，这是佛陀成道后最初三七日所说的法。</b><br>
+  它用宇宙的尺度讲述一条菩萨的道路——从初发心，经十住、十行、十回向、十地，直到佛果；
+  最后让一位叫<b>善财</b>的少年把这整条路亲自走了一遍。</p>
+  <div class="cta">
+    <a class="primary" href="#map">进入全经地图</a>
+  </div>
+  <div class="pagebar" aria-label="专题学习页"><span class="pb-label">专题学习页</span><a href="jingxing.html">净行品</a><a href="shancai.html">五十三参</a><a href="shengzhong.html">世主妙严</a><a href="huazang.html">华藏世界</a><a href="jieti.html">菩萨道阶梯</a><a href="shidi.html">十地品</a><a href="wenming.html">问明品</a><a href="chuxian.html">如来出现</a></div>
+</div>
+
+<!-- ======================= 一、先读我 ======================= -->
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">壹</div><h2>读华严之前，先看一眼地图</h2>
+      <div class="sub">这部经最大的难点不在文句，而在「看不见结构」</div><div class="rule"><i class="diamond"></i></div></div>
+    <p style="max-width:720px;margin:0 auto;color:var(--muted);font-size:15.5px;text-align:justify">
+      八十卷的《华严经》并不是从头到尾平铺直叙。它像一部<b style="color:var(--ivory)">分九幕上演的大戏</b>：
+      佛在菩提场成道（第一幕），之后依次「上升」到须弥山顶、夜摩天、兜率天、他化自在天说法，
+      每升一处，就讲菩萨道的一个阶位；升至顶点后再回到人间，最后在逝多林，
+      由善财童子用一趟南方之旅把全部教法<b style="color:var(--ivory)">走成现实</b>。
+      <b style="color:var(--gold2)">「上升的处所」与「上升的阶位」是平行的两条线</b>——这是读华严最重要的一把钥匙，
+      但它隐藏在文字之外，从经文本身几乎看不出来。本页把这把钥匙画给你。</p>
+    <details class="fold"><summary>零基础 · 关于这部经的三个背景问题</summary>
+      <div class="body">
+        <p><b>《华严经》是一部什么经？</b>大乘佛教最重要的经典之一，汉译有三个全译本：六十卷「旧译」（东晋佛陀跋陀罗）、八十卷「新译」（唐实叉难陀，即本站所用）、四十卷「贞元译」（仅〈入法界品〉）。各品原本是流传于印度不同时期的大乘经典，最终被编纂为一部「经中之王」。</p>
+        <p><b>「大方广佛华严」是什么意思？</b>「大方广」是所证的法——体大、相方、用广，周遍含容；「佛」是能证之人；「华严」是以万行之华（花），庄严佛果。合起来：以菩萨万行庄严无尽法界。</p>
+        <p><b>什么是「菩萨阶位」？</b>大乘佛教把从发心到成佛的道路分为清晰的阶梯：十信（建立信心）→ 十住、十行、十回向（三贤位）→ 十地（圣位）→ 等觉 → 妙觉（佛果）。《华严经》的中段几十卷，就是在一级一级地讲这个阶梯。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ======================= 二、九会升处 ======================= -->
+<section id="hui">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">贰</div><h2>九会升处 · 一场先升天、后落回人间的说法</h2>
+      <div class="sub">说法处的「上升」，对应菩萨阶位的「上升」；点击任一会，下方全景图将点亮对应卷</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="hui-list" id="huiList"></div>
+    <div class="tip-note">「升」是示现：经中说佛<b>不离菩提树下</b>而升天宫说法——身在此处，境界遍在。阶梯先升后落：升至他化自在天讲完十地之后，重新回到人间普光明殿讲佛果，最终落回逝多林的人间，交给善财用双脚去走。<b>教法升天，修行落地。</b></div>
+  </div>
+</section>
+
+<!-- ======================= 三、位阶梯 ======================= -->
+<section id="stages">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">叁</div><h2>位阶梯 · 菩萨道的八级台阶</h2>
+      <div class="sub">每一阶都对应确定的卷次；点击台阶，全景图点亮对应卷</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="stage-ladder" id="stageLadder"></div>
+  </div>
+</section>
+
+<!-- ======================= 四、八十卷全景 ======================= -->
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">肆</div><h2>八十卷全景</h2>
+      <div class="sub">每一格是一卷 · 颜色是文体 · 宽窄是篇幅 · 悬停查看 · 点击展开导读</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="legend" id="legend"></div>
+    <div class="searchbar"><input id="q" type="text" placeholder="搜索品名或内容，如：十地 / 善财 / 回向"></div>
+    <div class="chart-scroll"><div class="chart" id="chart"></div></div>
+    <div class="detail" id="detail"><div class="placeholder">点击任意一卷，查看它的品目、导读与阅读提示</div></div>
+    <div class="tip-note">带 ◆ 角标的卷已配有专题学习页。同一品连跨多卷（如十回向十一卷、入法界二十一卷）时，各卷结构彼此同构——知道一卷的骨架，就知道了它的兄弟卷。</div>
+  </div>
+</section>
+
+<!-- ======================= 五、四种读法 ======================= -->
+<section id="modes">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">伍</div><h2>四种文体，四种读法</h2>
+      <div class="sub">用一种读法对付全部八十卷，注定疲劳；认出文体，就知道了策略</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="modes">
+      <div class="mode" style="--mc:var(--t-cat)">
+        <h3>名录庄严体</h3><div class="mt">CATALOGUE</div>
+        <div class="how">成片的名单与名号堆叠，是初读者最大的劝退点。其实每段结构完全固定：<b>末尾那个「皆……」句才是眼目</b>——它点出这一类圣众的功德与愿力。名字不必记，扫过即可；读到「皆」字，放慢。</div>
+        <div class="pat">复有○○神，所谓：×××、×××……如是等而为上首，<b>皆</b>〔功德眼目〕</div>
+        <div class="ex">代表：卷一至五 · 华藏世界品</div>
+      </div>
+      <div class="mode" style="--mc:var(--t-doc)">
+        <h3>阶位理论体</h3><div class="mt">DOCTRINE</div>
+        <div class="how">中段几十卷的骨干。模板固定：<b>升处 → 请法 → 入定 → 放光印证 → 说十法 → 重颂</b>。先记住模板，就能预判走向；「十法」枚举读其骨架（每条首二字），重颂是复述兼深化，可对照长行回看。</div>
+        <div class="pat">何等为十？一者××，二者××……是为<b>第N地</b>／菩萨住十法</div>
+        <div class="ex">代表：十住 · 十行 · 十回向 · 十地 · 十定 · 离世间</div>
+      </div>
+      <div class="mode" style="--mc:var(--t-prac)">
+        <h3>行愿偈颂体</h3><div class="mt">PRACTICE</div>
+        <div class="how">华严最亲切的部分：把日常每一个动作都转成一条愿。句式严格复沓，<b>四句一愿</b>：事相 → 当愿众生 → 愿之所依 → 愿之境界。不必一口气读完，适合每天抽几愿对照自己的生活。</div>
+        <div class="pat">〔事相〕时，<b>当愿众生</b>：〔依〕，〔境界〕。</div>
+        <div class="ex">代表：净行品一百四十一愿 · 普贤行品</div>
+      </div>
+      <div class="mode" style="--mc:var(--t-story)">
+        <h3>叙事参访体</h3><div class="mt">NARRATIVE</div>
+        <div class="how">全经最后四分之一是连续的「公路片」：善财童子一路南行，参访五十三位善知识。每一参都是<b>同一个五步模板</b>（闻名→寻访→礼问→受法→指路），认出模板后，读的是每位善知识各自的法门与故事。</div>
+        <div class="pat">渐次南行，至○○处，见○○〔身份〕……「我唯得此〔法门〕」……<b>南方复有</b>○○</div>
+        <div class="ex">代表：毗卢遮那品 · 入法界品</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 六、学习路径 ======================= -->
+<section id="routes">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">陆</div><h2>从哪里开始读</h2>
+      <div class="sub">八十卷不必从第一页读到最后一页</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="routes">
+      <div class="route">
+        <h3><span class="rn">一</span>初窥门径</h3><div class="for">第一次接触佛经的读者 · 半天</div>
+        <ol>
+          <li><span class="st">①</span><span><b>净行品一百四十一愿</b>（卷十四）——日用即道场，先体会华严的气质 <a href="jingxing.html">进入学习页 →</a></span></li>
+          <li><span class="st">②</span><span><b>世主妙严·圣众云集</b>（卷一至五）——用名录体读法破第一面墙 <a href="shengzhong.html">→</a></span></li>
+          <li><span class="st">③</span><span><b>毗卢遮那品</b>（卷十一）——一个太子累世修行的好故事</span></li>
+          <li><span class="st">④</span><span><b>善财五十三参</b>精选几参（卷六十二起）<a href="shancai.html">进入旅程图 →</a></span></li>
+        </ol>
+      </div>
+      <div class="route">
+        <h3><span class="rn">二</span>次第通读</h3><div class="for">想完整读一遍的读者 · 数月</div>
+        <ol>
+          <li><span class="st">①</span><span>卷一至五：世主妙严品，用「名录体读法」快读，抓「皆」字句</span></li>
+          <li><span class="st">②</span><span>卷六至十五：华藏世界 + 十信，把<b>净行品</b>读熟</span></li>
+          <li><span class="st">③</span><span>卷十六至三十九：三贤十地，<b>每品只精读一卷</b>，同品兄弟卷快读</span></li>
+          <li><span class="st">④</span><span>卷四十至五十九：等觉与佛果，可先读<b>如来出现品</b>（卷五十至五十二）</span></li>
+          <li><span class="st">⑤</span><span>卷六十至八十：入法界品，配着旅程图一路读完</span></li>
+        </ol>
+      </div>
+      <div class="route">
+        <h3><span class="rn">三</span>重点深读</h3><div class="for">对义理有兴趣的读者 · 长期</div>
+        <ol>
+          <li><span class="st">①</span><span><b>菩萨问明品</b>（卷十三）：十番问答辩「一多相即」，华严哲学的入口</span></li>
+          <li><span class="st">②</span><span><b>梵行品</b>（卷十七）：短小锋利，勘破一切相</span></li>
+          <li><span class="st">③</span><span><b>十地品</b>（卷三十四至三十九）：菩萨道最系统的展开</span></li>
+          <li><span class="st">④</span><span><b>如来出现品</b>（卷五十至五十二）：果德的十重譬喻</span></li>
+          <li><span class="st">⑤</span><span><b>入法界品</b>夜神本生群（卷六十九至七十三）：故事套故事的华严叙事极境</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 七、试点模块 ======================= -->
+<section id="pilots">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">柒</div><h2>专题学习页</h2>
+      <div class="sub">针对具体品目的深度交互模块 · 独立成页，可离线使用</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="pilots">
+      <a class="pilot-card" href="jieti.html">
+        <div class="glyph">階</div>
+        <div class="tag">阶位理论体 · 学习页</div>
+        <h3>菩萨道阶梯 · 三贤十地</h3>
+        <div class="where">卷十六至三十九 · 四会说法 · 全经骨干</div>
+        <p>十住、十行、十回向、十地——四十级台阶，二十四卷经文。本页提供「六步模板」
+        阅读钥匙与四十阶全景，同构的十一卷十回向从此不再可怕。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="huazang.html">
+        <div class="glyph">藏</div>
+        <div class="tag">空间结构 · 学习页</div>
+        <h3>华藏世界 · 宇宙地图</h3>
+        <div class="where">卷第八至十 · 华藏世界品</div>
+        <p>风轮托海、海中生莲、莲上二十重世界——娑婆在第十三重。本页把最难想象的宇宙叙述画成一张可以点击的地图。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="wenming.html">
+        <div class="glyph">問</div>
+        <div class="tag">问答论辩体 · 学习页</div>
+        <h3>问明品 · 文殊九问</h3>
+        <div class="where">卷第十三 · 普光明殿</div>
+        <p>文殊连环九问：心性是一，何以万象差别？九答合奏出华严「一多相即」的世界观——哲学入口。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="shidi.html">
+        <div class="glyph">地</div>
+        <div class="tag">阶位理论体 · 学习页</div>
+        <h3>十地品 · 从欢喜到法云</h3>
+        <div class="where">卷三十四至三十九 · 他化自在天宫</div>
+        <p>三请三默的开幕戏剧、十地逐地精读、十山王收束——菩萨道心脏一品的完整导览。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="chuxian.html">
+        <div class="glyph">現</div>
+        <div class="tag">果德譬喻体 · 学习页</div>
+        <h3>如来出现 · 喻林</h3>
+        <div class="where">卷五十至五十二 · 普光明殿</div>
+        <p>佛果如何显现？普贤用四十个譬喻作答：大云降雨、天鼓、大海潜流、微尘内的经卷——每喻一扇门。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="shengzhong.html">
+        <div class="glyph">衆</div>
+        <div class="tag">名录庄严体 · 学习页</div>
+        <h3>世主妙严 · 圣众云集</h3>
+        <div class="where">卷第一至五 · 菩提场 · 全经序分</div>
+        <p>翻开华严的第一面墙：四十类圣众、四百多个名字。本页教你名录体的读法——句式解剖、
+        四百名号一键收起、「皆……」功德句点亮，法会座次一目了然。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="jingxing.html">
+        <div class="glyph">願</div>
+        <div class="tag">行愿偈颂体 · 学习页</div>
+        <h3>净行品 · 一百四十一愿</h3>
+        <div class="where">卷第十四 · 普光明殿 · 十信位</div>
+        <p>智首菩萨一百一十问，文殊菩萨只答了四个字：「善用其心」。随后是一百四十一愿——
+        吃饭、穿衣、见高山、遇险路，每一个日常场景都化作一条愿。本页提供句式解剖、十五个场景分组浏览与逐愿白话对照。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="shancai.html">
+        <div class="glyph">參</div>
+        <div class="tag">叙事参访体 · 学习页</div>
+        <h3>善财童子五十三参</h3>
+        <div class="where">入法界品 · 卷六十至八十 · 全经四分之一</div>
+        <p>一位少年在福城听闻佛法，从此一路向南，参访五十三位老师——从比丘到船师，从婆罗门到夜神。
+        这是《华严经》的「证」篇：全部教法被一个人的一生走了一遍。本页提供完整旅程图与逐参详解。</p>
+        <div class="go">进入 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <p class="fq" style="font-size:15px;color:var(--gold2)">心如工画师 · 能画诸世间 · 五蕴悉从生 · 无法而不造</p>
+      <p>本页为《大方广佛华严经》学习导航。原文与白话译文、词语注释、逐卷导读共八十卷，见本书正文（epub / pdf 版）。</p>
+      <p>译文由 AI 辅助翻译并部分校对，若与义理有出入，请以原经文为准。</p>
+    </div>
+    <div>
+      <p>导航：<a href="#hui">九会升处</a> · <a href="#stages">位阶梯</a> · <a href="#map">八十卷全景</a> · <a href="#modes">四种读法</a> · <a href="#routes">学习路径</a></p>
+      <p>学习页：<a href="jingxing.html">净行品</a> · <a href="shancai.html">五十三参</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
+<div id="tooltip"></div>
+
+<script>
+const ATLAS = __ATLAS__;
+const HUI = [
+  {n:1,name:"菩提场",realm:"人间",vols:[1,11],stage:"序幕 · 举果劝信",
+   pins:"世主妙严 · 如来现相 · 普贤三昧 · 世界成就 · 华藏世界 · 毗卢遮那",
+   desc:"成道后的宇宙全景：庄严、云集、世界海，与本生溯源。先给你看「果」，再慢慢讲「因」。"},
+  {n:2,name:"普光明殿",realm:"人间",vols:[12,15],stage:"十信",
+   pins:"如来名号 · 四圣谛 · 光明觉 · 菩萨问明 · 净行 · 贤首",
+   desc:"建立信心：名号与谛理的周遍，问明的辩证，净行的一百四十一愿。"},
+  {n:3,name:"须弥山顶",realm:"天界 · 欲界",vols:[16,18],stage:"十住",
+   pins:"升须弥顶 · 偈赞 · 十住 · 梵行 · 初发心功德 · 明法",
+   desc:"佛不离菩提树而升忉利天。心安住于真理，是为「住」。"},
+  {n:4,name:"夜摩天宫",realm:"天界 · 欲界",vols:[19,21],stage:"十行",
+   pins:"升夜摩 · 偈赞 · 十行 · 十无尽藏",
+   desc:"「心如工画师」的名偈即在此会。住于理而后起行，利益众生。"},
+  {n:5,name:"兜率天宫",realm:"天界 · 欲界",vols:[22,33],stage:"十回向",
+   pins:"升兜率 · 偈赞 · 十回向（十一卷）",
+   desc:"全经最长的位阶品：把一切善根回向众生与菩提，含多个施身本生故事。"},
+  {n:6,name:"他化自在天宫",realm:"天界 · 欲界顶",vols:[34,39],stage:"十地",
+   pins:"十地（六卷）",
+   desc:"菩萨道的心脏：欢喜地到法云地，「三请三默」之后，金刚藏菩萨开讲。"},
+  {n:7,name:"普光明殿（重会）",realm:"人间",vols:[40,45],stage:"等觉",
+   pins:"十定 · 十通 · 十忍 · 阿僧祇 · 寿量 · 菩萨住处",
+   desc:"自天界回到人间：等觉菩萨的十种大三昧与神通、忍位，及华严的大数与时间。"},
+  {n:8,name:"普光明殿（三会）",realm:"人间",vols:[46,59],stage:"佛果 · 妙觉",
+   pins:"佛不思议法 · 十身相海 · 随好光明 · 普贤行 · 如来出现 · 离世间",
+   desc:"佛的功德与境界层层展开；离世间品普慧两百问、普贤两千答，是行法的总目录。"},
+  {n:9,name:"逝多林给孤独园",realm:"人间",vols:[60,80],stage:"证 · 入法界",
+   pins:"入法界品（二十一卷）",
+   desc:"教法最终落回人间。声闻如聋如盲，善财童子却从福城出发——一切归于践行。"}
+];
+const TYPE = {
+  scene:{name:"场景庄严",color:"var(--t-scene)"},
+  cat:{name:"名录枚举",color:"var(--t-cat)"},
+  verse:{name:"偈颂赞叹",color:"var(--t-verse)"},
+  doc:{name:"阶位理论",color:"var(--t-doc)"},
+  prac:{name:"行门实践",color:"var(--t-prac)"},
+  story:{name:"因缘叙事",color:"var(--t-story)"},
+  dialogue:{name:"问答论辩",color:"var(--t-doc)"}
+};
+const CN = ["一","二","三","四","五","六","七","八","九"];
+const liftOf = {1:0,2:0,3:1,4:2,5:3,6:4,7:0,8:0,9:0};
+
+/* stars */
+(()=>{const s=document.getElementById("stars");for(let i=0;i<46;i++){const d=document.createElement("i");
+d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";
+d.style.animationDelay=(Math.random()*4)+"s";d.style.transform=`scale(${.5+Math.random()})`;s.appendChild(d);}})();
+
+/* 会列表 */
+const huiList = document.getElementById("huiList");
+HUI.forEach(h=>{
+  const lift = liftOf[h.n];
+  const el = document.createElement("div");
+  el.className = "hui" + (lift?` hui-lift-${lift}`:"");
+  el.dataset.hui = h.n;
+  el.innerHTML = `<div class="idx"><div class="cnum">${CN[h.n-1]}</div><div class="hui-cn">第${CN[h.n-1]}会</div></div>
+  <div class="card">
+    <div class="r1"><span class="place">${h.name}</span>
+      <span class="realm ${h.realm.indexOf("天")>-1?"heaven":""}">${h.realm}</span>
+      ${lift?`<span class="lift-tag">▲ 升 ${"　".repeat(0)}${lift}重</span>`:""}
+      <span class="vols">卷${h.vols[0]}–${h.vols[1]}</span></div>
+    <div class="stage">${h.stage}</div>
+    <div class="pins">${h.pins.replace(/·/g," · ")}</div>
+    <div class="desc">${h.desc}</div>
+  </div>`;
+  el.addEventListener("mouseenter",()=>{ highlightHuivols(h.n); setHuiActive(h.n); });
+  el.addEventListener("mouseleave",()=>{ clearHl(); setHuiActive(0); });
+  el.addEventListener("click",()=>{ setHuiActive(h.n); highlightHuivols(h.n); document.getElementById("map").scrollIntoView({behavior:"smooth"}); });
+  huiList.appendChild(el);
+});
+function setHuiActive(n){
+  document.querySelectorAll(".hui").forEach(e=>e.classList.toggle("active",+e.dataset.hui===n));
+}
+function highlightHuivols(n){
+  document.querySelectorAll(".blk").forEach(b=>{
+    b.classList.toggle("hl", ATLAS[+b.dataset.n-1].hui===n);
+  });
+}
+function clearHl(){ document.querySelectorAll(".blk.hl").forEach(b=>b.classList.remove("hl")); }
+
+/* 阶梯 */
+const STAGES = [
+  {nm:"序幕",cd:"举果劝信",r:[1,11]},
+  {nm:"十信",cd:"净行 · 贤首",r:[12,15]},
+  {nm:"十住",cd:"住于正理",r:[16,18]},
+  {nm:"十行",cd:"起行度生",r:[19,21]},
+  {nm:"十回向",cd:"回自向他",r:[22,33]},
+  {nm:"十地",cd:"入圣位",r:[34,39]},
+  {nm:"等觉",cd:"十大三昧",r:[40,45]},
+  {nm:"妙觉",cd:"佛果",r:[46,59]},
+  {nm:"入法界",cd:"证 · 践行",r:[60,80]}
+];
+const ladder = document.getElementById("stageLadder");
+STAGES.forEach(s=>{
+  const d = document.createElement("div");
+  d.className = "stage-step";
+  d.innerHTML = `<div class="nm">${s.nm}</div><div class="cd">${s.cd}</div><div class="rg">卷${s.r[0]}${s.r[1]>s.r[0]?"–"+s.r[1]:""}</div>`;
+  d.addEventListener("mouseenter",()=>{d.classList.add("on");hlRange(s.r);});
+  d.addEventListener("mouseleave",()=>{d.classList.remove("on");clearHl();});
+  d.addEventListener("click",()=>{document.getElementById("map").scrollIntoView({behavior:"smooth"});setTimeout(()=>hlRange(s.r),350);});
+  ladder.appendChild(d);
+});
+function hlRange(r){ document.querySelectorAll(".blk").forEach(b=>{const n=+b.dataset.n;b.classList.toggle("hl",n>=r[0]&&n<=r[1]);}); }
+
+/* 图例 */
+const legend = document.getElementById("legend");
+let filterType = null;
+Object.keys(TYPE).forEach(k=>{
+  const d = document.createElement("div");
+  d.className="lg"; d.dataset.k=k;
+  d.innerHTML = `<span class="sw" style="background:${TYPE[k].color}"></span>${TYPE[k].name}`;
+  d.addEventListener("click",()=>{
+    filterType = filterType===k?null:k;
+    document.querySelectorAll(".lg").forEach(x=>{x.classList.toggle("hot",x.dataset.k===filterType);});
+    applyFilter();
+  });
+  legend.appendChild(d);
+});
+
+/* 图表 */
+const chart = document.getElementById("chart");
+const tooltip = document.getElementById("tooltip");
+HUI.forEach(h=>{
+  const row = document.createElement("div");
+  row.className="chart-row";
+  const vols = ATLAS.filter(v=>v.hui===h.n);
+  row.innerHTML = `<div class="rowlabel"><span class="a">${CN[h.n-1]} · ${h.name}</span><span class="b">卷${h.vols[0]}–${h.vols[1]} · ${h.stage}</span></div>`;
+  const blocks = document.createElement("div"); blocks.className="blocks";
+  const min=Math.min(...ATLAS.map(v=>v.size)), max=Math.max(...ATLAS.map(v=>v.size));
+  vols.forEach(v=>{
+    const b = document.createElement("div");
+    b.className="blk"+((v.n>=1&&v.n<=5)||(v.n>=8&&v.n<=10)||v.n===13||v.n===14||(v.n>=16&&v.n<=39)||(v.n>=50&&v.n<=52)||(v.n>=60&&v.n<=80)?" pilot":"");
+    b.dataset.n=v.n;
+    const t = v.size/max;
+    b.style.background = TYPE[v.types[0]].color;
+    b.style.flexGrow = (0.35+1.4*(v.size-min)/(max-min)).toFixed(2);
+    b.innerHTML=`<span class="n">${v.n}</span>`;
+    b.addEventListener("mouseenter",e=>{
+      b.classList.add("hl");
+      tooltip.style.display="block";
+      tooltip.innerHTML=`<div class="t1">卷${v.n} · ${v.stage}</div><div class="t2">${v.pin}</div><div class="t3">${v.brief}</div><div class="t4">${v.types.map(t=>TYPE[t].name).join(" · ")} · 约全卷 ${Math.round(v.size/3/1000)}k 字</div>`;
+    });
+    b.addEventListener("mousemove",e=>{
+      const x=Math.min(e.clientX+16,innerWidth-320), y=Math.min(e.clientY+14,innerHeight-140);
+      tooltip.style.left=x+"px"; tooltip.style.top=y+"px";
+    });
+    b.addEventListener("mouseleave",()=>{b.classList.remove("hl");tooltip.style.display="none";});
+    b.addEventListener("click",e=>{e.stopPropagation();selectJuan(v.n);});
+    blocks.appendChild(b);
+  });
+  row.appendChild(blocks);
+  chart.appendChild(row);
+});
+
+function applyFilter(){
+  const q = document.getElementById("q").value.trim();
+  document.querySelectorAll(".blk").forEach(b=>{
+    const v = ATLAS[+b.dataset.n-1];
+    let show = true;
+    if(filterType) show = v.types.includes(filterType);
+    if(q) show = show && (v.pin.includes(q)||v.brief.includes(q)||String(v.n)===q);
+    b.classList.toggle("dim",!show);
+  });
+}
+document.getElementById("q").addEventListener("input",applyFilter);
+
+/* 详情 */
+function selectJuan(n){
+  document.querySelectorAll(".blk").forEach(b=>b.classList.toggle("sel",+b.dataset.n===n));
+  const v = ATLAS[n-1];
+  const d = document.getElementById("detail");
+  let links = "";
+  if(n===14) links = `<a class="btn" href="jingxing.html">进入「净行品 · 一百四十一愿」学习页 →</a>`;
+  if(n>=60&&n<=80) links = `<a class="btn" href="shancai.html">进入「善财五十三参」旅程图 →</a>`;
+  d.innerHTML = `
+    <div class="dhead"><span class="dj">卷${v.n}</span><span class="dp">${v.pin}</span><span class="dst">${CN[v.hui-1]}会 · ${HUI[v.hui-1].name}</span>
+      <div class="dtags"><span class="dtag">${v.stage}</span>${v.types.map(t=>`<span class="dtag">${TYPE[t].name}</span>`).join("")}</div></div>
+    <div class="dbody">
+      <div><h4>概 览</h4><p>${v.brief}。${v.ov||""}</p></div>
+      <div><h4>阅读提示</h4><p>${v.tip||"（此卷导读未附独立提示，可参看概览与相邻卷。）"}</p></div>
+    </div>
+    <div class="dfoot">${links}<span class="sz">本卷原文+白话约 ${Math.round(v.size/3/1000)}k 字 · 逐卷注释与导读见书本正文</span></div>`;
+}
+document.addEventListener("click",e=>{ if(!e.target.closest(".blk")&&!e.target.closest("#detail")){ /* keep selection */ } });
+
+/* 侧边导航：抽屉开关 + 滚动高亮 */
+(()=>{
+  const nav=document.getElementById("sideNav"), mask=document.getElementById("snMask"), toggle=document.getElementById("snToggle");
+  const items=[...nav.querySelectorAll(".sn-item[data-sec]")].map(a=>({a,el:document.querySelector(a.getAttribute("href"))})).filter(x=>x.el);
+  let cur=null;
+  function setOn(a){
+    if(cur===a) return;
+    cur=a; items.forEach(x=>x.a.classList.toggle("on",x.a===a));
+  }
+  function spy(){
+    const y=scrollY+innerHeight*0.28;
+    let hit=items[0];
+    items.forEach(x=>{ if(x.el.getBoundingClientRect().top+scrollY<=y) hit=x; });
+    setOn(hit.a);
+  }
+  addEventListener("scroll",spy,{passive:true});
+  addEventListener("resize",spy);
+  spy();
+
+  function setOpen(open){
+    nav.classList.toggle("open",open);
+    mask.classList.toggle("open",open);
+    document.body.classList.toggle("nav-open",open);
+    toggle.setAttribute("aria-expanded",open?"true":"false");
+  }
+  toggle.addEventListener("click",()=>setOpen(!nav.classList.contains("open")));
+  mask.addEventListener("click",()=>setOpen(false));
+  nav.addEventListener("click",e=>{ if(e.target.closest("a")) setOpen(false); });
+  addEventListener("keydown",e=>{ if(e.key==="Escape") setOpen(false); });
+})();
+</script>
+</body>
+</html>

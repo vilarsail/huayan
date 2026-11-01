@@ -1,0 +1,663 @@
+{
+ "note": "以德云比丘为第一参、普贤菩萨为第五十三参（主流计数）；文殊师利为发心起点，标为第零参。经文已据《大正藏》通行本校订（含卷七十一守护一切城夜神一参、卷七十三大愿精进力夜神一参）。",
+ "teachers": [
+  {
+   "no": 0,
+   "name": "文殊师利菩萨",
+   "type": "pusa",
+   "place": "福城东·庄严幢娑罗林",
+   "dharma": "（劝发菩提心）",
+   "juan": 62,
+   "brief": "一切的起点：教善财发心，示「亲近善知识」为一切智之最初因缘",
+   "stage": "发心",
+   "nested": false
+  },
+  {
+   "no": 1,
+   "name": "德云比丘",
+   "type": "biqiu",
+   "place": "胜乐国·妙峰山",
+   "dharma": "忆念一切诸佛境界智慧光明普见法门",
+   "juan": 62,
+   "brief": "第一参：寻访七日方得见。忆念诸佛，心念所至诸佛现前",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 2,
+   "name": "海云比丘",
+   "type": "biqiu",
+   "place": "海门国",
+   "dharma": "普眼法门",
+   "juan": 62,
+   "brief": "住海门十二年观海，见海生大莲华、佛坐其上，得普眼法门",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 3,
+   "name": "善住比丘",
+   "type": "biqiu",
+   "place": "楞伽道·海岸聚落",
+   "dharma": "普速疾供养诸佛成就众生无碍解脱门",
+   "juan": 62,
+   "brief": "于虚空中来往经行，八部众围绕供养——无碍解脱的第一次直观",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 4,
+   "name": "弥伽居士",
+   "type": "zhangzhe",
+   "place": "达里鼻荼国·自在城",
+   "dharma": "妙音陀罗尼光明法门",
+   "juan": 63,
+   "brief": "升座说妙音轮，种种众生各闻其音、各得其解",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 5,
+   "name": "解脱长者",
+   "type": "zhangzhe",
+   "place": "住林聚落",
+   "dharma": "普摄一切佛刹无边旋陀罗尼",
+   "juan": 63,
+   "brief": "入三昧，于自身中现十方诸佛——诸佛如影，皆由自心而见",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 6,
+   "name": "海幢比丘",
+   "type": "biqiu",
+   "place": "摩利伽罗聚落",
+   "dharma": "般若波罗蜜三昧光明",
+   "juan": 63,
+   "brief": "三昧中从足下、毛孔出无量身云——身即法界的壮观演示",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 7,
+   "name": "休舍优婆夷",
+   "type": "youpoyi",
+   "place": "海潮处·普庄严园",
+   "dharma": "离忧安隐幢",
+   "juan": 64,
+   "brief": "「庄严世界尽，我愿乃尽」——愿无尽故行无尽，园中众生皆不退转",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 8,
+   "name": "毗目瞿沙仙人",
+   "type": "xianren",
+   "place": "伊沙那聚落",
+   "dharma": "无胜幢解脱",
+   "juan": 64,
+   "brief": "一执手，刹那游无量佛刹；一放手，豁然如故",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 9,
+   "name": "胜热婆罗门",
+   "type": "xianren",
+   "place": "南方·刀山火聚",
+   "dharma": "无尽轮解脱",
+   "juan": 64,
+   "brief": "登刀山、投火聚：「我身触时安隐快乐」——烦恼即菩提的极限示现",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 10,
+   "name": "慈行童女",
+   "type": "tongzi",
+   "place": "师子奋迅城",
+   "dharma": "般若波罗蜜普庄严门",
+   "juan": 65,
+   "brief": "一字一句中流出无量法门——般若庄严一切",
+   "stage": "十住",
+   "nested": false
+  },
+  {
+   "no": 11,
+   "name": "善见比丘",
+   "type": "biqiu",
+   "place": "南方城中",
+   "dharma": "随顺灯解脱门",
+   "juan": 65,
+   "brief": "端正无比，见者破障碍山、拔不善根",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 12,
+   "name": "自在主童子",
+   "type": "tongzi",
+   "place": "名闻国·河渚",
+   "dharma": "一切工巧大神通智光明法门",
+   "juan": 65,
+   "brief": "与十千童子聚沙为戏，于中修算法、工巧、医方明——菩萨道里的「工程师」",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 13,
+   "name": "具足优婆夷",
+   "type": "youpoyi",
+   "place": "海住城",
+   "dharma": "无尽福德藏解脱门",
+   "juan": 65,
+   "brief": "一小器饮食，普施无量众而取之不尽",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 14,
+   "name": "明智居士",
+   "type": "zhangzhe",
+   "place": "大兴城·市四衢道",
+   "dharma": "随意出生福德藏解脱门",
+   "juan": 65,
+   "brief": "众生所需从地涌出；先安其心，后施其物",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 15,
+   "name": "法宝髻长者",
+   "type": "zhangzhe",
+   "place": "师子宫城",
+   "dharma": "无量福德宝藏解脱门",
+   "juan": 66,
+   "brief": "以遍身福德宝藏，普施一切众生",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 16,
+   "name": "普眼长者",
+   "type": "zhangzhe",
+   "place": "藤根国·普门城",
+   "dharma": "令一切众生普见诸佛欢喜法门",
+   "juan": 66,
+   "brief": "教人普见诸佛、生大欢喜",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 17,
+   "name": "无厌足王",
+   "type": "wang",
+   "place": "多罗幢城",
+   "dharma": "如幻解脱",
+   "juan": 66,
+   "brief": "「暴君」的真相：所斩杀皆是幻化恶人，以恐怖折伏、以如幻净化",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 18,
+   "name": "大光王",
+   "type": "wang",
+   "place": "妙光城",
+   "dharma": "大慈为首随顺世间三昧门",
+   "juan": 66,
+   "brief": "城中草木大地皆从慈心流出；随顺众生之所欲",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 19,
+   "name": "不动优婆夷",
+   "type": "youpoyi",
+   "place": "安住王都",
+   "dharma": "求一切法无厌足三昧光明",
+   "juan": 66,
+   "brief": "年华似童女，久修不退；一坐之间入一万三昧门",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 20,
+   "name": "遍行外道",
+   "type": "xianren",
+   "place": "无量都萨罗·善得山",
+   "dharma": "至一切处菩萨行",
+   "juan": 67,
+   "brief": "「外道」也是善知识：已安住至一切处菩萨行",
+   "stage": "十行",
+   "nested": false
+  },
+  {
+   "no": 21,
+   "name": "优钵罗华长者",
+   "type": "zhangzhe",
+   "place": "广大国",
+   "dharma": "调和香法",
+   "juan": 67,
+   "brief": "鬻香而说法：知一切香之起没、合香之方，以香庄严说法",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 22,
+   "name": "婆施罗船师",
+   "type": "zhangzhe",
+   "place": "楼阁城·大海之滨",
+   "dharma": "大悲幢行",
+   "juan": 67,
+   "brief": "商船往来海险之中，「见我闻我皆悉不空」——大悲护念众生",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 23,
+   "name": "无上胜长者",
+   "type": "zhangzhe",
+   "place": "可乐城",
+   "dharma": "至一切处修菩萨行清净法门（无依无作神通之力）",
+   "juan": 67,
+   "brief": "城东大庄严处，遍答无量众生之问",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 24,
+   "name": "师子频申比丘尼",
+   "type": "biqiuni",
+   "place": "输那国·迦陵迦林日光园",
+   "dharma": "成就一切智解脱",
+   "juan": 67,
+   "brief": "园林一一树皆出法音；一身端坐，普现法界",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 25,
+   "name": "婆须蜜多女",
+   "type": "wang",
+   "place": "宝庄严城",
+   "dharma": "离贪欲际解脱",
+   "juan": 68,
+   "brief": "「天见我为天女，人见我为人女」——五十三参中最惊世的一参：欲乐当体即空",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 26,
+   "name": "鞞瑟胝罗居士",
+   "type": "zhangzhe",
+   "place": "善度城",
+   "dharma": "不般涅槃际解脱",
+   "juan": 68,
+   "brief": "常供养栴檀座佛塔；观十方诸佛皆不曾入灭——佛寿无际",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 27,
+   "name": "观自在菩萨",
+   "type": "pusa",
+   "place": "补怛洛迦山",
+   "dharma": "菩萨大悲行门",
+   "juan": 68,
+   "brief": "即观世音：以大悲行门，令众生离一切怖畏",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 28,
+   "name": "正趣菩萨",
+   "type": "pusa",
+   "place": "从虚空中倏然而至",
+   "dharma": "普门速疾行解脱",
+   "juan": 68,
+   "brief": "一念之间周遍到一切处，救度众生如疾风",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 29,
+   "name": "大天神",
+   "type": "tianshen",
+   "place": "堕罗钵底城",
+   "dharma": "云网解脱",
+   "juan": 68,
+   "brief": "现四臂，示现金山、衣山、华山——先以「巨富」考验求法者",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 30,
+   "name": "安住地神",
+   "type": "tianshen",
+   "place": "摩竭提国·菩提场中",
+   "dharma": "不可坏智慧藏法门",
+   "juan": 68,
+   "brief": "百千伏藏自然踊现——大地本身即是说法者",
+   "stage": "十回向",
+   "nested": false
+  },
+  {
+   "no": 31,
+   "name": "婆珊婆演底夜神",
+   "type": "tianshen",
+   "place": "妙门城",
+   "dharma": "破一切众生痴暗法光明解脱",
+   "juan": 68,
+   "brief": "主夜之神：于黑暗中守护众生，破无明暗",
+   "stage": "十地",
+   "nested": false
+  },
+  {
+   "no": 32,
+   "name": "普德净光夜神",
+   "type": "tianshen",
+   "place": "菩提场·如来会中",
+   "dharma": "寂静禅定乐普游步解脱门",
+   "juan": 69,
+   "brief": "由此回到菩提场：此后诸夜神皆在此会中，法会与旅程合流",
+   "stage": "十地",
+   "nested": false
+  },
+  {
+   "no": 33,
+   "name": "喜目观察众生夜神",
+   "type": "tianshen",
+   "place": "菩提场",
+   "dharma": "大势力普喜幢解脱门",
+   "juan": 69,
+   "brief": "毛孔中现十波罗蜜身云；自述历劫供佛之本生",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 34,
+   "name": "普救众生妙德夜神",
+   "type": "tianshen",
+   "place": "菩提场",
+   "dharma": "普现一切世间调伏众生解脱",
+   "juan": 70,
+   "brief": "整卷几乎都是她的本生：转轮王女妙德眼见普贤发心，历劫九身侍佛",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 35,
+   "name": "寂静音海夜神",
+   "type": "tianshen",
+   "place": "菩提场",
+   "dharma": "念念出生广大喜庄严解脱门",
+   "juan": 71,
+   "brief": "以二十七重譬喻演说广大喜；自述历十佛之本生",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 36,
+   "name": "守护一切城增长威力夜神",
+   "type": "tianshen",
+   "place": "菩提场·如来会中",
+   "dharma": "甚深自在妙音解脱门",
+   "juan": 71,
+   "brief": "寂静音海所指：甚深自在妙音，令世间离戏论语、常真实语",
+   "stage": "十地",
+   "nested": false
+  },
+  {
+   "no": 37,
+   "name": "开敷一切树华夜神",
+   "type": "tianshen",
+   "place": "菩提场",
+   "dharma": "出生广大喜光明解脱门",
+   "juan": 72,
+   "brief": "日没之时密护众生；本生为一切法音圆满盖王，五浊恶世行无遮大施，宝光明女以偈赞王",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 38,
+   "name": "大愿精进力救护一切众生夜神",
+   "type": "tianshen",
+   "place": "菩提场",
+   "dharma": "教化众生令生善根解脱门",
+   "juan": 73,
+   "brief": "大愿救护，现无量色身；本生为太子时救度罪人、蒙佛授记",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 39,
+   "name": "妙德圆满神（岚毗尼林神）",
+   "type": "tianshen",
+   "place": "岚毗尼林",
+   "dharma": "遍一切处示现受生自在解脱",
+   "juan": 74,
+   "brief": "佛诞之园的守护者：摩耶将诞十神变；本生为乳母净光，捧持初生菩萨",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 40,
+   "name": "释迦瞿波女",
+   "type": "wang",
+   "place": "迦毗罗城",
+   "dharma": "观察菩萨三昧海解脱",
+   "juan": 75,
+   "brief": "佛为太子时的宫中眷属：自述威德主太子与妙德童女之本生",
+   "stage": "十地",
+   "nested": true
+  },
+  {
+   "no": 41,
+   "name": "摩耶夫人",
+   "type": "wang",
+   "place": "此世界·虚空会中",
+   "dharma": "大愿智幻解脱门",
+   "juan": 76,
+   "brief": "一切诸佛之母：愿为千佛之母，一念之间现为一切佛母",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 42,
+   "name": "天主光童女",
+   "type": "tongzi",
+   "place": "三十三天·正念王宫",
+   "dharma": "无碍念清净解脱",
+   "juan": 76,
+   "brief": "天王之女，念劫自在，于一念中忆念不可说劫事",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 43,
+   "name": "遍友童子师",
+   "type": "tongzi",
+   "place": "三十三天",
+   "dharma": "（自言无法可说）",
+   "juan": 76,
+   "brief": "「我无可为汝说」——坦承无法的老师，指向自己的弟子善知众艺",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 44,
+   "name": "善知众艺童子",
+   "type": "tongzi",
+   "place": "三十三天",
+   "dharma": "善知众艺菩萨解脱（四十二字母）",
+   "juan": 76,
+   "brief": "恒唱四十二字母：「唱阿字时，入般若波罗蜜门」——一字即一法门",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 45,
+   "name": "贤胜优婆夷",
+   "type": "youpoyi",
+   "place": "婆呾那城",
+   "dharma": "无依处道场解脱",
+   "juan": 76,
+   "brief": "无依处即是道场——自开解，复为人说",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 46,
+   "name": "坚固解脱长者",
+   "type": "zhangzhe",
+   "place": "沃田城",
+   "dharma": "无著念清净庄严解脱",
+   "juan": 76,
+   "brief": "于一切法无著无依，念念清净庄严",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 47,
+   "name": "妙月长者",
+   "type": "zhangzhe",
+   "place": "出生城",
+   "dharma": "净智光明解脱",
+   "juan": 76,
+   "brief": "智光如月，清凉照物",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 48,
+   "name": "无胜军长者",
+   "type": "zhangzhe",
+   "place": "南方城中",
+   "dharma": "无尽相解脱",
+   "juan": 76,
+   "brief": "法相无尽，故其解脱亦无尽",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 49,
+   "name": "最寂静婆罗门",
+   "type": "xianren",
+   "place": "南方城中",
+   "dharma": "诚愿语解脱",
+   "juan": 76,
+   "brief": "三世菩萨皆以「诚愿语」成就——真实语的力量",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 50,
+   "name": "德生童子·有德童女",
+   "type": "tongzi",
+   "place": "妙意华门城",
+   "dharma": "幻住解脱",
+   "juan": 77,
+   "brief": "「一切世界皆幻住，因缘所生故」；于此广说善知识之义，为全经善知识教法之总纲",
+   "stage": "等觉",
+   "nested": false
+  },
+  {
+   "no": 51,
+   "name": "弥勒菩萨",
+   "type": "pusa",
+   "place": "海岸国·大庄严园·毗卢遮那庄严藏楼阁",
+   "dharma": "（开楼阁·授一生补处记）",
+   "juan": 77,
+   "brief": "弹指开弥勒楼阁：善财入重重无尽境界；记其一生超越无量劫修行",
+   "stage": "等觉",
+   "nested": true
+  },
+  {
+   "no": 52,
+   "name": "文殊师利（再会）",
+   "type": "pusa",
+   "place": "一百一十由旬外·遥伸右手",
+   "dharma": "（按顶印可，令入普贤行）",
+   "juan": 80,
+   "brief": "不现身而遥伸右手按顶——印证圆成，方堪见普贤",
+   "stage": "妙觉",
+   "nested": false
+  },
+  {
+   "no": 53,
+   "name": "普贤菩萨",
+   "type": "pusa",
+   "place": "菩提场·金刚藏座",
+   "dharma": "普贤行愿海（与佛同等）",
+   "juan": 80,
+   "brief": "毛孔含摄刹海，善财与普贤同等——旅程的终点，恰是世界的全体",
+   "stage": "妙觉",
+   "nested": false
+  }
+ ],
+ "prologue": [
+  {
+   "name": "逝多林大法会",
+   "juan": 60,
+   "brief": "世尊入师子频申三昧，逝多林顿现华藏庄严；「声闻如聋如盲」——在场的罗汉们看不见这场境界"
+  },
+  {
+   "name": "文殊南行",
+   "juan": 61,
+   "brief": "文殊辞佛南行，于途中度六千比丘发菩提心，直至福城"
+  },
+  {
+   "name": "福城初发心",
+   "juan": 62,
+   "brief": "善财童子闻法发心；文殊嘱其「亲近善知识，勿生疲厌」——旅程由此开始"
+  }
+ ],
+ "types": {
+  "pusa": {
+   "name": "菩萨",
+   "color": "#d8b96a"
+  },
+  "biqiu": {
+   "name": "比丘",
+   "color": "#6ea3cc"
+  },
+  "biqiuni": {
+   "name": "比丘尼",
+   "color": "#7fb3dd"
+  },
+  "zhangzhe": {
+   "name": "长者·居士",
+   "color": "#6db3a1"
+  },
+  "tongzi": {
+   "name": "童子·童女",
+   "color": "#cc7fa3"
+  },
+  "xianren": {
+   "name": "仙人·外道·婆罗门",
+   "color": "#c96f6f"
+  },
+  "youpoyi": {
+   "name": "优婆夷",
+   "color": "#9a8fd0"
+  },
+  "wang": {
+   "name": "王与女众",
+   "color": "#d29a5e"
+  },
+  "tianshen": {
+   "name": "天·夜·地神",
+   "color": "#8f9fd9"
+  }
+ },
+ "stages": [
+  "发心",
+  "十住",
+  "十行",
+  "十回向",
+  "十地",
+  "等觉",
+  "妙觉"
+ ]
+}

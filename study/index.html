@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大方广佛华严经 · 全经地图</title>
+<style>
+:root{
+  --ink:#0c1220; --ink2:#121a2e; --ink3:#182238; --ink4:#1f2b45;
+  --gold:#c9a45c; --gold2:#e2c98f; --gold-dim:#8a7340;
+  --ivory:#e9e1cd; --muted:#a89f8a; --faint:#7d7666;
+  --line:rgba(201,164,92,.22); --line2:rgba(201,164,92,.4);
+  --t-scene:#6ea3cc; --t-cat:#9a8fd0; --t-verse:#d29a5e;
+  --t-doc:#6db3a1; --t-prac:#c96f6f; --t-story:#cc7fa3;
+  --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+::selection{background:rgba(201,164,92,.35)}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:#fff}
+
+/* ---------- 通用 ---------- */
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:64px 0 24px}
+.sec-head{text-align:center;margin-bottom:38px}
+.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:27px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}
+.sec-head .sub{color:var(--muted);font-size:14.5px}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
+.rule::after{background:linear-gradient(90deg,var(--line2),transparent)}
+.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}
+details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold .body p{margin:8px 0}
+details.fold .body b{color:var(--ivory);font-weight:600}
+
+/* ---------- 侧边导航 ---------- */
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav::-webkit-scrollbar{width:4px}
+.sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
+.sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
+.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
+.sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
+.sn-no{font-size:11px;color:var(--gold-dim);flex-shrink:0}
+.sn-item.on .sn-no{color:var(--gold)}
+.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-item:hover .sn-glyph{color:var(--gold2)}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-toggle:hover{border-color:var(--gold);color:#fff}
+.sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
+@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(max-width:1099px){
+  .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
+  .sidenav.open{transform:none}
+  .sn-toggle{display:flex}
+  .sn-mask.open{display:block}
+  body.nav-open{overflow:hidden}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;text-align:center;padding:100px 20px 70px;overflow:hidden;
+  background:radial-gradient(1200px 500px at 50% -80px,rgba(201,164,92,.10),transparent 60%),
+             radial-gradient(800px 400px at 85% 20%,rgba(110,163,204,.07),transparent 60%),
+             radial-gradient(700px 500px at 12% 30%,rgba(154,143,208,.05),transparent 60%),var(--ink)}
+.hero .stars{position:absolute;inset:0;pointer-events:none;opacity:.55}
+.hero .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold2);opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:.75}}
+.hero .ornament{color:var(--gold);font-size:20px;letter-spacing:.6em;text-indent:.6em;margin-bottom:22px}
+.hero h1{font-size:clamp(34px,6vw,54px);font-weight:700;letter-spacing:.18em;color:var(--ivory)}
+.hero h1 span{color:var(--gold2)}
+.hero .meta{margin-top:16px;color:var(--muted);font-size:15px;letter-spacing:.2em}
+.hero .lead{max-width:640px;margin:26px auto 0;color:var(--muted);font-size:15.5px;text-align:center}
+.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.hero .cta a{display:block;padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
+.hero .cta a:hover{color:#fff;border-color:var(--gold);box-shadow:0 4px 22px rgba(201,164,92,.18);transform:translateY(-1px)}
+
+/* ---------- 九会升处 ---------- */
+.hui-list{display:flex;flex-direction:column;gap:6px;position:relative}
+.hui-list::before{content:"";position:absolute;left:34px;top:10px;bottom:10px;width:1px;background:linear-gradient(180deg,transparent,var(--line2) 8%,var(--line2) 92%,transparent)}
+.hui{display:grid;grid-template-columns:70px 1fr;gap:0;border-radius:10px;position:relative;transition:.2s}
+.hui .idx{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:1}
+.hui .idx .cnum{width:44px;height:44px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--gold2);font-weight:600}
+.hui .idx .hui-cn{font-size:11px;color:var(--faint);margin-top:4px;letter-spacing:.2em}
+.hui .card{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:16px 20px;cursor:pointer;transition:.25s;margin-bottom:8px}
+.hui .card:hover{border-color:var(--gold);transform:translateX(4px)}
+.hui .card.active{border-color:var(--gold);background:var(--ink3);box-shadow:0 0 24px rgba(201,164,92,.12)}
+.hui .r1{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hui .place{font-size:19px;font-weight:600;color:var(--ivory)}
+.hui .realm{font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--gold2)}
+.hui .realm.heaven{color:#9fc3e8;border-color:rgba(110,163,204,.4)}
+.hui .vols{font-size:13px;color:var(--faint);margin-left:auto}
+.hui .stage{font-size:13px;color:var(--gold)}
+.hui .pins{margin-top:6px;font-size:13.5px;color:var(--muted)}
+.hui .pins em{font-style:normal;color:var(--ivory)}
+.hui .desc{margin-top:6px;font-size:14px;color:var(--muted)}
+.hui-lift-1{padding-left:6%}.hui-lift-2{padding-left:12%}.hui-lift-3{padding-left:18%}.hui-lift-4{padding-left:24%}
+.lift-tag{font-size:11px;color:var(--faint);align-self:center;white-space:nowrap}
+
+/* ---------- 阶梯 ---------- */
+.stage-ladder{display:flex;gap:0;overflow-x:auto;padding:6px 2px 14px}
+.stage-step{flex:1;min-width:96px;text-align:center;position:relative;padding:22px 6px 12px;cursor:pointer;border-radius:8px 8px 0 0;transition:.25s}
+.stage-step::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--line);transition:.25s}
+.stage-step:nth-child(2)::before{left:8%}.stage-step:nth-child(3)::before{left:16%}.stage-step:nth-child(4)::before{left:24%}
+.stage-step:nth-child(5)::before{left:32%}.stage-step:nth-child(6)::before{left:40%}.stage-step:nth-child(7)::before{left:48%}.stage-step:nth-child(8)::before{left:56%}.stage-step:nth-child(9)::before{left:64%}
+.stage-step:hover::before,.stage-step.on::before{background:var(--gold)}
+.stage-step:hover,.stage-step.on{background:rgba(201,164,92,.07)}
+.stage-step .nm{font-size:17px;color:var(--ivory);font-weight:600}
+.stage-step .cd{font-size:12px;color:var(--gold);margin-top:2px}
+.stage-step .rg{font-size:11.5px;color:var(--faint);margin-top:4px}
+
+/* ---------- 图例/筛选 ---------- */
+.legend{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0 18px}
+.lg{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--muted);border:1px solid transparent;border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
+.lg .sw{width:11px;height:11px;border-radius:3px}
+.lg:hover{color:var(--ivory)}
+.lg.off{opacity:.32;filter:grayscale(.7)}
+.lg.hot{border-color:var(--line2);background:rgba(201,164,92,.08);color:var(--ivory)}
+.searchbar{text-align:center;margin-bottom:20px}
+.searchbar input{width:min(420px,90%);background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:14.5px;padding:9px 20px;outline:none;text-align:center;letter-spacing:.05em}
+.searchbar input:focus{border-color:var(--gold)}
+
+/* ---------- 80卷全景 ---------- */
+.chart-scroll{overflow-x:auto;padding-bottom:6px}
+.chart{min-width:860px;display:flex;flex-direction:column;gap:7px}
+.chart-row{display:grid;grid-template-columns:150px 1fr;align-items:stretch;gap:10px}
+.chart-row .rowlabel{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding-right:14px;border-right:1px solid var(--line);text-align:right}
+.chart-row .rowlabel .a{font-size:14px;color:var(--ivory)}
+.chart-row .rowlabel .b{font-size:11.5px;color:var(--faint)}
+.chart-row .blocks{display:flex;gap:4px;align-items:stretch}
+.blk{flex:1;min-width:8px;border-radius:3px;cursor:pointer;position:relative;transition:.18s;opacity:.85;border:none}
+.blk .n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:rgba(10,14,24,.75);font-weight:700;opacity:0;transition:.18s}
+.blk:hover,.blk.hl{opacity:1;transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.blk:hover .n,.blk.hl .n{opacity:.95}
+.blk.sel{opacity:1;outline:2px solid var(--gold2);outline-offset:1px}
+.blk.dim{opacity:.16}
+.blk.pilot::after{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:5px;height:5px;background:var(--gold2)}
+#tooltip{position:fixed;z-index:99;pointer-events:none;background:#0a0f1bf2;border:1px solid var(--line2);border-radius:8px;padding:10px 14px;font-size:13px;max-width:300px;display:none;box-shadow:0 8px 28px rgba(0,0,0,.5);line-height:1.7}
+#tooltip .t1{color:var(--gold2)}
+#tooltip .t2{color:var(--ivory);font-size:13.5px}
+#tooltip .t3{color:var(--muted);font-size:12.5px}
+#tooltip .t4{color:var(--faint);font-size:12px}
+
+/* 详情面板 */
+.detail{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:var(--ink2);overflow:hidden}
+.detail .dhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:20px 24px 0}
+.detail .dhead .dj{font-size:14px;color:var(--gold)}
+.detail .dhead .dp{font-size:21px;font-weight:600}
+.detail .dhead .dst{font-size:13px;color:var(--muted)}
+.detail .dtags{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.detail .dtag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:2px 10px;border-radius:999px}
+.detail .dbody{padding:12px 24px 8px;display:grid;grid-template-columns:1fr 1fr;gap:8px 34px}
+.detail .dbody h4{font-size:13px;color:var(--gold);letter-spacing:.25em;margin:10px 0 4px}
+.detail .dbody p{font-size:14px;color:var(--muted);text-align:justify}
+.detail .dfoot{display:flex;gap:12px;align-items:center;padding:12px 24px 18px;flex-wrap:wrap}
+.detail .dfoot .btn{display:inline-block;padding:7px 18px;border-radius:999px;border:1px solid var(--gold);color:var(--gold2);font-size:13.5px;transition:.2s}
+.detail .dfoot .btn:hover{background:rgba(201,164,92,.15);color:#fff}
+.detail .dfoot .sz{font-size:12px;color:var(--faint)}
+.placeholder{padding:40px;text-align:center;color:var(--faint);font-size:14px}
+
+/* ---------- 四种读法 ---------- */
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.mode{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:20px 20px 16px;position:relative;overflow:hidden;transition:.25s}
+.mode::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--mc)}
+.mode:hover{transform:translateY(-3px);border-color:var(--line2)}
+.mode h3{font-size:17.5px;margin-bottom:2px}
+.mode .mt{font-size:12px;color:var(--mc);letter-spacing:.15em}
+.mode .how{font-size:13.5px;color:var(--muted);margin-top:10px}
+.mode .pat{font-size:12.5px;color:var(--faint);margin-top:8px;padding:8px 10px;background:rgba(255,255,255,.03);border-radius:6px;line-height:1.8}
+.mode .pat b{color:var(--gold2);font-weight:600}
+.mode .ex{margin-top:10px;font-size:12.5px;color:var(--gold)}
+
+/* ---------- 学习路径 ---------- */
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.route{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
+.route h3{font-size:17px;color:var(--gold2);display:flex;align-items:center;gap:10px}
+.route h3 .rn{font-size:12px;border:1px solid var(--line2);border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;color:var(--gold)}
+.route .for{font-size:12.5px;color:var(--faint);margin:4px 0 12px}
+.route ol{list-style:none;display:flex;flex-direction:column;gap:9px}
+.route ol li{display:flex;gap:10px;font-size:14px;color:var(--muted);align-items:baseline}
+.route ol li .st{color:var(--gold-dim);font-size:12px;flex-shrink:0}
+.route ol li b{color:var(--ivory);font-weight:600}
+.route ol li a{font-size:12.5px;white-space:nowrap}
+
+/* ---------- 试点卡 ---------- */
+.pilots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+@media(max-width:760px){.pilots{grid-template-columns:1fr}}
+.pilot-card{position:relative;display:block;border:1px solid var(--line);border-radius:14px;padding:30px 28px 24px;background:linear-gradient(160deg,var(--ink3),var(--ink2));transition:.25s;overflow:hidden}
+.pilot-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.pilot-card .tag{font-size:12px;color:var(--gold);letter-spacing:.3em}
+.pilot-card h3{font-size:24px;margin:8px 0 4px;color:var(--ivory)}
+.pilot-card .where{font-size:13px;color:var(--faint)}
+.pilot-card p{margin-top:12px;font-size:14px;color:var(--muted)}
+.pilot-card .go{margin-top:16px;font-size:13.5px;color:var(--gold2)}
+.pilot-card .glyph{position:absolute;right:18px;top:14px;font-size:60px;opacity:.08;color:var(--gold)}
+
+/* ---------- footer ---------- */
+footer{margin-top:70px;border-top:1px solid var(--line);padding:36px 0 46px;color:var(--faint);font-size:13px}
+footer .fgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+footer p{margin:6px 0}
+footer .fq{color:var(--muted)}
+@media(max-width:760px){footer .fgrid{grid-template-columns:1fr}.detail .dbody{grid-template-columns:1fr}.hui .vols{margin-left:0}}
+.topnav{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;gap:8px}
+.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s}
+.topnav a:hover{color:#fff;border-color:var(--gold)}
+
+/* ---------- 专题学习页快捷条 ---------- */
+.pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
+.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
+.pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+</style>
+</head>
+<body id="top">
+
+<button class="sn-toggle" id="snToggle" aria-label="打开侧边导航" aria-expanded="false">☰</button>
+<div class="sn-mask" id="snMask"></div>
+<aside class="sidenav" id="sideNav" aria-label="全页导航">
+  <div class="sn-brand"><span class="sn-mark">華</span><div><b>华严</b><small>全经地图</small></div></div>
+  <a class="sn-item" href="#top" data-sec="top"><span class="sn-no">卷</span>卷首</a>
+  <a class="sn-item" href="#intro" data-sec="intro"><span class="sn-no">壹</span>先看一眼地图</a>
+  <a class="sn-item" href="#hui" data-sec="hui"><span class="sn-no">贰</span>九会升处</a>
+  <a class="sn-item" href="#stages" data-sec="stages"><span class="sn-no">叁</span>位阶梯</a>
+  <a class="sn-item" href="#map" data-sec="map"><span class="sn-no">肆</span>八十卷全景</a>
+  <a class="sn-item" href="#modes" data-sec="modes"><span class="sn-no">伍</span>四种读法</a>
+  <a class="sn-item" href="#routes" data-sec="routes"><span class="sn-no">陆</span>从哪里开始读</a>
+  <a class="sn-item" href="#pilots" data-sec="pilots"><span class="sn-no">柒</span>专题学习页</a>
+  <div class="sn-sub">专题学习页</div>
+  <a class="sn-item" href="jingxing.html"><span class="sn-glyph">願</span>净行品一百四十一愿</a>
+  <a class="sn-item" href="shancai.html"><span class="sn-glyph">參</span>善财五十三参</a>
+  <a class="sn-item" href="shengzhong.html"><span class="sn-glyph">衆</span>世主妙严圣众</a>
+  <a class="sn-item" href="huazang.html"><span class="sn-glyph">藏</span>华藏世界地图</a>
+  <a class="sn-item" href="jieti.html"><span class="sn-glyph">階</span>菩萨道阶梯</a>
+  <a class="sn-item" href="shidi.html"><span class="sn-glyph">地</span>十地品精读</a>
+  <a class="sn-item" href="wenming.html"><span class="sn-glyph">問</span>问明品九问</a>
+  <a class="sn-item" href="chuxian.html"><span class="sn-glyph">現</span>如来出现喻林</a>
+  <div class="sn-foot">八十卷 · 七处九会<br>单文件离线 · 无外部依赖</div>
+</aside>
+
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="ornament">❖ 華 嚴 ❖</div>
+  <h1>大方广佛<span>华严经</span></h1>
+  <div class="meta">八十卷 · 唐于阗三藏实叉难陀奉诏译 · 七处九会</div>
+  <p class="lead"><b>传说中，这是佛陀成道后最初三七日所说的法。</b><br>
+  它用宇宙的尺度讲述一条菩萨的道路——从初发心，经十住、十行、十回向、十地，直到佛果；
+  最后让一位叫<b>善财</b>的少年把这整条路亲自走了一遍。</p>
+  <div class="cta">
+    <a class="primary" href="#map">进入全经地图</a>
+  </div>
+  <div class="pagebar" aria-label="专题学习页"><span class="pb-label">专题学习页</span><a href="jingxing.html">净行品</a><a href="shancai.html">五十三参</a><a href="shengzhong.html">世主妙严</a><a href="huazang.html">华藏世界</a><a href="jieti.html">菩萨道阶梯</a><a href="shidi.html">十地品</a><a href="wenming.html">问明品</a><a href="chuxian.html">如来出现</a></div>
+</div>
+
+<!-- ======================= 一、先读我 ======================= -->
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">壹</div><h2>读华严之前，先看一眼地图</h2>
+      <div class="sub">这部经最大的难点不在文句，而在「看不见结构」</div><div class="rule"><i class="diamond"></i></div></div>
+    <p style="max-width:720px;margin:0 auto;color:var(--muted);font-size:15.5px;text-align:justify">
+      八十卷的《华严经》并不是从头到尾平铺直叙。它像一部<b style="color:var(--ivory)">分九幕上演的大戏</b>：
+      佛在菩提场成道（第一幕），之后依次「上升」到须弥山顶、夜摩天、兜率天、他化自在天说法，
+      每升一处，就讲菩萨道的一个阶位；升至顶点后再回到人间，最后在逝多林，
+      由善财童子用一趟南方之旅把全部教法<b style="color:var(--ivory)">走成现实</b>。
+      <b style="color:var(--gold2)">「上升的处所」与「上升的阶位」是平行的两条线</b>——这是读华严最重要的一把钥匙，
+      但它隐藏在文字之外，从经文本身几乎看不出来。本页把这把钥匙画给你。</p>
+    <details class="fold"><summary>零基础 · 关于这部经的三个背景问题</summary>
+      <div class="body">
+        <p><b>《华严经》是一部什么经？</b>大乘佛教最重要的经典之一，汉译有三个全译本：六十卷「旧译」（东晋佛陀跋陀罗）、八十卷「新译」（唐实叉难陀，即本站所用）、四十卷「贞元译」（仅〈入法界品〉）。各品原本是流传于印度不同时期的大乘经典，最终被编纂为一部「经中之王」。</p>
+        <p><b>「大方广佛华严」是什么意思？</b>「大方广」是所证的法——体大、相方、用广，周遍含容；「佛」是能证之人；「华严」是以万行之华（花），庄严佛果。合起来：以菩萨万行庄严无尽法界。</p>
+        <p><b>什么是「菩萨阶位」？</b>大乘佛教把从发心到成佛的道路分为清晰的阶梯：十信（建立信心）→ 十住、十行、十回向（三贤位）→ 十地（圣位）→ 等觉 → 妙觉（佛果）。《华严经》的中段几十卷，就是在一级一级地讲这个阶梯。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ======================= 二、九会升处 ======================= -->
+<section id="hui">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">贰</div><h2>九会升处 · 一场先升天、后落回人间的说法</h2>
+      <div class="sub">说法处的「上升」，对应菩萨阶位的「上升」；点击任一会，下方全景图将点亮对应卷</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="hui-list" id="huiList"></div>
+    <div class="tip-note">「升」是示现：经中说佛<b>不离菩提树下</b>而升天宫说法——身在此处，境界遍在。阶梯先升后落：升至他化自在天讲完十地之后，重新回到人间普光明殿讲佛果，最终落回逝多林的人间，交给善财用双脚去走。<b>教法升天，修行落地。</b></div>
+  </div>
+</section>
+
+<!-- ======================= 三、位阶梯 ======================= -->
+<section id="stages">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">叁</div><h2>位阶梯 · 菩萨道的八级台阶</h2>
+      <div class="sub">每一阶都对应确定的卷次；点击台阶，全景图点亮对应卷</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="stage-ladder" id="stageLadder"></div>
+  </div>
+</section>
+
+<!-- ======================= 四、八十卷全景 ======================= -->
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">肆</div><h2>八十卷全景</h2>
+      <div class="sub">每一格是一卷 · 颜色是文体 · 宽窄是篇幅 · 悬停查看 · 点击展开导读</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="legend" id="legend"></div>
+    <div class="searchbar"><input id="q" type="text" placeholder="搜索品名或内容，如：十地 / 善财 / 回向"></div>
+    <div class="chart-scroll"><div class="chart" id="chart"></div></div>
+    <div class="detail" id="detail"><div class="placeholder">点击任意一卷，查看它的品目、导读与阅读提示</div></div>
+    <div class="tip-note">带 ◆ 角标的卷已配有专题学习页。同一品连跨多卷（如十回向十一卷、入法界二十一卷）时，各卷结构彼此同构——知道一卷的骨架，就知道了它的兄弟卷。</div>
+  </div>
+</section>
+
+<!-- ======================= 五、四种读法 ======================= -->
+<section id="modes">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">伍</div><h2>四种文体，四种读法</h2>
+      <div class="sub">用一种读法对付全部八十卷，注定疲劳；认出文体，就知道了策略</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="modes">
+      <div class="mode" style="--mc:var(--t-cat)">
+        <h3>名录庄严体</h3><div class="mt">CATALOGUE</div>
+        <div class="how">成片的名单与名号堆叠，是初读者最大的劝退点。其实每段结构完全固定：<b>末尾那个「皆……」句才是眼目</b>——它点出这一类圣众的功德与愿力。名字不必记，扫过即可；读到「皆」字，放慢。</div>
+        <div class="pat">复有○○神，所谓：×××、×××……如是等而为上首，<b>皆</b>〔功德眼目〕</div>
+        <div class="ex">代表：卷一至五 · 华藏世界品</div>
+      </div>
+      <div class="mode" style="--mc:var(--t-doc)">
+        <h3>阶位理论体</h3><div class="mt">DOCTRINE</div>
+        <div class="how">中段几十卷的骨干。模板固定：<b>升处 → 请法 → 入定 → 放光印证 → 说十法 → 重颂</b>。先记住模板，就能预判走向；「十法」枚举读其骨架（每条首二字），重颂是复述兼深化，可对照长行回看。</div>
+        <div class="pat">何等为十？一者××，二者××……是为<b>第N地</b>／菩萨住十法</div>
+        <div class="ex">代表：十住 · 十行 · 十回向 · 十地 · 十定 · 离世间</div>
+      </div>
+      <div class="mode" style="--mc:var(--t-prac)">
+        <h3>行愿偈颂体</h3><div class="mt">PRACTICE</div>
+        <div class="how">华严最亲切的部分：把日常每一个动作都转成一条愿。句式严格复沓，<b>四句一愿</b>：事相 → 当愿众生 → 愿之所依 → 愿之境界。不必一口气读完，适合每天抽几愿对照自己的生活。</div>
+        <div class="pat">〔事相〕时，<b>当愿众生</b>：〔依〕，〔境界〕。</div>
+        <div class="ex">代表：净行品一百四十一愿 · 普贤行品</div>
+      </div>
+      <div class="mode" style="--mc:var(--t-story)">
+        <h3>叙事参访体</h3><div class="mt">NARRATIVE</div>
+        <div class="how">全经最后四分之一是连续的「公路片」：善财童子一路南行，参访五十三位善知识。每一参都是<b>同一个五步模板</b>（闻名→寻访→礼问→受法→指路），认出模板后，读的是每位善知识各自的法门与故事。</div>
+        <div class="pat">渐次南行，至○○处，见○○〔身份〕……「我唯得此〔法门〕」……<b>南方复有</b>○○</div>
+        <div class="ex">代表：毗卢遮那品 · 入法界品</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 六、学习路径 ======================= -->
+<section id="routes">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">陆</div><h2>从哪里开始读</h2>
+      <div class="sub">八十卷不必从第一页读到最后一页</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="routes">
+      <div class="route">
+        <h3><span class="rn">一</span>初窥门径</h3><div class="for">第一次接触佛经的读者 · 半天</div>
+        <ol>
+          <li><span class="st">①</span><span><b>净行品一百四十一愿</b>（卷十四）——日用即道场，先体会华严的气质 <a href="jingxing.html">进入学习页 →</a></span></li>
+          <li><span class="st">②</span><span><b>世主妙严·圣众云集</b>（卷一至五）——用名录体读法破第一面墙 <a href="shengzhong.html">→</a></span></li>
+          <li><span class="st">③</span><span><b>毗卢遮那品</b>（卷十一）——一个太子累世修行的好故事</span></li>
+          <li><span class="st">④</span><span><b>善财五十三参</b>精选几参（卷六十二起）<a href="shancai.html">进入旅程图 →</a></span></li>
+        </ol>
+      </div>
+      <div class="route">
+        <h3><span class="rn">二</span>次第通读</h3><div class="for">想完整读一遍的读者 · 数月</div>
+        <ol>
+          <li><span class="st">①</span><span>卷一至五：世主妙严品，用「名录体读法」快读，抓「皆」字句</span></li>
+          <li><span class="st">②</span><span>卷六至十五：华藏世界 + 十信，把<b>净行品</b>读熟</span></li>
+          <li><span class="st">③</span><span>卷十六至三十九：三贤十地，<b>每品只精读一卷</b>，同品兄弟卷快读</span></li>
+          <li><span class="st">④</span><span>卷四十至五十九：等觉与佛果，可先读<b>如来出现品</b>（卷五十至五十二）</span></li>
+          <li><span class="st">⑤</span><span>卷六十至八十：入法界品，配着旅程图一路读完</span></li>
+        </ol>
+      </div>
+      <div class="route">
+        <h3><span class="rn">三</span>重点深读</h3><div class="for">对义理有兴趣的读者 · 长期</div>
+        <ol>
+          <li><span class="st">①</span><span><b>菩萨问明品</b>（卷十三）：十番问答辩「一多相即」，华严哲学的入口</span></li>
+          <li><span class="st">②</span><span><b>梵行品</b>（卷十七）：短小锋利，勘破一切相</span></li>
+          <li><span class="st">③</span><span><b>十地品</b>（卷三十四至三十九）：菩萨道最系统的展开</span></li>
+          <li><span class="st">④</span><span><b>如来出现品</b>（卷五十至五十二）：果德的十重譬喻</span></li>
+          <li><span class="st">⑤</span><span><b>入法界品</b>夜神本生群（卷六十九至七十三）：故事套故事的华严叙事极境</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 七、试点模块 ======================= -->
+<section id="pilots">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">柒</div><h2>专题学习页</h2>
+      <div class="sub">针对具体品目的深度交互模块 · 独立成页，可离线使用</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="pilots">
+      <a class="pilot-card" href="jieti.html">
+        <div class="glyph">階</div>
+        <div class="tag">阶位理论体 · 学习页</div>
+        <h3>菩萨道阶梯 · 三贤十地</h3>
+        <div class="where">卷十六至三十九 · 四会说法 · 全经骨干</div>
+        <p>十住、十行、十回向、十地——四十级台阶，二十四卷经文。本页提供「六步模板」
+        阅读钥匙与四十阶全景，同构的十一卷十回向从此不再可怕。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="huazang.html">
+        <div class="glyph">藏</div>
+        <div class="tag">空间结构 · 学习页</div>
+        <h3>华藏世界 · 宇宙地图</h3>
+        <div class="where">卷第八至十 · 华藏世界品</div>
+        <p>风轮托海、海中生莲、莲上二十重世界——娑婆在第十三重。本页把最难想象的宇宙叙述画成一张可以点击的地图。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="wenming.html">
+        <div class="glyph">問</div>
+        <div class="tag">问答论辩体 · 学习页</div>
+        <h3>问明品 · 文殊九问</h3>
+        <div class="where">卷第十三 · 普光明殿</div>
+        <p>文殊连环九问：心性是一，何以万象差别？九答合奏出华严「一多相即」的世界观——哲学入口。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="shidi.html">
+        <div class="glyph">地</div>
+        <div class="tag">阶位理论体 · 学习页</div>
+        <h3>十地品 · 从欢喜到法云</h3>
+        <div class="where">卷三十四至三十九 · 他化自在天宫</div>
+        <p>三请三默的开幕戏剧、十地逐地精读、十山王收束——菩萨道心脏一品的完整导览。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="chuxian.html">
+        <div class="glyph">現</div>
+        <div class="tag">果德譬喻体 · 学习页</div>
+        <h3>如来出现 · 喻林</h3>
+        <div class="where">卷五十至五十二 · 普光明殿</div>
+        <p>佛果如何显现？普贤用四十个譬喻作答：大云降雨、天鼓、大海潜流、微尘内的经卷——每喻一扇门。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="shengzhong.html">
+        <div class="glyph">衆</div>
+        <div class="tag">名录庄严体 · 学习页</div>
+        <h3>世主妙严 · 圣众云集</h3>
+        <div class="where">卷第一至五 · 菩提场 · 全经序分</div>
+        <p>翻开华严的第一面墙：四十类圣众、四百多个名字。本页教你名录体的读法——句式解剖、
+        四百名号一键收起、「皆……」功德句点亮，法会座次一目了然。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="jingxing.html">
+        <div class="glyph">願</div>
+        <div class="tag">行愿偈颂体 · 学习页</div>
+        <h3>净行品 · 一百四十一愿</h3>
+        <div class="where">卷第十四 · 普光明殿 · 十信位</div>
+        <p>智首菩萨一百一十问，文殊菩萨只答了四个字：「善用其心」。随后是一百四十一愿——
+        吃饭、穿衣、见高山、遇险路，每一个日常场景都化作一条愿。本页提供句式解剖、十五个场景分组浏览与逐愿白话对照。</p>
+        <div class="go">进入 →</div>
+      </a>
+      <a class="pilot-card" href="shancai.html">
+        <div class="glyph">參</div>
+        <div class="tag">叙事参访体 · 学习页</div>
+        <h3>善财童子五十三参</h3>
+        <div class="where">入法界品 · 卷六十至八十 · 全经四分之一</div>
+        <p>一位少年在福城听闻佛法，从此一路向南，参访五十三位老师——从比丘到船师，从婆罗门到夜神。
+        这是《华严经》的「证」篇：全部教法被一个人的一生走了一遍。本页提供完整旅程图与逐参详解。</p>
+        <div class="go">进入 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <p class="fq" style="font-size:15px;color:var(--gold2)">心如工画师 · 能画诸世间 · 五蕴悉从生 · 无法而不造</p>
+      <p>本页为《大方广佛华严经》学习导航。原文与白话译文、词语注释、逐卷导读共八十卷，见本书正文（epub / pdf 版）。</p>
+      <p>译文由 AI 辅助翻译并部分校对，若与义理有出入，请以原经文为准。</p>
+    </div>
+    <div>
+      <p>导航：<a href="#hui">九会升处</a> · <a href="#stages">位阶梯</a> · <a href="#map">八十卷全景</a> · <a href="#modes">四种读法</a> · <a href="#routes">学习路径</a></p>
+      <p>学习页：<a href="jingxing.html">净行品</a> · <a href="shancai.html">五十三参</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
+<div id="tooltip"></div>
+
+<script>
+const ATLAS = [{"n": 1, "pin": "世主妙严品（一至五）", "hui": 1, "stage": "序幕·举果劝信", "types": ["scene", "cat"], "brief": "菩提场成道盛景：四十余类世主云集，长行列名、偈颂赞叹", "size": 41539, "ov": "《大方广佛华严经》卷第一，于阗国三藏实叉难陀奉诏译，品题「世主妙严品第一之一」，为全经开篇序分。本卷以「道场庄严→世尊成最正觉→菩萨众与诸天八部围绕」三段一线贯穿，由境到证、由证到众、由众到列，铺陈出如来始成正觉时一切世主云集道场的庄严景象，为下卷诸天颂偈赞叹、普贤三昧兴起作铺垫。文字层层叠叠，是华严「重重无尽」气象之始见。", "tip": "本卷为序分，先抓住「境—证—众—列」四段骨架，再以菩萨众功德为眼目通读诸天八部——每一类神众末尾的「皆……」句即其共愿共德，是与菩萨众呼应的关节。读时不必强记名字，注意结构递进与愿德相扣即可。"}, {"n": 2, "pin": "世主妙严品（一至五）", "hui": 1, "stage": "序幕·举果劝信", "types": ["scene", "cat"], "brief": "菩提场成道盛景：四十余类世主云集，长行列名、偈颂赞叹", "size": 56235, "ov": "本卷是《世主妙严品第一》的第二部分（之一），承接上卷「道场庄严→众生围绕→普贤境界」之收束，正式展开「众海各得解脱门」的列举与赞颂。全卷以如来道场众海已云集为缘起，先总明大众「已离烦恼心垢，见佛无碍」的境界及其与毗卢遮那如来的因缘，继而以十组天王（大自在天、广天、净天、光天、梵天、自在天、善化天、知足天、时分天、三十三天、日天、月天）为骨干，依次列举各天神所证之解脱门，每组「长行列名+所证法门→承佛威力→以颂赞佛」，构成「陈述→印证」的反复推进。其主旨在于：从器世间到有情世间，从色界诸天到日月初级天神，一切世主皆入如来功德大海，各于一法而得解脱，共显佛德周遍、法界互融。", "tip": "读此卷可带着两个问题：其一，每组「长行所证」与「颂偈赞佛」如何对应——颂中所赞之佛德，正是长行所标之解脱门的「门体」；其二，从大自在天到月天，天界层次递降而所证法门愈发贴近「调伏众生」「雨法雨」「然智慧灯」，可观察佛德如何随众生根机而下化。"}, {"n": 3, "pin": "世主妙严品（一至五）", "hui": 1, "stage": "序幕·举果劝信", "types": ["scene", "cat"], "brief": "菩提场成道盛景：四十余类世主云集，长行列名、偈颂赞叹", "size": 58701, "ov": "本卷为《大方广佛华严经》「世主妙严品第一」的第三部分，承接前两卷道场庄严与众海云集之势，转入各类世主（天神眷属之主）各自陈述所得「解脱门」并共说颂偈赞叹如来。全卷依「八部众→昼夜方空风诸神」之序，逐一列举十二类主众（乾闼婆、鸠槃荼、龙、夜叉、摩睺罗伽、紧那罗、迦楼罗、阿修罗、主昼神、主夜神、主方神、主空神、主风神），每类先列十位眷属及其所得法门，复由其上首王承佛威力说颂十偈。其旨在于：如来境界无量，各类众生各随其根器契入一解脱门，共显一乘法界之普周无尽。", "tip": "读时不妨带着两个问题：其一，十二类众生法门各异，其共同指向是什么？（答：佛德普周、大悲救护。）其二，颂偈中反复出现的「佛昔修诸行」「劫海」等，在全卷论证中起什么作用？（答：确立佛功德的因果依据，令赞非虚誉。）"}, {"n": 4, "pin": "世主妙严品（一至五）", "hui": 1, "stage": "序幕·举果劝信", "types": ["scene", "cat"], "brief": "菩提场成道盛景：四十余类世主云集，长行列名、偈颂赞叹", "size": 63413, "ov": "本卷是《大方广佛华严经·世主妙严品第一》的第四部分，承接前三卷对菩萨众与诸天神众的列举，继续展开各类世间主神的赞叹。卷中依次出现主火神、主水神、主海神、主河神、主稼神、主药神、主林神、主山神、主地神、主城神、道场神、足行神、身众神、执金刚神等十四类神众。每类皆以「长行（散文）列举诸神及其所得解脱门→尔时上首神承佛威力说颂赞叹」的固定结构反复推进，通篇颂偈围绕如来往昔修行、大悲方便、神通普现、度生无尽而展开，最终由执金刚神收束，显佛身色相无边、神力周遍法界。", "tip": "读本卷可带着两个问题：其一，每一类神所得的「解脱门」如何与该神的职能（火、水、稼、药…）形成隐喻对应？其二，颂偈末句为何都要点出「某神于此悟入」，这种「法门—神众—证入」的对应在表达什么？抓住这两点，便能看到本卷并非罗列，而是以神众为镜、映照法界大用。"}, {"n": 5, "pin": "世主妙严品（一至五）", "hui": 1, "stage": "序幕·举果劝信", "types": ["scene", "cat"], "brief": "菩提场成道盛景：四十余类世主云集，长行列名、偈颂赞叹", "size": 49919, "ov": "本卷是《华严经·世主妙严品第一》的第五段（之五），承接前几卷「菩萨众各得解脱门、各说颂偈赞叹如来」的体例，继续列举普贤菩萨所入十种不思议解脱门及净德妙光、海月光大明两组菩萨所证解脱门，并由各自的说偈展现如来功德海。本卷后半（P12起）转入新的叙述层：如来师子座一切庄严具中各出佛刹微尘数菩萨，海慧自在神通王等十位上首菩萨依序起座说偈，赞叹道场、菩提树、宫殿、宝地、佛智与十地行，至P31善勇猛光幢总赞如来神变。末段（P33）以华藏庄严世界海六种十八相震动、世主各兴供养云收束，引出普贤境界在全法界的周遍展开，为下卷「毗卢遮那品第六」铺垫。", "tip": "读本卷可带着两个问题走：其一，普贤所入十解脱门与三组菩萨所证法门如何层层收摄于「真如法界藏」？其二，十位上首颂偈的次第（道场→树→地→宫殿→十力→十波罗蜜→十地）是否暗含一个从「境庄严」到「行庄严」到「果庄严」的修学路径？抓住这两条线索，全卷的颂偈便不是堆砌而是有序展开。"}, {"n": 6, "pin": "如来现相品", "hui": 1, "stage": "序幕·举果劝信", "types": ["doc", "scene"], "brief": "菩萨集众发问「云何佛地」，佛放光现莲华以相作答", "size": 68675, "ov": "本卷为《大方广佛华严经》卷第六，即「如来现相品第二」（实叉难陀译本）。紧承卷五「世主妙严品」之末诸菩萨大众云集、普贤入三昧而起，本卷以「诸菩萨请问→如来现相答→十方菩萨云集赞叹→眉间放光、莲华现相、胜音菩萨说颂」一线展开，是华严法会上「问—光—身—颂」四重庄严的集中呈现。主旨在于：以佛神力与菩萨威神，令十方世界海一切菩萨众于华藏世界海中同集一处，由诸菩萨代众发问、由如来面门与眉间放光现相作答，显明毗卢遮那如来法界身、普贤行愿与一多相入的华严境界。", "tip": "读本卷时可带着三组问题：第一，诸菩萨所问「云何是诸佛地……云何是诸佛智」之问，佛以何方式作答？（注意「不立文字」与「以光、华、身现相」之间的关系）；第二，十方菩萨所现十种供养云（华云、摩尼王云、楼阁云、树云、师子座云、帐云、盖云、光明云、光焰云等）与十方方位如何对应、各有何表法？第三，十菩萨所说十颂，其主题如何由「佛身充满法界」层层展转至于「一毛现神变、一切佛同说」之重重无尽？把握此三组问题，即可将本卷读作一部「以相说法」的现相品。"}, {"n": 7, "pin": "普贤三昧品·世界成就品", "hui": 1, "stage": "序幕·举果劝信", "types": ["doc", "cat"], "brief": "普贤入如来藏身三昧，出定说世界海十事总纲", "size": 67805, "ov": "本卷含两品：**普贤三昧品第三**与**世界成就品第四**，是华严经正式展开「法门海」的枢纽。前一品承上一卷「世主妙严品」之庄严，由普贤菩萨于如来前入「一切诸佛毗卢遮那如来藏身三昧」，以三昧力发起十方诸佛共同加持、摩顶、赞叹，并由诸佛放光说颂，确立普贤为宣说法门的当机者。后一品则由普贤承佛神力，遍观十种海（世界、众生、诸佛、法界等），向道场众菩萨宣告「世界海」的十种事相——起具因缘、所依住、形状、体性、庄严、清净、佛出兴、劫住、劫转变差别、无差别门，构成全经对器世间（国土）的总纲，为后续「华藏世界品」铺路。两品合看，是由「能入之普贤三昧」开出「所入之世界海」，能所不二。", "tip": "读本卷可带着两个问题进入：普贤入定后为何要由十方诸佛共同加持摩顶才可起说？「世界海十事」中，为何最后收于「无差别门」——前面种种差别相与「一一尘中普现三世佛」如何统一？把握「能入之三昧」与「所入之世界海」的对应，即抓住本卷主线。"}, {"n": 8, "pin": "华藏世界品（一至三）", "hui": 1, "stage": "序幕·举果劝信", "types": ["cat", "scene"], "brief": "风轮、香水海、世界种、二十重华藏——一张佛教宇宙全图", "size": 56372, "ov": "本卷为《华严经》第五品「华藏世界品」之上半，承前卷普贤菩萨之说，专讲「华藏庄严世界海」的成因与层层庄严相。以毗卢遮那如来往昔于微尘数劫中亲近微尘数佛、修微尘数大愿为因，感得此一世界海。全卷由风轮、轮围山、大地、香水海、世界种、二十重世界依次展开，将「因行→果报庄严→世界结构」一线贯通，是研究华严「依正不二」「一多相即」宇宙观的核心文本。", "tip": "读本卷可带着两个问题进入：华藏庄严世界海的种种庄严，为何处处归因于毗卢遮那「往昔微尘数劫所修大愿」——依报庄严与因行如何对应？世界种形状体性千差万别，为何偈颂归结为「以一刹种入一切，一切入一亦无余」——差别相与一多相即如何统一？抓住「愿力为因、庄严为果、尘刹互摄」三条线索，本卷繁复的名相便有了骨架。"}, {"n": 9, "pin": "华藏世界品（一至三）", "hui": 1, "stage": "序幕·举果劝信", "types": ["cat", "scene"], "brief": "风轮、香水海、世界种、二十重华藏——一张佛教宇宙全图", "size": 59592, "ov": "本卷是《大方广佛华严经》第九卷，即「华藏世界品第五之二」，承接第八卷普贤菩萨宣说华藏世界海总相之后，继续由普贤菩萨以「诸佛子」呼唤大众，依次列举中央无边妙华光香水海外围、右旋展开的十一个香水海及其所承载的世界种与层层世界。全卷是一部以空间方位为经、以世界层级为纬的「华藏世界海地图」，通过香水海→世界种→最下方世界→向上递进二十重世界的固定格式，展示一真法界中无量世界互相含摄、重重无尽的华严宗要义。", "tip": "读本卷时不必逐世界记忆名称，可抓住「海名→世界种名→体性→最下方世界→递进二十重→最上重形相佛号」这一固定骨架，体会同一句式反复叠加所形成的「重重无尽」节奏；并留意每个世界种「以某音声为体」一句，理解华严以说法音声为器世间体的独特世界观。"}, {"n": 10, "pin": "华藏世界品（一至三）", "hui": 1, "stage": "序幕·举果劝信", "types": ["cat", "scene"], "brief": "风轮、香水海、世界种、二十重华藏——一张佛教宇宙全图", "size": 51645, "ov": "本卷为《大方广佛华严经》卷第十，属「华藏世界品第五之三」，承接上卷普贤菩萨之说法，继续以「香水海—世界种—世界」三层结构展开华藏世界海之庄严布局。本卷主旨有二：一是广列围绕华藏世界海的众多香水海及其所依世界种，逐一点名最下方、与金刚幢齐等、与娑婆齐等、最上方四层世界与当处佛号；二以普贤重颂总收，阐明一切刹土皆依众生业力、菩萨愿力、佛神力而现，形色成坏种种差别，最终归于一心净业所见清净刹。", "tip": "读本卷可带二问：其一，普贤为何不厌其烦地枚举十组香水海？其二，重颂中「譬如」连用十余喻，欲说明什么？前者显事相之广，后者显理体之一——事相虽无量，理唯业愿佛三力所成、一心所现。把握此「事—理」张力，便不致被密集名相淹没。"}, {"n": 11, "pin": "毗卢遮那品", "hui": 1, "stage": "序幕·举果劝信", "types": ["story", "doc"], "brief": "大威光太子历四佛递进的本生叙事，毗卢遮那的因地", "size": 43311, "ov": "本卷为《大方广佛华严经》卷第十一，独占一品——**毗卢遮那品第六**。前四卷（世主妙严品、如来现相品、普贤三昧品、世界成就品）从「当下祇园法会」铺陈如来现相与法界庄严；本卷则由普贤菩萨承佛神力，**回溯往古**：过世界微尘数劫、复倍是数之前，有世界海名「普门净光明」，其中有世界名「胜音」，佛号「一切功德山须弥胜云」，由此展开对毗卢遮那佛本生因行的追述。主旨在于说明：**今之毗卢遮那如来，并非无因出世，而是历劫修因、承事多佛、严净刹海所得之果**；而大威光（太子、童子、菩萨、转轮王、天王的累世身份）正是其因地化身与法器，从一佛至下一佛辗转增上，于一一佛所得一一法门，构成「因圆果满」的范式。", "tip": "读本卷可带着两个问题推进：其一，大威光每一次见佛所得法门与前次有何递进关系？其二，四佛出世与四度「说颂—授记」的回环结构，如何为后文「普贤行愿品」之愿王埋下伏笔？把握「累世增上」与「普贤愿行」两条线索，便能将本卷繁复的依正庄严与多佛相承读成一条清晰的因行果德脉络。"}, {"n": 12, "pin": "如来名号品·四圣谛品", "hui": 2, "stage": "十信", "types": ["doc", "cat"], "brief": "佛名随众生心立百亿种，四谛于一一世界各四百亿名", "size": 62145, "ov": "本卷为《大方广佛华严经》卷第十二，含两品：**如来名号品第七**与**四圣谛品第八**，皆属「六品因果」中「差别因果」之首，由文殊师利菩萨主讲。承接前六品「平等因果」之后，本卷转入「佛名号与四圣谛」的差别现身教化：如来名号非一非多，随众生心而立百亿万种；四圣谛义本一味，于十方世界各立四百亿十千名。两品同显一理——佛法身平等无二，而应化身、言教方便则无量无边，皆随类调伏而说。", "tip": "读此卷宜把握「一多相即」主线：名号与谛义皆是「一理多名、一名多义」。不必逐条记诵百亿名号，可选取娑婆十名与一两他方世界对照，体会如来如何「随众生心之所乐」而设教。"}, {"n": 13, "pin": "光明觉品·菩萨问明品", "hui": 2, "stage": "十信", "types": ["doc", "verse"], "brief": "光明十番递展；文殊与九菩萨十番问答，辩「一多相即」", "size": 74295, "ov": "本卷含两品，是《华严经》「解」门之要。《光明觉品第九》承前「净行」「贤首」之余势，以佛足轮下放光为缘起，光明由一三千大千世界渐次扩广至尽法界虚空界一切世界，一一世界中皆见佛坐莲华藏师子座、十佛刹微尘数菩萨围绕，各处文殊师利同时发声说颂，共十番，义由浅入深，自利升至圆融。《菩萨问明品第十》由文殊发问，依次问觉首、财首、宝首、德首、目首、勤首、法首、智首、贤首九大菩萨，各以颂答，最后诸菩萨反问文殊，文殊以「如来深境界」一颂总答。两品合观：前者以光显境，明事相上「一即一切」；后者以问答显理，明理体上「一多相即」，事理交彻，为后菩萨行铺下理论基础。", "tip": "读光明觉品，留意光明扩展阶次与颂义升进相应——光势愈广，颂义愈深，可作「十地」旁通读。读问明品，抓「一与多」「平等与差别」之矛盾结构，每问答先立疑后以喻化解。两品合观，事相之光明递展即理体之问答所明，事理不二，方见华严之妙。"}, {"n": 14, "pin": "净行品·贤首品（一）", "hui": 2, "stage": "十信", "types": ["prac", "verse"], "brief": "智首百一十问，文殊以「善用其心」一答，一百四十一愿偈", "size": 68566, "ov": "本卷（《大方广佛华严经》卷第十四）含两品：前为《净行品第十一》之全部，后为《贤首品第十二》之前半（\"之一\"）。承前卷文殊菩萨答智首菩萨之问，本卷先以一百四十愿偈示菩萨\"善用其心\"于日用云为中处处发愿、转事为道，次由贤首菩萨以长偈广赞初发心功德，层层递进，由信、戒、波罗蜜、十地、灌顶一路推至海印三昧、佛华严三昧等不可思议境界，点明菩提心功德不可量、菩萨三昧神通无量方便度生之要旨。", "tip": "读净行品时可随文自照：菩萨遇一一境即发一一愿，自己日用中哪些境未发愿？读贤首品时注意\"若……则……\"连锁偈的因果递推，看由\"信\"一路如何推到\"灌顶成佛\"，再读海印、佛华严二昧段时，体会一多相即、一微尘中现无量刹的法界观。"}, {"n": 15, "pin": "贤首品（二）", "hui": 2, "stage": "十信", "types": ["verse", "doc"], "brief": "全卷无散文的长偈：三昧放光、方网自在，层层劝信", "size": 59368, "ov": "本卷为《大方广佛华严经》卷第十五，属「贤首品第十二之二」，承接上卷文殊师利菩萨答智首菩萨之问、由贤首菩萨以偈颂广答。全卷为贤首菩萨一人长篇偈颂，主题是「菩萨三昧与光明不可思议」：先以「安乐三昧」总起，广说菩萨放种种光明、利益众生、成就佛果之行；次说「方网三昧」于根尘、身份、器界间出入自在；最后以日、月、水、海、龙王、帝释、天鼓、修罗、幻师等世间譬喻，显菩萨神通自在远胜彼等，劝信此法。卷末记说偈已，十方震动、诸佛摩顶赞叹作结。", "tip": "本卷偈颂排比极繁，初读勿求尽记每一光名与喻相，宜抓住三组主线：「光明觉悟众生之因果」「方网三昧于根尘身份器界间出入自在」「世间神力喻显菩萨自在」。读到末段「能信此法倍更难」处，回头观照前述光明与三昧皆为劝信之资，方得全卷归趣。"}, {"n": 16, "pin": "升须弥山顶品·偈赞品·十住品", "hui": 3, "stage": "十住", "types": ["doc", "verse"], "brief": "佛不离菩提树而升须弥，法慧入定说十住法门", "size": 81121, "ov": "本卷为《华严经》卷第十六，含三品跨节：自「升须弥山顶品第十三」起，经「须弥顶上偈赞品第十四」，至「十住品第十五」全。场景由阎浮提菩提树下升至须弥山帝释殿，佛不离菩提树下而升须弥，帝释奉座、十方皆同；十方菩萨云集，十大慧菩萨次第以颂赞佛；法慧菩萨承佛神力入无量方便三昧，受诸佛加持，广说菩萨十住法门，并以长颂总摄。本卷是从「信解境界」转入「行位次第」的关键枢纽——前十住为菩萨初阶行位的总纲。", "tip": "读本卷可带着两个问题：一、为何佛「不离菩提树下」而又「升须弥」？此中如何体现一身与十身、一处与一切处的关系？二、十住既各有「十法应劝学」，彼此如何递进？留意每住末「欲令…有所闻法即自开解不由他教」一句，它是贯通十住的心要。"}, {"n": 17, "pin": "梵行品·初发心功德品", "hui": 3, "stage": "十住", "types": ["doc", "verse"], "brief": "勘破「何者是梵行」；九番展转校量初发心功德", "size": 78292, "ov": "本卷含两品：《梵行品第十六》之末段与《初发心功德品第十七》全文，由法慧菩萨为正念天子与天帝释两番请问而说。前半「梵行清净」以十法（身、身业、语、语业、意、意业、佛、法、僧、戒）为所缘，逐一勘破「何者是梵行」之执，归于无相、无二、平等；复说修习如来十力，了知境界如幻梦，初发心时即得阿耨多罗三藐三菩提。后半「初发心功德」则借天帝之问，以一连串极度夸张的譬喻（供养十方众生、教令持戒修定证果、过不可说世界、知劫数、知众生根欲方便心业烦恼、起塔供养诸佛）层层衬托：菩萨初发菩提心之功德，百分千分乃至优波尼沙陀分亦不及一；末以十方诸佛同名法慧现身印证、六种震动、雨华庄严，并由法慧以长偈重颂初发心之广大境界。全卷一线贯穿：**以无所得为方便修梵行→以无齐限发心契法界→即心自性、不由他悟**。", "tip": "读本卷可带着两个问题：其一，法慧何以用「若身是梵行耶」这种近乎否定一切的方式定义梵行？其二，初发心何以功德超过教化十方众生证四果辟支佛？把握「无所得为方便」与「所缘无齐限」两条线索，便知本卷不是在比数字大小，而是在显发心之体—即心自性、即法界、即诸佛之母。"}, {"n": 18, "pin": "明法品", "hui": 3, "stage": "十住", "types": ["doc", "prac"], "brief": "精进慧问、法慧答：从不放逸到速入诸地的进修纲领", "size": 48082, "ov": "本卷《明法品第十八》位于《华严经》十地品之后，承接前卷十地修证之果，进一步阐明菩萨在十地基础上「令法明了」的修行次第。全卷由精进慧菩萨起问、法慧菩萨作答，以偈颂收束，主旨是：菩萨已发一切智心、已入菩萨正位之后，云何修习令诸如来欢喜、速入诸地、所行清净、大愿圆满、得大藏、为众生说法、绍隆三宝，乃至成为大法师、护持正法。整卷是一份由「因行」到「果德」、由「自利」到「利他」的菩萨进修纲领。", "tip": "读本卷宜把握「十法」枚举的递进逻辑：每一段「十法」不是并列罗列，而是由前一层的果推到下一层的因，或由前一层的因开出下一层的果。带着「不放逸如何展开为清净、清净如何展开为令佛欢喜、令佛欢喜如何展开为速入诸地」的问题去读，便能见出全卷并非清单堆叠，而是一线贯穿的修行图谱。"}, {"n": 19, "pin": "升夜摩宫品·偈赞品·十行品（一）", "hui": 4, "stage": "十行", "types": ["doc", "verse"], "brief": "升夜摩天，「心如工画师」偈即出于此，功德林说十行", "size": 70832, "ov": "本卷对应《大方广佛华严经》唐译本卷第十九，涵盖三个品目：先承上启下，写如来升夜摩天宫（升夜摩天宫品第十九），次为夜摩天王偈赞十佛、十慧菩萨承佛神力各说颂偈（夜摩宫中偈赞品第二十），最后功德林菩萨入善思惟三昧，承十方同名诸佛加持，宣说菩萨十种行之前六行（十行品第二十一之一）。全卷以「升处庄严→偈赞佛德→明法性深义→开演十行」一线贯之，由境到众、由赞到法、由理到行，层层推进，是从「十住」转入「十行」位的关键枢纽。", "tip": ""}, {"n": 20, "pin": "十行品（二）", "hui": 4, "stage": "十行", "types": ["doc", "verse"], "brief": "后四行圆满，重颂收束十行", "size": 63096, "ov": "本卷为《大方广佛华严经》卷第二十，承上卷「十行品第二十一之一」继续宣讲菩萨十行之第七至第十——无著行、难得行、善法行、真实行，由功德林菩萨承佛神力演说。十行属菩萨修行阶位中的核心行门，前六行（欢喜行至善现行）已在上卷述毕，本卷收束十行圆满，并以法界六种震动、十方同名功德林菩萨来证、功德林重颂为结。全卷主线是「行门渐深→无著→难得→善法→真实」，层层由「离执」推进到「称法界而起用」，最终以「无尽大悲与无二实相」收摄。", "tip": "读本卷宜紧扣「无所著」三字为纲——无著行直标其名，难得行明「难在不著而能度」，善法行明「不著而辩才无尽」，真实行明「不著而如说能行」。偈颂部分可先抓每颂末句「彼某者行此（斯）道」的格式，即知在颂何种行相，再回看上长行对应义理，便能前后贯通。"}, {"n": 21, "pin": "十无尽藏品", "hui": 4, "stage": "十行", "types": ["doc", "cat"], "brief": "信戒惭愧闻施慧念持辩十藏，各以固定范式展开", "size": 45370, "ov": "本卷为《大方广佛华严经》卷第二十一，属「十无尽藏品第二十二」，由功德林菩萨承佛神力，为诸菩萨演说菩萨摩诃萨所修十种无尽藏。全卷以「十藏」为纲，依次阐明信、戒、惭、愧、闻、施、慧、念、持、辩十大藏，每一藏皆由「何等为……」发问引入，再层层展开其相、其义、其用，末以「十种无尽法」收束，显明此十藏所以名为「无尽」之故。其旨在于揭示菩萨道之修学次第与无尽功德，归趣无上菩提。", "tip": "读本卷可带着两个问题：其一，十藏之间是否有修学先后或相摄关系？其二，「无尽」一名如何贯通于信、戒、施等各藏？留意每一藏末尾「是名菩萨摩诃萨第×藏」的结名与发愿回向，可见菩萨行门虽异而归趣一致。"}, {"n": 22, "pin": "升兜率天宫品", "hui": 5, "stage": "十回向", "types": ["scene", "cat"], "brief": "二十余段「百万亿」庄严排比，兜率宫中的准备", "size": 68128, "ov": "本卷为《华严经》「六天品」序列之第三——升兜率天宫品第二十三，承「夜摩天宫」之后，如来不离菩提树下及须弥顶、夜摩天宫，以神力往诣兜率陀天一切妙宝所庄严殿。全卷以「庄严—奉迎—赞佛—受请入殿—结坐演法」为线，铺陈兜率天王敷座、十方天子云集供养、诸天菩萨共见如来神变、兜率天王以颂叹过去诸佛、世尊受请入殿结跏趺坐，开显「因位善根所感，果位神力所现」的华严庄严境界，为下卷「兜率宫中偈赞品」诸天赞佛铺路。", "tip": "读本卷可带着两问：一者，如来「不离菩提树下」而能遍至兜率，究竟以何为「往」？留意「佛神力故」「如来威神力故」「往昔善根之所流故」三处提示。二者，无尽庄严之具何以皆归于「善根所生」？通读时勾画「所生」「所起」「所现」「所严」诸字，可见因位善根、果位神力、法界性德三者交彻，方为华严庄严之实义。"}, {"n": 23, "pin": "偈赞品·十回向品（一）", "hui": 5, "stage": "十回向", "types": ["doc", "verse"], "brief": "金刚幢入智光三昧，说第一「救护众生离相回向」", "size": 66170, "ov": "本卷对应唐译《大方广佛华严经》卷第二十三，含两个品目：前为「兜率宫中偈赞品第二十四」，后为「十回向品第二十五之一」。前品承夜摩天宫之后，如来升兜率天宫，十方各有一大菩萨（金刚幢、坚固幢、勇猛幢、光明幢、智幢、宝幢、精进幢、离垢幢、星宿幢、法幢）与万佛刹微尘数眷属俱来集会，世尊从两膝轮放光普照十方，十菩萨一一承佛神力说颂偈赞佛，共说一百零六颂，从「佛不出世不涅槃、以愿力示现」到「佛身非心行处、离言绝相」，层层开显法身与色身、出世与涅槃、一与多的无碍关系。后品为「十回向品」之开端，金刚幢菩萨承佛神力入「菩萨智光三昧」，十方同名金刚幢诸佛现前加持、与智、摩顶，从定起宣说菩萨十种回向之名，并广释第一「救护一切众生离众生相回向」之行相、大愿与空观，最后以颂偈收摄。全卷以「偈赞法身无碍→入定加持→开演回向」一线贯之，是从「十行」转入「十回向」的关键枢纽，亦是由「解」到「行」、由「行」到「愿」的递进。", "tip": "读本卷可带着两个问题：一是十菩萨偈赞如何层层开显「佛身无碍、法性空寂」之理，为后品「回向」奠基？二是金刚幢菩萨广释第一回向时，「救护众生」与「离众生相」如何并行不悖——菩萨既发愿代众生受苦、以身为质，又不著众生相、业报相、因缘相？把握此「事理无碍」一线，即可贯通全卷。"}, {"n": 24, "pin": "十回向品（二）", "hui": 5, "stage": "十回向", "types": ["doc", "prac"], "brief": "不坏信回向、等一切佛回向、至一切处回向", "size": 63074, "ov": "本卷为《大方广佛华严经》卷第二十四，属「十回向品第二十五」之二，接续卷二十三所述十回向位的展开。由金刚幢菩萨承佛神力宣说，依次阐释十回向中第二至第四位——**不坏回向**、**等一切佛回向**、**至一切处回向**。每一回向皆以「佛子！云何为菩萨摩诃萨……回向」起问，先长行广明菩萨所修善根与回向行相，再以颂偈重颂其义。全卷主线为「于三宝众生起不坏信→随顺三世佛所学→善根普至一切处」，层层扩展回向的所缘与体性，由「信」而「学」而「遍至」，显示菩萨善根功德广大无碍、三轮体空而不舍饶益众生的根本精神。", "tip": "读本卷可带着两个问题：菩萨既「无所著」又「不舍众生」，二者如何并行不悖？留意原文中每一回向末尾的「虽……而……」句式（虽随生死而不改变、虽无分别而普入法界、虽无所作而恒住善根），此即「般若真空与悲愿大用」不二的枢纽。"}, {"n": 25, "pin": "十回向品（三）", "hui": 5, "stage": "十回向", "types": ["doc", "prac"], "brief": "无尽功德藏回向；随顺坚固善根回向的十一类布施", "size": 60593, "ov": "本卷属《华严经·十回向品》第三部分，承接前卷十回向的次第，正式展开第五、第六两个回向位的修行内涵：先是「无尽功德藏回向」，以随喜、忏悔、劝请所起善根回向严净一切佛土；继而「随顺坚固一切善根回向」，以菩萨种种布施——饮食、车乘、衣华、床座、房舍、灯明、汤药、宝器——所起善根回向利益众生。两条回向贯穿「回自向他、回因向果、回事向理」的华严回向义，由事修层层导入法界无所得的理观。", "tip": "读本卷可带着两个问题：菩萨广修布施、身肉王位皆能施与，何以又说「一切众生无有生」「无众生可流转」？事修与理观如何并行不悖？又，每种布施回向之后皆有一句「为令众生……故」，留意这一收束句式，可见菩萨回向的「为他」宗旨。"}, {"n": 26, "pin": "十回向品（四）", "hui": 5, "stage": "十回向", "types": ["doc", "story"], "brief": "施宝车象马、宝冠髻珠；救牢狱囚、舍身代死的本生证", "size": 60378, "ov": "本卷为《大方广佛华严经·十回向品第二十五》之四，承接前卷，继续宣说菩萨摩诃萨以财施、法施摄受众生，并将所修善根回向一切智。全卷以「施物差别→回向愿海」为骨架，依次举出施宝车、施善知识车、施僧、施声闻独觉、施贫穷、施象马、施座、施盖、施幢幡、施宝、施庄严具、施宝冠、救牢狱囚、代刑赎命等种种布施；每一施后必「以诸善根如是回向」发大愿海，愿一切众生同得此益、共证一切智。主旨是：菩萨行施不为自利，乃借施门成就众生、回向无上菩提，使有情趣入佛智。", "tip": "读本卷可带着两个问题：（1）每一施物之后，菩萨是如何把「这一物之施」转化为「无尽愿海」的？留意「愿一切众生」的反复句式与「为令众生……」的结语收束；（2）施物为何从外财层层升进到舍身代命？这背后是菩萨「为救护一切众生发一切智菩提心」的根本动力（见P18自述）。把握此二端，则全卷财施回向之脉络可贯通。"}, {"n": 27, "pin": "十回向品（五）", "hui": 5, "stage": "十回向", "types": ["doc", "story"], "brief": "二十一类内施：顶髻眼耳血肉骨髓，为法投火坑", "size": 70865, "ov": "本卷为《大方广佛华严经》第二十七卷，属「十回向品第二十五之五」，承接前十回向中之初回向、乃至前卷之回向义，专明菩萨摩诃萨「内施」与「为法舍身」一系之广大行门。全卷以佛子（金刚藏菩萨之口吻）连续敷演二十一类施相：自施连肤顶髻、眼、耳、鼻、齿、舌、头、手足、身血、髓肉、心、肠肾肝肺、肢节诸骨、身皮、手指、连肉爪甲，至为求法投火坑、受众苦、舍国城妻子、禁断杀业、救护毁败男形，层层递进，皆为「以不坚身易坚固身」「以诸善根如是回向」之实修示范，归结于令众生究竟成就如来十力、一切智。", "tip": "读本卷可扣紧「以不坚身易坚固身」一句为纲，留意每一施相后的「愿一切众生得……」回向文与所施支分之对应关系；并注意P18「为法投火坑」、P20「为法舍国城」二段，是内施由「身分支分」升进至「为法忘躯」「舍王位」之转折枢纽，亦即菩萨「不惜身命求正法」之极致表现。"}, {"n": 28, "pin": "十回向品（六）", "hui": 5, "stage": "十回向", "types": ["doc", "story"], "brief": "十二类施（含须达拏太子施妻本生），收于三轮体空", "size": 78654, "ov": "本卷为《大方广佛华严经·十回向品第二十五之六》，承接前五卷十回向义，广说第六「随顺坚固一切善根回向」的具体行相，并收束于金刚幢菩萨的颂偈重宣。全卷以菩萨摩诃萨「种种布施→善根回向→无着无缚」一线贯穿：先列十一类布施（叹佛出世、施大地、施僮仆、施身、以身供佛、施身给众生、给侍诸佛、施王位王都、施内宫眷属、施妻子、施舍宅园林、设大施会、施资生具），每一次施皆配「如是回向」之愿；末后总明回向时心无所着、法性本空，并以颂总结菩萨「舍一切而不生取着心」的般若回向义。本卷是十回向品的收束，从「广行布施」转入「三轮体空」，为后「十地」作铺垫。", "tip": "读本卷可抓「布施—回向—无着」三段式程式：每一段施事之后必有一组「愿一切众生……」回向，再以「为令众生……故」收束；读回向愿时留意其愿所缘（众生与佛果），读末段无着时留意「非……非……」与「不着……不着……」的双重否定结构，这是般若空义在华严回向品中的典型表达。"}, {"n": 29, "pin": "十回向品（七）", "hui": 5, "stage": "十回向", "types": ["doc", "prac"], "brief": "等随顺一切众生回向：普施尽未来劫、十种平等", "size": 44725, "ov": "本卷为《大方广佛华严经·十回向品》第二十五之七，承接前六回向（救护众生、不坏、等一切佛、至一切处、无尽功德藏、随顺坚固善根）之后，宣说第七「等随顺一切众生回向」，由金刚幢菩萨承佛神力，先以长行广说菩萨回向行相，复以颂偈重颂其义。此回向以「积集一切善根→普施一切众生→令入一切智智」为脉络，重在「等」——以平等心、广大心将所修善根遍施众生，无一遗漏，三轮体寂而回向菩提。", "tip": "读本卷可带着两个问题：菩萨既将一切善根普施众生，自己还剩什么？答在「得无所得」「不着」——所施者是物与善根之相，所得者是平等与智。又，颂云「了知诸法空…业报亦不失」，空与因果如何并行？此即华严「理事无碍」之入口。"}, {"n": 30, "pin": "十回向品（八）", "hui": 5, "stage": "十回向", "types": ["doc", "verse"], "brief": "真如相回向：「譬如真如……亦复如是」连珠百喻", "size": 49911, "ov": "本卷为《大方广佛华严经·十回向品》第二十五之八，是十回向位的最后一品（第八回向），即「真如相回向」。在十回向的次第中，前七回向（不坏、等一切佛、至一切处、无尽功德藏、入一切平等善根、随顺一切坚固、等心随顺一切众生）层层展开菩萨以善根回向利益众生的愿行；至第八「真如相回向」，则将一切善根回向与「真如」之性相契——善根回向的体性与真如无异，故称「真如相」。本卷主旨：菩萨以深心、智方便集诸善根，观善根无量差别，悉回一切种智，复以「譬如真如」的连珠譬喻，将回向善根与真如之性一一对应，显明回向即真如、真如即回向的平等一相，最后由金刚幢菩萨以颂重宣其义。", "tip": ""}, {"n": 31, "pin": "十回向品（九）", "hui": 5, "stage": "十回向", "types": ["doc", "verse"], "brief": "无著无缚解脱回向：以解脱心修普贤行、八相示现", "size": 63286, "ov": "本卷为《大方广佛华严经·十回向品第二十五之九》，即十回向中**第九回向——「无著无缚解脱回向」**的全文，由金刚幢菩萨承佛神力宣说。全卷围绕一个核心命题展开：菩萨摩诃萨以「无著无缚解脱心」修习普贤行愿，把一切善根回向给一切众生与无上菩提。所谓「无著」是不执着，「无缚」是不被系缚，「解脱」是心得自在——以这种心修一切行、回一切善根，方契普贤境界。卷末以金刚幢菩萨的颂偈总收前义，并广述如来从兜率降神、入胎、诞生、出家、降魔、成道、说法、涅槃等八相示现的自在力。", "tip": "读本卷可带着两个问题：(1)「无著无缚解脱心」到底在每一句「以……心，成就……」中起什么作用——它如何使普贤行愿成为「无漏」而非「有漏」？(2)「甚微细智」一连数十种，是否可以归纳为几大类（色身、刹土、劫时、众生、法界、诸法），它们共同指向的「一念了知」境界与华严「十玄门」如何对应？"}, {"n": 32, "pin": "十回向品（十）", "hui": 5, "stage": "十回向", "types": ["doc", "prac"], "brief": "等法界无量回向：法施为体，「不为」「但为」建立", "size": 41330, "ov": "本卷是《十回向品第二十五之十》，即十回向品的最后一卷，专明第十回向——「菩萨摩诃萨等法界无量回向」。前九回向各有一种所缘与善根为所回向（如救护众生、随顺坚固、真如相、无缚著解脱等），此第十回向总收前九，将菩萨以离垢缯系顶、住法师位、广行法施所起一切善根，悉皆回向同于法界之无量、无边、无限、无际。全卷由「菩萨自利之行」展开，层层推及「普为众生」「等法界」的广大回向，终以愿得种种清净妙身、摄取众生为收束。", "tip": "带着以下问题读：菩萨为何要「等法界」地回向？遮遣「不为」与建立「但为」如何并行不悖？最后愿得如净明镜之妙身，与「等法界无量」之开题如何呼应？留意「法界」一词在全卷十余种不同修饰下所显之体相用。"}, {"n": 33, "pin": "十回向品（十一）", "hui": 5, "stage": "十回向", "types": ["doc", "verse"], "brief": "第十回向收束：庄严三世间、十四自在力，超长重颂", "size": 44380, "ov": "本卷为《大方广佛华严经·十回向品第二十五》的第十一会，即十回向位的最后一位——**第十住等法界无量回向**。由金刚幢菩萨承佛神力，于兜率陀天宫宣说。主旨是菩萨以法施等一切善根，回向愿令一切佛刹悉以无量妙宝庄严、一切众生皆得普贤行愿之果。全卷以「愿庄严佛刹→愿成就众生→安住法界无量平等→显普贤自在力」为一线贯穿，收束十回向位，归宗于普贤行愿。", "tip": "读本卷可抓两个轴：一是「庄严三世间」——器世间（佛刹宝严）、众生世间（愿令众生得普贤行）、智正觉世间（安住法界平等身语意）；二是「法界无量平等」这一贯穿全卷的修法关键词，凡见「以住法界无量…平等回向」即为其展开。颂偈部分可对照长行的「法施回向」与「供养诸佛」两门读。"}, {"n": 34, "pin": "十地品（一）", "hui": 6, "stage": "十地", "types": ["doc", "scene"], "brief": "他化自在天宫「三请三默」的戏剧张力，初欢喜地详说", "size": 73059, "ov": "本卷是《大方广佛华严经·十地品第二十六》的开篇，位居全经最核心的大品之首。此卷承接前文普贤行愿的总持，正式进入「菩萨修行阶位」的系统性叙述——所谓「十地」，即菩萨从初发心到成佛之间所历的十个果位阶次。本卷由金刚藏菩萨承佛神力宣说，佛陀仅以眉间放光、诸佛现身加持的方式幕后护持，全卷主轴是「宣名—默然—三请三辞—放光—说初地」，最终在第一地「欢喜地」处详尽展开，为后续九地铺设骨架。", "tip": "读本卷可先抓「三请三默」的戏剧张力：为何金刚藏明知大众欲闻却反复沉默？——因「地智」非言辞所及、非凡念所及。带着此疑读至世尊眉间放光、诸佛同声劝请，便能体会此法之难遇；再读初地详说时，注意「大悲为首、智慧增上、善巧方便所摄」三句是十地共同的心要骨架，初地如此，后九地亦然。"}, {"n": 35, "pin": "十地品（二）", "hui": 6, "stage": "十地", "types": ["doc"], "brief": "离垢地十善业道、发光地禅定神通", "size": 55699, "ov": "本卷为《十地品第二十六》之二，承前卷初地（欢喜地）之后，依次宣说菩萨十地中的第二地与第三地。第二地「离垢地」以十种深心为入门，核心在护持十善业道、远离十不善业，并以大悲心观照众生苦聚，由戒行清净而得布施、持戒满足；第三地「发光地」则由观一切有为法苦、无常、不净发起厌离，进求佛智，由勤求佛法、修习四禅八定与慈悲喜舍，发四无量心、得六神通，于法转更明净。两地的展开皆遵循「入地深心→核心行相→利益众生→见佛供养修施戒→偏重一度一摄→果报与神通→颂偈重宣」的固定结构，层层递进。", "tip": "读本卷可循两线：一为「十善业道如何通三乘」——留心上品十善由心行差别而分三乘佛果的判摄；二为「菩萨度生方便的因果链」——注意「多闻→禅善巧→无生慧光→如实觉→无碍解脱智→度生涅槃」的逆推次第，此即《华严》「因陀罗网」式因果在十地中的具体展开。"}, {"n": 36, "pin": "十地品（三）", "hui": 6, "stage": "十地", "types": ["doc"], "brief": "焰慧地三十七道品、难胜地善知谛理并习世间技艺", "size": 49991, "ov": "本卷属《大方广佛华严经·十地品第二十六》的第三部分，承接前三地而说第四焰慧地、第五难胜地二地行相。由金刚藏菩萨宣说，解脱月菩萨启请，以「地地相承、层层增胜」为线索：先以颂偈回向第三地功德、起请第四地，长行详述焰慧地修十法明门、四念处、四正勤、四神足、五根、五力、七觉分、八正道等三十七道品，离身见等六十二见，喻如真金；再由天女赞佛、解脱月请第五地，长行述难胜地以十平等清净心趣入、善知四谛及十谛、起大悲光明、修世间技艺、喻如日月星宿，颂偈收束。全卷以「请—说—颂」三段为骨架，复于二地中各以「所修法→所得德→见佛喻→果报」四阶推进。", "tip": "读本卷可带着两个问题：其一，三十七道品本属声闻所修，菩萨于此地修之与二乘有何不同（注意「依止厌、离、灭，回向于舍」与「为不舍一切众生故」的连接）？其二，第五地由谛智转生大悲光明的逻辑环节如何（注意「知有为虚妄」→「转增大悲」→「生大慈光明」的次第）？"}, {"n": 37, "pin": "十地品（四）", "hui": 6, "stage": "十地", "types": ["doc"], "brief": "现前地十二因缘、远行地方便慧「虽…而…」十对", "size": 64487, "ov": "本卷属《大方广佛华严经·十地品第二十六之四》，紧承前几卷对初地至五地的解说，专明菩萨十地中的**第六现前地**与**第七远行地**。全卷由金刚藏菩萨宣说、解脱月菩萨请问，以长行（散文）与重颂（偈颂）两种文体交替展开。第六地以「十平等观」入「缘起观」，由般若波罗蜜现前而得无障碍智光明；第七地以「十种方便慧起殊胜道」于有功用行之极，过渡至无功用行，为进入第八不动地作准备。两地的共同轴心是：从观空到起悲，从缘起性空到方便善巧，构成大乘不二中道的修证进阶。", "tip": "读本卷可带着三个问题：（1）十二因缘有三种讲法——世间门、第一义谛门、唯心门——它们如何对应？（2）十对「虽…而…」的方便慧，每一对「虽」的所证与「而」的所起是什么关系？（3）「行于实际而不作证」与「无生法忍光明」之分，对理解菩萨与二乘的根本差异有何意义？把这三条线索理清，第六、七地的修证骨架即朗然现前。"}, {"n": 38, "pin": "十地品（五）", "hui": 6, "stage": "十地", "types": ["doc"], "brief": "不动地无生法忍与诸佛劝发、善慧地四无碍辩", "size": 75604, "ov": "本卷属《大方广佛华严经·十地品第二十六之五》，承接前卷第七地（远行地）之后，由金刚藏菩萨为解脱月菩萨及大众宣说**第八不动地**与**第九善慧地**。两地位次居十地之中段，前承七地功用行已极，后启十法云地与如来果海，是菩萨从「功用」转入「无功用」、由「自利寂灭」转向「利他说法」的关键转折。卷首以诸天兴供赞叹、解脱月启请为缘起，继以长行详述二地行相，末以颂偈重宣其义；第九地开章又别起一段「如来现通、天众赞叹」的缘起，结构自成一段。", "tip": "读本卷宜抓「地次递进」之脉络：先看八地如何从「功用」到「无功用」、从「自寂」到「佛劝利他」；再看九地如何从「知众生稠林」到「四无碍辩、陀罗尼说法」。两处长行之后各有偈颂重宣，可对照读，颂偈每四句一转，便于记诵。"}, {"n": 39, "pin": "十地品（六）", "hui": 6, "stage": "十地", "types": ["doc", "verse"], "brief": "法云地受职灌顶，大海十山王摩尼珠三重喻收束", "size": 72991, "ov": "本卷为《华严经·十地品》之末章，专讲第十地——法云地。前承第九地（善慧地）之问法，由解脱月菩萨启请，金刚藏菩萨广演菩萨从初地至十地的最高阶位：受职灌顶、莲华化生、放光灭苦、得诸三昧与解脱门、如实知种种界集与如来微细秘密、以大海喻受持佛法、以十山王喻十地次第、以大摩尼珠喻菩萨十事，终以颂偈重宣十地行相与功德。本品是整个十地品的收束，也是菩萨行向佛智过渡的关键阶位。", "tip": "读本卷可抓三条主线：一是「受职灌顶」之事相（莲华、放光、诸佛灌顶），二是「如实知」之智用（界集、化、持、微细、秘密、入劫、入毛道等），三是「三重比喻」之收束（十山、大海、摩尼珠）。长行之后有长颂重宣，可与长行对读以互证。注意本品是十地品之末，十地阶次至此圆满，下卷转入佛不思议法等品。"}, {"n": 40, "pin": "十定品（一）", "hui": 7, "stage": "等觉", "types": ["doc", "scene"], "brief": "普眼三求不见普贤；佛嘱说十大三昧，释前二定", "size": 47360, "ov": "本卷为《大方广佛华严经》卷第四十，属「十定品第二十七」之初（之一），承前诸品之后转入对菩萨「大三昧」的系统开示。全卷以普眼菩萨三度求见普贤而不得为引线，由佛点明普贤境界甚深不可思议，进而由如来嘱普贤菩萨为众宣说「十三昧」（即十大三昧），并开始详释第一「普光明三昧」与第二「妙光明三昧」的善巧智。本卷主旨：阐明普贤菩萨秘密境界之难见难思，以及菩萨入大三昧后于一多相即、延促互入、幻化无碍中所证得的法界自在。", "tip": "读本卷可带着两个问题：其一，普眼及众已是十佛刹微尘数大菩萨，何以三求不得见普贤？佛所教「发与普贤同一行愿」方得见，与下文普贤自现身之间，是怎样的因果次第？其二，十大三昧之名目既已列出，第一、第二两定的善巧智何以皆以「幻」与「影」为喻？这与你平时理解的「三昧=定」有何不同？循此二问读下去，可见本卷「由境及行、由行证境」的双向结构。"}, {"n": 41, "pin": "十定品（二）", "hui": 7, "stage": "等觉", "types": ["doc", "cat"], "brief": "第三至第七定：时劫国土无分别，日天子阳焰等喻", "size": 43807, "ov": "本卷为《大方广佛华严经》第四十一卷，承接第三十九、四十卷「十定品第二十七」之一，是十定品的下半（「十定品第二十七之二」）。经文以普贤菩萨回答佛子之问的形式，逐一阐明菩萨摩诃萨所入的十种大三昧中第三至第七共五种：次第遍往诸佛国土神通三昧、清净深心行三昧、知过去庄严藏三昧、智光明藏三昧、了知一切世界佛庄严三昧。每一品皆以「佛子！云何为菩萨摩诃萨……三昧？」发问，再以「佛子！是为菩萨摩诃萨第N……大三昧善巧智」收束，层层展开菩萨以三昧力遍入三世十方、了知众生根欲、成就佛事功德的境界。本卷主线是：菩萨于时劫国土无所分别，以善巧方便起三昧用，令自他皆得圆满。", "tip": "读本卷宜把握「时—土—佛—法—机」五重次第的展开骨架，并将每一三昧末尾的譬喻（日天子、阳焰、寤梦、歌罗逻、日出、虚空月轮、帝释髻珠）视为对该定义理的印定，由喻入义，方能贯通「不分别而善巧知」的菩萨境界。"}, {"n": 42, "pin": "十定品（三）", "hui": 7, "stage": "等觉", "types": ["doc", "cat"], "brief": "差别身三昧「入—起」长串对举，四河入海喻", "size": 55124, "ov": "本卷为《大方广佛华严经》卷第四十二，属「十定品第二十七」之三，承接前卷继续由普贤菩萨为佛子宣说菩萨摩诃萨所修十种大三昧。本卷集中讲第八「一切众生差别身大三昧」与第九「法界自在大三昧」两门善巧智。前者以「一身入定、他身起」的入出自在，演说菩萨于种种身、种种界、种种时、种种法中圆融无碍；后者以「于一毛孔入三昧，普见法界」的境界，明菩萨得诸佛摄受、十种海、十种殊胜、十种力及四河入海之喻。全卷以「定体→入起自在→称赞光明→神通彼岸→法界自在→四河喻收束」为线，层层展开菩萨三昧的体用与功德边际。", "tip": "读本卷可抓住「入—起」二字为眼：凡见「某入某起」之长串对举，不要逐对记忆，而要看出其总相——差别法中入、无差别法中起，无差别法中入、差别法中起。四河喻为全卷最精彩的比喻层，宜对照「四辩才—四方—四智河」三层结构细读，体会华严「一即一切、一切即一」之旨如何由比喻落实于菩萨行。"}, {"n": 43, "pin": "十定品（四）", "hui": 7, "stage": "等觉", "types": ["doc"], "brief": "第十无碍轮三昧，普贤行极顶，伊罗钵那象王喻", "size": 71426, "ov": "本卷为《十定品第二十七》之四，是普贤菩萨向普眼菩萨等宣讲「菩萨摩诃萨十大三昧」的最后一部分——第十「无碍轮三昧」。此三昧为普贤行之极顶，菩萨住此三昧即等同如来而不舍菩萨行。卷末以「伊罗钵那象王」为喻，收束全品，点明菩萨「不舍普贤行、不断菩萨道」而又「现成正觉」的不二义，并总结「十种三昧」之名，圆满回向品前之定门。", "tip": "读本卷可带着两个问题：菩萨既已同佛，为何仍名菩萨？为何要「不舍普贤行」？抓住「虽知……而演说」的句式与象王喻，即可贯通全卷「无碍」与「不二」之旨。"}, {"n": 44, "pin": "十通品·十忍品", "hui": 7, "stage": "等觉", "types": ["doc", "verse"], "brief": "十种神通之用与十忍之体（幻焰梦响影化空七喻）", "size": 80060, "ov": "本卷位于《大方广佛华严经》第四十四卷，含两品：**十通品第二十八**与**十忍品第二十九**，皆由普贤菩萨为诸菩萨演说。前品明菩萨摩诃萨所成就的十种神通（他心智、天眼、宿住、尽未来际、天耳、无体性无作往一切佛刹、善分别言辞、出生无数色身、一切法智、一切法灭尽三昧），后品明菩萨所修的十种忍（音声、顺、无生法、如幻、如焰、如梦、如响、如影、如化、如空），并以长行后的颂偈重宣其义。两品合观，一明菩萨之**大用**（神通化他），一明菩萨之**深智**（忍可法性），用不离体，体起为用，是华严「因果同时、理智不二」的展开。", "tip": "读本品可抓住一条主线：每一通/每一忍，皆先说「所缘境无量」（事），再说「菩萨悉知/悉见/悉能」（用），最后归到「知法无相、随俗方便、不舍度生」（体）。把握「事→用→体」三层，便不会迷失于繁复的列举与「非X非不X」的双非句中。颂偈部分可对照长行细读，许多深义在偈中更为凝练。"}, {"n": 45, "pin": "阿僧祇品·寿量品·诸菩萨住处品", "hui": 7, "stage": "等觉", "types": ["cat", "doc"], "brief": "数之极、时之极、方之极：华严的大数与大劫", "size": 46133, "ov": "本卷承接前文「离世间品」之后，进入华严经后段的「数量、时间、空间」三章总收。全卷由心王菩萨发起问请，佛与心王菩萨相继宣说，分为三品：**阿僧祇品第三十**（佛自说数量单位递进之相）、**寿量品第三十一**（心王菩萨说诸佛刹土时间相对之量）、**诸菩萨住处品第三十二**（心王菩萨说菩萨于世间各处住止说法）。三章皆以「数量无尽」为骨，从「数之极」推至「时之极」再至「方之极」，显示法界缘起重重无尽的规模，为下文「佛不思议法品」「十身相海品」等铺陈菩萨所观之境。", "tip": "读本卷可带着两个问题：其一，佛为何要用如此密集的数量递进，其用意不在记数而在显示什么？其二，心王菩萨所说诸佛刹土时间相对与菩萨住处遍布人间，与本品开头的「数量无尽」如何呼应？读时不必逐个记诵数量名称，把握「自乘递进」与「重重相摄」两层结构即可。"}, {"n": 46, "pin": "佛不思议法品（一）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "以「十种×二十一」枚举诸佛不思议功德", "size": 50048, "ov": "本卷是《大方广佛华严经》卷第四十六，属「佛不思议法品第三十三」之首品（之一），承接前文普贤行愿之后，转入对「诸佛不思议法」的系统宣说。经中先由大会菩萨起十种问（佛国土、本愿、种性、出现、身、音声、智慧、自在、无碍、解脱云何不思议），世尊以神力加持青莲华藏菩萨，令其入佛法界、得佛无碍观察，由青莲华藏菩萨承佛神力告莲华藏菩萨，以「佛子」为引，次第宣说诸佛世尊所具之十类（实为二十一数，每数约十种）不思议功德法，从普遍法界的佛法一直到善巧方便，层层展开佛果境界的广大圆满。", "tip": "读本卷可带着两个问题：其一，佛为何能于一念、一微尘中现无量事？其二，诸佛「离过清净」「究竟清净」与「不舍众生」「调伏不失时」如何统一？循此二问，可于重重排比中不迷失，见到「智圆满」与「悲无尽」的一体两面。"}, {"n": 47, "pin": "佛不思议法品（二）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "广大佛事、无二行、一毛持世界等十二组佛德", "size": 58712, "ov": "本卷属〈佛不思议法品第三十三〉第二部分，承接上卷普贤菩萨受如来威神加被、为大众宣说佛境界的脉络。本品不叙因缘故事，而以纯列举方式系统敷演「诸佛世尊」之不思议功德，将佛之所以为佛的体、相、用层层展开：由「事」（佛在世间所作之广大事业）入「行」（无二、安住、尽知、力、勇健等自受用德）再归「化」（决定、速疾、忆念、一切智住、三昧、无碍解脱等利他之用）。全卷以「十种」为枚举单位，共十二组，结构整严，是华严经中描述佛德最集中的一卷。", "tip": "读本卷可带着两个问题：其一，佛既「无二」「平等」「一相无相」，为何又示现从兜率下生、处胎、出家、成道、涅槃这般曲折的一生？——答案在「事」与「理」不二。其二，「一毛端」「一尘」「一念」在本卷反复出现，作者要以此打破读者对时空大小的常识执取，读时不妨将每一处「不可说不可说佛刹微尘数」都视为对「量」概念的解构，而非夸张修辞。"}, {"n": 48, "pin": "十身相海品·随好光明品", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "story"], "brief": "九十七大人相各以云名放光；随好光拔地狱苦、天鼓说法", "size": 69279, "ov": "本卷由普贤菩萨与佛（对机宝手菩萨）相继宣说，分二品：**如来十身相海品第三十四**（普贤菩萨告众，列举如来身上九十七种「大人相」之名义庄严）、**如来随好光明功德品第三十五**（佛告宝手菩萨，说如来随好「圆满王」所放光明，拔地狱众生令生兜率，复由天鼓演法，令诸天子忏悔业障、回向发心，获菩萨十地、肉眼清净）。前品广陈「相海」之境，后品深明「随好放光」之功，一境一用，相即不二。", "tip": "读本卷可带着两个问题：其一，普贤菩萨为何要如此密集地枚举九十七相、几乎每一相都以「云」为名？其二，天鼓所说法为何反复以「非十方来」为喻？前者提示相海即法界云海，后者提示业果本性空寂——把握此二层，则繁复的相名与天鼓的反复譬喻皆有其义，不必逐相记名。"}, {"n": 49, "pin": "普贤行品", "hui": 8, "stage": "佛果·妙觉", "types": ["prac", "verse"], "brief": "「一瞋成百万障门」警策，全经最长偈段之一", "size": 43175, "ov": "本卷为《大方广佛华严经》卷第四十九，品属「普贤行品第三十六」。前承诸品广陈菩萨行位与如来依正庄严，本卷由普贤菩萨摩诃萨重告大众，承上启下，直指菩萨行的根本心要与广大境界。全卷以「一瞋心成百万障门」为警策起点，次第展布「十法→十清净→十广大智→十普入→十胜妙心→十佛法善巧智」六重十法门，再以颂偈广演普贤行界、三世诸佛出现、世界成坏、法身周遍、妄想起灭等义，收束于「一切智方便边际不可得」之无碍观行。要旨：以息瞋、不舍众生为菩萨行之纲领，以十门次第为修入之阶，以法界缘起、念念互入为观行之极。", "tip": "读本卷可循「瞋心之害→十法之因→十门之果→法界无碍→如幻度生」一线而下：先警策，立行本；次第十门，示修入；颂偈广演，显境界。遇「一毛道入一切世界」「一念入不可说劫」等句，勿作玄谈，当作菩萨亲证之境界观之。遇「众生皆妄起，善恶诸趣想」等句，当知世间相皆唯想所现，菩萨度生而不著有、不离有，是为普贤行之极致。"}, {"n": 50, "pin": "如来出现品（一）", "hui": 8, "stage": "佛果·妙觉", "types": ["doc", "verse"], "brief": "以大云降雨、四风轮等十相喻如来出现", "size": 71788, "ov": "本卷为《大方广佛华严经》「如来出现品第三十七」之首卷（之一），承接前文菩萨行愿圆满之后，转入对「如来出现」这一大法的开示。全卷由两番光明发起，经如来性起妙德菩萨启问、普贤菩萨作答，以「如来出现十相」与「如来身十相」两大譬喻体系，阐明佛之所以出现于世的事相因缘与法身遍满的理体境界。", "tip": "读本卷可带着两个问题：佛既「无身、无分别、无所作」，为何又「出现于世、随机说法」？留意「一味法雨」与「无量差别」如何在同一句中并立——这是华严「理事无碍」最直接的示范。"}, {"n": 51, "pin": "如来出现品（二）", "hui": 8, "stage": "佛果·妙觉", "types": ["doc", "verse"], "brief": "音声十相（天鼓、四龙王兴云）与心十相（大海潜流）", "size": 62624, "ov": "本卷为《如来出现品》第三十七之二，紧承上卷「如来身相」，专讲如来「音声」与「心」两种境界，仍由普贤菩萨演说。全卷以「音声十相→音声十无量→重颂→心十相→重颂」为序，借十种世间譬喻（呼响、天鼓、善口天女、大梵音、众水一味、诸龙王降雨、微尘经卷等），开显如来音声无生灭、无方所、普入法界，及如来心意识俱不可得、唯智无量之义，归结「无一众生而不具有如来智慧」之圆教极唱。", "tip": "读本卷可紧扣两条线：一是每相「譬喻→亦复如是→是为第N相」的三段结构，二是「差别在机、平等在佛」这一反复出现的收束语。第十音声相（娑竭罗）与第十心相（微尘经卷）为全卷两大高峰，前者广说法门差别，后者直指众生本具佛智，宜细读。"}, {"n": 52, "pin": "如来出现品（三）", "hui": 8, "stage": "佛果·妙觉", "types": ["doc", "verse"], "brief": "境界、行、成正觉、转法轮、涅槃五重问答收束", "size": 62103, "ov": "本卷为《大方广佛华严经》「如来出现品第三十七」的最后一部分（之三），承接前二卷对如来身、语、意功德的开显，由普贤菩萨为会众宣讲如来五种甚深行相：**境界、所行、成正觉、转法轮、般涅槃**，并以「见闻亲近所种善根不虚」收束全品，引出十方同名普贤如来现身作证、授记大众。全卷以「境界无量→行无所行→正觉一相无相→法轮无转而转→涅槃无生无灭→善根金刚不坏」为线索，层层递进，将「如来出现」从外在神变引归于众生自心，最终归结到「此法门唯为菩萨说、唯如来真子能持」的秘教收束。", "tip": "本卷五重问答可依「境→行→果→用→灭」次第读：先识境之量，次观行之寂，次悟果之无相，次见用之无转，次了灭之无灭，最后归宗于「善根金刚不消」与「法门唯菩萨能持」。读时注意每一喻皆与所立宗义严密对应——龙王降雨喻心佛境不二、金翅鸟喻佛拔善根人、日影器坏喻涅槃非佛咎、雪山药王喻见闻六根清净——喻即是宗，不可滑过。"}, {"n": 53, "pin": "离世间品（一）", "hui": 8, "stage": "佛果·妙觉", "types": ["doc", "cat"], "brief": "普慧一口气近二百问，普贤自「十依」起叠答", "size": 57642, "ov": "本卷是《大方广佛华严经》「离世间品第三十八」之首卷（之一），承前「十定品」「十通品」「十忍品」等菩萨行位之后，转入对菩萨「行法」的总体宣说。全卷以普贤菩萨在普光明殿入「佛华庄严」三昧、起已答普慧菩萨之问为线索，借「十十相扣」的问答体，集中铺陈菩萨摩诃萨从「依、行、善知识」直至「变化、力持」等一系列修法名目，揭示大乘菩萨行如何在世间发起、又如何不著世间而契入佛智，故名「离世间」——非离世间别求出离，即世间而离世间。", "tip": "读本卷宜抓住「十十相扣」之骨架，不必逐项记忆；可留意每段结尾的收束句，皆指归「如来无上大智」「普贤行愿」，即知全卷以「普贤行愿→入佛智」为宗。又可对照后卷普慧之问续答（如四无量、四谛、佛业等），本卷乃其总序。"}, {"n": 54, "pin": "离世间品（二）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "大欣慰至无等住二十六组「十法」枚举", "size": 58104, "ov": "本卷为《大方广佛华严经》卷第五十四，属「离世间品第三十八之二」，紧承前卷普贤菩萨答菩萨行之间答。全卷仍由普贤菩萨对佛子申说，自「菩萨摩诃萨有十种大欣慰」起，至「十种无等住」止，共列举二十六组「十种法」——大欣慰、深入佛法、依止、发无畏心、无疑心、不可思议、巧密语、巧分别智、入三昧、遍入、解脱门、神通、明、解脱、园林、宫殿、所乐、庄严、不动心、不舍深大心、智慧观察、说法、清净、印、智光照、无等住。其特色在于「以十列法、以法显行」，将菩萨从初发心至成正觉的修行次第、心境、方便与境界，悉数铺陈为可循的法目。", "tip": "读本卷可抓住「心—解—行—境—果」一条线，将二十六组「十法」按此序归位，即可不迷于枚举之繁；并留意反复出现的「不证实际」「不舍悲愿」「于一念中」「周遍法界」等关键语，这些正是华严菩萨行超胜二乘、即事而真、重重无尽的根本精神。"}, {"n": 55, "pin": "离世间品（三）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "无下劣心至十自在，发心→解行→誓愿因果链", "size": 56879, "ov": "本卷属《大方广佛华严经·离世间品第三十八》之三，承前两卷普慧菩萨二百问、普贤菩萨叠答之体例，继续由普贤菩萨为菩萨摩诃萨开示一系列法门。全卷以「十种」为单位，枚举菩萨从初发心到究竟菩提所应发起、安住、成就的各类心行——由「无下劣心」起步，经「如山增上心」「如海智」「如宝住」「如金刚大乘誓愿心」「大发起」「究竟大事」「不坏信」「得授记」「善根回向」「得智慧」「发广大心」「伏藏」「律仪」「自在」，凡十五门，层层升进，统摄菩萨因地到果地的一切行相。其核心在于：菩萨于「一切法无所得」的空性中，仍炽然修行、不舍大悲、不证实际，以「无所得」与「勤修行」不二为宗。", "tip": "读本卷可带着两个问题：其一，菩萨既了达「一切法皆无所得」，为何仍炽然修行、不舍大愿？其二，「十」这个数字在每一门反复出现，其表法意义为何？前者是空与悲的辩证，后者是「十十相摄、重重无尽」的华严数法门。把握这两点，便能透过枚举的繁复，见到菩萨「不证实际、不舍大悲」的一贯精神。"}, {"n": 56, "pin": "离世间品（四）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "无碍用、游戏、无畏、不共法等二十余组", "size": 67868, "ov": "本卷为《大方广佛华严经》「离世间品第三十八之四」，承接前三卷普慧菩萨二百问、普贤菩萨两千答的结构，继续以「佛子！菩萨摩诃萨有十种……」的格式逐一展开菩萨行门的种种功德差别。本卷主旨是广说菩萨在因位所修所证的「十种」行相——从「无碍用」到「决定解知众生界」，统摄境、行、果三轮，尽显菩萨「不舍世间、不住生死」的中道大用。全卷二十余组「十法门」层层递进，由作用（无碍用、游戏）而体性（境界、力、无畏、不共法），再由身语意业（身、身业、语、净修语业）到心行根本（心、发心、周遍心、根、深心、增上深心、勤修、决定解），最后收束于对「世界」「众生界」的了知，圆满收摄一切所化之境。", "tip": "本卷属典型的「十法门」广说体例，阅读时不必逐一记诵十项差别，宜抓三要点：一辨每组「十」的「立名角度」（约用、约相、约体、约心、约境）；二看每组结尾的「若诸菩萨安住此法，则得如来无上……」收束句，即此法门所趣之果；三留意「无畏」「不共法」两组中反复出现的「作如是念」「不由他教」等关键句，这是菩萨「内观空寂而外行大悲」的行相所在。"}, {"n": 57, "pin": "离世间品（五）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "习气道足手腹藏心，行住坐卧全幅庄严化", "size": 65765, "ov": "本卷为《大方广佛华严经》第五十七卷，属「离世间品第三十八之五」，是普贤菩萨向「佛子」（菩萨摩诃萨）连续宣说的一系列「十种」法门。整卷以「菩萨摩诃萨有十种……」为基本句式，从内在习气、取著、修行，到外在道、足、手、腹、藏、心、被甲、器仗、首、眼、耳、鼻、舌、身、意、行、住、坐、卧、所住处、所行处、观察、普观察、奋迅、师子吼，层层铺陈菩萨从心念到身相、从内证到外用的全部庄严。其核心是说明菩萨如何于一切处不离世间而又出离世间，即「不离世间而证菩提」。", "tip": "本卷是典型的「十种」枚举体，初读易觉重复，实则每一组「十种」都对应菩萨道的一个层面。建议带着两个问题读：其一，菩萨如何「不离世间而证出世」？其二，从足至首、从眼至意，菩萨色身威仪如何全幅庄严化？抓住「安住此法，则得如来无上……」的收束句，即可把握每组法门的归结。"}, {"n": 58, "pin": "离世间品（六）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "doc"], "brief": "清净六度四无量、十种魔与魔业对治、兜率下生十事", "size": 73829, "ov": "本卷为《大方广佛华严经·离世间品第三十八》之第六段，承前续讲普慧菩萨二百问、普贤菩萨广答之体系。全卷由「菩萨十种清净行→十种义/法→福智二种助道具→十明足→十种求法/明了法/修行法→十种魔与魔业及舍离→十种见佛/佛业/慢业→智业→魔所摄持与佛所摄持→法所摄持→兜率十业与下生十事」一线贯穿，前半以「十种」为基本结构枚举菩萨自利利他之净行，后半转入降生兜率、现瑞下生的具体事相，为下卷释迦降生人间作铺垫。主旨：菩萨行从因位净业到果位度生，层层圆备，皆以普贤大行贯摄。", "tip": "读本卷可带着两个问题：一、「十种」之数反复出现，其内在逻辑为何？二、前半之「行」与后半之「事（兜率下生）」如何衔接？抓住「因行—果用」一线，便见普贤行从净业到垂迹之圆融。"}, {"n": 59, "pin": "离世间品（七）", "hui": 8, "stage": "佛果·妙觉", "types": ["cat", "verse"], "brief": "处胎至涅槃八相各十事，普贤长颂总摄全品", "size": 82130, "ov": "本卷为《离世间品》第三十八之七，是离世间品的收束部分。前几卷广明菩萨行位因果，本卷则以「最后身菩萨从处胎到涅槃的示现」为线索，把菩萨八相成道（处胎、降生、微笑、七步、童子、王宫、出家、苦行、诣道场、坐道场、降魔、成佛力、转法轮、种白净法、般涅槃）的每一相都列出「十种事」，构成一组「菩萨示现事相门」。卷末普贤菩萨以长颂总摄菩萨无量功德行，并归结于「应发金刚心，学此功德行」，为离世间品作大收束。整卷主旨是：菩萨一切行门皆为调伏众生而示现，依如说修行疾成菩提。", "tip": "读本卷可抓住两条线索：一是「八相示现」之事相推进（每相皆十事，注意「为……故示现」的句式），二是卷末长颂以喻摄行（莲华、法树、师子王、商主、转轮王等），由喻见德。通读时留心「调伏众生」四字在每段末反复出现，为本卷之眼。"}, {"n": 60, "pin": "入法界品（一）", "hui": 9, "stage": "证·入法界", "types": ["scene", "doc"], "brief": "逝多林序分：师子频申三昧现神变，声闻同在而不见", "size": 82821, "ov": "本卷为《入法界品第三十九》的开篇（之一），是整部《华严经》末后大段——善财童子五十三参——的序幕。全卷未入善财参访正文，而是先把场景搭起：世尊在室罗筏国逝多林给孤独园，与五百菩萨摩诃萨、五百声闻及无量世主俱。普贤、文殊为菩萨上首，舍利弗、大目揵连等为声闻上首。世尊入「师子频申三昧」，以大悲力现不思议庄严，十方菩萨各从其国来集，兴云现供。然同在林中的大声闻却完全不见如来神变与菩萨境界——此即本卷主旨：同一法会，菩萨见佛境界，声闻不见；同一道场，因善根、愿力、眼目不同而所见迥异。由此引出下卷善财童子南行参访善知识的全部动因。", "tip": "读本卷宜带着两个问题：其一，菩萨与声闻同在林中，为何所见天壤之别？其二，十方菩萨各从其国来集、各兴宝云，这铺陈在「法界缘起」中说明什么？把握这两点，再读下卷善财南行参访便有了一个明确的「能入之门」——发菩提心、依善知识、修普贤行。"}, {"n": 61, "pin": "入法界品（二）", "hui": 9, "stage": "证·入法界", "types": ["scene", "story"], "brief": "普贤演三昧十法句；文殊南行度六千比丘", "size": 57706, "ov": "本卷属《入法界品第三十九》之二，是「入法界」大序幕的展开。前半卷承上一卷「师子频申三昧」，由普贤菩萨以十种法句广演此三昧境界，复以颂偈重宣；如来眉间白毫放光普照法界，逝多林菩萨大众于一一微尘中各见佛刹微尘数佛成道转法，悟入无量三昧神变。后半卷笔锋一转，文殊师利童子从善住楼阁出，南行人间；尊者舍利弗率六千新学比丘随行，文殊为诸比丘说「十种趣大乘无疲厌心」，令得「无碍眼见一切佛境界三昧」，再劝其安住普贤行——为后文善财童子五十三参正式拉开帷幕。", "tip": "读时把握两条线：一是「定中境界」（普贤演说、如来放光、菩萨入三昧）展示法界重重无尽之相；二是「出定起行」（文殊南行、度诸比丘住普贤行）展示由定发愿、由智起行的实践次第。后者正是下一卷善财童子五十三参的序曲。"}, {"n": 62, "pin": "入法界品（三）", "hui": 9, "stage": "证·入法界", "types": ["story", "dialogue"], "brief": "福城善财得名发心；德云、海云、善住前三参", "size": 63599, "ov": "本卷为《入法界品》第三十九之三，是著名的「善财童子五十三参」之开端，在整部《华严经》中地位关键：前此诸品多由普贤、文殊等大菩萨于法会中敷演法界因果，至此转入「善财童子」一人南行参访的实践叙事，将「法界」从菩萨境界落实到学人可循的次第修行之路。全卷主线为：文殊师利菩萨至福城东庄严幢娑罗林说法→善财童子因七宝涌现而得名→发菩提心、说颂求道→奉文殊指教南行→参访德云比丘、海云比丘、善住比丘，依次得「忆念一切诸佛境界智慧光明普见法门」「普眼法门」「无碍解脱门」。文殊为始，善财为缘，三参为门，构成「发心→亲近善知识→历境渐修→转指下一善知识」的参访范式。", "tip": "读本卷可带着两个问题：(1)善财每参一位善知识，所得法门与前一参有何递进关系？(2)文殊为何不自行说尽一切法，而要善财辗转南参？注意「谦言唯知此门」与「转指下一善知识」的反复出现，这是五十三参叙事的密码。"}, {"n": 63, "pin": "入法界品（四）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "弥伽、解脱长者「诸佛由自心」、海幢毛孔现身", "size": 67491, "ov": "本卷为《入法界品第三十九》之四，紧接善财童子南行参访善知识的主线。全文依次记述善财参访三位善知识：**弥伽**（市中说法者，得妙音陀罗尼）、**解脱长者**（住林聚落，入普摄一切佛刹无边旋陀罗尼）、**海幢比丘**（摩利聚落经行侧入三昧，身出无量众生教化法界）。三人各自显示一种「自心即法界」的菩萨行相，由浅入深，层层推展，最后由海幢比丘身中一一毛孔、一一部位出无量身，普雨法雨，充满十方法界，归宗于「唯心」与「般若波罗蜜」。卷末指引善财再往海潮处参优婆夷休舍，五十三参脉络延绵不断。", "tip": "读本卷可带着两个问题走：第一，三位善知识各自用「身」或「语言」显现什么？弥伽以语言通诸趣，解脱长者以一身现十方佛，海幢以全身各部位出无量身——这条「语言→刹土→全身」的递进正是般若境界的展开。第二，卷中反复说「一切佛皆由自心」，这「自心」是否就是众生当下之心？留意解脱长者「如梦、如影像、如水、如幻、如响」五喻，看其如何避免「真心实有」的执取。"}, {"n": 64, "pin": "入法界品（五）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "休舍优婆夷、毗目瞿沙、胜热刀山火聚苦行", "size": 63987, "ov": "本卷属《入法界品第三十九》之五，为善财五十三参中段。善财南行，本卷接连参访休舍优婆夷、毗目瞿沙仙人、胜热婆罗门三知识，从「福严依报与发心量」「摩顶授手契入法界」「苦行破执显真」三层面推进，层层推升善财证境。主旨：善知识是入法界门径，菩萨发心广大无量，苦行外相下可藏金刚焰三昧，参学须净信破疑、随教不退。", "tip": "读本卷宜扣「善知识—发心—证境」三线：每参先观境界之相（依报/正报/苦行），再看善财的疑与信（休舍无疑、毗目摩顶、胜热先疑后信），最后看法门名号如何层层递进。注意三参末皆以「如诸菩萨摩诃萨……而我云何能知能说」收束并推指下位，为善知识谦己推人之常式。"}, {"n": 65, "pin": "入法界品（六）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "慈行童女般若庄严、善见比丘等五短参", "size": 67797, "ov": "本卷属〈入法界品第三十九之六〉，承接善财童子南行参访善知识的主线。善财已于前卷陆续参访，本卷连续呈现五参——慈行童女、善见比丘、自在主童子、具足优婆夷、明智居士，是「五十三参」中段集中涌现的一组。五位善知识身份各异：王女、比丘、童子、优婆夷、居士，所修法门亦各别——般若普庄严、随顺灯解脱、工巧神通智、无尽福德藏、随意出生福德藏，共同彰显「一法门中见一切法界」的华严宗要：法界缘起、重重无尽、一多相即。", "tip": "读本卷可带着一个问题：五位善知识身份、处所、法门各不相同，却都说「我唯知此一门」并谦推下一位——华严借这种结构要说明什么？留意每一参中「境相」（殿、林、河渚、宅、市台）如何即是法界显现。"}, {"n": 66, "pin": "入法界品（七）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "无厌足王如幻、大光王大慈、不动优婆夷等五参", "size": 78836, "ov": "本卷属《入法界品第三十九》之七，承善财童子五十三参的中段。善财自明智居士处得法后，继续南行，依次参访五位善知识：宝髻长者、普眼长者、无厌足王（阿那罗）、大光王、不动优婆夷。各善知识皆示现一法门，从「福德宝藏」到「香和合」、「如幻解脱」、「大慈幢行」、「求法无厌足」，层层递进，共同指向菩萨行的无量方便与不思议境界。全卷以「善财参访→善知识自述法门→推荐下一位」为基本循环，串起一组以在家、王身、童女身现世的菩萨示范。", "tip": "带着两个问题读：每位善知识自述的法门与他的身份（长者、王、童女）有何关联？五位法门之间如何层层递进，从「外相庄严」走向「心性甚深」？"}, {"n": 67, "pin": "入法界品（八）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "遍行外道、鬻香长者、船师、师子频申比丘尼等五参", "size": 65556, "ov": "本卷属《入法界品第三十九》之八，承接善财童子五十三参的参访历程。本卷连续记述善财参访五位善知识：遍行外道（都萨罗城，住「至一切处菩萨行」）、鬻香长者优钵罗华（广大国，住「调和香法」）、船师婆施罗（楼阁城，住「大悲幢行」）、长者无上胜（可乐城，住「至一切处菩萨行门无依无作神通之力」）、比丘尼师子频申（迦陵迦林日光园，住「成就一切智解脱」）。主线是善财一路南行、逐位参访，各善知识皆自陈所证法门，谦言「唯知此一法」，再指点下一位善知识，层层推演菩萨行门之广大，最终引向婆须蜜多。核心主旨：菩萨行无处不在，世间一切技艺、行业、身份皆可入道，皆可利益众生。", "tip": "读本卷可带着两个问题走：一是善知识为何皆谦言「唯知此一法」并推赞上位菩萨？二是五位善知识的行业（外道、鬻香、航海、理务、园林说法）如何各各成为菩萨行门？抓住这两条线，即可看出本卷「法门无尽、位位高深、不舍一法」的整体意趣。"}, {"n": 68, "pin": "入法界品（九）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "婆须蜜多离贪欲际、观自在、安住地神等七短参", "size": 85134, "ov": "本卷属《入法界品第三十九》之九，是善财童子五十三参的延续部分，集中记述善财依次参访婆须蜜多女、鞞瑟胝罗居士、观自在菩萨、正趣菩萨、大天神、安住地神、婆珊婆演底主夜神七位善知识。本卷以「善财逐位参问→各善知识自述所得法门及本生因缘→指示下一位善知识」为基本循环，层层推进，贯穿「烦恼即菩提」「悲智双行」「三世一念」「一毛孔中现一切法界」的华严圆融义。七位善知识分属在家女、居士、大菩萨、天神、地神、夜神等不同身份，显示菩萨道遍于一切境界而无所不在。", "tip": "读本卷可带着三个问题：①七位善知识所示法门虽别，其共同指向是什么？（注意每位末后「如诸菩萨摩诃萨……而我云何能知能说彼功德行」的谦退与推赞。）②婆须蜜多以欲治贪、大天以不净与恐怖形调伏，这种「以烦恼对治烦恼」的方便与一般渐修行门有何不同？③善财每至一处必先「顶礼其足、合掌而立、白言：我已先发阿耨多罗三藐三菩提心」，这一固定请问仪轨在结构上有何用意？"}, {"n": 69, "pin": "入法界品（十）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "喜目观察夜神：毛孔十波罗蜜身云＋历劫供佛本生", "size": 69369, "ov": "本卷为「入法界品第三十九之十」，紧承前卷善财童子参访婆珊婆演底夜神之后，连续记述善财参访两位夜神：**普德净光夜神**（说「寂静禅定乐普游步解脱」）与**喜目观察众生夜神**（说「大势力普喜幢解脱」）。两位夜神所入法门皆以「普见三世一切诸佛」「一一毛孔出变化身云」为相，层层展开菩萨如何以一身遍现法界、调伏众生的境界。本卷是善财五十三参中部幅度较大的两参，由「明心见佛」推进至「从初发心至究竟地之相续次第」，并借喜目夜神之长颂，回溯其历劫供养诸佛、得文殊师利童子与普贤菩萨觉悟的本生因缘，为下卷继续参访普救众生妙德夜神埋下伏笔。", "tip": "读本卷可带着两个问题：其一，善财于途中何以反复赞叹「见善知识」之功德，与两位夜神所证法门如何呼应？其二，喜目夜神历劫供养诸佛皆自云「未得深智」，直至功德幢佛为说何法方入普贤道？把握这两条线索，即可见本卷由「善知识功德」收束至「文殊普贤化现」的圆融结构。读长颂中历劫佛名不必逐个记诵，留意其「供佛—谦推—最终入普贤道」的递进脉络即可。"}, {"n": 70, "pin": "入法界品（十一）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "普救众生妙德夜神本生：转轮王女见普贤发心", "size": 69170, "ov": "本卷为《入法界品第三十九之十一》，属善财童子五十三参的中段。善财由喜目观察众生夜神处辗转来到普救众生妙德夜神所，请法参访。本卷核心是普救众生妙德夜神为善财示现「菩萨调伏众生解脱神力」，并自述其往昔本生——于「圆满清净劫」毗卢遮那大威德世界中，身为转轮王女妙德眼，蒙普贤菩萨劝导修补佛像、发菩提心，又经多劫历侍诸佛，终得此「普现一切世间调伏众生解脱门」。整卷以「现神力→偈赞请问→本生因缘→历劫修行→结指下一位善知识」为脉络，把普贤行愿的因果次第完整演述一遍。", "tip": "读本卷可抓住两条线：一是「光明」之线——从夜神眉间光、佛出世前十年次放十光、转轮王女璎珞化盖所显神力，皆以光明为度生媒介；二是「善知识」之线——妙德眼始终由普贤劝发、引导、成熟，至卷末又推善财往参寂静音海。两线交织，即「依善知识得一切智光明」的总义。"}, {"n": 71, "pin": "入法界品（十二）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "寂静音海与守护一切城二夜神：念念广大喜、甚深自在妙音，历十佛本生", "size": 84852, "ov": "本卷为《入法界品》第三十九之十二，善财童子五十三参中的第35、36两参：先访**寂静音海夜神**，得「念念出生广大喜庄严解脱」；再访**守护一切城增长威力夜神**，得「菩萨甚深自在妙音解脱」。两参共用「问答自陈得法→追溯发心久如→重宣偈颂→谦己推胜→指路下一善知识」的固定结构，一卷之内连续演示两次，最宜对照阅读。", "tip": "读时抓住两把钥匙：一是「既见是已，生大欢喜」——示范如何一重重观佛而步步生喜；二是「我唯知此……」——善财参访一贯的谦辞，每参只知一法，故须遍访善知识，直至弥勒、普贤。"}, {"n": 72, "pin": "入法界品（十三）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "开敷一切树华夜神：出生广大喜光明，一切法音圆满盖王本生", "size": 63796, "ov": "本卷为《入法界品》第三十九之十三。善财童子承上卷从守护一切城增长威力夜神处所得的「菩萨甚深自在妙音解脱」，修行增进，依其指授前往参访开敷一切树华夜神。夜神自陈所证「菩萨出生广大喜光明解脱门」：先说她在娑婆世界日暮之后密护众生归途、以老病死相警醒憍慢者、对机令住各种波罗蜜；再入境界开示，忆念毗卢遮那如来往昔为菩萨时的本生——一切法音圆满盖王的大布施与宝光明童女的赞佛因缘；末了指授善财去参大愿精进力救护一切众生夜神。", "tip": "读本卷宜紧扣「岂异人乎」——长篇本生叙事最终都收摄在人物身份的揭示上：今日说法的夜神，正是当年以偈赞佛、蒙王授衣的宝光童女。偈颂（佛境界甚深颂、宝光明赞王偈、夜神重宣颂）是长行的提要，可对照把握。"}, {"n": 73, "pin": "入法界品（十四）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "大愿精进力救护一切众生夜神：大愿救护众生，太子救罪人本生", "size": 63062, "ov": "本卷为《入法界品》第三十九之十四，善财童子五十三参中的第三十八参——大愿精进力救护一切众生夜神。善财在夜神处得「教化众生令生善根解脱门」，夜神并为他说出自己久远劫前以太子身救度罪人、蒙佛授记的本生因缘，卷末指向下一参：岚毗尼园林神妙德圆满。", "tip": "读本卷可带着一问：为何救几个死囚的太子能得如此深法？答案在譬喻群中——太子自言「我若不救此众生者，云何能救三界牢狱诸苦众生」，救一狱囚即救三界，大悲即是大行。"}, {"n": 74, "pin": "入法界品（十五）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "岚毗尼林神：摩耶将诞十神变、乳母捧菩萨本生", "size": 46490, "ov": "本卷属《入法界品第三十九》之十五，是善财童子五十三参中的一站。善财在大愿精进力救护一切众生夜神处得法之后，渐次游行至岚毗尼林，参访妙德（岚毗尼林）神。林神为说「菩萨十种受生藏」，令其知菩萨如何生如来家；又自述往昔于「悦乐劫」金华园作乳母净光，捧持初生菩萨而得「普眼三昧」与「示现受生自在解脱」，至今念念见毗卢遮那佛于微尘中示现受生神变。最后指示善财往迦毗罗城参释种女瞿波。全卷由「十受生藏」与「诞生十神变」两大法门构成，归于「菩萨受生自在解脱」一境。", "tip": "读此卷宜把握两层：一是「十受生藏」之法理次第，看菩萨如何从初发心到入如来地；二是「诞生十神变」与「乳母前生」之事相因缘，看佛之降生如何即事即法、即一即多。可带着「菩萨为何要生如来家」「佛的诞生究竟意味着什么」两问读入，方见华严事理圆融之妙。"}, {"n": 75, "pin": "入法界品（十六）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "释迦瞿波女：观察菩萨三昧海，太子与童女本生", "size": 92634, "ov": "本卷为《入法界品》第三十九之十六，善财童子五十三参中走访释迦族女瞿波的一参。善财一路思惟修习受生解脱，来到迦毗罗城，先受无忧德神率一万主宫殿神众迎接赞叹，随后在菩萨集会普现法界光明讲堂中见到瞿波女——八万四千采女围绕，坐宝莲华师子之座。瞿波女自陈所得「观察一切菩萨三昧海解脱门」，并以大段本生故事讲述自己与释迦牟尼佛（当时为威德主太子）在往劫的因缘，末了指授善财去参访佛母摩耶夫人。", "tip": "读本卷宜紧扣「佛子！于汝意云何？」——本生故事讲得极长，最终都落在人物身份的揭示上：往劫的供养因缘即是当下解脱门之因。偈颂部分（无忧德神赞、瞿波重颂）是长行的提要，可对照把握全卷脉络。"}, {"n": 76, "pin": "入法界品（十七）", "hui": 9, "stage": "证·入法界", "types": ["story"], "brief": "摩耶夫人大愿智幻为一切佛母；天主光等八短参", "size": 72420, "ov": "本卷为《入法界品》第三十九之十七，善财童子五十三参的中后段。善财为求「菩萨云何学菩萨行、修菩萨道」，次第参访十位善知识：摩耶夫人→天主光女→童子师遍友→善知众艺童子→贤胜优婆夷→坚固解脱长者→妙月长者→无胜军长者→最寂静婆罗门，卷末指向德生童子与有德童女。全卷以摩耶夫人的「大愿智幻解脱门」为核心，其余诸参篇幅渐短、法门渐简，一卷之内节奏由宏大转入轻快。", "tip": "带着「为什么一切佛皆以摩耶为母」读前半；后半诸短参注意每位善知识只用一两句点出自家法门便谦己指路，体会参访链「一参一法门」的节奏。"}, {"n": 77, "pin": "入法界品（十八）", "hui": 9, "stage": "证·入法界", "types": ["story", "doc"], "brief": "德生童子有德童女说幻住；善知识义最集中的宣说", "size": 96740, "ov": "本卷为《入法界品第三十九》之十八，紧承善财童子五十三参的末段。善财自德生童子、有德童女处闻「幻住解脱」已，被指引南向海岸国大庄严园，诣毗卢遮那庄严藏大楼阁，觐见弥勒菩萨。全卷以「幻住→善知识→楼阁赞叹→弥勒现前」四段一线贯穿，是善财参访即将圆满、由等觉位入普贤行的关键过渡，亦是华严「善知识」义理最集中的宣说之一。", "tip": "读本卷可带着两个问题：其一，德生童子说「幻住」与善财后入楼阁所证「不二中道」如何衔接？其二，弥勒既在楼阁中，为何说「从别处来」？留意「不离本处而普现身」之义贯穿全卷。"}, {"n": 78, "pin": "入法界品（十九）", "hui": 9, "stage": "证·入法界", "types": ["verse", "doc"], "brief": "弥勒叹善财一生超劫，「菩提心如……」百余喻连说", "size": 83222, "ov": "本卷为《大方广佛华严经·入法界品第三十九》之十九，承上卷善财童子至楼阁前赞叹、弥勒现前授记之后，由弥勒菩萨继续为善财说法。全卷以「问→叹→喻」一线贯穿：善财重问菩萨云何学菩萨行、修菩萨道；弥勒先向道场大众称叹善财精进求法、一生超劫之希有功德，令无量众生发心；继而告善财广说「菩提心」之无量功德，以百余则譬喻（良药、宝珠、金刚、明灯、莲华、师子、王子等）层层叠说，收束于「应知悉与一切佛法诸功德等」，最后指善财入毗卢遮那庄严藏大楼阁周遍观察。本卷是全经「菩提心」义理最集中的宣说，亦是善财由参入证、由人入法的关键转折。", "tip": "本卷譬喻层叠、句式反复，读时易生倦怠。建议把握两点：其一，所有譬喻皆归「菩提心一法」，每喻各表一德一用，不必强记名相，留意其用（除病、破暗、映蔽、摧伏、运载、长养）即可；其二，留意全卷「善财问→弥勒叹善财→弥勒叹菩提心→指入楼阁」的推进节奏，前半是赞人，后半是赞法，末尾由赞转入观，为下卷楼阁境界作引。"}, {"n": 79, "pin": "入法界品（二十）", "hui": 9, "stage": "证·入法界", "types": ["scene", "story"], "brief": "入毗卢遮那庄严藏楼阁见重重境界，弹指摄破如幻", "size": 55551, "ov": "本卷属《入法界品第三十九》第二十分，承接上卷善财童子诣弥勒菩萨，是「入楼阁」一节的高潮，也是整部善财五十三参行将收束前的关键转折。本卷主旨：善财由弥勒威神力加持，入毗卢遮那庄严藏楼阁，于一处中普见一切处，亲历弥勒菩萨历劫修行、处处化身、诸佛国土等不可思议自在境界；继而弥勒弹指摄神力，告以「法性如是，如幻如梦」，点破一切庄严皆因缘聚集、自性空寂。最后弥勒自述来处、阐释菩萨十种生处与菩萨种性尊胜，并遣善财往诣文殊师利——五十三参至此由文殊启程、由文殊收束，圆满呼应。", "tip": "读此卷宜先观「楼阁如虚空」一段之重重铺排，留意「于一处中见一切处」如何由事相层层推至「如幻如梦」之理；再看弥勒答「来处」时九个「从……处来」的排比，体会菩萨「无来无去如是而来」的大悲起用。末后文殊一段是整部善财参学收束之伏笔，当与前参文殊处对读。"}, {"n": 80, "pin": "入法界品（二十一）", "hui": 9, "stage": "证·入法界", "types": ["story", "verse"], "brief": "文殊遥伸按顶，善财见普贤毛孔含刹海，与普贤同等", "size": 65240, "ov": "本卷为整部《大方广佛华严经》八十卷的压卷之帙，即「入法界品第三十九之二十一」。善财童子历经五十三参、遍访百十余城之后，于普门国苏摩那城思惟文殊师利，文殊遥伸右手过一百一十由旬按其顶，加持令其成就阿僧祇法门、入普贤行道场。随后善财于毗卢遮那如来师子座前见普贤菩萨现大神通，获十种智波罗蜜，普贤摩顶授以一切佛刹微尘数三昧门，复自述往昔劫海修因，终以一部长颂广赞如来功德海一滴之相。本卷以「文殊加持→见普贤身→得智波罗蜜→普贤摩顶→普贤自述因行→颂赞佛德」一线贯穿，是善财五十三参的圆满归宿，亦整部华严「因圆果满」的总结。", "tip": "读本卷可带着两个问题入手：一是善财历经五十三参为何最终归宿于普贤而非任何一位善知识？二是普贤一一毛孔何以能含摄三世十方一切佛刹？前者指向华严「行」为入法界的终极门径，后者指向「一即一切」的法界缘起观。读长颂时，可将佛功德「一滴之相」与前七十九卷所述法界无尽缘起互相对照。"}];
+const HUI = [
+  {n:1,name:"菩提场",realm:"人间",vols:[1,11],stage:"序幕 · 举果劝信",
+   pins:"世主妙严 · 如来现相 · 普贤三昧 · 世界成就 · 华藏世界 · 毗卢遮那",
+   desc:"成道后的宇宙全景：庄严、云集、世界海，与本生溯源。先给你看「果」，再慢慢讲「因」。"},
+  {n:2,name:"普光明殿",realm:"人间",vols:[12,15],stage:"十信",
+   pins:"如来名号 · 四圣谛 · 光明觉 · 菩萨问明 · 净行 · 贤首",
+   desc:"建立信心：名号与谛理的周遍，问明的辩证，净行的一百四十一愿。"},
+  {n:3,name:"须弥山顶",realm:"天界 · 欲界",vols:[16,18],stage:"十住",
+   pins:"升须弥顶 · 偈赞 · 十住 · 梵行 · 初发心功德 · 明法",
+   desc:"佛不离菩提树而升忉利天。心安住于真理，是为「住」。"},
+  {n:4,name:"夜摩天宫",realm:"天界 · 欲界",vols:[19,21],stage:"十行",
+   pins:"升夜摩 · 偈赞 · 十行 · 十无尽藏",
+   desc:"「心如工画师」的名偈即在此会。住于理而后起行，利益众生。"},
+  {n:5,name:"兜率天宫",realm:"天界 · 欲界",vols:[22,33],stage:"十回向",
+   pins:"升兜率 · 偈赞 · 十回向（十一卷）",
+   desc:"全经最长的位阶品：把一切善根回向众生与菩提，含多个施身本生故事。"},
+  {n:6,name:"他化自在天宫",realm:"天界 · 欲界顶",vols:[34,39],stage:"十地",
+   pins:"十地（六卷）",
+   desc:"菩萨道的心脏：欢喜地到法云地，「三请三默」之后，金刚藏菩萨开讲。"},
+  {n:7,name:"普光明殿（重会）",realm:"人间",vols:[40,45],stage:"等觉",
+   pins:"十定 · 十通 · 十忍 · 阿僧祇 · 寿量 · 菩萨住处",
+   desc:"自天界回到人间：等觉菩萨的十种大三昧与神通、忍位，及华严的大数与时间。"},
+  {n:8,name:"普光明殿（三会）",realm:"人间",vols:[46,59],stage:"佛果 · 妙觉",
+   pins:"佛不思议法 · 十身相海 · 随好光明 · 普贤行 · 如来出现 · 离世间",
+   desc:"佛的功德与境界层层展开；离世间品普慧两百问、普贤两千答，是行法的总目录。"},
+  {n:9,name:"逝多林给孤独园",realm:"人间",vols:[60,80],stage:"证 · 入法界",
+   pins:"入法界品（二十一卷）",
+   desc:"教法最终落回人间。声闻如聋如盲，善财童子却从福城出发——一切归于践行。"}
+];
+const TYPE = {
+  scene:{name:"场景庄严",color:"var(--t-scene)"},
+  cat:{name:"名录枚举",color:"var(--t-cat)"},
+  verse:{name:"偈颂赞叹",color:"var(--t-verse)"},
+  doc:{name:"阶位理论",color:"var(--t-doc)"},
+  prac:{name:"行门实践",color:"var(--t-prac)"},
+  story:{name:"因缘叙事",color:"var(--t-story)"},
+  dialogue:{name:"问答论辩",color:"var(--t-doc)"}
+};
+const CN = ["一","二","三","四","五","六","七","八","九"];
+const liftOf = {1:0,2:0,3:1,4:2,5:3,6:4,7:0,8:0,9:0};
+
+/* stars */
+(()=>{const s=document.getElementById("stars");for(let i=0;i<46;i++){const d=document.createElement("i");
+d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";
+d.style.animationDelay=(Math.random()*4)+"s";d.style.transform=`scale(${.5+Math.random()})`;s.appendChild(d);}})();
+
+/* 会列表 */
+const huiList = document.getElementById("huiList");
+HUI.forEach(h=>{
+  const lift = liftOf[h.n];
+  const el = document.createElement("div");
+  el.className = "hui" + (lift?` hui-lift-${lift}`:"");
+  el.dataset.hui = h.n;
+  el.innerHTML = `<div class="idx"><div class="cnum">${CN[h.n-1]}</div><div class="hui-cn">第${CN[h.n-1]}会</div></div>
+  <div class="card">
+    <div class="r1"><span class="place">${h.name}</span>
+      <span class="realm ${h.realm.indexOf("天")>-1?"heaven":""}">${h.realm}</span>
+      ${lift?`<span class="lift-tag">▲ 升 ${"　".repeat(0)}${lift}重</span>`:""}
+      <span class="vols">卷${h.vols[0]}–${h.vols[1]}</span></div>
+    <div class="stage">${h.stage}</div>
+    <div class="pins">${h.pins.replace(/·/g," · ")}</div>
+    <div class="desc">${h.desc}</div>
+  </div>`;
+  el.addEventListener("mouseenter",()=>{ highlightHuivols(h.n); setHuiActive(h.n); });
+  el.addEventListener("mouseleave",()=>{ clearHl(); setHuiActive(0); });
+  el.addEventListener("click",()=>{ setHuiActive(h.n); highlightHuivols(h.n); document.getElementById("map").scrollIntoView({behavior:"smooth"}); });
+  huiList.appendChild(el);
+});
+function setHuiActive(n){
+  document.querySelectorAll(".hui").forEach(e=>e.classList.toggle("active",+e.dataset.hui===n));
+}
+function highlightHuivols(n){
+  document.querySelectorAll(".blk").forEach(b=>{
+    b.classList.toggle("hl", ATLAS[+b.dataset.n-1].hui===n);
+  });
+}
+function clearHl(){ document.querySelectorAll(".blk.hl").forEach(b=>b.classList.remove("hl")); }
+
+/* 阶梯 */
+const STAGES = [
+  {nm:"序幕",cd:"举果劝信",r:[1,11]},
+  {nm:"十信",cd:"净行 · 贤首",r:[12,15]},
+  {nm:"十住",cd:"住于正理",r:[16,18]},
+  {nm:"十行",cd:"起行度生",r:[19,21]},
+  {nm:"十回向",cd:"回自向他",r:[22,33]},
+  {nm:"十地",cd:"入圣位",r:[34,39]},
+  {nm:"等觉",cd:"十大三昧",r:[40,45]},
+  {nm:"妙觉",cd:"佛果",r:[46,59]},
+  {nm:"入法界",cd:"证 · 践行",r:[60,80]}
+];
+const ladder = document.getElementById("stageLadder");
+STAGES.forEach(s=>{
+  const d = document.createElement("div");
+  d.className = "stage-step";
+  d.innerHTML = `<div class="nm">${s.nm}</div><div class="cd">${s.cd}</div><div class="rg">卷${s.r[0]}${s.r[1]>s.r[0]?"–"+s.r[1]:""}</div>`;
+  d.addEventListener("mouseenter",()=>{d.classList.add("on");hlRange(s.r);});
+  d.addEventListener("mouseleave",()=>{d.classList.remove("on");clearHl();});
+  d.addEventListener("click",()=>{document.getElementById("map").scrollIntoView({behavior:"smooth"});setTimeout(()=>hlRange(s.r),350);});
+  ladder.appendChild(d);
+});
+function hlRange(r){ document.querySelectorAll(".blk").forEach(b=>{const n=+b.dataset.n;b.classList.toggle("hl",n>=r[0]&&n<=r[1]);}); }
+
+/* 图例 */
+const legend = document.getElementById("legend");
+let filterType = null;
+Object.keys(TYPE).forEach(k=>{
+  const d = document.createElement("div");
+  d.className="lg"; d.dataset.k=k;
+  d.innerHTML = `<span class="sw" style="background:${TYPE[k].color}"></span>${TYPE[k].name}`;
+  d.addEventListener("click",()=>{
+    filterType = filterType===k?null:k;
+    document.querySelectorAll(".lg").forEach(x=>{x.classList.toggle("hot",x.dataset.k===filterType);});
+    applyFilter();
+  });
+  legend.appendChild(d);
+});
+
+/* 图表 */
+const chart = document.getElementById("chart");
+const tooltip = document.getElementById("tooltip");
+HUI.forEach(h=>{
+  const row = document.createElement("div");
+  row.className="chart-row";
+  const vols = ATLAS.filter(v=>v.hui===h.n);
+  row.innerHTML = `<div class="rowlabel"><span class="a">${CN[h.n-1]} · ${h.name}</span><span class="b">卷${h.vols[0]}–${h.vols[1]} · ${h.stage}</span></div>`;
+  const blocks = document.createElement("div"); blocks.className="blocks";
+  const min=Math.min(...ATLAS.map(v=>v.size)), max=Math.max(...ATLAS.map(v=>v.size));
+  vols.forEach(v=>{
+    const b = document.createElement("div");
+    b.className="blk"+((v.n>=1&&v.n<=5)||(v.n>=8&&v.n<=10)||v.n===13||v.n===14||(v.n>=16&&v.n<=39)||(v.n>=50&&v.n<=52)||(v.n>=60&&v.n<=80)?" pilot":"");
+    b.dataset.n=v.n;
+    const t = v.size/max;
+    b.style.background = TYPE[v.types[0]].color;
+    b.style.flexGrow = (0.35+1.4*(v.size-min)/(max-min)).toFixed(2);
+    b.innerHTML=`<span class="n">${v.n}</span>`;
+    b.addEventListener("mouseenter",e=>{
+      b.classList.add("hl");
+      tooltip.style.display="block";
+      tooltip.innerHTML=`<div class="t1">卷${v.n} · ${v.stage}</div><div class="t2">${v.pin}</div><div class="t3">${v.brief}</div><div class="t4">${v.types.map(t=>TYPE[t].name).join(" · ")} · 约全卷 ${Math.round(v.size/3/1000)}k 字</div>`;
+    });
+    b.addEventListener("mousemove",e=>{
+      const x=Math.min(e.clientX+16,innerWidth-320), y=Math.min(e.clientY+14,innerHeight-140);
+      tooltip.style.left=x+"px"; tooltip.style.top=y+"px";
+    });
+    b.addEventListener("mouseleave",()=>{b.classList.remove("hl");tooltip.style.display="none";});
+    b.addEventListener("click",e=>{e.stopPropagation();selectJuan(v.n);});
+    blocks.appendChild(b);
+  });
+  row.appendChild(blocks);
+  chart.appendChild(row);
+});
+
+function applyFilter(){
+  const q = document.getElementById("q").value.trim();
+  document.querySelectorAll(".blk").forEach(b=>{
+    const v = ATLAS[+b.dataset.n-1];
+    let show = true;
+    if(filterType) show = v.types.includes(filterType);
+    if(q) show = show && (v.pin.includes(q)||v.brief.includes(q)||String(v.n)===q);
+    b.classList.toggle("dim",!show);
+  });
+}
+document.getElementById("q").addEventListener("input",applyFilter);
+
+/* 详情 */
+function selectJuan(n){
+  document.querySelectorAll(".blk").forEach(b=>b.classList.toggle("sel",+b.dataset.n===n));
+  const v = ATLAS[n-1];
+  const d = document.getElementById("detail");
+  let links = "";
+  if(n===14) links = `<a class="btn" href="jingxing.html">进入「净行品 · 一百四十一愿」学习页 →</a>`;
+  if(n>=60&&n<=80) links = `<a class="btn" href="shancai.html">进入「善财五十三参」旅程图 →</a>`;
+  d.innerHTML = `
+    <div class="dhead"><span class="dj">卷${v.n}</span><span class="dp">${v.pin}</span><span class="dst">${CN[v.hui-1]}会 · ${HUI[v.hui-1].name}</span>
+      <div class="dtags"><span class="dtag">${v.stage}</span>${v.types.map(t=>`<span class="dtag">${TYPE[t].name}</span>`).join("")}</div></div>
+    <div class="dbody">
+      <div><h4>概 览</h4><p>${v.brief}。${v.ov||""}</p></div>
+      <div><h4>阅读提示</h4><p>${v.tip||"（此卷导读未附独立提示，可参看概览与相邻卷。）"}</p></div>
+    </div>
+    <div class="dfoot">${links}<span class="sz">本卷原文+白话约 ${Math.round(v.size/3/1000)}k 字 · 逐卷注释与导读见书本正文</span></div>`;
+}
+document.addEventListener("click",e=>{ if(!e.target.closest(".blk")&&!e.target.closest("#detail")){ /* keep selection */ } });
+
+/* 侧边导航：抽屉开关 + 滚动高亮 */
+(()=>{
+  const nav=document.getElementById("sideNav"), mask=document.getElementById("snMask"), toggle=document.getElementById("snToggle");
+  const items=[...nav.querySelectorAll(".sn-item[data-sec]")].map(a=>({a,el:document.querySelector(a.getAttribute("href"))})).filter(x=>x.el);
+  let cur=null;
+  function setOn(a){
+    if(cur===a) return;
+    cur=a; items.forEach(x=>x.a.classList.toggle("on",x.a===a));
+  }
+  function spy(){
+    const y=scrollY+innerHeight*0.28;
+    let hit=items[0];
+    items.forEach(x=>{ if(x.el.getBoundingClientRect().top+scrollY<=y) hit=x; });
+    setOn(hit.a);
+  }
+  addEventListener("scroll",spy,{passive:true});
+  addEventListener("resize",spy);
+  spy();
+
+  function setOpen(open){
+    nav.classList.toggle("open",open);
+    mask.classList.toggle("open",open);
+    document.body.classList.toggle("nav-open",open);
+    toggle.setAttribute("aria-expanded",open?"true":"false");
+  }
+  toggle.addEventListener("click",()=>setOpen(!nav.classList.contains("open")));
+  mask.addEventListener("click",()=>setOpen(false));
+  nav.addEventListener("click",e=>{ if(e.target.closest("a")) setOpen(false); });
+  addEventListener("keydown",e=>{ if(e.key==="Escape") setOpen(false); });
+})();
+</script>
+</body>
+</html>

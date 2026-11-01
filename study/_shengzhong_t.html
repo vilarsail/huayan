@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世主妙严 · 圣众云集</title>
+<style>
+:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#e2c98f;--gold-dim:#8a7340;
+--ivory:#e9e1cd;--muted:#a89f8a;--faint:#7d7666;--line:rgba(201,164,92,.22);--line2:rgba(201,164,92,.4);
+--serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+::selection{background:rgba(201,164,92,.35)}a{color:var(--gold2);text-decoration:none}a:hover{color:#fff}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}section{padding:56px 0 20px}
+.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:14.5px}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
+.rule::after{background:linear-gradient(90deg,var(--line2),transparent)}.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold .body p{margin:8px 0}details.fold .body b{color:var(--ivory);font-weight:600}
+.hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
+background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transparent 60%),radial-gradient(760px 380px at 12% 22%,rgba(110,163,204,.06),transparent 60%),var(--ink)}
+.hero .stars{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.hero .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold2);opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
+.hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
+.hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}.hero h1 span{color:var(--gold2)}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:15.5px}.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
+.hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px)}
+.anatomy{border:1px solid var(--line);border-radius:14px;background:var(--ink2);padding:26px 20px;text-align:center}
+.an-sentence{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+.an-seg{border:1px solid var(--line2);border-radius:12px;padding:13px 18px;cursor:pointer;transition:.22s;min-width:104px}
+.an-seg .zh{font-size:17.5px;color:var(--ivory);letter-spacing:.08em}.an-seg .role{font-size:11.5px;color:var(--faint);margin-top:4px;letter-spacing:.1em}
+.an-seg:hover,.an-seg.on{border-color:var(--gold);background:var(--ink3);transform:translateY(-2px)}.an-seg.on .role{color:var(--gold)}
+#anDetail{margin-top:12px;padding:12px 18px;background:rgba(255,255,255,.03);border-radius:10px;font-size:14px;color:var(--muted);min-height:74px}
+#anDetail b{color:var(--gold2)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:4px 0 10px}
+.fchip{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
+.fchip:hover{color:var(--ivory)}.fchip.hot{border-color:var(--gold);background:rgba(201,164,92,.12);color:var(--gold2)}
+.tools{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:8px 0 4px}
+.tools input{background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:14px;padding:8px 18px;outline:none;text-align:center;width:min(320px,80%)}
+.tools input:focus{border-color:var(--gold)}
+.tools button{background:linear-gradient(135deg,rgba(201,164,92,.2),rgba(201,164,92,.06));border:1px solid var(--gold);border-radius:999px;color:var(--gold2);font-family:var(--serif);font-size:14px;padding:8px 20px;cursor:pointer;letter-spacing:.08em}
+.tools button:hover{color:#fff}
+#counter{text-align:center;font-size:13px;color:var(--faint);margin-bottom:18px}
+.cat-divider{position:relative;z-index:2;text-align:center;margin:40px 0 22px}
+.cat-divider .cd-in{display:inline-block;background:var(--ink);border:1px solid var(--line2);border-radius:12px;padding:10px 24px}
+.cat-divider .nm{font-size:16.5px;color:var(--gold2);letter-spacing:.15em}
+.cat-divider .ds{font-size:12.5px;color:var(--faint);margin-top:4px;max-width:560px}
+.gl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.grp{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:13px 17px;cursor:pointer;transition:.2s}
+.grp:hover{border-color:var(--line2);transform:translateY(-2px)}.grp.open{border-color:var(--gold);background:var(--ink3)}
+.grp .r1{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.grp .cls{font-size:16.5px;font-weight:600}
+.grp .cnt{font-size:11.5px;color:var(--faint)}
+.grp .more{font-size:11px;color:var(--gold-dim);margin-left:auto}
+.grp .vt{font-size:13.5px;color:var(--gold2);margin-top:4px}
+.grp .nl{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);line-height:2.1}
+.grp.open .nl{display:block}
+.grp.dim{display:none}
+.pos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.pos{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
+.pcard h3{font-size:16.5px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:14px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}footer p{margin:6px 0}
+.topnav{position:fixed;right:18px;bottom:18px;z-index:50}.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;transition:.2s}.topnav a:hover{color:#fff;border-color:var(--gold)}
+
+/* ---------- 侧边导航（跨页） ---------- */
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav::-webkit-scrollbar{width:4px}
+.sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
+.sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
+.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
+.sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
+.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-toggle:hover{border-color:var(--gold);color:#fff}
+.sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
+@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(max-width:1099px){
+  .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
+  .sidenav.open{transform:none}
+  .sn-toggle{display:flex}
+  .sn-mask.open{display:block}
+  body.nav-open{overflow:hidden}
+}
+
+/* ---------- 专题学习页快捷条 ---------- */
+.pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
+.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
+.pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+</style>
+</head>
+<body id="top">
+<button class="sn-toggle" id="snToggle" aria-label="打开侧边导航" aria-expanded="false">☰</button>
+<div class="sn-mask" id="snMask"></div>
+<aside class="sidenav" id="sideNav" aria-label="全页导航">
+  <div class="sn-brand"><span class="sn-mark">華</span><div><b>华严</b><small>全经地图</small></div></div>
+  <a class="sn-item" href="index.html"><span class="sn-glyph">圖</span>返回全经地图</a>
+  <div class="sn-sub">专题学习页</div>
+  <a class="sn-item" href="jingxing.html"><span class="sn-glyph">願</span>净行品一百四十一愿</a>
+  <a class="sn-item" href="shancai.html"><span class="sn-glyph">參</span>善财五十三参</a>
+  <a class="sn-item on" href="shengzhong.html" aria-current="page"><span class="sn-glyph">衆</span>世主妙严圣众</a>
+  <a class="sn-item" href="huazang.html"><span class="sn-glyph">藏</span>华藏世界地图</a>
+  <a class="sn-item" href="jieti.html"><span class="sn-glyph">階</span>菩萨道阶梯</a>
+  <a class="sn-item" href="shidi.html"><span class="sn-glyph">地</span>十地品精读</a>
+  <a class="sn-item" href="wenming.html"><span class="sn-glyph">問</span>问明品九问</a>
+  <a class="sn-item" href="chuxian.html"><span class="sn-glyph">現</span>如来出现喻林</a>
+  <div class="sn-foot">八十卷 · 七处九会<br>当前：世主妙严</div>
+</aside>
+
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="ornament">❖ 世 主 妙 嚴 ❖</div>
+  <h1>世主妙严<span>圣众云集</span></h1>
+  <div class="meta">卷一至五 · 第一会菩提场 · 全经序分</div>
+  <p class="lead">翻开《华严经》的第一面墙就在这里：四十类圣众、每类十位上首、四百多个名字排山倒海而来。<br>
+  其实这是佛成道法会的一份<b>「签到簿」</b>——大地、山河、昼夜、八部、诸天，一切世间之主皆来云集。<b>名录不是啰嗦，是「重重无尽」的第一次登场。</b></p>
+  <div class="cta">
+    <a class="primary" href="#list">进入圣众名录</a>
+    <a href="index.html">← 全经地图</a>
+    <a href="jingxing.html">净行品</a>
+    <a href="shancai.html">五十三参</a>
+  </div>
+  <div class="pagebar" aria-label="专题学习页"><span class="pb-label">专题学习页</span><a href="jingxing.html">净行品</a><a href="shancai.html">五十三参</a><a class="on" href="shengzhong.html" aria-current="page">世主妙严</a><a href="huazang.html">华藏世界</a><a href="jieti.html">菩萨道阶梯</a><a href="shidi.html">十地品</a><a href="wenming.html">问明品</a><a href="chuxian.html">如来出现</a></div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="no">壹</div><h2>先学会读「名录体」</h2>
+      <div class="sub">四十段名录共享同一个句式——点击每一部分，看它的功能</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="anatomy">
+      <div style="font-size:14px;color:var(--faint)">以执金刚神一段为例</div>
+      <div class="an-sentence" id="anSegs"></div>
+      <div id="anDetail">四百个名字共享这一个骨架。认出骨架，名录体就从「劝退墙」变成「可快读的结构」。</div>
+    </div>
+    <div class="tip-note">阅读策略只有三条：<b>①名字扫过即可，无人要求你记住</b>（经中也说「如是等而为上首」——列的只是上首）；
+    <b>②每段末尾的「皆……」句才是眼目</b>，它一句话点出这一类圣众的功德与愿力，读到「皆」字请放慢；
+    <b>③注意名录的排列顺序</b>：从菩萨到护法神、到八部、到欲界诸天、再到色界诸天——由内到外、由圣到凡、从地面升向天顶，本身就是一幅法会座次图。</div>
+    <details class="fold"><summary>零基础 · 「世主」「八部众」这些词是什么意思？</summary>
+      <div class="body">
+        <p><b>世主妙严</b>：品名意为「世间之主们以微妙庄严（来印证佛境）」。世主包括各类神祇、天众——他们各自掌管世间的一角（大地、山海、昼夜、方位），故称「主」。</p>
+        <p><b>八部众</b>：佛教世界观中最常见的八类护法众生——天、龙、夜叉（勇健鬼神）、乾闼婆（香神/乐神）、阿修罗（好斗的天部）、迦楼罗（金翅鸟）、紧那罗（歌神）、摩睺罗伽（大蟒神）。寺院造像中的「天龙八部」即指他们。</p>
+        <p><b>「佛世界微尘数」</b>：把一个佛世界磨成微尘来计数——华严用以表达「不可思议之多」的固定量词，全经出现极多，读时可径直理解为「无量无边」。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="list">
+  <div class="wrap">
+    <div class="sec-head"><div class="no">贰</div><h2>圣众名录 · 四十类</h2>
+      <div class="sub">默认收起名号、点亮功德句——先看结构，想看名字再展开</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="filters" id="filters"></div>
+    <div class="tools">
+      <input id="q" type="text" placeholder="搜索类名或名号，如：主海、龙王、普贤">
+      <button id="btnNames">显示/隐藏 十上首名号</button>
+    </div>
+    <div id="counter"></div>
+    <div id="glWrap"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="no">叁</div><h2>读卷一，然后呢</h2>
+      <div class="sub">卷一在五卷序分中的位置</div><div class="rule"><i class="diamond"></i></div></div>
+    <div class="pos">
+      <div class="pcard">
+        <h3>卷一至五的分工</h3>
+        <p><b>卷一</b>（本页）：场景庄严＋四十类圣众名录（长行）。<b>卷二至五</b>：这些上首逐一登场，<b>以偈颂赞叹佛德</b>（每类十颂），并各说得一解脱门。</p>
+        <p>所以卷一相当于「演员表」，卷二至五是「各自的开场白」——读完本页再读卷二，会发现那些偈颂的作者正是你刚见过的名字。</p>
+      </div>
+      <div class="pcard">
+        <h3>接下来读什么</h3>
+        <p>· 顺着读：<b>卷二至五</b>偈赞（偈颂体，可配合全经地图的「四种读法」）；</p>
+        <p>· 跳着读：<b>卷六如来现相品</b>（菩萨发问、佛放光现相，戏剧行强）；</p>
+        <p>· 喜欢名单背后的宇宙感：直接去<b>卷八至十华藏世界品</b>——那是名录体的巅峰：一份宇宙地图。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="font-size:15px;color:var(--gold2)">一切世间之主，皆来印证佛境</p>
+    <p><a href="index.html">← 全经地图</a> · <a href="jingxing.html">净行品</a> · <a href="shancai.html">五十三参</a></p>
+    <p>依据《大方广佛华严经》卷第一原文与词语注释编制。类目四分（菩萨/护法神/八部/诸天）为编者所加，便于观其座次。</p>
+  </div>
+</footer>
+<div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
+<script>
+const DATA = __DATA__;
+(()=>{const s=document.getElementById("stars");for(let i=0;i<40;i++){const d=document.createElement("i");
+d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
+const AN=[
+ {zh:"复有佛世界微尘数",role:"数 量",d:"<b>极言其多</b>——磨一个佛世界为微尘而数之。华严的「大数」美学：不用虚指的『很多』，而用具体到荒诞的量词，逼你跳出日常的计量尺度。"},
+ {zh:"执金刚神",role:"类 名",d:"<b>谁来云集</b>——手执金刚杵的护法神。四十类各有掌管：主城、主地、主山、主海、主昼、主夜……世间每一处都有其主，每一主都来了。"},
+ {zh:"所谓：某某、某某……（十名）",role:"上首名录",d:"<b>可快读的部分</b>——列的只是「上首」（领队），每类十位。名字扫过即可；若细看，名字本身往往是功德的浓缩（如「普德最胜灯光照」）。"},
+ {zh:"皆于往昔……（愿力功德）",role:"功德眼目",d:"<b>整段的重点句</b>——『如是等而为上首，皆……』：这一类圣众的共愿共德一句话道尽。四十个「皆」字连起来读，就是一份四十条的目的地清单。"}
+];
+const anEl=document.getElementById("anSegs"),anD=document.getElementById("anDetail");
+AN.forEach(s0=>{const d=document.createElement("div");d.className="an-seg";
+d.innerHTML=`<div class="zh">${s0.zh}</div><div class="role">${s0.role}</div>`;
+d.addEventListener("click",()=>{document.querySelectorAll(".an-seg").forEach(x=>x.classList.remove("on"));d.classList.add("on");
+anD.innerHTML=`【${s0.role.replace(/\s/g,"")}】${s0.d}`;});anEl.appendChild(d);});
+/* 名录 */
+const CATORDER=["pusa","shen","babu","tian"];
+const glWrap=document.getElementById("glWrap");
+let showNames=false,curCat=null;
+const filters=document.getElementById("filters");
+CATORDER.forEach(k=>{const d=document.createElement("span");d.className="fchip";d.dataset.k=k;
+d.textContent=DATA.cats[k].name.split("（")[0];
+d.addEventListener("click",()=>{curCat=curCat===k?null:k;
+document.querySelectorAll(".fchip").forEach(x=>x.classList.toggle("hot",x.dataset.k===curCat));apply();});
+filters.appendChild(d);});
+CATORDER.forEach(k=>{
+  const dv=document.createElement("div");dv.className="cat-divider";dv.dataset.cat=k;
+  dv.innerHTML=`<div class="cd-in"><div class="nm">${DATA.cats[k].name}</div><div class="ds">${DATA.cats[k].desc}</div></div>`;
+  glWrap.appendChild(dv);
+  DATA.groups.filter(g=>g.cat===k).forEach(g=>{
+    const el=document.createElement("div");el.className="grp";el.dataset.cat=k;el.dataset.cls=g.cls;
+    el.innerHTML=`<div class="r1"><span class="cls">${g.cls}</span><span class="cnt">${g.count} · ${g.names.length}位上首</span><span class="more">▾ 名号</span></div>
+      <div class="vt">「${g.virtue}」</div>
+      <div class="nl">${showNames?g.names.join("、"):""}</div>`;
+    el.addEventListener("click",()=>{el.classList.toggle("open");
+      if(el.classList.contains("open"))el.querySelector(".nl").textContent=g.names.join("、");});
+    glWrap.appendChild(el);
+  });
+});
+function apply(){
+  const q=document.getElementById("q").value.trim();let shown=0;
+  document.querySelectorAll(".grp").forEach(el=>{
+    const g=DATA.groups.find(x=>x.cls===el.dataset.cls&&x.cat===el.dataset.cat);
+    let ok=true;if(curCat)ok=el.dataset.cat===curCat;
+    if(q&&g)ok=ok&&(g.cls.includes(q)||g.names.some(n=>n.includes(q)));
+    el.classList.toggle("dim",!ok);if(ok)shown++;
+  });
+  document.querySelectorAll(".cat-divider").forEach(d=>{d.style.display=[...glWrap.querySelectorAll(`.grp[data-cat="${d.dataset.cat}"]:not(.dim)`)].length?"":"none";});
+  document.getElementById("counter").textContent=`显示 ${shown} / ${DATA.groups.length} 类`;
+}
+document.getElementById("q").addEventListener("input",apply);
+document.getElementById("btnNames").addEventListener("click",()=>{
+  showNames=!showNames;
+  document.querySelectorAll(".grp.open .nl").forEach((nl,i)=>{
+    const g=DATA.groups.find(x=>x.cls===nl.closest(".grp").dataset.cls);nl.textContent=showNames?g.names.join("、"):"";
+  });
+});
+apply();
+
+/* 侧边导航：移动端抽屉 */
+(()=>{
+  const nav=document.getElementById("sideNav"), mask=document.getElementById("snMask"), toggle=document.getElementById("snToggle");
+  if(!nav||!mask||!toggle) return;
+  function setOpen(open){
+    nav.classList.toggle("open",open);
+    mask.classList.toggle("open",open);
+    document.body.classList.toggle("nav-open",open);
+    toggle.setAttribute("aria-expanded",open?"true":"false");
+  }
+  toggle.addEventListener("click",()=>setOpen(!nav.classList.contains("open")));
+  mask.addEventListener("click",()=>setOpen(false));
+  nav.addEventListener("click",e=>{ if(e.target.closest("a")) setOpen(false); });
+  addEventListener("keydown",e=>{ if(e.key==="Escape") setOpen(false); });
+})();
+</script>
+</body>
+</html>
