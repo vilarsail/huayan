@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>菩萨道阶梯 · 三贤十地</title>
 <style>
-:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#e2c98f;--gold-dim:#8a7340;
---ivory:#e9e1cd;--muted:#a89f8a;--faint:#7d7666;--line:rgba(201,164,92,.22);--line2:rgba(201,164,92,.4);
+:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#ecd6a4;--gold-dim:#a98f54;
+--ivory:#f4eee0;--muted:#cfc6b2;--faint:#aaa18d;--line:rgba(201,164,92,.3);--line2:rgba(201,164,92,.52);
 --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}a{color:var(--gold2);text-decoration:none}a:hover{color:#fff}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}section{padding:56px 0 20px}
-.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
-.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:14.5px}
+.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:15.5px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:16.5px}
 .rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
 .rule::after{background:linear-gradient(90deg,var(--line2),transparent)}.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:16.5px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
 details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
-details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
-details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
-details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:16.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:14.5px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:16.5px;border-top:1px dashed var(--line)}
 details.fold .body p{margin:8px 0}details.fold .body b{color:var(--ivory);font-weight:600}
 .hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
 background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transparent 60%),radial-gradient(760px 380px at 88% 22%,rgba(109,179,161,.06),transparent 60%),var(--ink)}
@@ -30,60 +30,70 @@ background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transp
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
 .hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}.hero h1 span{color:var(--gold2)}
-.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
-.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:15.5px}.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:16.5px;letter-spacing:.18em}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:17px}.hero .lead b{color:var(--ivory);font-weight:600}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:16.5px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
 .hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
 .hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px)}
 .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:8px}
 @media(max-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.steps{grid-template-columns:repeat(2,1fr)}}
 .step{border:1px solid var(--line);border-radius:10px;background:var(--ink2);padding:14px 12px;cursor:pointer;transition:.2s;text-align:center}
-.step .sn{font-size:11px;color:var(--gold);letter-spacing:.15em}.step h4{font-size:16px;margin:4px 0}
+.step .sn{font-size:14.5px;color:var(--gold);letter-spacing:.15em}.step h4{font-size:17.5px;margin:4px 0}
 .step:hover,.step.on{border-color:var(--gold);background:var(--ink3);transform:translateY(-2px)}
-#stepDetail{margin-top:14px;border:1px dashed var(--line2);border-radius:10px;padding:12px 18px;font-size:14.5px;color:var(--muted);min-height:64px}
+#stepDetail{margin-top:14px;border:1px dashed var(--line2);border-radius:10px;padding:12px 18px;font-size:16.5px;color:var(--muted);min-height:64px}
 #stepDetail b{color:var(--gold2)}
-.pinsec{margin:34px 0 10px;border:1px solid var(--line);border-radius:14px;background:var(--ink2);overflow:hidden}
+#pins{position:relative;padding-left:68px}
+#pins::before{content:"";position:absolute;left:30px;top:10px;bottom:10px;width:1px;background:linear-gradient(0deg,transparent,var(--line2) 5%,var(--line2) 95%,transparent)}
+.pinsec{position:relative;margin:34px 0 10px;border:1px solid var(--line);border-radius:14px;background:var(--ink2);overflow:visible}
+.pinsec .pno{position:absolute;left:-54px;top:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);background:var(--ink2);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--gold2);z-index:1}
+.pinsec.t2{margin-left:4%}.pinsec.t3{margin-left:8%}.pinsec.t4{margin-left:12%}
+@media(max-width:760px){.pinsec.t2,.pinsec.t3,.pinsec.t4{margin-left:0}#pins{padding-left:0}#pins::before{display:none}.pinsec .pno{position:static;display:inline-flex;margin-right:6px;vertical-align:middle}}
 .pinhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 22px;border-bottom:1px solid var(--line)}
 .pinhead .pnm{font-size:19px;font-weight:600;color:var(--gold2)}
-.pinhead .pinfo{font-size:13px;color:var(--faint)}
-.pinhead .pj{margin-left:auto;font-size:12.5px;color:var(--gold)}
-.pindesc{padding:10px 22px 4px;font-size:14px;color:var(--muted)}
+.pinhead .pinfo{font-size:15.5px;color:var(--faint)}
+.pinhead .pj{margin-left:auto;font-size:15px;color:var(--gold)}
+.pindesc{padding:10px 22px 4px;font-size:16.5px;color:var(--muted)}
 .jie{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:8px;padding:12px 22px 20px}
 .jitem{border:1px solid var(--line);border-radius:10px;background:var(--ink);padding:10px 14px;cursor:default;transition:.2s;position:relative}
-.jitem .jn{font-size:11px;color:var(--gold-dim)}
-.jitem .jm{font-size:15.5px;color:var(--ivory)}
+.jitem .jn{font-size:14.5px;color:var(--gold-dim)}
+.jitem .jm{font-size:17px;color:var(--ivory)}
 .jitem.hasnote{cursor:pointer}
 .jitem.hasnote:hover,.jitem.open{border-color:var(--gold);background:var(--ink3)}
-.jitem .jd{display:none;font-size:12.5px;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
+.jitem .jd{display:none;font-size:15px;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
 .jitem.open .jd{display:block}
 .pos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:760px){.pos{grid-template-columns:1fr}}
 .pcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
-.pcard h3{font-size:16.5px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:14px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}footer p{margin:6px 0}
+.pcard h3{font-size:18px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:16.5px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:15.5px;text-align:center}footer p{margin:6px 0}
 .topnav{position:fixed;right:18px;bottom:18px;z-index:50}.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;transition:.2s}.topnav a:hover{color:#fff;border-color:var(--gold)}
 
+
+.pinbody{padding:2px 22px 14px;border-bottom:1px dashed var(--line)}
+.pinbody p{font-size:16.5px;color:var(--muted);margin:7px 0;line-height:1.95}
+.pinbody p b{color:var(--gold2);font-weight:600}
+
 /* ---------- 侧边导航（跨页） ---------- */
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:228px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
 .sidenav::-webkit-scrollbar{width:4px}
 .sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
 .sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
-.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
-.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
-.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:17.5px;flex-shrink:0}
+.sn-brand b{display:block;font-size:17.5px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:13.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:13.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:15.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
 .sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
 .sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
-.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
-.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
-.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
-@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(min-width:1100px){body{padding-left:228px}.sn-mask{display:none!important}}
 @media(max-width:1099px){
   .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
   .sidenav.open{transform:none}
@@ -94,11 +104,11 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 /* ---------- 专题学习页快捷条 ---------- */
 .pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
-.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
-.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar .pb-label{font-size:14.5px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
 .pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
 .pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
-@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:15px;padding:4px 11px}}
 </style>
 </head>
 <body id="top">
@@ -126,7 +136,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
   <div class="meta">卷十六至三十九 · 须弥山·夜摩·兜率·他化自在四会 · 二十四卷骨干</div>
   <p class="lead">《华严经》的中段是一条<b>四十级的台阶</b>：十住、十行、十回向、十地。<br>
   佛每升一处天宫，就讲一组阶位——<b>说法处的上升，就是菩萨道的上升</b>。<br>
-  这二十四卷共享同一个叙事流程。本页给你两把钥匙：<b>六步模板</b>与<b>四十阶全景</b>。</p>
+  这二十四卷（含升处、偈赞、梵行等）共享同一个叙事流程。本页给你两把钥匙：<b>六步模板</b>与<b>四十阶全景</b>。</p>
   <div class="cta">
     <a class="primary" href="#template">六步模板</a>
     <a href="#ladder">四十阶全景</a>
@@ -148,6 +158,8 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
         <p><b>十行</b>：由住起行，欢喜行到真实行，以布施利生等十种行为饶益众生。</p>
         <p><b>十回向</b>：把一切善根「回」向众生与菩提——不据为己有。经中为此讲了整整十一卷，含大量施身本生。</p>
         <p><b>十地</b>：入圣位的十阶，欢喜地（初生佛家）到法云地（受职灌顶）。传统判位：住、行、回向为「三贤」（仍是贤人），登欢喜地才入「圣位」。</p>
+        <p><b>放在整条道上</b>：十信 → 十住 → 十行 → 十回向（以上三贤）→ 十地（十圣）→ 等觉 → 妙觉。本页四十阶是这条道的骨干；十信是入门前的信心位，等觉、妙觉是果位。</p>
+        <p><b>不是四十次考试</b>：阶位不是攒积分，而是同一件事越做越深——发心、安住、起行、回向、证真。读的时候关心「这一阶在破什么、成什么」，比记住名次更重要。</p>
       </div>
     </details>
   </div>
@@ -156,7 +168,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 <section id="ladder">
   <div class="wrap">
     <div class="sec-head"><div class="no">贰</div><h2>四十阶 · 全景阶梯</h2>
-      <div class="sub">阶名皆录自经文原文 · 十地各阶可点击展开要义</div><div class="rule"><i class="diamond"></i></div></div>
+      <div class="sub">阶名皆录自经文原文 · 四十阶均可点击展开要义</div><div class="rule"><i class="diamond"></i></div></div>
     <div id="pins"></div>
     <div class="tip-note">四组阶位正好对应四次「升天」说法：<b>须弥山顶说十住、夜摩天说十行、兜率天说十回向、他化自在天说十地</b>——
     处所升到欲界顶，菩萨道也登到因位顶。之后（卷四十起）佛重回人间普光明殿说等觉与佛果：升而后返，教法落地。</div>
@@ -182,19 +194,21 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 <footer>
   <div class="wrap">
-    <p style="font-size:15px;color:var(--gold2)">升处即升阶 · 教法升天，修行落地</p>
+    <p style="font-size:16.5px;color:var(--gold2)">升处即升阶 · 教法升天，修行落地</p>
     <p><a href="index.html">← 全经地图</a> · <a href="jingxing.html">净行品</a> · <a href="shancai.html">五十三参</a> · <a href="shengzhong.html">圣众云集</a></p>
-    <p>四十阶名均核对自《大方广佛华严经》原文（卷十六、十九、二十三、三十四）；十地各阶要义据各卷导读。本页为总览，十地品另有精读页（规划中）。</p>
+    <p>四十阶名均核对自《大方广佛华严经》原文（卷十六、十九、二十三、三十四）；十地各阶要义据各卷导读。本页为总览，十地品另有<a href="shidi.html">精读页</a>。</p>
   </div>
 </footer>
 <div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
 <script>
 const DATA = __DATA__;
+function ensureVisible(el){const r=el.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight-8)el.scrollIntoView({behavior:"smooth",block:"center"});}
+
 (()=>{const s=document.getElementById("stars");for(let i=0;i<40;i++){const d=document.createElement("i");
 d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
 const STEPS=[
  {n:"①",t:"升处",d:"佛「不离菩提树下」而升天宫——身在此处，境界遍在。每次升处都是新一品阶位的开始。"},
- {n:"②",t:"请法",d:"一位菩萨代表大众发问（如法慧、功德林、金刚幢、金刚藏），点出当品的主题。"},
+ {n:"②",t:"请法",d:"十地品由解脱月菩萨代表大众三请；其余阶位品多由说法者承佛力直说，不一定有独立请法者。请法这一环的作用，是点出当品主题并把说法仪式化。"},
  {n:"③",t:"入定",d:"说者进入三昧（如「菩萨无量方便三昧」）。法从定中出，不从想中生——这是华严的说法观。"},
  {n:"④",t:"放光",d:"诸佛放光加持、同名菩萨从十方云集印证：此法十方诸佛同说。"},
  {n:"⑤",t:"说十法",d:"正文：这一阶位的十种行相。每一阶都以「十」为单位展开——这是全书的计数美学。"},
@@ -204,12 +218,14 @@ const stepsEl=document.getElementById("steps"),stepDetail=document.getElementByI
 STEPS.forEach(s0=>{const d=document.createElement("div");d.className="step";
 d.innerHTML=`<div class="sn">第${s0.n}步</div><h4>${s0.t}</h4>`;
 d.addEventListener("click",()=>{document.querySelectorAll(".step").forEach(x=>x.classList.remove("on"));d.classList.add("on");
-stepDetail.innerHTML=`<b>${s0.t}</b> —— ${s0.d}`;});stepsEl.appendChild(d);});
+stepDetail.innerHTML=`<b>${s0.t}</b> —— ${s0.d}`;
+        ensureVisible(stepDetail);});stepsEl.appendChild(d);});
 const pinsEl=document.getElementById("pins");
-DATA.pins.forEach(p=>{
-  const sec=document.createElement("div");sec.className="pinsec";
-  sec.innerHTML=`<div class="pinhead"><span class="pnm">${p.name}</span><span class="pinfo">${p.hui} · ${p.place}</span><span class="pj">卷${p.juan[0]}–${p.juan[1]}</span></div>
-    <div class="pindesc">${p.desc}</div>`;
+DATA.pins.forEach((p,pi)=>{
+  const sec=document.createElement("div");sec.className="pinsec t"+(pi+1);
+  const ex=(p.explain||[]).map(x=>`<p><b>${x.h}：</b>${x.t}</p>`).join("");
+  sec.innerHTML=`<span class="pno">${["壹","贰","叁","肆"][pi]||pi+1}</span><div class="pinhead"><span class="pnm">${p.name}</span><span class="pinfo">${p.hui} · ${p.place}</span><span class="pj">卷${p.juan[0]}–${p.juan[1]}</span></div>
+    <div class="pindesc">${p.desc}</div>${ex?`<div class="pinbody">${ex}</div>`:""}`;
   const grid=document.createElement("div");grid.className="jie";
   p.list.forEach((it,i)=>{
     const el=document.createElement("div");el.className="jitem"+(it.d?" hasnote":"");

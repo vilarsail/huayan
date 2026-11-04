@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>问明品 · 文殊九问</title>
 <style>
-:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#e2c98f;--gold-dim:#8a7340;
---ivory:#e9e1cd;--muted:#a89f8a;--faint:#7d7666;--line:rgba(201,164,92,.22);--line2:rgba(201,164,92,.4);
+:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#ecd6a4;--gold-dim:#a98f54;
+--ivory:#f4eee0;--muted:#cfc6b2;--faint:#aaa18d;--line:rgba(201,164,92,.3);--line2:rgba(201,164,92,.52);
 --blue:#6ea3cc;--serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}a{color:var(--gold2);text-decoration:none}a:hover{color:#fff}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}section{padding:56px 0 20px}
-.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
-.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:14.5px}
+.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:15.5px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:16.5px}
 .rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
 .rule::after{background:linear-gradient(90deg,var(--line2),transparent)}.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:16.5px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
 details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
-details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
-details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
-details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:16.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:14.5px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:16.5px;border-top:1px dashed var(--line)}
 details.fold .body p{margin:8px 0}details.fold .body b{color:var(--ivory);font-weight:600}
 .hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
 background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transparent 60%),radial-gradient(760px 380px at 12% 22%,rgba(154,143,208,.07),transparent 60%),var(--ink)}
@@ -30,51 +30,51 @@ background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transp
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
 .hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}.hero h1 span{color:var(--gold2)}
-.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
-.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:15.5px}.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:16.5px;letter-spacing:.18em}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:17px}.hero .lead b{color:var(--ivory);font-weight:600}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:16.5px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
 .hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
 .hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px)}
 .themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px;max-width:760px;margin:0 auto}
 .tchip{border:1px solid var(--line);border-radius:10px;background:var(--ink2);padding:10px 6px;text-align:center;cursor:pointer;transition:.2s}
-.tchip .tn{font-size:14.5px;color:var(--ivory)}.tchip .tt{font-size:11px;color:var(--faint)}
+.tchip .tn{font-size:16.5px;color:var(--ivory)}.tchip .tt{font-size:14.5px;color:var(--faint)}
 .tchip:hover,.tchip.hot{border-color:var(--gold);background:var(--ink3)}
 .dlg{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
 .qa{border:1px solid var(--line);border-radius:14px;background:var(--ink2);overflow:hidden}
 .qa .qa-head{display:flex;align-items:baseline;gap:10px;padding:12px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.qa .qa-head .qn{font-size:12px;color:var(--gold)}
-.qa .qa-head .qnm{font-size:17px;color:var(--gold2);font-weight:600}
-.qa .qa-head .qth{font-size:13px;color:var(--muted)}
+.qa .qa-head .qn{font-size:15px;color:var(--gold)}
+.qa .qa-head .qnm{font-size:18.5px;color:var(--gold2);font-weight:600}
+.qa .qa-head .qth{font-size:15.5px;color:var(--muted)}
 .qa .bubble{padding:14px 22px}
-.qa .who{font-size:12px;letter-spacing:.25em;color:var(--faint);margin-bottom:4px}
-.qa .q-text{font-size:14.5px;color:var(--ivory);line-height:2}
+.qa .who{font-size:15px;letter-spacing:.25em;color:var(--faint);margin-bottom:4px}
+.qa .q-text{font-size:16.5px;color:var(--ivory);line-height:2}
 .qa .a-block{background:rgba(201,164,92,.05);border-top:1px dashed var(--line)}
-.qa .a-verse{font-size:16.5px;color:var(--gold2);letter-spacing:.08em;line-height:2.2}
-.qa .a-note{margin-top:8px;font-size:13px;color:var(--muted)}
+.qa .a-verse{font-size:18px;color:var(--gold2);letter-spacing:.08em;line-height:2.2}
+.qa .a-note{margin-top:8px;font-size:15.5px;color:var(--muted)}
 .qa.dim{display:none}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}footer p{margin:6px 0}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:15.5px;text-align:center}footer p{margin:6px 0}
 .topnav{position:fixed;right:18px;bottom:18px;z-index:50}.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;transition:.2s}.topnav a:hover{color:#fff;border-color:var(--gold)}
 
 /* ---------- 侧边导航（跨页） ---------- */
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:228px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
 .sidenav::-webkit-scrollbar{width:4px}
 .sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
 .sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
-.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
-.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
-.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:17.5px;flex-shrink:0}
+.sn-brand b{display:block;font-size:17.5px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:13.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:13.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:15.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
 .sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
 .sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
-.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
-.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
-.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
-@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(min-width:1100px){body{padding-left:228px}.sn-mask{display:none!important}}
 @media(max-width:1099px){
   .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
   .sidenav.open{transform:none}
@@ -85,11 +85,11 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 /* ---------- 专题学习页快捷条 ---------- */
 .pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
-.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
-.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar .pb-label{font-size:14.5px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
 .pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
 .pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
-@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:15px;padding:4px 11px}}
 </style>
 </head>
 <body id="top">
@@ -130,7 +130,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <div class="sec-head"><div class="no">壹</div><h2>九问总览</h2>
       <div class="sub">点击任一问，直达那场问答 · 问主题词为编者所加</div><div class="rule"><i class="diamond"></i></div></div>
     <div class="themes" id="themes"></div>
-    <div class="tip-note">品名「问明」：<b>问」，能问的是文殊之智；「明」，所显的是法界之明</b>。
+    <div class="tip-note">品名「问明」：<b>「问」，能问的是文殊之智；「明」，所显的是法界之明</b>。
     这一品与〈净行品〉同会相邻：净行品讲「怎样用心」，问明品讲「为何如此用心的道理」——行与解互为表里。</div>
   </div>
 </section>
@@ -147,19 +147,27 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
         <p>读这一品的诀窍：把九问读成同一问（一与多），把九答读成同一答（缘起故，一多相即）——结构立刻从「九段难文」变成「一场合奏」。</p>
       </div>
     </details>
+    <details class="fold"><summary>九问的排列：从法体、业用、修行到教化</summary>
+      <div class="body">
+        <p><b>前四问立理</b>：觉首问缘起（心性是一，云何差别），财首问如来如何随宜现身，宝首问业报，德首问一多法门。先立「诸法无自性而缘起」，再问佛如何应现、业如何相续、法门如何不二。</p>
+        <p><b>中三问转向修行</b>：目首问福田平等，勤首问断惑为何迟速，法首问闻法之后是否必须修行。从「理」落到「行」，问的是凡夫当下能不能修、为什么修得慢。</p>
+        <p><b>后二问转向教化</b>：智首问法门先后，贤首问佛土差别。佛说法为何有先后、国土为何有净秽。九问合起来，是一条「法体 → 业用 → 修行 → 教化」的展开；每一答都归到缘起无自性、一多相即。</p>
+        <p>这是编者的一种读法，不是经文的原始分段。真正读时，把九问答当作一场连续对话——前后提问在互相补足。</p>
+      </div>
+    </details>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p style="font-size:15px;color:var(--gold2)">一即是多，多即是一</p>
+    <p style="font-size:16.5px;color:var(--gold2)">一即是多，多即是一</p>
     <p><a href="index.html">← 全经地图</a> · <a href="jingxing.html">净行品（同会相邻）</a> · <a href="jieti.html">菩萨道阶梯</a></p>
     <p>依据《大方广佛华严经》卷第十三〈菩萨问明品〉原文编制；问答均核对自经文，答偈有节略。</p>
   </div>
 </footer>
 <div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
 <script>
-const DATA = {"pairs": [{"name": "觉首", "theme": "缘起", "q": "心性是一。云何见有种种差别？所谓：往善趣、恶趣；诸根满、缺；受生同、异；端正、丑陋；苦、乐不同；业不知心，心不知业；受不知报，报不知受；心不知受，受不知心；因不知缘，缘不知因；智不知境，境不知智…", "a": "仁今问是义，为晓悟群蒙。我如其性答，惟仁应谛听。诸法无作用，亦无有体性。", "note": "心性是一而万象差别？答：诸法无自性作者，如河水奔流、大火聚发、长风鼓物——各各不相知，而缘起宛然相续。"}, {"name": "财首", "theme": "随宜现身", "q": "一切众生非众生。云何如来随其时、随其命、随其身、随其行、随其解、随其言论、随其心乐、随其方便、随其思惟、随其观察，于如是诸众生中，为现其身，教化调伏？…", "a": "此是乐寂灭，多闻者境界。我为仁宣说，仁今应听受。分别观内身，此中谁是我。", "note": "众生即非众生，如来何以随其时、其身、其心乐现身教化？答：如水中月随器而现，月本无来去。"}, {"name": "宝首", "theme": "业报", "q": "一切众生，等有四大，无我、无我所。云何而有受苦、受乐，端正、丑陋，内好、外好，少受、多受，或受现报，或受后报？然法界中，无美、无恶…", "a": "随其所行业，如是果报生。作者无所有，诸佛之所说。譬如净明镜，随其所对质。", "note": "同禀四大、无我我所，何以苦乐妍丑不同？答：如大地生种种物——田无分别，业种各别。"}, {"name": "德首", "theme": "一多法门", "q": "如来所悟，唯是一法。云何乃说无量诸法，现无量刹，化无量众，演无量音，示无量身，知无量心，现无量神通，普能震动无量世界，示现无量殊胜庄严，显示无边种种境界？而法性中，此差别相，皆不可得…", "a": "佛子所问义，甚深难可了。智者能知此，常乐佛功德。譬如地性一，众生各别住。", "note": "佛所悟唯是一法，何以演说无量法门、现无量刹身？答：一法无形，应机而现无量，如摩尼随方现色。"}, {"name": "目首", "theme": "福田等一", "q": "如来福田，等一无异。云何而见众生布施果报不同？所谓：种种色、种种形、种种家、种种根、种种财、种种主、种种眷属、种种官位、种种功德、种种智慧；而佛于彼，其心平等，无异思惟…", "a": "譬如大地一，随种各生芽。于彼无怨亲，佛福田亦然。又如水一味，因器有差别。", "note": "福田平等，何以布施果报种种不同？答：田本无二，果随心现。"}, {"name": "勤首", "theme": "断惑迟速", "q": "佛教是一，众生得见，云何不即悉断一切诸烦恼缚而得出离？然其色蕴、受蕴、想蕴、行蕴、识蕴，欲界、色界、无色界，无明、贪爱，无有差别，是则佛教。于诸众生，或有利益？或无利益？…", "a": "佛子善谛听，我今如实答。或有速解脱，或有难出离。若欲求除灭，无量诸过恶。", "note": "佛之教唯一，众生闻者何以不即断惑出离？答：法一味，成熟有期，如药力因人而发。"}, {"name": "法首", "theme": "闻法与行", "q": "如佛所说：‘若有众生，受持正法，悉能除断一切烦恼。’何故复有受持正法而不断者？随贪、瞋、痴，随慢、随覆、随忿、随恨、随嫉、随悭、随诳、随谄，势力所转，无有离心…", "a": "佛子善谛听，所问如实义。非但以多闻，能入如来法。如人水所漂，惧溺而渴死。", "note": "受持正法者何以仍有不断烦恼？答：说食不饱、数他之宝——不行持则闻无益。此是华严「行」字的眼目。"}, {"name": "智首", "theme": "法门先后", "q": "于佛法中，智为上首。如来何故，或为众生赞叹布施，或赞持戒，或赞堪忍，或赞精进，或赞禅定，或赞智慧，或复赞叹慈、悲、喜、舍？而终无有唯以一法，而得出离成阿耨多罗三藐三菩提者…", "a": "佛子甚希有，能知众生心。如仁所问义，谛听我今说。过去未来世，现在诸导师。", "note": "智为上首，佛何故或赞施或赞戒、随机不同？答：如良医应病与药——法无高下，对机为妙。"}, {"name": "贤首", "theme": "佛土差别", "q": "诸佛世尊，唯以一道，而得出离。云何今见一切佛土，所有众事，种种不同？所谓：世界、众生界、说法调伏、寿量、光明、神通、众会、教仪、法住，各有差别…", "a": "文殊法常尔，法王唯一法。一切无碍人，一道出生死。一切诸佛身，唯是一法身。", "note": "诸佛唯以一道出离，何以佛土众事种种不同？答：一道不碍万相，皆依法界而起。"}]};
+const DATA = {"pairs":[{"name":"觉首","theme":"缘起","q":"心性是一。云何见有种种差别？所谓：往善趣、恶趣；诸根满、缺；受生同、异；端正、丑陋；苦、乐不同；业不知心，心不知业；受不知报，报不知受；心不知受，受不知心；因不知缘，缘不知因；智不知境，境不知智…","a":"仁今问是义，为晓悟群蒙。我如其性答，惟仁应谛听。诸法无作用，亦无有体性。","note":"心性是一而万象差别？答：诸法无自性作者，如河水奔流、大火聚发、长风鼓物——各各不相知，而缘起宛然相续。"},{"name":"财首","theme":"随宜现身","q":"一切众生非众生。云何如来随其时、随其命、随其身、随其行、随其解、随其言论、随其心乐、随其方便、随其思惟、随其观察，于如是诸众生中，为现其身，教化调伏？…","a":"此是乐寂灭，多闻者境界。我为仁宣说，仁今应听受。分别观内身，此中谁是我。","note":"不是「水中月」：答以观身假立、住处无方所，寿命如旋火轮，众报如梦，世间法但以心为主。"},{"name":"宝首","theme":"业报","q":"一切众生，等有四大，无我、无我所。云何而有受苦、受乐，端正、丑陋，内好、外好，少受、多受，或受现报，或受后报？然法界中，无美、无恶…","a":"随其所行业，如是果报生。作者无所有，诸佛之所说。譬如净明镜，随其所对质。","note":"同禀四大、无我我所，何以苦乐妍丑不同？答：如大地生种种物——田无分别，业种各别。"},{"name":"德首","theme":"一多法门","q":"如来所悟，唯是一法。云何乃说无量诸法，现无量刹，化无量众，演无量音，示无量身，知无量心，现无量神通，普能震动无量世界，示现无量殊胜庄严，显示无边种种境界？而法性中，此差别相，皆不可得…","a":"佛子所问义，甚深难可了。智者能知此，常乐佛功德。譬如地性一，众生各别住。","note":"答用地、火、海、风、云、日、月、梵王诸喻：性一而用异，法性不二，应机成无量。"},{"name":"目首","theme":"福田等一","q":"如来福田，等一无异。云何而见众生布施果报不同？所谓：种种色、种种形、种种家、种种根、种种财、种种主、种种眷属、种种官位、种种功德、种种智慧；而佛于彼，其心平等，无异思惟…","a":"譬如大地一，随种各生芽。于彼无怨亲，佛福田亦然。又如水一味，因器有差别。","note":"福田平等，何以布施果报种种不同？答：田本无二，果随心现。"},{"name":"勤首","theme":"断惑迟速","q":"佛教是一，众生得见，云何不即悉断一切诸烦恼缚而得出离？然其色蕴、受蕴、想蕴、行蕴、识蕴，欲界、色界、无色界，无明、贪爱，无有差别，是则佛教。于诸众生，或有利益？或无利益？…","a":"佛子善谛听，我今如实答。或有速解脱，或有难出离。若欲求除灭，无量诸过恶。","note":"答用湿薪之火、钻燧、日珠取火、毛端取海等喻：懈怠者虽闻法而不能出离，非佛法不平。"},{"name":"法首","theme":"闻法与行","q":"如佛所说：‘若有众生，受持正法，悉能除断一切烦恼。’何故复有受持正法而不断者？随贪、瞋、痴，随慢、随覆、随忿、随恨、随嫉、随悭、随诳、随谄，势力所转，无有离心…","a":"佛子善谛听，所问如实义。非但以多闻，能入如来法。如人水所漂，惧溺而渴死。","note":"受持正法者何以仍有不断烦恼？答：说食不饱、数他之宝——不行持则闻无益。此是华严「行」字的眼目。"},{"name":"智首","theme":"法门先后","q":"于佛法中，智为上首。如来何故，或为众生赞叹布施，或赞持戒，或赞堪忍，或赞精进，或赞禅定，或赞智慧，或复赞叹慈、悲、喜、舍？而终无有唯以一法，而得出离成阿耨多罗三藐三菩提者…","a":"佛子甚希有，能知众生心。如仁所问义，谛听我今说。过去未来世，现在诸导师。","note":"答以建城先筑基、转轮王与众乐为喻：施戒忍进定慧四等次第而修，随机而赞，非一法成道。"},{"name":"贤首","theme":"佛土差别","q":"诸佛世尊，唯以一道，而得出离。云何今见一切佛土，所有众事，种种不同？所谓：世界、众生界、说法调伏、寿量、光明、神通、众会、教仪、法住，各有差别…","a":"文殊法常尔，法王唯一法。一切无碍人，一道出生死。一切诸佛身，唯是一法身。","note":"诸佛唯以一道出离，何以佛土众事种种不同？答：一道不碍万相，皆依法界而起。"}]};
 (()=>{const s=document.getElementById("stars");for(let i=0;i<40;i++){const d=document.createElement("i");
 d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
 const themes=document.getElementById("themes"), dlg=document.getElementById("dlg");

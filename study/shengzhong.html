@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>世主妙严 · 圣众云集</title>
 <style>
-:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#e2c98f;--gold-dim:#8a7340;
---ivory:#e9e1cd;--muted:#a89f8a;--faint:#7d7666;--line:rgba(201,164,92,.22);--line2:rgba(201,164,92,.4);
+:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#ecd6a4;--gold-dim:#a98f54;
+--ivory:#f4eee0;--muted:#cfc6b2;--faint:#aaa18d;--line:rgba(201,164,92,.3);--line2:rgba(201,164,92,.52);
 --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}a{color:var(--gold2);text-decoration:none}a:hover{color:#fff}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}section{padding:56px 0 20px}
-.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
-.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:14.5px}
+.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:15.5px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:16.5px}
 .rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
 .rule::after{background:linear-gradient(90deg,var(--line2),transparent)}.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:16.5px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
 details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
-details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
-details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
-details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:16.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:14.5px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:16.5px;border-top:1px dashed var(--line)}
 details.fold .body p{margin:8px 0}details.fold .body b{color:var(--ivory);font-weight:600}
 .hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
 background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transparent 60%),radial-gradient(760px 380px at 12% 22%,rgba(110,163,204,.06),transparent 60%),var(--ink)}
@@ -30,69 +30,72 @@ background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transp
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
 .hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}.hero h1 span{color:var(--gold2)}
-.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
-.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:15.5px}.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:16.5px;letter-spacing:.18em}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:17px}.hero .lead b{color:var(--ivory);font-weight:600}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:16.5px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
 .hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
 .hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px)}
 .anatomy{border:1px solid var(--line);border-radius:14px;background:var(--ink2);padding:26px 20px;text-align:center}
 .an-sentence{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
 .an-seg{border:1px solid var(--line2);border-radius:12px;padding:13px 18px;cursor:pointer;transition:.22s;min-width:104px}
-.an-seg .zh{font-size:17.5px;color:var(--ivory);letter-spacing:.08em}.an-seg .role{font-size:11.5px;color:var(--faint);margin-top:4px;letter-spacing:.1em}
+.an-seg .zh{font-size:19px;color:var(--ivory);letter-spacing:.08em}.an-seg .role{font-size:14.5px;color:var(--faint);margin-top:4px;letter-spacing:.1em}
 .an-seg:hover,.an-seg.on{border-color:var(--gold);background:var(--ink3);transform:translateY(-2px)}.an-seg.on .role{color:var(--gold)}
-#anDetail{margin-top:12px;padding:12px 18px;background:rgba(255,255,255,.03);border-radius:10px;font-size:14px;color:var(--muted);min-height:74px}
+#anDetail{margin-top:12px;padding:12px 18px;background:rgba(255,255,255,.03);border-radius:10px;font-size:16.5px;color:var(--muted);min-height:74px}
 #anDetail b{color:var(--gold2)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:4px 0 10px}
-.fchip{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
+.fchip{font-size:15.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
 .fchip:hover{color:var(--ivory)}.fchip.hot{border-color:var(--gold);background:rgba(201,164,92,.12);color:var(--gold2)}
 .tools{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:8px 0 4px}
-.tools input{background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:14px;padding:8px 18px;outline:none;text-align:center;width:min(320px,80%)}
+.tools input{background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:16.5px;padding:8px 18px;outline:none;text-align:center;width:min(320px,80%)}
 .tools input:focus{border-color:var(--gold)}
-.tools button{background:linear-gradient(135deg,rgba(201,164,92,.2),rgba(201,164,92,.06));border:1px solid var(--gold);border-radius:999px;color:var(--gold2);font-family:var(--serif);font-size:14px;padding:8px 20px;cursor:pointer;letter-spacing:.08em}
+.tools button{background:linear-gradient(135deg,rgba(201,164,92,.2),rgba(201,164,92,.06));border:1px solid var(--gold);border-radius:999px;color:var(--gold2);font-family:var(--serif);font-size:16.5px;padding:8px 20px;cursor:pointer;letter-spacing:.08em}
 .tools button:hover{color:#fff}
-#counter{text-align:center;font-size:13px;color:var(--faint);margin-bottom:18px}
+#counter{text-align:center;font-size:15.5px;color:var(--faint);margin-bottom:18px}
 .cat-divider{position:relative;z-index:2;text-align:center;margin:40px 0 22px}
 .cat-divider .cd-in{display:inline-block;background:var(--ink);border:1px solid var(--line2);border-radius:12px;padding:10px 24px}
-.cat-divider .nm{font-size:16.5px;color:var(--gold2);letter-spacing:.15em}
-.cat-divider .ds{font-size:12.5px;color:var(--faint);margin-top:4px;max-width:560px}
+.cat-divider .nm{font-size:18px;color:var(--gold2);letter-spacing:.15em}
+.cat-divider .ds{font-size:15px;color:var(--faint);margin-top:4px;max-width:560px}
 .gl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .grp{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:13px 17px;cursor:pointer;transition:.2s}
 .grp:hover{border-color:var(--line2);transform:translateY(-2px)}.grp.open{border-color:var(--gold);background:var(--ink3)}
 .grp .r1{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.grp .cls{font-size:16.5px;font-weight:600}
-.grp .cnt{font-size:11.5px;color:var(--faint)}
-.grp .more{font-size:11px;color:var(--gold-dim);margin-left:auto}
-.grp .vt{font-size:13.5px;color:var(--gold2);margin-top:4px}
-.grp .nl{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);line-height:2.1}
+.grp .cls{font-size:18px;font-weight:600}
+.grp .cnt{font-size:14.5px;color:var(--faint)}
+.grp .more{font-size:14.5px;color:var(--gold-dim);margin-left:auto}
+.grp .vt{font-size:15.5px;color:var(--gold2);margin-top:4px}
+.grp .nl{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:15.5px;color:var(--muted);line-height:2.1}
 .grp.open .nl{display:block}
 .grp.dim{display:none}
 .pos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:760px){.pos{grid-template-columns:1fr}}
 .pcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
-.pcard h3{font-size:16.5px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:14px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}footer p{margin:6px 0}
+.pcard h3{font-size:18px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:16.5px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:15.5px;text-align:center}footer p{margin:6px 0}
 .topnav{position:fixed;right:18px;bottom:18px;z-index:50}.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;transition:.2s}.topnav a:hover{color:#fff;border-color:var(--gold)}
 
+.grp .gd{padding:0 14px 12px;font-size:15.5px;color:var(--muted);line-height:1.85}
+.grp .gd b{color:var(--gold2);font-weight:600}
+
 /* ---------- 侧边导航（跨页） ---------- */
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:228px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
 .sidenav::-webkit-scrollbar{width:4px}
 .sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
 .sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
-.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
-.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
-.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:17.5px;flex-shrink:0}
+.sn-brand b{display:block;font-size:17.5px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:13.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:13.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:15.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
 .sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
 .sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
-.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
-.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
-.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
-@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(min-width:1100px){body{padding-left:228px}.sn-mask{display:none!important}}
 @media(max-width:1099px){
   .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
   .sidenav.open{transform:none}
@@ -103,11 +106,11 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 /* ---------- 专题学习页快捷条 ---------- */
 .pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
-.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
-.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar .pb-label{font-size:14.5px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
 .pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
 .pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
-@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:15px;padding:4px 11px}}
 </style>
 </head>
 <body id="top">
@@ -133,7 +136,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
   <div class="ornament">❖ 世 主 妙 嚴 ❖</div>
   <h1>世主妙严<span>圣众云集</span></h1>
   <div class="meta">卷一至五 · 第一会菩提场 · 全经序分</div>
-  <p class="lead">翻开《华严经》的第一面墙就在这里：四十类圣众、每类十位上首、四百多个名字排山倒海而来。<br>
+  <p class="lead">翻开《华严经》的第一面墙就在这里：四十类圣众、多数十位上首、四百多个名字排山倒海而来。<br>
   其实这是佛成道法会的一份<b>「签到簿」</b>——大地、山河、昼夜、八部、诸天，一切世间之主皆来云集。<b>名录不是啰嗦，是「重重无尽」的第一次登场。</b></p>
   <div class="cta">
     <a class="primary" href="#list">进入圣众名录</a>
@@ -149,9 +152,9 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <div class="sec-head"><div class="no">壹</div><h2>先学会读「名录体」</h2>
       <div class="sub">四十段名录共享同一个句式——点击每一部分，看它的功能</div><div class="rule"><i class="diamond"></i></div></div>
     <div class="anatomy">
-      <div style="font-size:14px;color:var(--faint)">以执金刚神一段为例</div>
+      <div style="font-size:16.5px;color:var(--faint)">以执金刚神一段为例</div>
       <div class="an-sentence" id="anSegs"></div>
-      <div id="anDetail">四百个名字共享这一个骨架。认出骨架，名录体就从「劝退墙」变成「可快读的结构」。</div>
+      <div id="anDetail">四百多个名字共享这一个骨架。认出骨架，名录体就从「劝退墙」变成「可快读的结构」。</div>
     </div>
     <div class="tip-note">阅读策略只有三条：<b>①名字扫过即可，无人要求你记住</b>（经中也说「如是等而为上首」——列的只是上首）；
     <b>②每段末尾的「皆……」句才是眼目</b>，它一句话点出这一类圣众的功德与愿力，读到「皆」字请放慢；
@@ -159,7 +162,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <details class="fold"><summary>零基础 · 「世主」「八部众」这些词是什么意思？</summary>
       <div class="body">
         <p><b>世主妙严</b>：品名意为「世间之主们以微妙庄严（来印证佛境）」。世主包括各类神祇、天众——他们各自掌管世间的一角（大地、山海、昼夜、方位），故称「主」。</p>
-        <p><b>八部众</b>：佛教世界观中最常见的八类护法众生——天、龙、夜叉（勇健鬼神）、乾闼婆（香神/乐神）、阿修罗（好斗的天部）、迦楼罗（金翅鸟）、紧那罗（歌神）、摩睺罗伽（大蟒神）。寺院造像中的「天龙八部」即指他们。</p>
+        <p><b>八部众</b>：佛教世界观中最常见的八类护法众生——天、龙、夜叉（勇健鬼神）、乾闼婆（香神/乐神）、阿修罗（好斗的天部）、迦楼罗（金翅鸟）、紧那罗（歌神）、摩睺罗伽（大蟒神）。寺院造像中的「天龙八部」即指他们。<b>本页的「八部护法」分区</b>则按经文实列，收龙以下七部并鸠槃荼王，天部另入「诸天」区（分类分组为编者所加，详见页脚）。</p>
         <p><b>「佛世界微尘数」</b>：把一个佛世界磨成微尘来计数——华严用以表达「不可思议之多」的固定量词，全经出现极多，读时可径直理解为「无量无边」。</p>
       </div>
     </details>
@@ -172,7 +175,6 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
       <div class="sub">默认收起名号、点亮功德句——先看结构，想看名字再展开</div><div class="rule"><i class="diamond"></i></div></div>
     <div class="filters" id="filters"></div>
     <div class="tools">
-      <input id="q" type="text" placeholder="搜索类名或名号，如：主海、龙王、普贤">
       <button id="btnNames">显示/隐藏 十上首名号</button>
     </div>
     <div id="counter"></div>
@@ -187,7 +189,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <div class="pos">
       <div class="pcard">
         <h3>卷一至五的分工</h3>
-        <p><b>卷一</b>（本页）：场景庄严＋四十类圣众名录（长行）。<b>卷二至五</b>：这些上首逐一登场，<b>以偈颂赞叹佛德</b>（每类十颂），并各说得一解脱门。</p>
+        <p><b>卷一</b>（本页）：场景庄严＋四十类圣众名录（长行）。<b>卷二至五</b>：这些上首逐一登场，<b>以偈颂赞叹佛德</b>（通常十颂一组），并各说得一解脱门。</p>
         <p>所以卷一相当于「演员表」，卷二至五是「各自的开场白」——读完本页再读卷二，会发现那些偈颂的作者正是你刚见过的名字。</p>
       </div>
       <div class="pcard">
@@ -202,21 +204,21 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 <footer>
   <div class="wrap">
-    <p style="font-size:15px;color:var(--gold2)">一切世间之主，皆来印证佛境</p>
+    <p style="font-size:16.5px;color:var(--gold2)">一切世间之主，皆来印证佛境</p>
     <p><a href="index.html">← 全经地图</a> · <a href="jingxing.html">净行品</a> · <a href="shancai.html">五十三参</a></p>
     <p>依据《大方广佛华严经》卷第一原文与词语注释编制。类目四分（菩萨/护法神/八部/诸天）为编者所加，便于观其座次。</p>
   </div>
 </footer>
 <div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
 <script>
-const DATA = {"cats": {"pusa": {"name": "菩萨众", "desc": "法会内核：普贤为上首的十佛世界微尘数大菩萨，与毗卢遮那共集善根——全经说法的当机者"}, "shen": {"name": "护法神众（十九类）", "desc": "金刚神与主城、主地、主山、主河、主海、主昼、主夜……大地上的一切守护者，各主其事、各表其德"}, "babu": {"name": "天龙八部（八类）", "desc": "阿修罗、迦楼罗、紧那罗、摩睺罗伽、夜叉、龙、鸠槃荼、乾闼婆——佛教世界观中最亲切的护法众生"}, "tian": {"name": "诸天（十二类）", "desc": "从月、日天子，经欲界六天，到大梵、光音、遍净、广果，直至色界顶的大自在天——名录的顺序就是升天的顺序"}}, "groups": [{"cat": "pusa", "count": "十佛世界微尘数", "cls": "菩萨摩诃萨", "names": ["普贤菩萨", "普德最胜灯光照菩萨", "普光师子幢菩萨", "普宝焰妙光菩萨", "普音功德海幢菩萨", "普智光照如来境菩萨", "普宝髻华幢菩萨", "普觉悦意声菩萨", "普清净无尽福光菩萨", "普光明相菩萨", "海月光大明菩萨", "云音海光无垢藏菩萨", "功德宝髻智生菩萨", "功德自在王大光菩萨", "善勇猛莲华髻菩萨", "普智云日幢菩萨", "大精进金刚齐菩萨", "香焰光幢菩萨", "大明德深美音菩萨", "大福光智生菩萨"], "virtue": "皆往昔与毗卢遮那如来共集善根，修菩萨行；恒以所得普贤愿海，令一切众生智身具足"}, {"cat": "shen", "count": "佛世界微尘数", "cls": "执金刚神", "names": ["妙色那罗延执金刚神", "日轮速疾幢执金刚神", "须弥华光执金刚神", "清净云音执金刚神", "诸根美妙执金刚神", "可爱乐光明执金刚神", "大树雷音执金刚神", "师子王光明执金刚神", "密焰胜目执金刚神", "莲华光摩尼髻执金刚神"], "virtue": "皆于往昔无量劫中恒发大愿，愿常亲近供养诸佛；随愿所行，已得圆满，到于彼岸；积集无边清净福业，于诸三昧所行之境悉已明达；获神通力，随如来住，入不思议解脱境界；处于众会，威光特达，随诸众生所应现身而示调伏；一切诸佛化形所在，皆随化往；一切如来所住之处，常勤守护"}, {"cat": "shen", "count": "佛世界微尘数", "cls": "身众神", "names": ["华髻庄严身众神", "光照十方身众神", "海音调伏身众神", "净华严髻身众神", "无量威仪身众神", "最上光严身众神", "净光香云身众神", "守护摄持身众神", "普现摄取身众神", "不动光明身众神"], "virtue": "皆于往昔成就大愿，供养承事一切诸佛"}, {"cat": "shen", "count": "佛世界微尘数", "cls": "足行神", "names": ["宝印手足行神", "莲华光足行神", "清净华髻足行神", "摄诸善见足行神", "妙宝星幢足行神", "乐吐妙音足行神", "栴檀树光足行神", "莲华光明足行神", "微妙光明足行神", "积集妙华足行神"], "virtue": "皆于过去无量劫中，亲近如来，随逐不舍"}, {"cat": "shen", "count": "佛世界微尘数", "cls": "道场神", "names": ["净庄严幢道场神", "须弥宝光道场神", "雷音幢相道场神", "雨华妙眼道场神", "华缨光髻道场神", "雨宝庄严道场神", "勇猛香眼道场神", "金刚彩云道场神", "莲华光明道场神", "妙光照耀道场神"], "virtue": "皆于过去值无量佛，成就愿力，广兴供养"}, {"cat": "shen", "count": "佛世界微尘数", "cls": "主城神", "names": ["宝峰光耀主城神", "妙严宫殿主城神", "清净喜宝主城神", "离忧清净主城神", "华灯焰眼主城神", "焰幢明现主城神", "盛福光明主城神", "清净光明主城神", "香髻庄严主城神", "妙宝光明主城神"], "virtue": "皆于无量不思议劫，严净如来所居宫殿"}, {"cat": "shen", "count": "佛世界微尘数", "cls": "主地神", "names": ["普德净华主地神", "坚福庄严主地神", "妙华严树主地神", "普散众宝主地神", "净目观时主地神", "妙色胜眼主地神", "香毛发光主地神", "悦意音声主地神", "妙华旋髻主地神", "金刚严体主地神"], "virtue": "皆于往昔发深重愿，愿常亲近诸佛如来，同修福业"}, {"cat": "shen", "count": "无量", "cls": "主山神", "names": ["宝峰开华主山神，华林妙髻主山神", "高幢普照主山神", "离尘净髻主山神", "光照十方主山神", "大力光明主山神", "威光普胜主山神", "微密光轮主山神", "普眼现见主山神", "金刚密眼主山神"], "virtue": "皆于诸法得清净眼"}, {"cat": "shen", "count": "不可思议数", "cls": "主林神", "names": ["布华如云主林神", "擢干舒光主林神", "生芽发耀主林神", "吉祥净叶主林神", "垂布焰藏主林神", "清净光明主林神", "可意雷音主林神", "光香普遍主林神", "妙光回耀主林神", "华果光味主林神"], "virtue": "皆有无量可爱光明"}, {"cat": "shen", "count": "无量", "cls": "主药神", "names": ["吉祥主药神", "栴檀林主药神", "清净光明主药神", "名称普闻主药神", "毛孔光明主药神", "普治清净主药神", "大发吼声主药神", "蔽日光幢主药神", "明见十方主药神", "益气明目主药神"], "virtue": "性皆离垢，仁慈祐物"}, {"cat": "shen", "count": "无量", "cls": "主稼神", "names": ["柔软胜味主稼神", "时华净光主稼神", "色力勇健主稼神", "增长精气主稼神", "普生根果主稼神", "妙严环髻主稼神", "润泽净华主稼神", "成就妙香主稼神", "见者爱乐主稼神", "离垢净光主稼神"], "virtue": "莫不皆得大喜成就"}, {"cat": "shen", "count": "无量", "cls": "主河神", "names": ["普发迅流主河神", "普洁泉涧主河神", "离尘净眼主河神", "十方遍吼主河神", "救护众生主河神", "无热净光主河神", "普生欢喜主河神", "广德胜幢主河神", "光照普世主河神", "海德光明主河神"], "virtue": "皆勤作意利益众生"}, {"cat": "shen", "count": "无量", "cls": "主海神", "names": ["出现宝光主海神", "成金刚幢主海神", "远尘离垢主海神", "普水宫殿主海神", "吉祥宝月主海神", "妙华龙髻主海神", "普持光味主海神", "宝焰华光主海神", "金刚妙髻主海神", "海潮雷声主海神"], "virtue": "悉以如来功德大海充满其身"}, {"cat": "shen", "count": "无量", "cls": "主水神", "names": ["普兴云幢主水神", "海潮云音主水神", "妙色轮髻主水神", "善巧漩澓主水神", "离垢香积主水神", "福桥光音主水神", "知足自在主水神", "净喜善音主水神", "普现威光主水神", "吼音遍海主水神"], "virtue": "常勤救护一切众生而为利益"}, {"cat": "shen", "count": "无数", "cls": "主火神", "names": ["普光焰藏主火神", "普集光幢主火神", "大光普照主火神", "众妙宫殿主火神", "无尽光髻主火神", "种种焰眼主火神", "十方宫殿如须弥山主火神", "威光自在主火神", "光明破暗主火神", "雷音电光主火神"], "virtue": "皆能示现种种光明，令诸众生热恼除灭"}, {"cat": "shen", "count": "无量", "cls": "主风神", "names": ["无碍光明主风神", "普现勇业主风神", "飘击云幢主风神", "净光庄严主风神", "力能竭水主风神", "大声遍吼主风神", "树杪垂髻主风神", "所行无碍主风神", "种种宫殿主风神", "大光普照主风神"], "virtue": "皆勤散灭我慢之心"}, {"cat": "shen", "count": "无量", "cls": "主空神", "names": ["净光普照主空神", "普游深广主空神", "生吉祥风主空神", "离障安住主空神", "广步妙髻主空神", "无碍光焰主空神", "无碍胜力主空神", "离垢光明主空神", "深远妙音主空神", "光遍十方主空神"], "virtue": "心皆离垢，广大明洁"}, {"cat": "shen", "count": "无量", "cls": "主方神", "names": ["遍住一切主方神", "普现光明主方神", "光行庄严主方神", "周行不碍主方神", "永断迷惑主方神", "普游净空主方神", "大云幢音主方神", "髻目无乱主方神", "普观世业主方神", "周遍游览主方神"], "virtue": "能以方便，普放光明，恒照十方，相续不绝"}, {"cat": "shen", "count": "无量", "cls": "主夜神", "names": ["普德净光主夜神", "喜眼观世主夜神", "护世精气主夜神", "寂静海音主夜神", "普现吉祥主夜神", "普发树华主夜神", "平等护育主夜神", "游戏快乐主夜神", "诸根常喜主夜神", "出生净福主夜神"], "virtue": "皆勤修习，以法为乐"}, {"cat": "shen", "count": "无量", "cls": "主昼神", "names": ["示现宫殿主昼神", "发起慧香主昼神", "乐胜庄严主昼神", "香华妙光主昼神", "普集妙药主昼神", "乐作喜目主昼神", "普现诸方主昼神", "大悲光明主昼神", "善根光照主昼神", "妙华璎珞主昼神"], "virtue": "皆于妙法能生信解，恒共精勤严饰宫殿"}, {"cat": "babu", "count": "无量", "cls": "阿修罗王", "names": ["罗睺阿修罗王", "毗摩质多罗阿修罗王", "巧幻术阿修罗王", "大眷属阿修罗王", "大力阿修罗王", "遍照阿修羅王", "坚固行妙庄严阿修罗王", "广大因慧阿修罗王", "出现胜德阿修罗王", "妙好音声阿修罗王"], "virtue": "悉已精勤摧伏我慢及诸烦恼"}, {"cat": "babu", "count": "不可思议数", "cls": "迦楼罗王", "names": ["大速疾力迦楼罗王", "无能坏宝髻迦楼罗王", "清净速疾迦楼罗王", "心不退转迦楼罗王", "大海处摄持力迦楼罗王", "坚固净光迦楼罗王", "巧严冠髻迦楼罗王", "普捷示现迦楼罗王", "普观海迦楼罗王", "普音广目迦楼罗王"], "virtue": "悉已成就大方便力，善能救摄一切众生"}, {"cat": "babu", "count": "无量", "cls": "紧那罗王", "names": ["善慧光明天紧那罗王", "妙华幢紧那罗王", "种种庄严紧那罗王", "悦意吼声紧那罗王", "宝树光明紧那罗王", "见者欣乐紧那罗王", "最胜光庄严紧那罗王", "微妙华幢紧那罗王", "动地力紧那罗王", "摄伏恶众紧那罗王"], "virtue": "皆勤精进，观一切法，心恒快乐，自在游戏"}, {"cat": "babu", "count": "无量", "cls": "摩睺罗伽王", "names": ["善慧摩睺罗伽王", "清净威音摩睺罗伽王", "胜慧庄严髻摩睺罗伽王", "妙目主摩睺罗伽王", "如灯幢为众所归摩睺罗伽王", "最胜光明幢摩睺罗伽王", "师子臆摩睺罗伽王", "众妙庄严音摩睺罗伽王", "须弥坚固摩睺罗伽王", "可爱乐光明摩睺罗伽王"], "virtue": "皆勤修习广大方便，令诸众生永割痴网"}, {"cat": "babu", "count": "无量", "cls": "夜叉王", "names": ["毗沙门夜叉王", "自在音夜叉王", "严持器仗夜叉王", "大智慧夜叉王", "焰眼主夜叉王", "金刚眼夜叉王", "勇健臂夜叉王", "勇敌大军夜叉王", "富资财夜叉王", "力坏高山夜叉王"], "virtue": "皆勤守护一切众生"}, {"cat": "babu", "count": "无量", "cls": "诸大龙王", "names": ["毗楼博叉龙王", "娑竭罗龙王", "云音妙幢龙王", "焰口海光龙王", "普高云幢龙王", "德叉迦龙王", "无边步龙王", "清净色龙王", "普运大声龙王", "无热恼龙王"], "virtue": "莫不勤力兴云布雨，令诸众生热恼消灭"}, {"cat": "babu", "count": "无量", "cls": "鸠槃荼王", "names": ["增长鸠槃荼王", "龙主鸠槃荼王", "善庄严幢鸠槃荼王", "普饶益行鸠槃荼王", "甚可怖畏鸠槃荼王", "美目端严鸠槃荼王", "高峰慧鸠槃荼王", "勇健臂鸠槃荼王", "无边净华眼鸠槃荼王", "广大天面阿修罗眼鸠槃荼王"], "virtue": "皆勤修学无碍法门，放大光明"}, {"cat": "babu", "count": "无量", "cls": "乾闼婆王", "names": ["持国乾闼婆王", "树光乾闼婆王", "净目乾闼婆王", "华冠乾闼婆王", "普音乾闼婆王", "乐摇动妙目乾闼婆王", "妙音师子幢乾闼婆王", "普放宝光明乾闼婆王", "金刚树华幢乾闼婆王", "乐普现庄严乾闼婆王"], "virtue": "皆于大法深生信解，欢喜爱重，勤修不倦"}, {"cat": "tian", "count": "无量", "cls": "月天子", "names": ["华王髻光明天子", "众妙净光明天子", "安乐世间心天子", "树王眼光明天子", "示现清净光天子", "普游不动光天子", "星宿王自在天子", "净觉月天子", "大威德光明天子"], "virtue": "皆勤显发众生心宝"}, {"cat": "tian", "count": "无量", "cls": "日天子", "names": ["光焰眼天子", "须弥光可畏敬幢天子", "离垢宝庄严天子", "勇猛不退转天子", "妙华缨光明天子", "最胜幢光明天子", "宝髻普光明天子", "光明眼天子", "持胜德天子", "普光明天子"], "virtue": "皆勤修习，利益众生，增其善根"}, {"cat": "tian", "count": "无量", "cls": "三十三天王", "names": ["释迦因陀罗天王", "普称满音天王", "慈目宝髻天王", "宝光幢名称天王", "发生喜乐髻天王", "可爱乐正念天王", "须弥胜音天王", "成就念天王", "可爱乐净华光天王", "智日眼天王", "自在光明能觉悟天王"], "virtue": "皆勤发起一切世间广大之业"}, {"cat": "tian", "count": "无量", "cls": "须夜摩天王", "names": ["善时分天王", "可爱乐光明天王", "无尽慧功德幢天王", "善变化端严天王", "总持大光明天王", "不思议智慧天王", "轮齐天王", "光焰天王", "光照天王", "普观察大名称天王"], "virtue": "皆勤修习广大善根，心常喜足"}, {"cat": "tian", "count": "不可思议数", "cls": "兜率陀天王", "names": ["知足天王", "喜乐海髻天王", "最胜功德幢天王", "寂静光天王", "可爱乐妙目天王", "宝峰净月天王", "最胜勇健力天王", "金刚妙光明天王", "星宿庄严幢天王", "可爱乐庄严天王"], "virtue": "皆勤念持一切诸佛所有名号"}, {"cat": "tian", "count": "无量", "cls": "化乐天王", "names": ["善变化天王", "寂静音光明天王", "变化力光明天王", "庄严主天王", "念光天王", "最上云音天王", "众妙最胜光天王", "妙髻光明天王", "成就喜慧天王", "华光髻天王", "普见十方天王"], "virtue": "皆勤调伏一切众生，令得解脱"}, {"cat": "tian", "count": "无数", "cls": "他化自在天王", "names": ["得自在天王", "妙目主天王", "妙冠幢天王", "勇猛慧天王", "妙音句天王", "妙光幢天王", "寂静境界门天王", "妙轮庄严幢天王", "华蕊慧自在天王", "因陀罗力妙庄严光明天王"], "virtue": "皆勤修习自在方便广大法门"}, {"cat": "tian", "count": "不可数", "cls": "大梵天王", "names": ["尸弃天王", "慧光天王", "善慧光明天王", "普云音天王", "观世言音自在天王", "寂静光明眼天王", "光遍十方天王", "变化音天王", "光明照耀眼天王", "悦意海音天王"], "virtue": "皆具大慈，怜愍众生，舒光普照，令其快乐"}, {"cat": "tian", "count": "无量", "cls": "光音天王", "names": ["可爱乐光明天王", "清净妙光天王", "能自在音天王", "最胜念智天王", "可爱乐清净妙音天王", "善思惟音天王", "普音遍照天王", "甚深光音天王", "无垢称光明天王", "最胜净光天王"], "virtue": "皆住广大寂静喜乐无碍法门"}, {"cat": "tian", "count": "无量", "cls": "遍净天王", "names": ["清净名称天王", "最胜见天王", "寂静德天王", "须弥音天王", "净念眼天王", "可爱乐最胜光照天王", "世间自在主天王", "光焰自在天王", "乐思惟法变化天王", "变化幢天王", "星宿音妙庄严天王"], "virtue": "悉已安住广大法门，于诸世间勤作利益"}, {"cat": "tian", "count": "无量", "cls": "广果天王", "names": ["爱乐法光明幢天王", "清净庄严海天王", "最胜慧光明天王", "自在智慧幢天王", "乐寂静天王", "普智眼天wang", "乐旋慧天王", "善种慧光明天王", "无垢寂静光天王", "广大清净光天王"], "virtue": "莫不皆以寂静之法而为宫殿安住其中"}, {"cat": "tian", "count": "无数", "cls": "大自在天王", "names": ["妙焰海天王", "自在名称光天王", "清净功德眼天王", "可爱乐大慧天王", "不动光自在天王", "妙庄严眼天王", "善思惟光明天王", "可爱乐大智天王", "普音庄严幢天王", "极精进名称光天王"], "virtue": "皆勤观察无相之法，所行平等"}]};
+const DATA = {"cats":{"pusa":{"name":"菩萨众","desc":"法会内核：普贤为上首的十佛世界微尘数大菩萨，与毗卢遮那共集善根——全经说法的当机者"},"shen":{"name":"护法神众（十九类）","desc":"金刚神与主城、主地、主山、主河、主海、主昼、主夜……大地上的一切守护者，各主其事、各表其德"},"babu":{"name":"八部护法（八类）","desc":"阿修罗、迦楼罗、紧那罗、摩睺罗伽、夜叉、龙、鸠槃荼、乾闼婆——「天」另列于诸天，鸠槃荼为护法鬼神，故称八部护法。"},"tian":{"name":"诸天（十二类）","desc":"月、日天子，欲界诸天（三十三、夜摩、兜率、化乐、他化），至色界梵天、光音、遍净、广果、大自在——名录顺序大致随天界升高。"}},"groups":[{"cat":"pusa","count":"十佛世界微尘数","cls":"菩萨摩诃萨","names":["普贤菩萨","普德最胜灯光照菩萨","普光师子幢菩萨","普宝焰妙光菩萨","普音功德海幢菩萨","普智光照如来境菩萨","普宝髻华幢菩萨","普觉悦意声菩萨","普清净无尽福光菩萨","普光明相菩萨","海月光大明菩萨","云音海光无垢藏菩萨","功德宝髻智生菩萨","功德自在王大光菩萨","善勇猛莲华髻菩萨","普智云日幢菩萨","大精进金刚齐菩萨","香焰光幢菩萨","大明德深美音菩萨","大福光智生菩萨"],"virtue":"皆往昔与毗卢遮那如来共集善根，修菩萨行；恒以所得普贤愿海，令一切众生智身具足","d":"与会的主体，以普贤为首。表佛果之因：一切菩萨同以普贤愿海为行，令众生智身具足。"},{"cat":"shen","count":"佛世界微尘数","cls":"执金刚神","names":["妙色那罗延执金刚神","日轮速疾幢执金刚神","须弥华光执金刚神","清净云音执金刚神","诸根美妙执金刚神","可爱乐光明执金刚神","大树雷音执金刚神","师子王光明执金刚神","密焰胜目执金刚神","莲华光摩尼髻执金刚神"],"virtue":"皆于往昔无量劫中恒发大愿，愿常亲近供养诸佛；随愿所行，已得圆满，到于彼岸；积集无边清净福业，于诸三昧所行之境悉已明达；获神通力，随如来住，入不思议解脱境界；处于众会，威光特达，随诸众生所应现身而示调伏；一切诸佛化形所在，皆随化往；一切如来所住之处，常勤守护","d":"手执金刚杵的护法，守护佛所住处与道场。表「护法」不是外围工作，而是令法久住的因缘。"},{"cat":"shen","count":"佛世界微尘数","cls":"身众神","names":["华髻庄严身众神","光照十方身众神","海音调伏身众神","净华严髻身众神","无量威仪身众神","最上光严身众神","净光香云身众神","守护摄持身众神","普现摄取身众神","不动光明身众神"],"virtue":"皆于往昔成就大愿，供养承事一切诸佛","d":"随侍佛身、承事供养的神众。表身业供养：以最亲近的身分，做最具体的承事。"},{"cat":"shen","count":"佛世界微尘数","cls":"足行神","names":["宝印手足行神","莲华光足行神","清净华髻足行神","摄诸善见足行神","妙宝星幢足行神","乐吐妙音足行神","栴檀树光足行神","莲华光明足行神","微妙光明足行神","积集妙华足行神"],"virtue":"皆于过去无量劫中，亲近如来，随逐不舍","d":"守护佛所行路与一切行者的道路。表「行」：路要有人护，法要有人传。"},{"cat":"shen","count":"佛世界微尘数","cls":"道场神","names":["净庄严幢道场神","须弥宝光道场神","雷音幢相道场神","雨华妙眼道场神","华缨光髻道场神","雨宝庄严道场神","勇猛香眼道场神","金刚彩云道场神","莲华光明道场神","妙光照耀道场神"],"virtue":"皆于过去值无量佛，成就愿力，广兴供养","d":"守护菩提道场的护法。表修行需要处所与护持，道场不是地点，而是成就觉悟的因缘聚集。"},{"cat":"shen","count":"佛世界微尘数","cls":"主城神","names":["宝峰光耀主城神","妙严宫殿主城神","清净喜宝主城神","离忧清净主城神","华灯焰眼主城神","焰幢明现主城神","盛福光明主城神","清净光明主城神","香髻庄严主城神","妙宝光明主城神"],"virtue":"皆于无量不思议劫，严净如来所居宫殿","d":"主宰城邑、令其安隐的神众。表「城」为防护：戒与定是心的城郭。"},{"cat":"shen","count":"佛世界微尘数","cls":"主地神","names":["普德净华主地神","坚福庄严主地神","妙华严树主地神","普散众宝主地神","净目观时主地神","妙色胜眼主地神","香毛发光主地神","悦意音声主地神","妙华旋髻主地神","金刚严体主地神"],"virtue":"皆于往昔发深重愿，愿常亲近诸佛如来，同修福业","d":"主宰大地、令地坚固生长的神众。表「地」：菩萨以大地般的平等心承载众生。"},{"cat":"shen","count":"无量","cls":"主山神","names":["宝峰开华主山神","华林妙髻主山神","高幢普照主山神","离尘净髻主山神","光照十方主山神","大力光明主山神","威光普胜主山神","微密光轮主山神","普眼现见主山神","金刚密眼主山神"],"virtue":"皆于诸法得清净眼","d":"主宰山林高处的神众。表「山」：高远不动，不为境界所动。"},{"cat":"shen","count":"不可思议数","cls":"主林神","names":["布华如云主林神","擢干舒光主林神","生芽发耀主林神","吉祥净叶主林神","垂布焰藏主林神","清净光明主林神","可意雷音主林神","光香普遍主林神","妙光回耀主林神","华果光味主林神"],"virtue":"皆有无量可爱光明","d":"主宰林树的神众。表「林」：觉华开发，法林荫覆众生。"},{"cat":"shen","count":"无量","cls":"主药神","names":["吉祥主药神","栴檀林主药神","清净光明主药神","名称普闻主药神","毛孔光明主药神","普治清净主药神","大发吼声主药神","蔽日光幢主药神","明见十方主药神","益气明目主药神"],"virtue":"性皆离垢，仁慈祐物","d":"主宰药草、疗愈病苦的神众。表法药：烦恼是病，法门是药。"},{"cat":"shen","count":"无量","cls":"主稼神","names":["柔软胜味主稼神","时华净光主稼神","色力勇健主稼神","增长精气主稼神","普生根果主稼神","妙严环髻主稼神","润泽净华主稼神","成就妙香主稼神","见者爱乐主稼神","离垢净光主稼神"],"virtue":"莫不皆得大喜成就","d":"主宰五谷稼穑的神众。表「长养」：以法养慧命，令善根增长。"},{"cat":"shen","count":"无量","cls":"主河神","names":["普发迅流主河神","普洁泉涧主河神","离尘净眼主河神","十方遍吼主河神","救护众生主河神","无热净光主河神","普生欢喜主河神","广德胜幢主河神","光照普世主河神","海德光明主河神"],"virtue":"皆勤作意利益众生","d":"主宰江河、调御水患的神众。表法流：智慧之水，润泽一切。"},{"cat":"shen","count":"无量","cls":"主海神","names":["出现宝光主海神","成金刚幢主海神","远尘离垢主海神","普水宫殿主海神","吉祥宝月主海神","妙华龙髻主海神","普持光味主海神","宝焰华光主海神","金刚妙髻主海神","海潮雷声主海神"],"virtue":"悉以如来功德大海充满其身","d":"主宰大海的神众。表「法海」：一切行愿汇归一切智海。"},{"cat":"shen","count":"无量","cls":"主水神","names":["普兴云幢主水神","海潮云音主水神","妙色轮髻主水神","善巧漩澓主水神","离垢香积主水神","福桥光音主水神","知足自在主水神","净喜善音主水神","普现威光主水神","吼音遍海主水神"],"virtue":"常勤救护一切众生而为利益","d":"主宰诸水的神众。表清净与润泽：水能洗净，也能滋养。"},{"cat":"shen","count":"无数","cls":"主火神","names":["普光焰藏主火神","普集光幢主火神","大光普照主火神","众妙宫殿主火神","无尽光髻主火神","种种焰眼主火神","十方宫殿如须弥山主火神","威光自在主火神","光明破暗主火神","雷音电光主火神"],"virtue":"皆能示现种种光明，令诸众生热恼除灭","d":"主宰火的神众。表智慧火：烧尽烦恼薪，而不为烦恼所烧。"},{"cat":"shen","count":"无量","cls":"主风神","names":["无碍光明主风神","普现勇业主风神","飘击云幢主风神","净光庄严主风神","力能竭水主风神","大声遍吼主风神","树杪垂髻主风神","所行无碍主风神","种种宫殿主风神","大光普照主风神"],"virtue":"皆勤散灭我慢之心","d":"主宰风的神众。表大愿力：风无形而能行，愿无言而能遍。"},{"cat":"shen","count":"无量","cls":"主空神","names":["净光普照主空神","普游深广主空神","生吉祥风主空神","离障安住主空神","广步妙髻主空神","无碍光焰主空神","无碍胜力主空神","离垢光明主空神","深远妙音主空神","光遍十方主空神"],"virtue":"心皆离垢，广大明洁","d":"主宰虚空的神众。表空性：虚空遍一切处，空亦不碍万法。"},{"cat":"shen","count":"无量","cls":"主方神","names":["遍住一切主方神","普现光明主方神","光行庄严主方神","周行不碍主方神","永断迷惑主方神","普游净空主方神","大云幢音主方神","髻目无乱主方神","普观世业主方神","周遍游览主方神"],"virtue":"能以方便，普放光明，恒照十方，相续不绝","d":"主宰十方方位的神众。表「遍」：法身遍十方，教化无方所。"},{"cat":"shen","count":"无量","cls":"主夜神","names":["普德净光主夜神","喜眼观世主夜神","护世精气主夜神","寂静海音主夜神","普现吉祥主夜神","普发树华主夜神","平等护育主夜神","游戏快乐主夜神","诸根常喜主夜神","出生净福主夜神"],"virtue":"皆勤修习，以法为乐","d":"主宰夜晚的神众。表暗中守护与禅定：夜不是无明，静处正是观心时。"},{"cat":"shen","count":"无量","cls":"主昼神","names":["示现宫殿主昼神","发起慧香主昼神","乐胜庄严主昼神","香华妙光主昼神","普集妙药主昼神","乐作喜目主昼神","普现诸方主昼神","大悲光明主昼神","善根光照主昼神","妙华璎珞主昼神"],"virtue":"皆于妙法能生信解，恒共精勤严饰宫殿","d":"主宰白昼的神众。表光明与精进：日轮当空，修行不惰。"},{"cat":"babu","count":"无量","cls":"阿修罗王","names":["罗睺阿修罗王","毗摩质多罗阿修罗王","巧幻术阿修罗王","大眷属阿修罗王","大力阿修罗王","遍照阿修罗王","坚固行妙庄严阿修罗王","广大因慧阿修罗王","出现胜德阿修罗王","妙好音声阿修罗王"],"virtue":"悉已精勤摧伏我慢及诸烦恼","d":"非天，嗔慢好斗，此处却来护法。表「转」：最烈的烦恼也能转为护法的力量。"},{"cat":"babu","count":"不可思议数","cls":"迦楼罗王","names":["大速疾力迦楼罗王","无能坏宝髻迦楼罗王","清净速疾迦楼罗王","心不退转迦楼罗王","大海处摄持力迦楼罗王","坚固净光迦楼罗王","巧严冠髻迦楼罗王","普捷示现迦楼罗王","普观海迦楼罗王","普音广目迦楼罗王"],"virtue":"悉已成就大方便力，善能救摄一切众生","d":"金翅鸟王，以大力吞龙、拔济苦难。表大悲：以大势力摧伏苦因。"},{"cat":"babu","count":"无量","cls":"紧那罗王","names":["善慧光明天紧那罗王","妙华幢紧那罗王","种种庄严紧那罗王","悦意吼声紧那罗王","宝树光明紧那罗王","见者欣乐紧那罗王","最胜光庄严紧那罗王","微妙华幢紧那罗王","动地力紧那罗王","摄伏恶众紧那罗王"],"virtue":"皆勤精进，观一切法，心恒快乐，自在游戏","d":"歌神，以歌咏赞佛。表法音：音声可以作法事，赞叹可以入佛智。"},{"cat":"babu","count":"无量","cls":"摩睺罗伽王","names":["善慧摩睺罗伽王","清净威音摩睺罗伽王","胜慧庄严髻摩睺罗伽王","妙目主摩睺罗伽王","如灯幢为众所归摩睺罗伽王","最胜光明幢摩睺罗伽王","师子臆摩睺罗伽王","众妙庄严音摩睺罗伽王","须弥坚固摩睺罗伽王","可爱乐光明摩睺罗伽王"],"virtue":"皆勤修习广大方便，令诸众生永割痴网","d":"大蟒神，痴暗之属，此处亦来护法。表「转痴」：无明也能转成护法的因缘。"},{"cat":"babu","count":"无量","cls":"夜叉王","names":["毗沙门夜叉王","自在音夜叉王","严持器仗夜叉王","大智慧夜叉王","焰眼主夜叉王","金刚眼夜叉王","勇健臂夜叉王","勇敌大军夜叉王","富资财夜叉王","力坏高山夜叉王"],"virtue":"皆勤守护一切众生","d":"勇健疾行的鬼神，受佛调伏而护法。表勇健：护法需要力量，也需要方向。"},{"cat":"babu","count":"无量","cls":"诸大龙王","names":["毗楼博叉龙王","娑竭罗龙王","云音妙幢龙王","焰口海光龙王","普高云幢龙王","德叉迦龙王","无边步龙王","清净色龙王","普运大声龙王","无热恼龙王"],"virtue":"莫不勤力兴云布雨，令诸众生热恼消灭","d":"龙众，主云雨宝藏。表法雨与法宝：龙能降雨，法能润心。"},{"cat":"babu","count":"无量","cls":"鸠槃荼王","names":["增长鸠槃荼王","龙主鸠槃荼王","善庄严幢鸠槃荼王","普饶益行鸠槃荼王","甚可怖畏鸠槃荼王","美目端严鸠槃荼王","高峰慧鸠槃荼王","勇健臂鸠槃荼王","无边净华眼鸠槃荼王","广大天面阿修罗眼鸠槃荼王"],"virtue":"皆勤修学无碍法门，放大光明","d":"瓮形鬼众，本为障难之属，此处转为护法。表「化障」：障难不是敌人，是修行的逆增上缘。"},{"cat":"babu","count":"无量","cls":"乾闼婆王","names":["持国乾闼婆王","树光乾闼婆王","净目乾闼婆王","华冠乾闼婆王","普音乾闼婆王","乐摇动妙目乾闼婆王","妙音师子幢乾闼婆王","普放宝光明乾闼婆王","金刚树华幢乾闼婆王","乐普现庄严乾闼婆王"],"virtue":"皆于大法深生信解，欢喜爱重，勤修不倦","d":"香神与乐神，以香、乐供养。表供养：最微的香与音，也能成为佛事。"},{"cat":"tian","count":"无量","cls":"月天子","names":["华王髻光明天子","众妙净光明天子","安乐世间心天子","树王眼光明天子","示现清净光天子","普游不动光天子","星宿王自在天子","净觉月天子","大威德光明天子"],"virtue":"皆勤显发众生心宝","d":"月轮天子。表清凉与慈：月不灼人，慈不恼人。"},{"cat":"tian","count":"无量","cls":"日天子","names":["光焰眼天子","须弥光可畏敬幢天子","离垢宝庄严天子","勇猛不退转天子","妙华缨光明天子","最胜幢光明天子","宝髻普光明天子","光明眼天子","持胜德天子","普光明天子"],"virtue":"皆勤修习，利益众生，增其善根","d":"日轮天子。表智慧光明：日照万物，智照万法。"},{"cat":"tian","count":"无量","cls":"三十三天王","names":["释迦因陀罗天王","普称满音天王","慈目宝髻天王","宝光幢名称天王","发生喜乐髻天王","可爱乐正念天王","须弥胜音天王","成就念天王","可爱乐净华光天王","智日眼天王","自在光明能觉悟天王"],"virtue":"皆勤发起一切世间广大之业","d":"忉利天主，居须弥山顶。表地居天之王，亦来闻法，显示佛光普摄六道。"},{"cat":"tian","count":"无量","cls":"须夜摩天王","names":["善时分天王","可爱乐光明天王","无尽慧功德幢天王","善变化端严天王","总持大光明天王","不思议智慧天王","轮齐天王","光焰天王","光照天王","普观察大名称天王"],"virtue":"皆勤修习广大善根，心常喜足","d":"夜摩天（时分天）之主。表「知时」：修行要知时节因缘。"},{"cat":"tian","count":"不可思议数","cls":"兜率陀天王","names":["知足天王","喜乐海髻天王","最胜功德幢天王","寂静光天王","可爱乐妙目天王","宝峰净月天王","最胜勇健力天王","金刚妙光明天王","星宿庄严幢天王","可爱乐庄严天王"],"virtue":"皆勤念持一切诸佛所有名号","d":"兜率天（知足天）之主。表少欲知足：知足者方能发大心。"},{"cat":"tian","count":"无量","cls":"化乐天王","names":["善变化天王","寂静音光明天王","变化力光明天王","庄严主天王","念光天王","最上云音天王","众妙最胜光天王","妙髻光明天王","成就喜慧天王","华光髻天王","普见十方天王"],"virtue":"皆勤调伏一切众生，令得解脱","d":"化乐天之主。表自在化现：以愿力自庄严，不待外物。"},{"cat":"tian","count":"无数","cls":"他化自在天王","names":["得自在天王","妙目主天王","妙冠幢天王","勇猛慧天王","妙音句天王","妙光幢天王","寂静境界门天王","妙轮庄严幢天王","华蕊慧自在天王","因陀罗力妙庄严光明天王"],"virtue":"皆勤修习自在方便广大法门","d":"欲界顶天之主。表「他化」：最上的欲乐尚来闻法，欲不是究竟。"},{"cat":"tian","count":"不可数","cls":"大梵天王","names":["尸弃天王","慧光天王","善慧光明天王","普云音天王","观世言音自在天王","寂静光明眼天王","光遍十方天王","变化音天王","光明照耀眼天王","悦意海音天王"],"virtue":"皆具大慈，怜愍众生，舒光普照，令其快乐","d":"色界初禅之主。表清净梵行：离欲而净，是色界之始。"},{"cat":"tian","count":"无量","cls":"光音天王","names":["可爱乐光明天王","清净妙光天王","能自在音天王","最胜念智天王","可爱乐清净妙音天王","善思惟音天王","普音遍照天王","甚深光音天王","无垢称光明天王","最胜净光天王"],"virtue":"皆住广大寂静喜乐无碍法门","d":"二禅光音天之主。表光与音：以光明、音声说法。"},{"cat":"tian","count":"无量","cls":"遍净天王","names":["清净名称天王","最胜见天王","寂静德天王","须弥音天王","净念眼天王","可爱乐最胜光照天王","世间自在主天王","光焰自在天王","乐思惟法变化天王","变化幢天王","星宿音妙庄严天王"],"virtue":"悉已安住广大法门，于诸世间勤作利益","d":"三禅遍净天之主。表净乐：三禅之乐遍满，仍不离佛法。"},{"cat":"tian","count":"无量","cls":"广果天王","names":["爱乐法光明幢天王","清净庄严海天王","最胜慧光明天王","自在智慧幢天王","乐寂静天王","普智眼天王","乐旋慧天王","善种慧光明天王","无垢寂静光天王","广大清净光天王"],"virtue":"莫不皆以寂静之法而为宫殿安住其中","d":"四禅广果天之主。表广大果报：定果虽大，仍向佛智。"},{"cat":"tian","count":"无数","cls":"大自在天王","names":["妙焰海天王","自在名称光天王","清净功德眼天王","可爱乐大慧天王","不动光自在天王","妙庄严眼天王","善思惟光明天王","可爱乐大智天王","普音庄严幢天王","极精进名称光天王"],"virtue":"皆勤观察无相之法，所行平等","d":"色界顶摩醯首罗之主。表自在：三界之顶亦来闻法，显佛为法界之主。"}]};
 (()=>{const s=document.getElementById("stars");for(let i=0;i<40;i++){const d=document.createElement("i");
 d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
 const AN=[
  {zh:"复有佛世界微尘数",role:"数 量",d:"<b>极言其多</b>——磨一个佛世界为微尘而数之。华严的「大数」美学：不用虚指的『很多』，而用具体到荒诞的量词，逼你跳出日常的计量尺度。"},
  {zh:"执金刚神",role:"类 名",d:"<b>谁来云集</b>——手执金刚杵的护法神。四十类各有掌管：主城、主地、主山、主海、主昼、主夜……世间每一处都有其主，每一主都来了。"},
- {zh:"所谓：某某、某某……（十名）",role:"上首名录",d:"<b>可快读的部分</b>——列的只是「上首」（领队），每类十位。名字扫过即可；若细看，名字本身往往是功德的浓缩（如「普德最胜灯光照」）。"},
- {zh:"皆于往昔……（愿力功德）",role:"功德眼目",d:"<b>整段的重点句</b>——『如是等而为上首，皆……』：这一类圣众的共愿共德一句话道尽。四十个「皆」字连起来读，就是一份四十条的目的地清单。"}
+ {zh:"所谓：某某、某某……（十名）",role:"上首名录",d:"<b>可快读的部分</b>——列的只是「上首」（领队），多数十位，间有九位或十一位。名字扫过即可；若细看，名字本身往往是功德的浓缩（如「普德最胜灯光照」）。"},
+ {zh:"皆于往昔……（愿力功德）",role:"功德眼目",d:"<b>整段的重点句</b>——『如是等而为上首，皆……』：这一类圣众的共愿共德一句话道尽。四十条「皆／悉／莫不」句连起来读，就是一份四十条的目的地清单。"}
 ];
 const anEl=document.getElementById("anSegs"),anD=document.getElementById("anDetail");
 AN.forEach(s0=>{const d=document.createElement("div");d.className="an-seg";
@@ -241,6 +243,7 @@ CATORDER.forEach(k=>{
     const el=document.createElement("div");el.className="grp";el.dataset.cat=k;el.dataset.cls=g.cls;
     el.innerHTML=`<div class="r1"><span class="cls">${g.cls}</span><span class="cnt">${g.count} · ${g.names.length}位上首</span><span class="more">▾ 名号</span></div>
       <div class="vt">「${g.virtue}」</div>
+      <div class="gd">${g.d||""}</div>
       <div class="nl">${showNames?g.names.join("、"):""}</div>`;
     el.addEventListener("click",()=>{el.classList.toggle("open");
       if(el.classList.contains("open"))el.querySelector(".nl").textContent=g.names.join("、");});
@@ -248,7 +251,7 @@ CATORDER.forEach(k=>{
   });
 });
 function apply(){
-  const q=document.getElementById("q").value.trim();let shown=0;
+  const q="";let shown=0;
   document.querySelectorAll(".grp").forEach(el=>{
     const g=DATA.groups.find(x=>x.cls===el.dataset.cls&&x.cat===el.dataset.cat);
     let ok=true;if(curCat)ok=el.dataset.cat===curCat;
@@ -258,7 +261,6 @@ function apply(){
   document.querySelectorAll(".cat-divider").forEach(d=>{d.style.display=[...glWrap.querySelectorAll(`.grp[data-cat="${d.dataset.cat}"]:not(.dim)`)].length?"":"none";});
   document.getElementById("counter").textContent=`显示 ${shown} / ${DATA.groups.length} 类`;
 }
-document.getElementById("q").addEventListener("input",apply);
 document.getElementById("btnNames").addEventListener("click",()=>{
   showNames=!showNames;
   document.querySelectorAll(".grp.open .nl").forEach((nl,i)=>{

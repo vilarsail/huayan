@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>十地品 · 从欢喜到法云</title>
 <style>
-:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#e2c98f;--gold-dim:#8a7340;
---ivory:#e9e1cd;--muted:#a89f8a;--faint:#7d7666;--line:rgba(201,164,92,.22);--line2:rgba(201,164,92,.4);
+:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#ecd6a4;--gold-dim:#a98f54;
+--ivory:#f4eee0;--muted:#cfc6b2;--faint:#aaa18d;--line:rgba(201,164,92,.3);--line2:rgba(201,164,92,.52);
 --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}a{color:var(--gold2);text-decoration:none}a:hover{color:#fff}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}section{padding:56px 0 20px}
-.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
-.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:14.5px}
+.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:15.5px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:16.5px}
 .rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
 .rule::after{background:linear-gradient(90deg,var(--line2),transparent)}.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:16.5px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
 details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
-details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
-details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
-details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:16.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:14.5px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:16.5px;border-top:1px dashed var(--line)}
 details.fold .body p{margin:8px 0}details.fold .body b{color:var(--ivory);font-weight:600}
 .hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
 background:radial-gradient(1100px 460px at 50% -80px,rgba(109,179,161,.11),transparent 60%),radial-gradient(760px 380px at 85% 25%,rgba(201,164,92,.08),transparent 60%),var(--ink)}
@@ -30,57 +30,64 @@ background:radial-gradient(1100px 460px at 50% -80px,rgba(109,179,161,.11),trans
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
 .hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}.hero h1 span{color:var(--gold2)}
-.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
-.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:15.5px}.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:16.5px;letter-spacing:.18em}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:17px}.hero .lead b{color:var(--ivory);font-weight:600}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:16.5px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
 .hero .cta a.primary{background:linear-gradient(135deg,rgba(109,179,161,.16),rgba(201,164,92,.10));border-color:var(--gold)}
 .hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px)}
 .scenes{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0 14px}
-.scene{border:1px solid var(--line);border-radius:999px;padding:7px 18px;font-size:14px;color:var(--muted);cursor:pointer;transition:.2s;user-select:none}
+.scene{border:1px solid var(--line);border-radius:999px;padding:7px 18px;font-size:16.5px;color:var(--muted);cursor:pointer;transition:.2s;user-select:none}
 .scene:hover,.scene.on{border-color:var(--gold);color:var(--gold2);background:rgba(201,164,92,.1)}
 #sceneBox{max-width:700px;margin:0 auto;border:1px dashed var(--line2);border-radius:12px;padding:18px 26px;min-height:110px}
-#sceneBox .st{font-size:13px;color:var(--gold)}
-#sceneBox .sq{font-size:15px;color:var(--ivory);margin-top:6px;line-height:2.1}
-#sceneBox .sn{font-size:13px;color:var(--muted);margin-top:8px}
-.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
-.dcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:14px 18px;cursor:pointer;transition:.2s}
+#sceneBox .st{font-size:15.5px;color:var(--gold)}
+#sceneBox .sq{font-size:16.5px;color:var(--ivory);margin-top:6px;line-height:2.1}
+#sceneBox .sn{font-size:15.5px;color:var(--muted);margin-top:8px}
+.dgrid{position:relative;max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.dgrid::before{content:"";position:absolute;left:22px;top:8px;bottom:8px;width:1px;background:linear-gradient(0deg,transparent,var(--line2) 6%,var(--line2) 94%,transparent)}
+.drow{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:start}
+.drow .dnum{width:44px;height:44px;margin-top:10px;border-radius:50%;border:1px solid var(--line2);background:var(--ink2);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--gold)}
+.drow.t2 .dcard{margin-left:4%}.drow.t3 .dcard{margin-left:8%}.drow.t4 .dcard{margin-left:12%}
+@media(max-width:760px){.drow.t2 .dcard,.drow.t3 .dcard,.drow.t4 .dcard{margin-left:0}}
+.dcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:14px 18px;cursor:pointer;transition:.2s;flex:1}
 .dcard:hover{border-color:var(--line2);transform:translateY(-2px)}
 .dcard.open{border-color:var(--gold);background:var(--ink3)}
 .dcard .r1{display:flex;align-items:baseline;gap:10px}
-.dcard .dn{font-size:11px;color:var(--gold-dim)}
-.dcard .dm{font-size:17px;font-weight:600}
-.dcard .du{font-size:12px;color:var(--gold);margin-left:auto}
-.dcard .db{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
+.dcard .dn{font-size:14.5px;color:var(--gold-dim)}
+.dcard .dm{font-size:18.5px;font-weight:600}
+.dcard .du{font-size:15px;color:var(--gold);margin-left:auto}
+.dcard .db{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:15.5px;color:var(--muted)}
 .dcard.open .db{display:block}
-.dcard .dj{font-size:11.5px;color:var(--faint);margin-top:4px}
-.quote{border-left:2px solid var(--gold-dim);padding:6px 14px;margin:14px auto;max-width:680px;font-size:14.5px;color:var(--ivory)}
+.dcard .dj{font-size:14.5px;color:var(--faint);margin-top:4px}
+.quote{border-left:2px solid var(--gold-dim);padding:6px 14px;margin:14px auto;max-width:680px;font-size:16.5px;color:var(--ivory)}
 .pos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:760px){.pos{grid-template-columns:1fr}}
 .pcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
-.pcard h3{font-size:16.5px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:14px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}footer p{margin:6px 0}
+.pcard h3{font-size:18px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:16.5px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:15.5px;text-align:center}footer p{margin:6px 0}
 .topnav{position:fixed;right:18px;bottom:18px;z-index:50}.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;transition:.2s}.topnav a:hover{color:#fff;border-color:var(--gold)}
 
+.dcard .dx{font-size:15.5px;color:var(--muted);line-height:1.85;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+
 /* ---------- 侧边导航（跨页） ---------- */
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:228px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
 .sidenav::-webkit-scrollbar{width:4px}
 .sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
 .sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
-.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
-.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
-.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:17.5px;flex-shrink:0}
+.sn-brand b{display:block;font-size:17.5px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:13.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:13.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:15.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
 .sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
 .sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
-.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
-.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
-.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
-@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(min-width:1100px){body{padding-left:228px}.sn-mask{display:none!important}}
 @media(max-width:1099px){
   .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
   .sidenav.open{transform:none}
@@ -91,11 +98,11 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 /* ---------- 专题学习页快捷条 ---------- */
 .pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
-.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
-.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar .pb-label{font-size:14.5px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
 .pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
 .pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
-@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:15px;padding:4px 11px}}
 </style>
 </head>
 <body id="top">
@@ -140,8 +147,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <div class="scenes" id="scenes"></div>
     <div id="sceneBox">金刚藏菩萨刚说完十地的名字，就住于沉默。大众渴仰——这时，解脱月菩萨起身，代表所有人三次请法。</div>
     <div class="tip-note">沉默不是卖关子。金刚藏自己解释：<b>此法「微细难可见，离念超心地……闻者悉迷惑」</b>——
-    不是不肯说，是能听的根器太深。三请的过程，正是「器」的准备过程：一请之后他说明难的缘故；二请之后十方诸佛现身放光加持说法者与听众；
-    三请之后方才开演。<b>深法必待请而后说，重法必以难而显贵</b>——这个仪式感极强的开场，本身就是对「十地」分量的定调。</div>
+    不是不肯说，是能听的根器太深。三请的过程，正是「器」的准备过程：一请、二请之后，他两次说明法深难信；三请之后，世尊与十方诸佛眉间放光、摩顶加持，方才开演。<b>深法必待请而后说，重法必以难而显贵</b>——这个仪式感极强的开场，本身就是对「十地」分量的定调。</div>
     <details class="fold"><summary>零基础 · 为什么叫「地」？</summary>
       <div class="body">
         <p><b>「地」（bhūmi）</b>即土地、地基：一能<b>住持</b>（如大地承载万物，菩萨地能生一切功德）、二能<b>生长</b>（如大地生草木，各地能生诸佛法）。十地就是十个渐次增广的「地基」，从初入圣位到堪绍佛位。</p>
@@ -184,14 +190,16 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 <footer>
   <div class="wrap">
-    <p style="font-size:15px;color:var(--gold2)">山有十座，地无二致</p>
+    <p style="font-size:16.5px;color:var(--gold2)">山有十座，地无二致</p>
     <p><a href="index.html">← 全经地图</a> · <a href="jieti.html">菩萨道阶梯</a> · <a href="chuxian.html">如来出现</a> · <a href="shancai.html">五十三参</a></p>
     <p>依据《大方广佛华严经》卷三十四至三十九原文与各卷导读编制；引文核对自原文。</p>
   </div>
 </footer>
 <div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
 <script>
-const DATA = {"scenes": [{"n": "一", "t": "说名而默", "q": "「尔时，金刚藏菩萨说此菩萨十地名已，默然而住，不复分别。」", "note": "十地之名刚说完，说者忽然收声。大众渴仰：为何只报名目、不开解释？"}, {"n": "二", "t": "一请·偈辞", "q": "「菩萨行地事，最上诸佛本……微细难可见，离念超心地……闻者悉迷惑。」", "note": "解脱月菩萨一请。金刚藏以偈回答不是不敬，是此法太深：「世间无能受，默然而不说」。"}, {"n": "三", "t": "二请·证众堪闻", "q": "「当承佛神力而为演说，此诸菩萨于如是等甚深之处皆能证知。」", "note": "解脱月再请：此会大众善净深心、久近诸佛，堪能听闻。"}, {"n": "四", "t": "佛光加持", "q": "十方诸佛各申右手，摩金刚藏顶，同声赞言：汝当演说此法，令众住于一切智地。", "note": "请法至三，十方诸佛现身放光、眉间加持——说者与听者同时被「授权」。沉默的谜底在此：深法须佛力共加，非一人语。"}, {"n": "五", "t": "开演欢喜地", "q": "「诸佛子！是菩萨住菩萨欢喜地……」", "note": "三请三默落幕，六卷十地正演由此开始。"}], "lands": [{"n": "一", "name": "欢喜地", "du": "檀（布施）", "juan": 34, "d": "初入圣位，生于佛家；见三世佛法、佛刹如亲见；大施圆满，欢喜无边。"}, {"n": "二", "name": "离垢地", "du": "戒", "juan": 35, "d": "十善业道究竟清净，性离瞋恼；以持戒故，心地如琉璃。"}, {"n": "三", "name": "发光地", "du": "忍", "juan": 35, "d": "修四禅八定，得天眼等六神通；闻法受持，三摩地光发起——故名发光。"}, {"n": "四", "name": "焰慧地", "du": "精进", "juan": 36, "d": "修三十七道品，智慧如焰烧烦恼薪；入道场智渐增明。"}, {"n": "五", "name": "难胜地", "du": "禅", "juan": 36, "d": "真俗二智相合：善知四谛十谛之理，兼习世间技艺医方——世间出世世间并济，故名难胜。"}, {"n": "六", "name": "现前地", "du": "般若", "juan": 37, "d": "三度观察十二因缘，入空无相无愿三解脱门——般若智日现前。"}, {"n": "七", "name": "远行地", "du": "方便", "juan": 37, "d": "「虽…而…」十对：虽行有为而不住有为，虽证无为而不住无为——方便善巧，动寂无碍，行至极远。"}, {"n": "八", "name": "不动地", "du": "愿", "juan": 38, "d": "无生法忍成就，一切相一切境界不能动；诸佛亲来劝发（七劝），得十种自在。"}, {"n": "九", "name": "善慧地", "du": "力", "juan": 38, "d": "成就四无碍辩，作大法师，一音演法、随类各解。"}, {"n": "十", "name": "法云地", "du": "智", "juan": 39, "d": "法身如云、含众功德水：受职灌顶如太子登王位；一切佛智藏皆悉现前。"}]};
+const DATA = {"scenes":[{"n":"一","t":"说名而默","q":"「尔时，金刚藏菩萨说此菩萨十地名已，默然而住，不复分别。」","note":"十地之名刚说完，说者忽然收声。大众渴仰：为何只报名目、不开解释？"},{"n":"二","t":"一请·偈辞","q":"「菩萨行地事，最上诸佛本……微细难可见，离念超心地……闻者悉迷惑。」","note":"解脱月菩萨一请。金刚藏以偈回答不是不敬，是此法太深：「世间无能受，默然而不说」。"},{"n":"三","t":"二请·证众堪闻","q":"「当承佛神力而为演说，此诸菩萨于如是等甚深之处皆能证知。」","note":"解脱月再请：此会大众善净深心、久近诸佛，堪能听闻。"},{"n":"四","t":"三请·愿为演说","q":"「佛子！愿承佛神力分别说此不思议法，此人当得如来护念而生信受。」","note":"解脱月第三次请法：大众已堪闻，请金刚藏仰承佛力开演。至此三请完成。"},{"n":"五","t":"佛光加持","q":"「尔时，世尊从眉间出清净光明，名：菩萨力焰明……十方诸佛悉亦如是，从眉间出清净光明。」","note":"三请之后，世尊与十方诸佛眉间放光，光台出偈劝请；说者与听者同时被佛力加持。"},{"n":"六","t":"开演欢喜地","q":"「诸佛子！是菩萨住菩萨欢喜地……」","note":"三请与放光之后，六卷十地正演由此开始。"}],"lands":[{"n":"一","name":"欢喜地","du":"檀（布施）","juan":34,"d":"初入圣位，生于佛家；见三世佛法、佛刹如亲见；大施圆满，欢喜无边。","x":"初证真如，生如来家，布施圆满，故大欢喜。难处在于「喜」本身也易成为执著，所以此地以「离我想」收摄——见佛刹如亲见，而不取佛相。"},{"n":"二","name":"离垢地","du":"戒","juan":35,"d":"十善业道究竟清净，性离瞋恼；以持戒故，心地如琉璃。","x":"十善业道究竟清净，性离瞋恼，心地如琉璃。戒不是强行压住恶，而是身语意自然离垢；持戒到细处，连「我在持戒」的念头也一并放下。"},{"n":"三","name":"发光地","du":"忍","juan":35,"d":"修四禅八定，得天眼等六神通；闻法受持，三摩地光发起——故名发光。","x":"修四禅八定，得六神通，闻法总持，定光破暗。难处是定乐易著，所以此地以「闻法、总持」为出定之路：光不是自娱，而是照法。"},{"n":"四","name":"焰慧地","du":"精进","juan":36,"d":"修三十七道品，智慧如焰烧烦恼薪；入道场智渐增明。","x":"修三十七道品，智慧如焰，烧烦恼薪。慧强易燥，故以道品平衡；真正的焰慧，是能烧尽分别，而不烧坏慈悲。"},{"n":"五","name":"难胜地","du":"禅","juan":36,"d":"真俗二智相合：善知四谛十谛之理，兼习世间技艺医方——世间出世世间并济，故名难胜。","x":"真俗相济，世出世间无碍；善知谛理，兼习医方技艺。真与俗不二，是十地中最难跨的一道，故名「难胜」。"},{"n":"六","name":"现前地","du":"般若","juan":37,"d":"三度观察十二因缘，入空无相无愿三解脱门——般若智日现前。","x":"般若现前，三度观察十二因缘，入空、无相、无愿三解脱门。此地的关键词是「缘起还灭」：看见生死如何起，也看见它如何灭。"},{"n":"七","name":"远行地","du":"方便","juan":37,"d":"「虽…而…」十对：虽行有为而不住有为，虽证无为而不住无为——方便善巧，动寂无碍，行至极远。","x":"方便波罗蜜到彼岸，动寂无碍，以「虽…而…」十对句展开。功用已至极远，仍须诸佛劝发，提醒不要停在无作之中。"},{"n":"八","name":"不动地","du":"愿","juan":38,"d":"无生法忍成就，一切相一切境界不能动；诸佛亲来劝发（七劝），得十种自在。","x":"无生法忍成就，一切相不能动；诸佛亲来劝发，得十种自在。难处是「不动」易成沉空，所以佛劝他起大悲、不入涅槃。"},{"n":"九","name":"善慧地","du":"力","juan":38,"d":"成就四无碍辩，作大法师，一音演法、随类各解。","x":"得四无碍辩，作大法师，一音演法而众生各解。说法到此不是技巧，而是智慧与悲心的自然流出。"},{"n":"十","name":"法云地","du":"智","juan":39,"d":"法身如云、含众功德水：受职灌顶如太子登王位；一切佛智藏皆悉现前。","x":"法云荫覆，受职灌顶，如转轮王太子受职；此地将入佛果。十地到此收束，但「法云」仍未离因位，最后一着在等觉、妙觉。"}]};
+function ensureVisible(el){const r=el.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight-8)el.scrollIntoView({behavior:"smooth",block:"center"});}
+
 (()=>{const s=document.getElementById("stars");for(let i=0;i<44;i++){const d=document.createElement("i");
 d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
 const box=document.getElementById("sceneBox");
@@ -200,16 +208,19 @@ DATA.scenes.forEach((s0,i)=>{
   d.addEventListener("click",()=>{
     document.querySelectorAll(".scene").forEach(x=>x.classList.remove("on"));d.classList.add("on");
     box.innerHTML=`<div class="st">第${s0.n}幕 · ${s0.t}</div><div class="sq">${s0.q}</div><div class="sn">${s0.note}</div>`;
+        ensureVisible(box);
   });
   document.getElementById("scenes").appendChild(d);
 });
 const grid=document.getElementById("dgrid");
-DATA.lands.forEach((l)=>{
-  const c=document.createElement("div");c.className="dcard";
-  c.innerHTML=`<div class="r1"><span class="dn">第${l.n}地</span><span class="dm">${l.name}</span><span class="du">${l.du}波罗蜜</span></div>
-    <div class="dj">卷${l.juan}</div><div class="db">${l.d}</div>`;
+DATA.lands.forEach((l,i)=>{
+  const tier=Math.min(4,Math.floor(i/3)+1);
+  const row=document.createElement("div");row.className="drow t"+tier;
+  row.innerHTML=`<div class="dnum">${l.n}</div><div class="dcard"><div class="r1"><span class="dm">${l.name}</span><span class="du">${l.du}波罗蜜</span></div>
+    <div class="dj">卷${l.juan}</div><div class="db">${l.d}</div>${l.x?`<div class="dx">${l.x}</div>`:""}</div>`;
+  const c=row.querySelector(".dcard");
   c.addEventListener("click",()=>c.classList.toggle("open"));
-  grid.appendChild(c);
+  grid.appendChild(row);
 });
 
 /* 侧边导航：移动端抽屉 */

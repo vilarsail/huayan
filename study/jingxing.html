@@ -7,34 +7,34 @@
 <style>
 :root{
   --ink:#0c1220; --ink2:#121a2e; --ink3:#182238; --ink4:#1f2b45;
-  --gold:#c9a45c; --gold2:#e2c98f; --gold-dim:#8a7340;
-  --ivory:#e9e1cd; --muted:#a89f8a; --faint:#7d7666;
-  --line:rgba(201,164,92,.22); --line2:rgba(201,164,92,.4);
+  --gold:#c9a45c; --gold2:#ecd6a4; --gold-dim:#a98f54;
+  --ivory:#f4eee0; --muted:#cfc6b2; --faint:#aaa18d;
+  --line:rgba(201,164,92,.3); --line2:rgba(201,164,92,.52);
   --t-prac:#c96f6f;
   --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:#fff}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
 section{padding:56px 0 20px}
 .sec-head{text-align:center;margin-bottom:34px}
-.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
+.sec-head .no{color:var(--gold);font-size:15.5px;letter-spacing:.5em;text-indent:.5em}
 .sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}
-.sec-head .sub{color:var(--muted);font-size:14.5px}
+.sec-head .sub{color:var(--muted);font-size:16.5px}
 .rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
 .rule::after{background:linear-gradient(90deg,var(--line2),transparent)}
 .rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:16.5px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
 details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
-details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
-details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:16.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:14.5px;color:var(--gold-dim)}
 details.fold summary:hover{color:#fff}
-details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:16.5px;border-top:1px dashed var(--line)}
 details.fold .body p{margin:8px 0}
 details.fold .body b{color:var(--ivory);font-weight:600}
 
@@ -48,11 +48,11 @@ details.fold .body b{color:var(--ivory);font-weight:600}
 .hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}
 .hero h1 span{color:var(--gold2)}
-.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
-.hero .lead{max-width:620px;margin:24px auto 0;color:var(--muted);font-size:15.5px}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:16.5px;letter-spacing:.18em}
+.hero .lead{max-width:620px;margin:24px auto 0;color:var(--muted);font-size:17px}
 .hero .lead b{color:var(--ivory);font-weight:600}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:16.5px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
 .hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
 .hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px);box-shadow:0 4px 22px rgba(201,164,92,.18)}
 
@@ -60,95 +60,98 @@ details.fold .body b{color:var(--ivory);font-weight:600}
 .qa{display:grid;grid-template-columns:1.25fr .85fr;gap:18px;align-items:stretch}
 @media(max-width:820px){.qa{grid-template-columns:1fr}}
 .qa .qcol{border:1px solid var(--line);border-radius:14px;background:var(--ink2);padding:22px}
-.qa .qcol h3{font-size:16px;color:var(--ivory);margin-bottom:2px}
-.qa .qcol .qs{font-size:12.5px;color:var(--faint);margin-bottom:14px}
+.qa .qcol h3{font-size:17.5px;color:var(--ivory);margin-bottom:2px}
+.qa .qcol .qs{font-size:15px;color:var(--faint);margin-bottom:14px}
 .qgroups{display:flex;flex-wrap:wrap;gap:8px}
-.qg{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
+.qg{font-size:15.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
 .qg:hover{color:var(--ivory);border-color:var(--line2)}
 .qg.hot{border-color:var(--gold);background:rgba(201,164,92,.12);color:var(--gold2)}
-#qgDetail{margin-top:14px;padding:12px 16px;background:rgba(255,255,255,.03);border-radius:10px;font-size:13.5px;color:var(--muted);min-height:86px}
+#qgDetail{margin-top:14px;padding:12px 16px;background:rgba(255,255,255,.03);border-radius:10px;font-size:15.5px;color:var(--muted);min-height:86px}
 #qgDetail .qq{color:var(--ivory)}
 .qa .acol{border:1px solid var(--gold-dim);border-radius:14px;background:linear-gradient(160deg,rgba(201,164,92,.10),rgba(201,164,92,.03));padding:22px;display:flex;flex-direction:column;justify-content:center;text-align:center}
 .qa .acol .big{font-size:clamp(30px,4vw,40px);letter-spacing:.14em;color:var(--gold2);font-weight:700;margin:10px 0 6px}
-.qa .acol .a-sub{font-size:13.5px;color:var(--muted)}
-.quote{border-left:2px solid var(--gold-dim);padding:6px 14px;margin:10px 0;font-size:14px;color:var(--ivory);text-align:left}
-.quote .tr{color:var(--muted);font-size:13px;display:block;margin-top:4px}
+.qa .acol .a-sub{font-size:15.5px;color:var(--muted)}
+.quote{border-left:2px solid var(--gold-dim);padding:6px 14px;margin:10px 0;font-size:16.5px;color:var(--ivory);text-align:left}
+.quote .tr{color:var(--muted);font-size:15.5px;display:block;margin-top:4px}
 
 /* 解剖 */
 .anatomy{border:1px solid var(--line);border-radius:14px;background:var(--ink2);padding:26px 20px;text-align:center}
 .an-sentence{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
 .an-seg{border:1px solid var(--line2);border-radius:12px;padding:14px 20px;cursor:pointer;transition:.22s;min-width:120px}
 .an-seg .zh{font-size:20px;color:var(--ivory);letter-spacing:.1em}
-.an-seg .role{font-size:11.5px;color:var(--faint);margin-top:4px;letter-spacing:.1em}
+.an-seg .role{font-size:14.5px;color:var(--faint);margin-top:4px;letter-spacing:.1em}
 .an-seg:hover,.an-seg.on{border-color:var(--gold);background:var(--ink3);transform:translateY(-2px)}
 .an-seg.on .role{color:var(--gold)}
-#anDetail{margin-top:12px;padding:12px 18px;background:rgba(255,255,255,.03);border-radius:10px;font-size:14px;color:var(--muted);min-height:74px}
+#anDetail{margin-top:12px;padding:12px 18px;background:rgba(255,255,255,.03);border-radius:10px;font-size:16.5px;color:var(--muted);min-height:74px}
 #anDetail b{color:var(--gold2)}
 
 /* 愿浏览器 */
 .gchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:4px 0 6px}
-.gc{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
+.gc{font-size:15.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;cursor:pointer;transition:.2s;user-select:none}
 .gc:hover{color:var(--ivory);border-color:var(--line2)}
 .gc.hot{border-color:var(--gold);background:rgba(201,164,92,.12);color:var(--gold2)}
 .wish-tools{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:12px 0 4px}
-.wish-tools input{background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:14px;padding:8px 18px;outline:none;text-align:center;width:min(340px,80%)}
+.wish-tools input{background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font-family:var(--serif);font-size:16.5px;padding:8px 18px;outline:none;text-align:center;width:min(340px,80%)}
 .wish-tools input:focus{border-color:var(--gold)}
-.wish-tools button{background:linear-gradient(135deg,rgba(201,164,92,.2),rgba(201,164,92,.06));border:1px solid var(--gold);border-radius:999px;color:var(--gold2);font-family:var(--serif);font-size:14px;padding:8px 20px;cursor:pointer;transition:.2s;letter-spacing:.08em}
+.wish-tools button{background:linear-gradient(135deg,rgba(201,164,92,.2),rgba(201,164,92,.06));border:1px solid var(--gold);border-radius:999px;color:var(--gold2);font-family:var(--serif);font-size:16.5px;padding:8px 20px;cursor:pointer;transition:.2s;letter-spacing:.08em}
 .wish-tools button:hover{color:#fff;box-shadow:0 4px 18px rgba(201,164,92,.2)}
-#counter{text-align:center;font-size:13px;color:var(--faint);margin-bottom:18px}
+#counter{text-align:center;font-size:15.5px;color:var(--faint);margin-bottom:18px}
 #dailyBox{display:none;max-width:560px;margin:0 auto 24px;border:1px solid var(--gold);border-radius:14px;background:linear-gradient(160deg,rgba(201,164,92,.14),rgba(201,164,92,.04));padding:24px 28px;text-align:center}
-#dailyBox .dl{font-size:12px;color:var(--gold);letter-spacing:.3em}
+#dailyBox .dl{font-size:15px;color:var(--gold);letter-spacing:.3em}
 #dailyBox .dw{font-size:20px;color:var(--ivory);letter-spacing:.12em;margin:10px 0 4px}
-#dailyBox .dt{font-size:13.5px;color:var(--muted)}
+#dailyBox .dt{font-size:15.5px;color:var(--muted)}
 .wl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .wish{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:12px 16px;cursor:pointer;transition:.2s;position:relative}
 .wish:hover{border-color:var(--line2);transform:translateY(-2px)}
 .wish.open{border-color:var(--gold);background:var(--ink3)}
 .wish .wr1{display:flex;align-items:baseline;gap:10px}
-.wish .wno{font-size:11.5px;color:var(--gold-dim);min-width:26px}
-.wish .wsc{font-size:16px;color:var(--ivory);font-weight:600}
-.wish .wtag{font-size:11px;color:var(--faint);margin-left:auto}
+.wish .wno{font-size:14.5px;color:var(--gold-dim);min-width:26px}
+.wish .wsc{font-size:17.5px;color:var(--ivory);font-weight:600}
+.wish .wtag{font-size:14.5px;color:var(--faint);margin-left:auto}
 .wish .wfull{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
 .wish.open .wfull{display:block}
-.wish .worig{font-size:17.5px;color:var(--gold2);letter-spacing:.1em;line-height:2.1}
-.wish .wtr{font-size:13.5px;color:var(--muted);margin-top:8px}
+.wish .worig{font-size:19px;color:var(--gold2);letter-spacing:.1em;line-height:2.1}
+.wish .wtr{font-size:15.5px;color:var(--muted);margin-top:8px}
 .wish .wnotes{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
-.wnote{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 11px;cursor:help}
+.wnote{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 11px;cursor:help}
 .wish.dim{display:none}
 
 /* 位置 */
 .pos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:760px){.pos{grid-template-columns:1fr}}
 .pcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
-.pcard h3{font-size:16.5px;color:var(--gold2);margin-bottom:8px}
-.pcard p{font-size:14px;color:var(--muted);margin:6px 0}
+.pcard h3{font-size:18px;color:var(--gold2);margin-bottom:8px}
+.pcard p{font-size:16.5px;color:var(--muted);margin:6px 0}
 .pcard b{color:var(--ivory);font-weight:600}
 
-footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:15.5px;text-align:center}
 footer p{margin:6px 0}
 .topnav{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;gap:8px}
-.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s}
+.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:16.5px;transition:.2s}
 .topnav a:hover{color:#fff;border-color:var(--gold)}
 
+.groupnote{margin:12px 0 4px;border:1px dashed var(--line2);border-radius:10px;padding:11px 16px;font-size:15.5px;color:var(--muted);line-height:1.9;min-height:46px}
+.groupnote b{color:var(--gold2);font-weight:600}
+
 /* ---------- 侧边导航（跨页） ---------- */
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:228px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
 .sidenav::-webkit-scrollbar{width:4px}
 .sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
 .sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
-.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
-.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
-.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:17.5px;flex-shrink:0}
+.sn-brand b{display:block;font-size:17.5px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:13.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:13.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:15.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
 .sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
 .sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
-.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
-.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
-.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
-@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(min-width:1100px){body{padding-left:228px}.sn-mask{display:none!important}}
 @media(max-width:1099px){
   .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
   .sidenav.open{transform:none}
@@ -159,11 +162,11 @@ footer p{margin:6px 0}
 
 /* ---------- 专题学习页快捷条 ---------- */
 .pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
-.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
-.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar .pb-label{font-size:14.5px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
 .pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
 .pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
-@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:15px;padding:4px 11px}}
 </style>
 </head>
 <body id="top">
@@ -221,7 +224,7 @@ footer p{margin:6px 0}
     </div>
     <div class="tip-note">问答的不对称正是要点：问题问的是<b>一百一十种果报</b>（无过失、具足、最胜慧……），
     答案给的是<b>一个因地</b>——心。境界万千，源头一处；这就是华严「一即一切」在日用层面的第一次登场。
-    传统判此品属「十信位」：一切修行，从信用其心开始。</div>
+    传统判此品属「十信位」：一切修行，从「信」用其心开始。</div>
     <details class="fold"><summary>零基础 · 什么是「偈」「愿」「发愿」？</summary>
       <div class="body">
         <p><b>偈（gāthā）</b>：佛经中韵文体的通称，通常四句为一单位，便于记诵。本品的一百四十一愿即以固定句式的偈颂写成。</p>
@@ -237,7 +240,7 @@ footer p{margin:6px 0}
     <div class="sec-head"><div class="no">贰</div><h2>一愿的解剖</h2>
       <div class="sub">四句一愿 · 点击每一部分，看它的功能</div><div class="rule"><i class="diamond"></i></div></div>
     <div class="anatomy">
-      <div style="font-size:14px;color:var(--faint)">以第一愿为例</div>
+      <div style="font-size:16.5px;color:var(--faint)">以第一愿为例</div>
       <div class="an-sentence" id="anSegs"></div>
       <div id="anDetail">「菩萨在家」是事相，「当愿众生」是回转，「知家性空」是慧观，「免其逼迫」是悲用——事、心、慧、悲，四句一愿。</div>
     </div>
@@ -249,11 +252,11 @@ footer p{margin:6px 0}
     <div class="sec-head"><div class="no">叁</div><h2>一百四十一愿 · 全文对照</h2>
       <div class="sub">按生活场景分为十五组 · 点击展开原文与白话 · 注释悬停可读</div><div class="rule"><i class="diamond"></i></div></div>
     <div class="wish-tools">
-      <input id="q" type="text" placeholder="搜索，如：饮食、高山、众生">
       <button id="btnDaily">随机一愿</button>
     </div>
     <div id="dailyBox"></div>
     <div class="gchips" id="gchips"></div>
+    <div class="groupnote" id="groupNote"></div>
     <div id="counter"></div>
     <div class="wl" id="wl"></div>
   </div>
@@ -271,7 +274,7 @@ footer p{margin:6px 0}
       </div>
       <div class="pcard">
         <h3>接着读什么</h3>
-        <p>· 前一卷<b>菩萨问明品</b>（卷十三）：十番问答辩「一多相即」，华严哲学的入口；</p>
+        <p>· 前一卷<b>菩萨问明品</b>（卷十三）：九番问答辩「一多相即」，华严哲学的入口；</p>
         <p>· 后半卷<b>贤首品</b>（卷十四至十五）：以长偈赞叹发心的广大功德，正是「善用其心」的展开；</p>
         <p>· 若喜欢这种「行在日用」的气质，可直接跳读<b>普贤行品</b>（卷四十九）与<b>善财五十三参</b>——后者正是「用心」走成的一趟旅程。</p>
       </div>
@@ -281,7 +284,7 @@ footer p{margin:6px 0}
 
 <footer>
   <div class="wrap">
-    <p style="font-size:15px;color:var(--gold2)">善用其心 · 则获一切胜妙功德</p>
+    <p style="font-size:16.5px;color:var(--gold2)">善用其心 · 则获一切胜妙功德</p>
     <p><a href="index.html">← 全经地图</a> · <a href="shancai.html">善财五十三参</a></p>
     <p>依据《大方广佛华严经》卷第十四（实叉难陀译）原文与白话译文、词语注释编制。愿文分十五组，系编者依内容所加，便于浏览。</p>
   </div>
@@ -290,7 +293,9 @@ footer p{margin:6px 0}
 <div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
 
 <script>
-const DATA = {"wishes": [{"no": 1, "scene": "“菩萨在家", "orig": "菩萨在家，当愿众生，知家性空，免其逼迫", "trans": "菩萨在家时，应当祝愿众生：了知家的本性是空，从而免除它的逼迫", "notes": [], "marker_ids": []}, {"no": 2, "scene": "孝事父母", "orig": "孝事父母，当愿众生，善事于佛，护养一切", "trans": "孝顺侍奉父母时，应当祝愿众生：善于侍奉于佛，护持抚养一切众生", "notes": [], "marker_ids": []}, {"no": 3, "scene": "妻子集会", "orig": "妻子集会，当愿众生，怨亲平等，永离贪着", "trans": "与妻子儿女聚会时，应当祝愿众生：对怨恨和亲爱的人都平等看待，永远脱离贪爱执着", "notes": [], "marker_ids": []}, {"no": 4, "scene": "若得五欲", "orig": "若得五欲，当愿众生，拔除欲箭，究竟安隐", "trans": "如果得到色、声、香、味、触五欲之乐，应当祝愿众生：拔除欲望的毒箭，达到究竟的安稳", "notes": [], "marker_ids": []}, {"no": 5, "scene": "妓乐聚会", "orig": "妓乐聚会，当愿众生，以法自娱，了妓非实", "trans": "在歌舞伎乐的聚会中，应当祝愿众生：以佛法自娱，了知伎乐并非实有", "notes": [], "marker_ids": []}, {"no": 6, "scene": "若在宫室", "orig": "若在宫室，当愿众生，入于圣地，永除秽欲", "trans": "如果在宫殿房室中，应当祝愿众生：进入圣人的境地，永远除去污秽的欲望", "notes": [], "marker_ids": []}, {"no": 7, "scene": "着璎珞时", "orig": "着璎珞时，当愿众生，舍诸伪饰，到真实处", "trans": "佩戴璎珞首饰时，应当祝愿众生：舍弃所有虚假的装饰，到达真实的归宿", "notes": [], "marker_ids": []}, {"no": 8, "scene": "上升楼阁", "orig": "上升楼阁，当愿众生，升正法楼，彻见一切", "trans": "登上高楼阁宇时，应当祝愿众生：登上正法的楼阁，彻底看见一切", "notes": [], "marker_ids": []}, {"no": 9, "scene": "若有所施", "orig": "若有所施，当愿众生，一切能舍，心无爱着", "trans": "如果有所施舍，应当祝愿众生：能够舍弃一切，内心没有喜爱和执着", "notes": [], "marker_ids": []}, {"no": 10, "scene": "众会聚集", "orig": "众会聚集，当愿众生，舍众聚法，成一切智", "trans": "大众聚集在一起时，应当祝愿众生：舍弃对聚合之法的执着，成就一切智慧", "notes": [], "marker_ids": []}, {"no": 11, "scene": "若在厄难", "orig": "若在厄难，当愿众生，随意自在，所行无碍", "trans": "如果身处危难之中，应当祝愿众生：能够随心所欲，自在无碍，所有行为都没有障碍", "notes": [], "marker_ids": []}, {"no": 12, "scene": "舍居家时", "orig": "舍居家时，当愿众生，出家无碍，心得解脱", "trans": "舍弃在家的生活时，应当祝愿众生：出家修行没有障碍，内心得到解脱", "notes": [], "marker_ids": []}, {"no": 13, "scene": "入僧伽蓝", "orig": "入僧伽蓝，当愿众生，演说种种，无乖诤法", "trans": "进入僧伽蓝（寺院）时，应当祝愿众生：演说种种佛法，而没有乖违和诤论", "notes": [{"term": "僧伽蓝", "text": "僧伽蓝"}], "marker_ids": [18]}, {"no": 14, "scene": "诣大小师", "orig": "诣大小师，当愿众生，巧事师长，习行善法", "trans": "拜见和尚、阿阇梨等师长时，应当祝愿众生：善巧地侍奉师长，修习善法", "notes": [], "marker_ids": []}, {"no": 15, "scene": "求请出家", "orig": "求请出家，当愿众生，得不退法，心无障碍", "trans": "请求出家时，应当祝愿众生：得到不退转之法，内心没有障碍", "notes": [], "marker_ids": []}, {"no": 16, "scene": "脱去俗服", "orig": "脱去俗服，当愿众生，勤修善根，舍诸罪轭", "trans": "脱去世俗的衣服时，应当祝愿众生：勤奋修习善根，舍弃所有罪业的束缚", "notes": [], "marker_ids": []}, {"no": 17, "scene": "剃除须发", "orig": "剃除须发，当愿众生，永离烦恼，究竟寂灭", "trans": "剃除须发时，应当祝愿众生：永远脱离烦恼，达到究竟的寂灭", "notes": [], "marker_ids": []}, {"no": 18, "scene": "着袈裟衣", "orig": "着袈裟衣，当愿众生，心无所染，具大仙道", "trans": "穿上袈裟时，应当祝愿众生：内心没有任何染着，具足大仙人的道行", "notes": [{"term": "袈裟衣", "text": "袈裟衣"}], "marker_ids": [19]}, {"no": 19, "scene": "正出家时", "orig": "正出家时，当愿众生，同佛出家，救护一切", "trans": "正式出家时，应当祝愿众生：如同佛陀一样出家，救护一切众生", "notes": [], "marker_ids": []}, {"no": 20, "scene": "自归于佛", "orig": "自归于佛，当愿众生，绍隆佛种，发无上意", "trans": "自己皈依于佛时，应当祝愿众生：继承并发扬光大佛的种性，发起无上的菩提心", "notes": [], "marker_ids": []}, {"no": 21, "scene": "自归于法", "orig": "自归于法，当愿众生，深入经藏，智慧如海", "trans": "自己皈依于法时，应当祝愿众生：深入经藏，智慧如同大海", "notes": [], "marker_ids": []}, {"no": 22, "scene": "自归于僧", "orig": "自归于僧，当愿众生，统理大众，一切无碍", "trans": "自己皈依于僧时，应当祝愿众生：统领管理大众，一切都没有障碍", "notes": [], "marker_ids": []}, {"no": 23, "scene": "受学戒时", "orig": "受学戒时，当愿众生，善学于戒，不作众恶", "trans": "受学戒律时，应当祝愿众生：善于学习戒律，不做任何恶事", "notes": [], "marker_ids": []}, {"no": 24, "scene": "受阇梨教", "orig": "受阇梨教，当愿众生，具足威仪，所行真实", "trans": "接受阿阇梨的教导时，应当祝愿众生：具足威仪，所有行为都真实不虚", "notes": [{"term": "阇梨", "text": "阇梨"}], "marker_ids": [20]}, {"no": 25, "scene": "受和尚教", "orig": "受和尚教，当愿众生，入无生智，到无依处", "trans": "接受和尚的教导时，应当祝愿众生：契入无生之智，到达无所依靠的境地", "notes": [{"term": "和尚", "text": "和尚"}], "marker_ids": [21]}, {"no": 26, "scene": "受具足戒", "orig": "受具足戒，当愿众生，具诸方便，得最胜法", "trans": "受具足戒时，应当祝愿众生：具足所有方便法门，得到最殊胜的佛法", "notes": [{"term": "具足戒", "text": "具足戒"}], "marker_ids": [22]}, {"no": 27, "scene": "若入堂宇", "orig": "若入堂宇，当愿众生，升无上堂，安住不动", "trans": "如果进入殿堂，应当祝愿众生：登上无上的殿堂，安住不动", "notes": [], "marker_ids": []}, {"no": 28, "scene": "若敷床座", "orig": "若敷床座，当愿众生，开敷善法，见真实相", "trans": "如果铺设床座，应当祝愿众生：开显铺陈善法，见到真实之相", "notes": [], "marker_ids": []}, {"no": 29, "scene": "正身端坐", "orig": "正身端坐，当愿众生，坐菩提座，心无所著", "trans": "端正身体坐好时，应当祝愿众生：安坐于菩提座上，内心没有任何执着", "notes": [], "marker_ids": []}, {"no": 30, "scene": "结跏趺坐", "orig": "结跏趺坐，当愿众生，善根坚固，得不动地", "trans": "结跏趺坐时，应当祝愿众生：善根坚固，证得不动地", "notes": [{"term": "结跏趺坐", "text": "结跏趺坐"}], "marker_ids": [23]}, {"no": 31, "scene": "修行于定", "orig": "修行于定，当愿众生，以定伏心，究竟无余", "trans": "修行禅定时，应当祝愿众生：用禅定降伏自心，达到究竟无余的境地", "notes": [], "marker_ids": []}, {"no": 32, "scene": "若修于观", "orig": "若修于观，当愿众生，见如实理，永无乖诤", "trans": "如果修习观法，应当祝愿众生：见到如实的真理，永远没有乖违和诤论", "notes": [], "marker_ids": []}, {"no": 33, "scene": "舍跏趺坐", "orig": "舍跏趺坐，当愿众生，观诸行法，悉归散灭", "trans": "放开跏趺坐时，应当祝愿众生：观察一切有为法，都将归于消散和寂灭", "notes": [], "marker_ids": []}, {"no": 34, "scene": "下足住时", "orig": "下足住时，当愿众生，心得解脱，安住不动", "trans": "放下脚站立时，应当祝愿众生：内心得到解脱，安住不动", "notes": [], "marker_ids": []}, {"no": 35, "scene": "若举于足", "orig": "若举于足，当愿众生，出生死海，具众善法", "trans": "如果抬起脚，应当祝愿众生：超出生死大海，具足所有善法", "notes": [], "marker_ids": []}, {"no": 36, "scene": "着下裙时", "orig": "着下裙时，当愿众生，服诸善根，具足惭愧", "trans": "穿下裙时，应当祝愿众生：穿上所有善根，具足惭愧之心", "notes": [], "marker_ids": []}, {"no": 37, "scene": "整衣束带", "orig": "整衣束带，当愿众生，检束善根，不令散失", "trans": "整理衣服束紧腰带时，应当祝愿众生：收摄好自己的善根，不让它散失", "notes": [], "marker_ids": []}, {"no": 38, "scene": "若着上衣", "orig": "若着上衣，当愿众生，获胜善根，至法彼岸", "trans": "如果穿上衣，应当祝愿众生：获得殊胜的善根，到达佛法彼岸", "notes": [], "marker_ids": []}, {"no": 39, "scene": "着僧伽梨", "orig": "着僧伽梨，当愿众生，入第一位，得不动法", "trans": "穿上僧伽梨（大衣）时，应当祝愿众生：进入第一的果位，证得不动之法", "notes": [{"term": "僧伽梨", "text": "僧伽梨"}], "marker_ids": [24]}, {"no": 40, "scene": "手执杨枝", "orig": "手执杨枝，当愿众生，皆得妙法，究竟清净", "trans": "手拿杨枝时，应当祝愿众生：都能得到妙法，达到究竟的清净", "notes": [{"term": "杨枝", "text": "杨枝"}], "marker_ids": [25]}, {"no": 41, "scene": "嚼杨枝时", "orig": "嚼杨枝时，当愿众生，其心调净，噬诸烦恼", "trans": "嚼杨枝时，应当祝愿众生：内心调和清净，咬碎所有烦恼", "notes": [], "marker_ids": []}, {"no": 42, "scene": "大小便时", "orig": "大小便时，当愿众生，弃贪瞋痴，蠲除罪法", "trans": "大小便利时，应当祝愿众生：抛弃贪、瞋、痴，清除所有罪法", "notes": [], "marker_ids": []}, {"no": 43, "scene": "事讫就水", "orig": "事讫就水，当愿众生，出世法中，速疾而往", "trans": "事后用水时，应当祝愿众生：在出世间法中，能快速前进", "notes": [], "marker_ids": []}, {"no": 44, "scene": "洗涤形秽", "orig": "洗涤形秽，当愿众生，清净调柔，毕竟无垢", "trans": "洗涤身体的污秽时，应当祝愿众生：清净调柔，最终没有任何污垢", "notes": [], "marker_ids": []}, {"no": 45, "scene": "以水盥掌", "orig": "以水盥掌，当愿众生，得清净手，受持佛法", "trans": "用水洗手时，应当祝愿众生：得到清净之手，来受持佛法", "notes": [], "marker_ids": []}, {"no": 46, "scene": "以水洗面", "orig": "以水洗面，当愿众生，得净法门，永无垢染", "trans": "用水洗脸时，应当祝愿众生：得到清净的法门，永远没有污垢和染着", "notes": [], "marker_ids": []}, {"no": 47, "scene": "手执锡杖", "orig": "手执锡杖，当愿众生，设大施会，示如实道", "trans": "手持锡杖时，应当祝愿众生：设立大的施舍法会，开示如实的道", "notes": [{"term": "锡杖", "text": "锡杖"}], "marker_ids": [26]}, {"no": 48, "scene": "执持应器", "orig": "执持应器，当愿众生，成就法器，受天人供", "trans": "执持应器（钵）时，应当祝愿众生：成就法的容器，接受天人和人间的供养", "notes": [{"term": "应器", "text": "应器"}], "marker_ids": [27]}, {"no": 49, "scene": "发趾向道", "orig": "发趾向道，当愿众生，趣佛所行，入无依处", "trans": "迈步走向道路时，应当祝愿众生：趣向佛所行的道，进入无所依靠的境地", "notes": [], "marker_ids": []}, {"no": 50, "scene": "若在于道", "orig": "若在于道，当愿众生，能行佛道，向无余法", "trans": "如果在路上，应当祝愿众生：能行于佛道，朝向无余涅槃之法", "notes": [], "marker_ids": []}, {"no": 51, "scene": "涉路而去", "orig": "涉路而去，当愿众生，履净法界，心无障碍", "trans": "走在路上时，应当祝愿众生：行走在清净的法界，内心没有障碍", "notes": [], "marker_ids": []}, {"no": 52, "scene": "见升高路", "orig": "见升高路，当愿众生，永出三界，心无怯弱", "trans": "看见上坡路时，应当祝愿众生：永远出离三界，内心没有怯弱", "notes": [], "marker_ids": []}, {"no": 53, "scene": "见趣下路", "orig": "见趣下路，当愿众生，其心谦下，长佛善根", "trans": "看见下坡路时，应当祝愿众生：内心谦卑低下，增长佛的善根", "notes": [], "marker_ids": []}, {"no": 54, "scene": "见斜曲路", "orig": "见斜曲路，当愿众生，舍不正道，永除恶见", "trans": "看见弯曲的路时，应当祝愿众生：舍弃不正确的道路，永远除去邪恶的见解", "notes": [], "marker_ids": []}, {"no": 55, "scene": "若见直路", "orig": "若见直路，当愿众生，其心正直，无谄无诳", "trans": "如果看见笔直的路，应当祝愿众生：内心正直，没有谄媚和欺诳", "notes": [], "marker_ids": []}, {"no": 56, "scene": "见路多尘", "orig": "见路多尘，当愿众生，远离尘坌，获清净法", "trans": "看见路上有很多灰尘，应当祝愿众生：远离尘世的污垢，获得清净之法", "notes": [], "marker_ids": []}, {"no": 57, "scene": "见路无尘", "orig": "见路无尘，当愿众生，常行大悲，其心润泽", "trans": "看见路上没有灰尘，应当祝愿众生：常行大悲，内心得到润泽", "notes": [], "marker_ids": []}, {"no": 58, "scene": "若见险道", "orig": "若见险道，当愿众生，住正法界，离诸罪难", "trans": "如果看见险峻的道路，应当祝愿众生：安住于正法之界，远离所有罪业和危难", "notes": [], "marker_ids": []}, {"no": 59, "scene": "若见众会", "orig": "若见众会，当愿众生，说甚深法，一切和合", "trans": "如果看见集会的大众，应当祝愿众生：演说甚深的佛法，使一切和合", "notes": [], "marker_ids": []}, {"no": 60, "scene": "若见大柱", "orig": "若见大柱，当愿众生，离我诤心，无有忿恨", "trans": "如果看见大柱子，应当祝愿众生：远离我执的争论之心，没有任何忿怒和怨恨", "notes": [], "marker_ids": []}, {"no": 61, "scene": "若见丛林", "orig": "若见丛林，当愿众生，诸天及人，所应敬礼", "trans": "如果看见丛林，应当祝愿众生：成为诸天和人，所应当敬礼的对象", "notes": [], "marker_ids": []}, {"no": 62, "scene": "若见高山", "orig": "若见高山，当愿众生，善根超出，无能至顶", "trans": "如果看见高山，应当祝愿众生：善根超越一切，无人能达到顶峰", "notes": [], "marker_ids": []}, {"no": 63, "scene": "见棘刺树", "orig": "见棘刺树，当愿众生，疾得翦除，三毒之刺", "trans": "看见有棘刺的树，应当祝愿众生：尽快剪除贪、瞋、痴三毒之刺", "notes": [], "marker_ids": []}, {"no": 64, "scene": "见树叶茂", "orig": "见树叶茂，当愿众生，以定解脱，而为荫映", "trans": "看见树叶茂盛，应当祝愿众生：以禅定和解脱，来为众生作荫护", "notes": [], "marker_ids": []}, {"no": 65, "scene": "若见华开", "orig": "若见华开，当愿众生，神通等法，如华开敷", "trans": "如果看见花开，应当祝愿众生：神通等法，如同花朵一样绽放", "notes": [], "marker_ids": []}, {"no": 66, "scene": "若见树华", "orig": "若见树华，当愿众生，众相如华，具三十二", "trans": "如果看见树上的花，应当祝愿众生：各种相好如同花朵，具足三十二相", "notes": [], "marker_ids": []}, {"no": 67, "scene": "若见果实", "orig": "若见果实，当愿众生，获最胜法，证菩提道", "trans": "如果看见果实，应当祝愿众生：获得最殊胜的法，证得菩提之道", "notes": [], "marker_ids": []}, {"no": 68, "scene": "若见大河", "orig": "若见大河，当愿众生，得预法流，入佛智海", "trans": "如果看见大河，应当祝愿众生：得以进入佛法之流，契入佛的智慧大海", "notes": [], "marker_ids": []}, {"no": 69, "scene": "若见陂泽", "orig": "若见陂泽，当愿众生，疾悟诸佛，一味之法", "trans": "如果看见湖泽，应当祝愿众生：迅速了悟诸佛，那同一味道的法", "notes": [], "marker_ids": []}, {"no": 70, "scene": "若见池沼", "orig": "若见池沼，当愿众生，语业满足，巧能演说", "trans": "如果看见池塘，应当祝愿众生：语言的功德圆满，能善巧地演说", "notes": [], "marker_ids": []}, {"no": 71, "scene": "若见汲井", "orig": "若见汲井，当愿众生，具足辩才，演一切法", "trans": "如果看见汲水的井，应当祝愿众生：具足辩才，演说一切佛法", "notes": [], "marker_ids": []}, {"no": 72, "scene": "若见涌泉", "orig": "若见涌泉，当愿众生，方便增长，善根无尽", "trans": "如果看见涌出的泉水，应当祝愿众生：方便善巧增长，善根永不穷尽", "notes": [], "marker_ids": []}, {"no": 73, "scene": "若见桥道", "orig": "若见桥道，当愿众生，广度一切，犹如桥梁", "trans": "如果看见桥梁道路，应当祝愿众生：广泛地度化一切众生，如同桥梁一样", "notes": [], "marker_ids": []}, {"no": 74, "scene": "若见流水", "orig": "若见流水，当愿众生，得善意欲，洗除惑垢", "trans": "如果看见流水，应当祝愿众生：得到善良的意愿，洗除迷惑的污垢", "notes": [], "marker_ids": []}, {"no": 75, "scene": "见修园圃", "orig": "见修园圃，当愿众生，五欲圃中，耘除爱草", "trans": "看见修整的园圃，应当祝愿众生：在五欲的田圃中，拔除贪爱的野草", "notes": [], "marker_ids": []}, {"no": 76, "scene": "见无忧林", "orig": "见无忧林，当愿众生，永离贪爱，不生忧怖", "trans": "看见无忧树林，应当祝愿众生：永远脱离贪爱，不生忧愁和怖畏", "notes": [], "marker_ids": []}, {"no": 77, "scene": "若见园苑", "orig": "若见园苑，当愿众生，勤修诸行，趣佛菩提", "trans": "如果看见园林，应当祝愿众生：勤奋修习各种行门，趣向佛的菩提", "notes": [], "marker_ids": []}, {"no": 78, "scene": "见严饰人", "orig": "见严饰人，当愿众生，三十二相，以为严好", "trans": "看见装饰华丽的人，应当祝愿众生：以三十二相，来庄严自身", "notes": [], "marker_ids": []}, {"no": 79, "scene": "见无严饰", "orig": "见无严饰，当愿众生，舍诸饰好，具头陀行", "trans": "看见没有装饰的人，应当祝愿众生：舍弃所有华丽的装饰，具足头陀苦行", "notes": [{"term": "头陀行", "text": "头陀行"}], "marker_ids": [28]}, {"no": 80, "scene": "见乐着人", "orig": "见乐着人，当愿众生，以法自娱，欢爱不舍", "trans": "看见执着于享乐的人，应当祝愿众生：以佛法自娱，欢喜热爱永不舍弃", "notes": [], "marker_ids": []}, {"no": 81, "scene": "见无乐着", "orig": "见无乐着，当愿众生，有为事中，心无所乐", "trans": "看见不执着于享乐的人，应当祝愿众生：在有为法的事物中，内心没有任何乐着", "notes": [], "marker_ids": []}, {"no": 82, "scene": "见欢乐人", "orig": "见欢乐人，当愿众生，常得安乐，乐供养佛", "trans": "看见欢乐的人，应当祝愿众生：常常得到安乐，乐于供养佛", "notes": [], "marker_ids": []}, {"no": 83, "scene": "见苦恼人", "orig": "见苦恼人，当愿众生，获根本智，灭除众苦", "trans": "看见苦恼的人，应当祝愿众生：获得根本的智慧，灭除所有痛苦", "notes": [], "marker_ids": []}, {"no": 84, "scene": "见无病人", "orig": "见无病人，当愿众生，入真实慧，永无病恼", "trans": "看见没有病的人，应当祝愿众生：进入真实的智慧，永远没有病痛烦恼", "notes": [], "marker_ids": []}, {"no": 85, "scene": "见疾病人", "orig": "见疾病人，当愿众生，知身空寂，离乖诤法", "trans": "看见生病的人，应当祝愿众生：了知身体是空寂的，远离乖违和诤论之法", "notes": [], "marker_ids": []}, {"no": 86, "scene": "见端正人", "orig": "见端正人，当愿众生，于佛菩萨，常生净信", "trans": "看见相貌端正的人，应当祝愿众生：对于佛和菩萨，常常生起清净的信心", "notes": [], "marker_ids": []}, {"no": 87, "scene": "见丑陋人", "orig": "见丑陋人，当愿众生，于不善事，不生乐着", "trans": "看见相貌丑陋的人，应当祝愿众生：对于不善的事情，不生起乐着之心", "notes": [], "marker_ids": []}, {"no": 88, "scene": "见报恩人", "orig": "见报恩人，当愿众生，于佛菩萨，能知恩德", "trans": "看见知恩报恩的人，应当祝愿众生：对于佛和菩萨，能了知其恩德", "notes": [], "marker_ids": []}, {"no": 89, "scene": "见背恩人", "orig": "见背恩人，当愿众生，于有恶人，不加其报", "trans": "看见忘恩负义的人，应当祝愿众生：对于作恶的人，不加以报复", "notes": [], "marker_ids": []}, {"no": 90, "scene": "若见沙门", "orig": "若见沙门，当愿众生，调柔寂静，毕竟第一", "trans": "如果看见出家人（沙门），应当祝愿众生：调柔寂静，达到毕竟第一的境地", "notes": [], "marker_ids": []}, {"no": 91, "scene": "见婆罗门", "orig": "见婆罗门，当愿众生，永持梵行，离一切恶", "trans": "看见婆罗门，应当祝愿众生：永远受持清净的梵行，远离一切恶", "notes": [], "marker_ids": []}, {"no": 92, "scene": "见苦行人", "orig": "见苦行人，当愿众生，依于苦行，至究竟处", "trans": "看见修苦行的人，应当祝愿众生：依于苦行，到达究竟的解脱之处", "notes": [], "marker_ids": []}, {"no": 93, "scene": "见操行人", "orig": "见操行人，当愿众生，坚持志行，不舍佛道", "trans": "看见持守操行的人，应当祝愿众生：坚持自己的志向和行持，不舍弃佛道", "notes": [], "marker_ids": []}, {"no": 94, "scene": "见着甲胄", "orig": "见着甲胄，当愿众生，常服善铠，趣无师法", "trans": "看见穿着盔甲的人，应当祝愿众生：常常穿着善法的铠甲，趣向无须师承而能自证的佛法（无师智）", "notes": [], "marker_ids": []}, {"no": 95, "scene": "见无铠仗", "orig": "见无铠仗，当愿众生，永离一切，不善之业", "trans": "看见没有铠甲兵器的人，应当祝愿众生：永远脱离一切，不善的业", "notes": [], "marker_ids": []}, {"no": 96, "scene": "见论议人", "orig": "见论议人，当愿众生，于诸异论，悉能摧伏", "trans": "看见辩论的人，应当祝愿众生：对于各种不同的论点，都能将其摧伏", "notes": [], "marker_ids": []}, {"no": 97, "scene": "见正命人", "orig": "见正命人，当愿众生，得清净命，不矫威仪", "trans": "看见以正当方式生活的人，应当祝愿众生：得到清净的生命，不矫饰威仪", "notes": [], "marker_ids": []}, {"no": 98, "scene": "若见于王", "orig": "若见于王，当愿众生，得为法王，恒转正法", "trans": "如果看见国王，应当祝愿众生：得以成为法王，恒常转动正法之轮", "notes": [], "marker_ids": []}, {"no": 99, "scene": "若见王子", "orig": "若见王子，当愿众生，从法化生，而为佛子", "trans": "如果看见王子，应当祝愿众生：能从法化生，而成为真正的佛子", "notes": [], "marker_ids": []}, {"no": 100, "scene": "若见长者", "orig": "若见长者，当愿众生，善能明断，不行恶法", "trans": "如果看见长者，应当祝愿众生：善于明辨是非，不作恶法", "notes": [], "marker_ids": []}, {"no": 101, "scene": "若见大臣", "orig": "若见大臣，当愿众生，恒守正念，习行众善", "trans": "如果看见大臣，应当祝愿众生：恒常守护正念，修习各种善行", "notes": [], "marker_ids": []}, {"no": 102, "scene": "若见城廓", "orig": "若见城廓，当愿众生，得坚固身，心无所屈", "trans": "如果看见城郭，应当祝愿众生：得到坚固的身体，内心不被屈服", "notes": [], "marker_ids": []}, {"no": 103, "scene": "若见王都", "orig": "若见王都，当愿众生，功德共聚，心恒喜乐", "trans": "如果看见国都，应当祝愿众生：功德都聚集在一起，内心恒常喜乐", "notes": [], "marker_ids": []}, {"no": 104, "scene": "见处林薮", "orig": "见处林薮，当愿众生，应为天人，之所叹仰", "trans": "看见身处林野，应当祝愿众生：应当成为天人，所赞叹和仰望的对象", "notes": [], "marker_ids": []}, {"no": 105, "scene": "入里乞食", "orig": "入里乞食，当愿众生，入深法界，心无障碍", "trans": "进入村里乞食时，应当祝愿众生：进入甚深的法界，内心没有障碍", "notes": [], "marker_ids": []}, {"no": 106, "scene": "到人门户", "orig": "到人门户，当愿众生，入于一切，佛法之门", "trans": "到达别人家门口时，应当祝愿众生：进入所有，佛法之门", "notes": [], "marker_ids": []}, {"no": 107, "scene": "入其家已", "orig": "入其家已，当愿众生，得入佛乘，三世平等", "trans": "进入他家之后，应当祝愿众生：得以进入佛乘，了达三世平等", "notes": [], "marker_ids": []}, {"no": 108, "scene": "见不舍人", "orig": "见不舍人，当愿众生，常不舍离，胜功德法", "trans": "看见不肯布施的人，应当祝愿众生：常常不舍离，殊胜的功德法", "notes": [], "marker_ids": []}, {"no": 109, "scene": "见能舍人", "orig": "见能舍人，当愿众生，永得舍离，三恶道苦", "trans": "看见能够布施的人，应当祝愿众生：永远得以舍离，三恶道之苦", "notes": [], "marker_ids": []}, {"no": 110, "scene": "若见空钵", "orig": "若见空钵，当愿众生，其心清净，空无烦恼", "trans": "如果看见空钵，应当祝愿众生：内心清净，空无烦恼", "notes": [], "marker_ids": []}, {"no": 111, "scene": "若见满钵", "orig": "若见满钵，当愿众生，具足成满，一切善法", "trans": "如果看见满钵，应当祝愿众生：具足圆满，一切善法", "notes": [], "marker_ids": []}, {"no": 112, "scene": "若得恭敬", "orig": "若得恭敬，当愿众生，恭敬修行，一切佛法", "trans": "如果得到恭敬，应当祝愿众生：恭敬地修行，一切佛法", "notes": [], "marker_ids": []}, {"no": 113, "scene": "不得恭敬", "orig": "不得恭敬，当愿众生，不行一切，不善之法", "trans": "得不到恭敬，应当祝愿众生：不去做任何，不善之法", "notes": [], "marker_ids": []}, {"no": 114, "scene": "见惭耻人", "orig": "见惭耻人，当愿众生，具惭耻行，藏护诸根", "trans": "看见有惭愧心的人，应当祝愿众生：具足惭愧的行为，守护好自己的六根", "notes": [], "marker_ids": []}, {"no": 115, "scene": "见无惭耻", "orig": "见无惭耻，当愿众生，舍离无惭，住大慈道", "trans": "看见没有惭愧心的人，应当祝愿众生：舍离无惭之心，安住于大慈之道", "notes": [], "marker_ids": []}, {"no": 116, "scene": "若得美食", "orig": "若得美食，当愿众生，满足其愿，心无羡欲", "trans": "如果得到美食，应当祝愿众生：满足他们的愿望，内心没有羡慕和欲望", "notes": [], "marker_ids": []}, {"no": 117, "scene": "得不美食", "orig": "得不美食，当愿众生，莫不获得，诸三昧味", "trans": "得到不好的食物，应当祝愿众生：无不获得，各种三昧的法味", "notes": [], "marker_ids": []}, {"no": 118, "scene": "得柔软食", "orig": "得柔软食，当愿众生，大悲所熏，心意柔软", "trans": "得到柔软的食物，应当祝愿众生：被大悲心所熏陶，心意变得柔软", "notes": [], "marker_ids": []}, {"no": 119, "scene": "得粗涩食", "orig": "得粗涩食，当愿众生，心无染着，绝世贪爱", "trans": "得到粗糙的食物，应当祝愿众生：内心没有任何染着，断绝世间的贪爱", "notes": [], "marker_ids": []}, {"no": 120, "scene": "若饭食时", "orig": "若饭食时，当愿众生，禅悦为食，法喜充满", "trans": "吃饭的时候，应当祝愿众生：以禅悦为食，法喜充满", "notes": [{"term": "禅悦为食", "text": "禅悦为食"}], "marker_ids": [29]}, {"no": 121, "scene": "若受味时", "orig": "若受味时，当愿众生，得佛上味，甘露满足", "trans": "品尝味道的时候，应当祝愿众生：得到佛的无上法味，如同甘露一般满足", "notes": [], "marker_ids": []}, {"no": 122, "scene": "饭食已讫", "orig": "饭食已讫，当愿众生，所作皆办，具诸佛法", "trans": "吃完饭后，应当祝愿众生：所作的事情都已完毕，具足诸佛之法", "notes": [], "marker_ids": []}, {"no": 123, "scene": "若说法时", "orig": "若说法时，当愿众生，得无尽辩，广宣法要", "trans": "如果说法的时候，应当祝愿众生：得到无尽的辩才，广泛宣说法的要点", "notes": [], "marker_ids": []}, {"no": 124, "scene": "从舍出时", "orig": "从舍出时，当愿众生，深入佛智，永出三界", "trans": "从房舍出来的时候，应当祝愿众生：深入佛的智慧，永远出离三界", "notes": [], "marker_ids": []}, {"no": 125, "scene": "若入水时", "orig": "若入水时，当愿众生，入一切智，知三世等", "trans": "如果入水的时候，应当祝愿众生：契入一切智慧，了知三世平等", "notes": [], "marker_ids": []}, {"no": 126, "scene": "洗浴身体", "orig": "洗浴身体，当愿众生，身心无垢，内外光洁", "trans": "洗浴身体的时候，应当祝愿众生：身心都没有污垢，内外都光明洁净", "notes": [], "marker_ids": []}, {"no": 127, "scene": "盛暑炎毒", "orig": "盛暑炎毒，当愿众生，舍离众恼，一切皆尽", "trans": "酷暑炎热的时候，应当祝愿众生：舍离所有烦恼，一切都消尽", "notes": [], "marker_ids": []}, {"no": 128, "scene": "暑退凉初", "orig": "暑退凉初，当愿众生，证无上法，究竟清凉", "trans": "暑气消退，凉意初生时，应当祝愿众生：证得无上之法，达到究竟的清凉", "notes": [], "marker_ids": []}, {"no": 129, "scene": "讽诵经时", "orig": "讽诵经时，当愿众生，顺佛所说，总持不忘", "trans": "讽诵经文的时候，应当祝愿众生：随顺佛所说的法，全部领会并永不忘记", "notes": [], "marker_ids": []}, {"no": 130, "scene": "若得见佛", "orig": "若得见佛，当愿众生，得无碍眼，见一切佛", "trans": "如果得以见到佛，应当祝愿众生：得到无碍之眼，能看见一切佛", "notes": [], "marker_ids": []}, {"no": 131, "scene": "谛观佛时", "orig": "谛观佛时，当愿众生，皆如普贤，端正严好", "trans": "仔细观察佛的时候，应当祝愿众生：都像普贤菩萨一样，相貌端正庄严", "notes": [], "marker_ids": []}, {"no": 132, "scene": "见佛塔时", "orig": "见佛塔时，当愿众生，尊重如塔，受天人供", "trans": "看见佛塔的时候，应当祝愿众生：像佛塔一样受人尊重，接受天人的供养", "notes": [], "marker_ids": []}, {"no": 133, "scene": "敬心观塔", "orig": "敬心观塔，当愿众生，诸天及人，所共瞻仰", "trans": "以恭敬心观看佛塔时，应当祝愿众生：成为诸天和人，所共同瞻仰的对象", "notes": [], "marker_ids": []}, {"no": 134, "scene": "顶礼于塔", "orig": "顶礼于塔，当愿众生，一切天人，无能见顶", "trans": "向佛塔顶礼时，应当祝愿众生：一切天人，都无法看见其头顶（福德巍巍之故）", "notes": [], "marker_ids": []}, {"no": 135, "scene": "右绕于塔", "orig": "右绕于塔，当愿众生，所行无逆，成一切智", "trans": "向右绕行佛塔时，应当祝愿众生：所作所为都没有逆缘，成就一切智慧", "notes": [], "marker_ids": []}, {"no": 136, "scene": "绕塔三匝", "orig": "绕塔三匝，当愿众生，勤求佛道，心无懈歇", "trans": "绕塔三圈时，应当祝愿众生：勤奋追求佛道，内心没有懈怠和停歇", "notes": [], "marker_ids": []}, {"no": 137, "scene": "赞佛功德", "orig": "赞佛功德，当愿众生，众德悉具，称叹无尽", "trans": "赞叹佛的功德时，应当祝愿众生：所有功德都已具足，称赞无穷无尽", "notes": [], "marker_ids": []}, {"no": 138, "scene": "赞佛相好", "orig": "赞佛相好，当愿众生，成就佛身，证无相法", "trans": "赞叹佛的相好时，应当祝愿众生：成就佛的身体，证得无相之法", "notes": [], "marker_ids": []}, {"no": 139, "scene": "若洗足时", "orig": "若洗足时，当愿众生，具神足力，所行无碍", "trans": "如果洗脚的时候，应当祝愿众生：具足神足之力，所行无碍", "notes": [], "marker_ids": []}, {"no": 140, "scene": "以时寝息", "orig": "以时寝息，当愿众生，身得安隐，心无动乱", "trans": "按时休息睡眠时，应当祝愿众生：身体得到安稳，内心没有动乱", "notes": [], "marker_ids": []}, {"no": 141, "scene": "睡眠始寤", "orig": "睡眠始寤，当愿众生，一切智觉，周顾十方", "trans": "从睡眠中刚醒来时，应当祝愿众生：以一切智慧觉悟，遍观十方世界", "notes": [], "marker_ids": []}], "groups": [{"id": 0, "start": 1, "end": 11, "name": "在家生活", "note": "居家处世，随事发愿"}, {"id": 1, "start": 12, "end": 26, "name": "出家受戒", "note": "辞亲割爱，剃度受具"}, {"id": 2, "start": 27, "end": 33, "name": "坐禅修观", "note": "入堂敷座，止观双运"}, {"id": 3, "start": 34, "end": 39, "name": "著衣威仪", "note": "下足整衣，动静有仪"}, {"id": 4, "start": 40, "end": 46, "name": "盥洗清洁", "note": "杨枝净水，涤形去秽"}, {"id": 5, "start": 47, "end": 58, "name": "出行持钵", "note": "执锡持器，升道涉路"}, {"id": 6, "start": 59, "end": 77, "name": "所见·山河草木", "note": "林泉池井，触目菩提"}, {"id": 7, "start": 78, "end": 101, "name": "所见·各色人等", "note": "美丑恩怨，皆是老师"}, {"id": 8, "start": 102, "end": 104, "name": "所见·城郭林野", "note": "王都广漠，人间聚落"}, {"id": 9, "start": 105, "end": 111, "name": "乞食", "note": "入里乞食，空满平等"}, {"id": 10, "start": 112, "end": 115, "name": "毁誉得失", "note": "恭敬毁辱，惭愧为服"}, {"id": 11, "start": 116, "end": 122, "name": "饭食", "note": "粗软美恶，禅悦为食"}, {"id": 12, "start": 123, "end": 128, "name": "说法洗浴", "note": "说法度人，浴身除热"}, {"id": 13, "start": 129, "end": 138, "name": "诵经礼塔", "note": "讽诵观佛，绕塔赞叹"}, {"id": 14, "start": 139, "end": 141, "name": "睡眠醒寤", "note": "洗足寝息，智觉周顾"}]};
+const DATA = {"wishes":[{"no":1,"scene":"菩萨在家","orig":"菩萨在家，当愿众生，知家性空，免其逼迫","trans":"菩萨在家时，应当祝愿众生：了知家的本性是空，从而免除它的逼迫","notes":[],"marker_ids":[]},{"no":2,"scene":"孝事父母","orig":"孝事父母，当愿众生，善事于佛，护养一切","trans":"孝顺侍奉父母时，应当祝愿众生：善于侍奉于佛，护持抚养一切众生","notes":[],"marker_ids":[]},{"no":3,"scene":"妻子集会","orig":"妻子集会，当愿众生，怨亲平等，永离贪着","trans":"与妻子儿女聚会时，应当祝愿众生：对怨恨和亲爱的人都平等看待，永远脱离贪爱执着","notes":[],"marker_ids":[]},{"no":4,"scene":"若得五欲","orig":"若得五欲，当愿众生，拔除欲箭，究竟安隐","trans":"如果得到色、声、香、味、触五欲之乐，应当祝愿众生：拔除欲望的毒箭，达到究竟的安稳","notes":[],"marker_ids":[]},{"no":5,"scene":"妓乐聚会","orig":"妓乐聚会，当愿众生，以法自娱，了妓非实","trans":"在歌舞伎乐的聚会中，应当祝愿众生：以佛法自娱，了知伎乐并非实有","notes":[],"marker_ids":[]},{"no":6,"scene":"若在宫室","orig":"若在宫室，当愿众生，入于圣地，永除秽欲","trans":"如果在宫殿房室中，应当祝愿众生：进入圣人的境地，永远除去污秽的欲望","notes":[],"marker_ids":[]},{"no":7,"scene":"着璎珞时","orig":"着璎珞时，当愿众生，舍诸伪饰，到真实处","trans":"佩戴璎珞首饰时，应当祝愿众生：舍弃所有虚假的装饰，到达真实的归宿","notes":[],"marker_ids":[]},{"no":8,"scene":"上升楼阁","orig":"上升楼阁，当愿众生，升正法楼，彻见一切","trans":"登上高楼阁宇时，应当祝愿众生：登上正法的楼阁，彻底看见一切","notes":[],"marker_ids":[]},{"no":9,"scene":"若有所施","orig":"若有所施，当愿众生，一切能舍，心无爱着","trans":"如果有所施舍，应当祝愿众生：能够舍弃一切，内心没有喜爱和执着","notes":[],"marker_ids":[]},{"no":10,"scene":"众会聚集","orig":"众会聚集，当愿众生，舍众聚法，成一切智","trans":"大众聚集在一起时，应当祝愿众生：舍弃对聚合之法的执着，成就一切智慧","notes":[],"marker_ids":[]},{"no":11,"scene":"若在厄难","orig":"若在厄难，当愿众生，随意自在，所行无碍","trans":"如果身处危难之中，应当祝愿众生：能够随心所欲，自在无碍，所有行为都没有障碍","notes":[],"marker_ids":[]},{"no":12,"scene":"舍居家时","orig":"舍居家时，当愿众生，出家无碍，心得解脱","trans":"舍弃在家的生活时，应当祝愿众生：出家修行没有障碍，内心得到解脱","notes":[],"marker_ids":[]},{"no":13,"scene":"入僧伽蓝","orig":"入僧伽蓝，当愿众生，演说种种，无乖诤法","trans":"进入僧伽蓝（寺院）时，应当祝愿众生：演说种种佛法，而没有乖违和诤论","notes":[{"term":"僧伽蓝","text":"僧众所住的园林寺院。"}],"marker_ids":[18]},{"no":14,"scene":"诣大小师","orig":"诣大小师，当愿众生，巧事师长，习行善法","trans":"拜见和尚、阿阇梨等师长时，应当祝愿众生：善巧地侍奉师长，修习善法","notes":[],"marker_ids":[]},{"no":15,"scene":"求请出家","orig":"求请出家，当愿众生，得不退法，心无障碍","trans":"请求出家时，应当祝愿众生：得到不退转之法，内心没有障碍","notes":[],"marker_ids":[]},{"no":16,"scene":"脱去俗服","orig":"脱去俗服，当愿众生，勤修善根，舍诸罪轭","trans":"脱去世俗的衣服时，应当祝愿众生：勤奋修习善根，舍弃所有罪业的束缚","notes":[],"marker_ids":[]},{"no":17,"scene":"剃除须发","orig":"剃除须发，当愿众生，永离烦恼，究竟寂灭","trans":"剃除须发时，应当祝愿众生：永远脱离烦恼，达到究竟的寂灭","notes":[],"marker_ids":[]},{"no":18,"scene":"着袈裟衣","orig":"着袈裟衣，当愿众生，心无所染，具大仙道","trans":"穿上袈裟时，应当祝愿众生：内心没有任何染着，具足大仙人的道行","notes":[{"term":"袈裟衣","text":"出家法衣，以坏色（不正色）为体，表离世俗之美。"}],"marker_ids":[19]},{"no":19,"scene":"正出家时","orig":"正出家时，当愿众生，同佛出家，救护一切","trans":"正式出家时，应当祝愿众生：如同佛陀一样出家，救护一切众生","notes":[],"marker_ids":[]},{"no":20,"scene":"自归于佛","orig":"自归于佛，当愿众生，绍隆佛种，发无上意","trans":"自己皈依于佛时，应当祝愿众生：继承并发扬光大佛的种性，发起无上的菩提心","notes":[],"marker_ids":[]},{"no":21,"scene":"自归于法","orig":"自归于法，当愿众生，深入经藏，智慧如海","trans":"自己皈依于法时，应当祝愿众生：深入经藏，智慧如同大海","notes":[],"marker_ids":[]},{"no":22,"scene":"自归于僧","orig":"自归于僧，当愿众生，统理大众，一切无碍","trans":"自己皈依于僧时，应当祝愿众生：统领管理大众，一切都没有障碍","notes":[],"marker_ids":[]},{"no":23,"scene":"受学戒时","orig":"受学戒时，当愿众生，善学于戒，不作众恶","trans":"受学戒律时，应当祝愿众生：善于学习戒律，不做任何恶事","notes":[],"marker_ids":[]},{"no":24,"scene":"受阇梨教","orig":"受阇梨教，当愿众生，具足威仪，所行真实","trans":"接受阿阇梨的教导时，应当祝愿众生：具足威仪，所有行为都真实不虚","notes":[{"term":"阇梨","text":"阿阇梨，教授师、轨范师，能教弟子威仪与法义。"}],"marker_ids":[20]},{"no":25,"scene":"受和尚教","orig":"受和尚教，当愿众生，入无生智，到无依处","trans":"接受和尚的教导时，应当祝愿众生：契入无生之智，到达无所依靠的境地","notes":[{"term":"和尚","text":"亲教师，弟子依之受学、受戒的根本师。"}],"marker_ids":[21]},{"no":26,"scene":"受具足戒","orig":"受具足戒，当愿众生，具诸方便，得最胜法","trans":"受具足戒时，应当祝愿众生：具足所有方便法门，得到最殊胜的佛法","notes":[{"term":"具足戒","text":"比丘、比丘尼所受的完整戒法，受此戒方成僧相。"}],"marker_ids":[22]},{"no":27,"scene":"若入堂宇","orig":"若入堂宇，当愿众生，升无上堂，安住不动","trans":"如果进入殿堂，应当祝愿众生：登上无上的殿堂，安住不动","notes":[],"marker_ids":[]},{"no":28,"scene":"若敷床座","orig":"若敷床座，当愿众生，开敷善法，见真实相","trans":"如果铺设床座，应当祝愿众生：开显铺陈善法，见到真实之相","notes":[],"marker_ids":[]},{"no":29,"scene":"正身端坐","orig":"正身端坐，当愿众生，坐菩提座，心无所著","trans":"端正身体坐好时，应当祝愿众生：安坐于菩提座上，内心没有任何执着","notes":[],"marker_ids":[]},{"no":30,"scene":"结跏趺坐","orig":"结跏趺坐，当愿众生，善根坚固，得不动地","trans":"结跏趺坐时，应当祝愿众生：善根坚固，证得不动地","notes":[{"term":"结跏趺坐","text":"盘腿正坐，常分吉祥坐与降魔坐，是坐禅的常规坐姿。"}],"marker_ids":[23]},{"no":31,"scene":"修行于定","orig":"修行于定，当愿众生，以定伏心，究竟无余","trans":"修行禅定时，应当祝愿众生：用禅定降伏自心，达到究竟无余的境地","notes":[],"marker_ids":[]},{"no":32,"scene":"若修于观","orig":"若修于观，当愿众生，见如实理，永无乖诤","trans":"如果修习观法，应当祝愿众生：见到如实的真理，永远没有乖违和诤论","notes":[],"marker_ids":[]},{"no":33,"scene":"舍跏趺坐","orig":"舍跏趺坐，当愿众生，观诸行法，悉归散灭","trans":"放开跏趺坐时，应当祝愿众生：观察一切有为法，都将归于消散和寂灭","notes":[],"marker_ids":[]},{"no":34,"scene":"下足住时","orig":"下足住时，当愿众生，心得解脱，安住不动","trans":"放下脚站立时，应当祝愿众生：内心得到解脱，安住不动","notes":[],"marker_ids":[]},{"no":35,"scene":"若举于足","orig":"若举于足，当愿众生，出生死海，具众善法","trans":"如果抬起脚，应当祝愿众生：超出生死大海，具足所有善法","notes":[],"marker_ids":[]},{"no":36,"scene":"着下裙时","orig":"着下裙时，当愿众生，服诸善根，具足惭愧","trans":"穿下裙时，应当祝愿众生：穿上所有善根，具足惭愧之心","notes":[],"marker_ids":[]},{"no":37,"scene":"整衣束带","orig":"整衣束带，当愿众生，检束善根，不令散失","trans":"整理衣服束紧腰带时，应当祝愿众生：收摄好自己的善根，不让它散失","notes":[],"marker_ids":[]},{"no":38,"scene":"若着上衣","orig":"若着上衣，当愿众生，获胜善根，至法彼岸","trans":"如果穿上衣，应当祝愿众生：获得殊胜的善根，到达佛法彼岸","notes":[],"marker_ids":[]},{"no":39,"scene":"着僧伽梨","orig":"着僧伽梨，当愿众生，入第一位，得不动法","trans":"穿上僧伽梨（大衣）时，应当祝愿众生：进入第一的果位，证得不动之法","notes":[{"term":"僧伽梨","text":"九条乃至二十五条的大衣，入王宫、聚落说法时着。"}],"marker_ids":[24]},{"no":40,"scene":"手执杨枝","orig":"手执杨枝，当愿众生，皆得妙法，究竟清净","trans":"手拿杨枝时，应当祝愿众生：都能得到妙法，达到究竟的清净","notes":[{"term":"杨枝","text":"柳木等枝条，古印度用以嚼齿洁口，属日常威仪。"}],"marker_ids":[25]},{"no":41,"scene":"嚼杨枝时","orig":"嚼杨枝时，当愿众生，其心调净，噬诸烦恼","trans":"嚼杨枝时，应当祝愿众生：内心调和清净，咬碎所有烦恼","notes":[],"marker_ids":[]},{"no":42,"scene":"大小便时","orig":"大小便时，当愿众生，弃贪瞋痴，蠲除罪法","trans":"大小便利时，应当祝愿众生：抛弃贪、瞋、痴，清除所有罪法","notes":[],"marker_ids":[]},{"no":43,"scene":"事讫就水","orig":"事讫就水，当愿众生，出世法中，速疾而往","trans":"事后用水时，应当祝愿众生：在出世间法中，能快速前进","notes":[],"marker_ids":[]},{"no":44,"scene":"洗涤形秽","orig":"洗涤形秽，当愿众生，清净调柔，毕竟无垢","trans":"洗涤身体的污秽时，应当祝愿众生：清净调柔，最终没有任何污垢","notes":[],"marker_ids":[]},{"no":45,"scene":"以水盥掌","orig":"以水盥掌，当愿众生，得清净手，受持佛法","trans":"用水洗手时，应当祝愿众生：得到清净之手，来受持佛法","notes":[],"marker_ids":[]},{"no":46,"scene":"以水洗面","orig":"以水洗面，当愿众生，得净法门，永无垢染","trans":"用水洗脸时，应当祝愿众生：得到清净的法门，永远没有污垢和染着","notes":[],"marker_ids":[]},{"no":47,"scene":"手执锡杖","orig":"手执锡杖，当愿众生，设大施会，示如实道","trans":"手持锡杖时，应当祝愿众生：设立大的施舍法会，开示如实的道","notes":[{"term":"锡杖","text":"比丘所持带环之杖，用于乞食、护身、警策。"}],"marker_ids":[26]},{"no":48,"scene":"执持应器","orig":"执持应器，当愿众生，成就法器，受天人供","trans":"执持应器（钵）时，应当祝愿众生：成就法的容器，接受天人和人间的供养","notes":[{"term":"应器","text":"应量之食器，即钵，随乞食所得而受食。"}],"marker_ids":[27]},{"no":49,"scene":"发趾向道","orig":"发趾向道，当愿众生，趣佛所行，入无依处","trans":"迈步走向道路时，应当祝愿众生：趣向佛所行的道，进入无所依靠的境地","notes":[],"marker_ids":[]},{"no":50,"scene":"若在于道","orig":"若在于道，当愿众生，能行佛道，向无余法","trans":"如果在路上，应当祝愿众生：能行于佛道，朝向无余涅槃之法","notes":[],"marker_ids":[]},{"no":51,"scene":"涉路而去","orig":"涉路而去，当愿众生，履净法界，心无障碍","trans":"走在路上时，应当祝愿众生：行走在清净的法界，内心没有障碍","notes":[],"marker_ids":[]},{"no":52,"scene":"见升高路","orig":"见升高路，当愿众生，永出三界，心无怯弱","trans":"看见上坡路时，应当祝愿众生：永远出离三界，内心没有怯弱","notes":[],"marker_ids":[]},{"no":53,"scene":"见趣下路","orig":"见趣下路，当愿众生，其心谦下，长佛善根","trans":"看见下坡路时，应当祝愿众生：内心谦卑低下，增长佛的善根","notes":[],"marker_ids":[]},{"no":54,"scene":"见斜曲路","orig":"见斜曲路，当愿众生，舍不正道，永除恶见","trans":"看见弯曲的路时，应当祝愿众生：舍弃不正确的道路，永远除去邪恶的见解","notes":[],"marker_ids":[]},{"no":55,"scene":"若见直路","orig":"若见直路，当愿众生，其心正直，无谄无诳","trans":"如果看见笔直的路，应当祝愿众生：内心正直，没有谄媚和欺诳","notes":[],"marker_ids":[]},{"no":56,"scene":"见路多尘","orig":"见路多尘，当愿众生，远离尘坌，获清净法","trans":"看见路上有很多灰尘，应当祝愿众生：远离尘世的污垢，获得清净之法","notes":[],"marker_ids":[]},{"no":57,"scene":"见路无尘","orig":"见路无尘，当愿众生，常行大悲，其心润泽","trans":"看见路上没有灰尘，应当祝愿众生：常行大悲，内心得到润泽","notes":[],"marker_ids":[]},{"no":58,"scene":"若见险道","orig":"若见险道，当愿众生，住正法界，离诸罪难","trans":"如果看见险峻的道路，应当祝愿众生：安住于正法之界，远离所有罪业和危难","notes":[],"marker_ids":[]},{"no":59,"scene":"若见众会","orig":"若见众会，当愿众生，说甚深法，一切和合","trans":"如果看见集会的大众，应当祝愿众生：演说甚深的佛法，使一切和合","notes":[],"marker_ids":[]},{"no":60,"scene":"若见大柱","orig":"若见大柱，当愿众生，离我诤心，无有忿恨","trans":"如果看见大柱子，应当祝愿众生：远离我执的争论之心，没有任何忿怒和怨恨","notes":[],"marker_ids":[]},{"no":61,"scene":"若见丛林","orig":"若见丛林，当愿众生，诸天及人，所应敬礼","trans":"如果看见丛林，应当祝愿众生：成为诸天和人，所应当敬礼的对象","notes":[],"marker_ids":[]},{"no":62,"scene":"若见高山","orig":"若见高山，当愿众生，善根超出，无能至顶","trans":"如果看见高山，应当祝愿众生：善根超越一切，无人能达到顶峰","notes":[],"marker_ids":[]},{"no":63,"scene":"见棘刺树","orig":"见棘刺树，当愿众生，疾得翦除，三毒之刺","trans":"看见有棘刺的树，应当祝愿众生：尽快剪除贪、瞋、痴三毒之刺","notes":[],"marker_ids":[]},{"no":64,"scene":"见树叶茂","orig":"见树叶茂，当愿众生，以定解脱，而为荫映","trans":"看见树叶茂盛，应当祝愿众生：以禅定和解脱，来为众生作荫护","notes":[],"marker_ids":[]},{"no":65,"scene":"若见华开","orig":"若见华开，当愿众生，神通等法，如华开敷","trans":"如果看见花开，应当祝愿众生：神通等法，如同花朵一样绽放","notes":[],"marker_ids":[]},{"no":66,"scene":"若见树华","orig":"若见树华，当愿众生，众相如华，具三十二","trans":"如果看见树上的花，应当祝愿众生：各种相好如同花朵，具足三十二相","notes":[],"marker_ids":[]},{"no":67,"scene":"若见果实","orig":"若见果实，当愿众生，获最胜法，证菩提道","trans":"如果看见果实，应当祝愿众生：获得最殊胜的法，证得菩提之道","notes":[],"marker_ids":[]},{"no":68,"scene":"若见大河","orig":"若见大河，当愿众生，得预法流，入佛智海","trans":"如果看见大河，应当祝愿众生：得以进入佛法之流，契入佛的智慧大海","notes":[],"marker_ids":[]},{"no":69,"scene":"若见陂泽","orig":"若见陂泽，当愿众生，疾悟诸佛，一味之法","trans":"如果看见湖泽，应当祝愿众生：迅速了悟诸佛，那同一味道的法","notes":[],"marker_ids":[]},{"no":70,"scene":"若见池沼","orig":"若见池沼，当愿众生，语业满足，巧能演说","trans":"如果看见池塘，应当祝愿众生：语言的功德圆满，能善巧地演说","notes":[],"marker_ids":[]},{"no":71,"scene":"若见汲井","orig":"若见汲井，当愿众生，具足辩才，演一切法","trans":"如果看见汲水的井，应当祝愿众生：具足辩才，演说一切佛法","notes":[],"marker_ids":[]},{"no":72,"scene":"若见涌泉","orig":"若见涌泉，当愿众生，方便增长，善根无尽","trans":"如果看见涌出的泉水，应当祝愿众生：方便善巧增长，善根永不穷尽","notes":[],"marker_ids":[]},{"no":73,"scene":"若见桥道","orig":"若见桥道，当愿众生，广度一切，犹如桥梁","trans":"如果看见桥梁道路，应当祝愿众生：广泛地度化一切众生，如同桥梁一样","notes":[],"marker_ids":[]},{"no":74,"scene":"若见流水","orig":"若见流水，当愿众生，得善意欲，洗除惑垢","trans":"如果看见流水，应当祝愿众生：得到善良的意愿，洗除迷惑的污垢","notes":[],"marker_ids":[]},{"no":75,"scene":"见修园圃","orig":"见修园圃，当愿众生，五欲圃中，耘除爱草","trans":"看见修整的园圃，应当祝愿众生：在五欲的田圃中，拔除贪爱的野草","notes":[],"marker_ids":[]},{"no":76,"scene":"见无忧林","orig":"见无忧林，当愿众生，永离贪爱，不生忧怖","trans":"看见无忧树林，应当祝愿众生：永远脱离贪爱，不生忧愁和怖畏","notes":[],"marker_ids":[]},{"no":77,"scene":"若见园苑","orig":"若见园苑，当愿众生，勤修诸行，趣佛菩提","trans":"如果看见园林，应当祝愿众生：勤奋修习各种行门，趣向佛的菩提","notes":[],"marker_ids":[]},{"no":78,"scene":"见严饰人","orig":"见严饰人，当愿众生，三十二相，以为严好","trans":"看见装饰华丽的人，应当祝愿众生：以三十二相，来庄严自身","notes":[],"marker_ids":[]},{"no":79,"scene":"见无严饰","orig":"见无严饰，当愿众生，舍诸饰好，具头陀行","trans":"看见没有装饰的人，应当祝愿众生：舍弃所有华丽的装饰，具足头陀苦行","notes":[{"term":"头陀行","text":"抖擞烦恼的苦行，如粪扫衣、常乞食、树下坐等。"}],"marker_ids":[28]},{"no":80,"scene":"见乐着人","orig":"见乐着人，当愿众生，以法自娱，欢爱不舍","trans":"看见执着于享乐的人，应当祝愿众生：以佛法自娱，欢喜热爱永不舍弃","notes":[],"marker_ids":[]},{"no":81,"scene":"见无乐着","orig":"见无乐着，当愿众生，有为事中，心无所乐","trans":"看见不执着于享乐的人，应当祝愿众生：在有为法的事物中，内心没有任何乐着","notes":[],"marker_ids":[]},{"no":82,"scene":"见欢乐人","orig":"见欢乐人，当愿众生，常得安乐，乐供养佛","trans":"看见欢乐的人，应当祝愿众生：常常得到安乐，乐于供养佛","notes":[],"marker_ids":[]},{"no":83,"scene":"见苦恼人","orig":"见苦恼人，当愿众生，获根本智，灭除众苦","trans":"看见苦恼的人，应当祝愿众生：获得根本的智慧，灭除所有痛苦","notes":[],"marker_ids":[]},{"no":84,"scene":"见无病人","orig":"见无病人，当愿众生，入真实慧，永无病恼","trans":"看见没有病的人，应当祝愿众生：进入真实的智慧，永远没有病痛烦恼","notes":[],"marker_ids":[]},{"no":85,"scene":"见疾病人","orig":"见疾病人，当愿众生，知身空寂，离乖诤法","trans":"看见生病的人，应当祝愿众生：了知身体是空寂的，远离乖违和诤论之法","notes":[],"marker_ids":[]},{"no":86,"scene":"见端正人","orig":"见端正人，当愿众生，于佛菩萨，常生净信","trans":"看见相貌端正的人，应当祝愿众生：对于佛和菩萨，常常生起清净的信心","notes":[],"marker_ids":[]},{"no":87,"scene":"见丑陋人","orig":"见丑陋人，当愿众生，于不善事，不生乐着","trans":"看见相貌丑陋的人，应当祝愿众生：对于不善的事情，不生起乐着之心","notes":[],"marker_ids":[]},{"no":88,"scene":"见报恩人","orig":"见报恩人，当愿众生，于佛菩萨，能知恩德","trans":"看见知恩报恩的人，应当祝愿众生：对于佛和菩萨，能了知其恩德","notes":[],"marker_ids":[]},{"no":89,"scene":"见背恩人","orig":"见背恩人，当愿众生，于有恶人，不加其报","trans":"看见忘恩负义的人，应当祝愿众生：对于作恶的人，不加以报复","notes":[],"marker_ids":[]},{"no":90,"scene":"若见沙门","orig":"若见沙门，当愿众生，调柔寂静，毕竟第一","trans":"如果看见出家人（沙门），应当祝愿众生：调柔寂静，达到毕竟第一的境地","notes":[],"marker_ids":[]},{"no":91,"scene":"见婆罗门","orig":"见婆罗门，当愿众生，永持梵行，离一切恶","trans":"看见婆罗门，应当祝愿众生：永远受持清净的梵行，远离一切恶","notes":[],"marker_ids":[]},{"no":92,"scene":"见苦行人","orig":"见苦行人，当愿众生，依于苦行，至究竟处","trans":"看见修苦行的人，应当祝愿众生：依于苦行，到达究竟的解脱之处","notes":[],"marker_ids":[]},{"no":93,"scene":"见操行人","orig":"见操行人，当愿众生，坚持志行，不舍佛道","trans":"看见持守操行的人，应当祝愿众生：坚持自己的志向和行持，不舍弃佛道","notes":[],"marker_ids":[]},{"no":94,"scene":"见着甲胄","orig":"见着甲胄，当愿众生，常服善铠，趣无师法","trans":"看见穿着盔甲的人，应当祝愿众生：常常穿着善法的铠甲，趣向无须师承而能自证的佛法（无师智）","notes":[],"marker_ids":[]},{"no":95,"scene":"见无铠仗","orig":"见无铠仗，当愿众生，永离一切，不善之业","trans":"看见没有铠甲兵器的人，应当祝愿众生：永远脱离一切，不善的业","notes":[],"marker_ids":[]},{"no":96,"scene":"见论议人","orig":"见论议人，当愿众生，于诸异论，悉能摧伏","trans":"看见辩论的人，应当祝愿众生：对于各种不同的论点，都能将其摧伏","notes":[],"marker_ids":[]},{"no":97,"scene":"见正命人","orig":"见正命人，当愿众生，得清净命，不矫威仪","trans":"看见以正当方式生活的人，应当祝愿众生：得到清净的生命，不矫饰威仪","notes":[],"marker_ids":[]},{"no":98,"scene":"若见于王","orig":"若见于王，当愿众生，得为法王，恒转正法","trans":"如果看见国王，应当祝愿众生：得以成为法王，恒常转动正法之轮","notes":[],"marker_ids":[]},{"no":99,"scene":"若见王子","orig":"若见王子，当愿众生，从法化生，而为佛子","trans":"如果看见王子，应当祝愿众生：能从法化生，而成为真正的佛子","notes":[],"marker_ids":[]},{"no":100,"scene":"若见长者","orig":"若见长者，当愿众生，善能明断，不行恶法","trans":"如果看见长者，应当祝愿众生：善于明辨是非，不作恶法","notes":[],"marker_ids":[]},{"no":101,"scene":"若见大臣","orig":"若见大臣，当愿众生，恒守正念，习行众善","trans":"如果看见大臣，应当祝愿众生：恒常守护正念，修习各种善行","notes":[],"marker_ids":[]},{"no":102,"scene":"若见城廓","orig":"若见城廓，当愿众生，得坚固身，心无所屈","trans":"如果看见城郭，应当祝愿众生：得到坚固的身体，内心不被屈服","notes":[],"marker_ids":[]},{"no":103,"scene":"若见王都","orig":"若见王都，当愿众生，功德共聚，心恒喜乐","trans":"如果看见国都，应当祝愿众生：功德都聚集在一起，内心恒常喜乐","notes":[],"marker_ids":[]},{"no":104,"scene":"见处林薮","orig":"见处林薮，当愿众生，应为天人，之所叹仰","trans":"看见身处林野，应当祝愿众生：应当成为天人，所赞叹和仰望的对象","notes":[],"marker_ids":[]},{"no":105,"scene":"入里乞食","orig":"入里乞食，当愿众生，入深法界，心无障碍","trans":"进入村里乞食时，应当祝愿众生：进入甚深的法界，内心没有障碍","notes":[],"marker_ids":[]},{"no":106,"scene":"到人门户","orig":"到人门户，当愿众生，入于一切，佛法之门","trans":"到达别人家门口时，应当祝愿众生：进入所有，佛法之门","notes":[],"marker_ids":[]},{"no":107,"scene":"入其家已","orig":"入其家已，当愿众生，得入佛乘，三世平等","trans":"进入他家之后，应当祝愿众生：得以进入佛乘，了达三世平等","notes":[],"marker_ids":[]},{"no":108,"scene":"见不舍人","orig":"见不舍人，当愿众生，常不舍离，胜功德法","trans":"看见不肯布施的人，应当祝愿众生：常常不舍离，殊胜的功德法","notes":[],"marker_ids":[]},{"no":109,"scene":"见能舍人","orig":"见能舍人，当愿众生，永得舍离，三恶道苦","trans":"看见能够布施的人，应当祝愿众生：永远得以舍离，三恶道之苦","notes":[],"marker_ids":[]},{"no":110,"scene":"若见空钵","orig":"若见空钵，当愿众生，其心清净，空无烦恼","trans":"如果看见空钵，应当祝愿众生：内心清净，空无烦恼","notes":[],"marker_ids":[]},{"no":111,"scene":"若见满钵","orig":"若见满钵，当愿众生，具足成满，一切善法","trans":"如果看见满钵，应当祝愿众生：具足圆满，一切善法","notes":[],"marker_ids":[]},{"no":112,"scene":"若得恭敬","orig":"若得恭敬，当愿众生，恭敬修行，一切佛法","trans":"如果得到恭敬，应当祝愿众生：恭敬地修行，一切佛法","notes":[],"marker_ids":[]},{"no":113,"scene":"不得恭敬","orig":"不得恭敬，当愿众生，不行一切，不善之法","trans":"得不到恭敬，应当祝愿众生：不去做任何，不善之法","notes":[],"marker_ids":[]},{"no":114,"scene":"见惭耻人","orig":"见惭耻人，当愿众生，具惭耻行，藏护诸根","trans":"看见有惭愧心的人，应当祝愿众生：具足惭愧的行为，守护好自己的六根","notes":[],"marker_ids":[]},{"no":115,"scene":"见无惭耻","orig":"见无惭耻，当愿众生，舍离无惭，住大慈道","trans":"看见没有惭愧心的人，应当祝愿众生：舍离无惭之心，安住于大慈之道","notes":[],"marker_ids":[]},{"no":116,"scene":"若得美食","orig":"若得美食，当愿众生，满足其愿，心无羡欲","trans":"如果得到美食，应当祝愿众生：满足他们的愿望，内心没有羡慕和欲望","notes":[],"marker_ids":[]},{"no":117,"scene":"得不美食","orig":"得不美食，当愿众生，莫不获得，诸三昧味","trans":"得到不好的食物，应当祝愿众生：无不获得，各种三昧的法味","notes":[],"marker_ids":[]},{"no":118,"scene":"得柔软食","orig":"得柔软食，当愿众生，大悲所熏，心意柔软","trans":"得到柔软的食物，应当祝愿众生：被大悲心所熏陶，心意变得柔软","notes":[],"marker_ids":[]},{"no":119,"scene":"得粗涩食","orig":"得粗涩食，当愿众生，心无染着，绝世贪爱","trans":"得到粗糙的食物，应当祝愿众生：内心没有任何染着，断绝世间的贪爱","notes":[],"marker_ids":[]},{"no":120,"scene":"若饭食时","orig":"若饭食时，当愿众生，禅悦为食，法喜充满","trans":"吃饭的时候，应当祝愿众生：以禅悦为食，法喜充满","notes":[{"term":"禅悦为食","text":"以禅定之乐滋养慧命，不专恃段食。"}],"marker_ids":[29]},{"no":121,"scene":"若受味时","orig":"若受味时，当愿众生，得佛上味，甘露满足","trans":"品尝味道的时候，应当祝愿众生：得到佛的无上法味，如同甘露一般满足","notes":[],"marker_ids":[]},{"no":122,"scene":"饭食已讫","orig":"饭食已讫，当愿众生，所作皆办，具诸佛法","trans":"吃完饭后，应当祝愿众生：所作的事情都已完毕，具足诸佛之法","notes":[],"marker_ids":[]},{"no":123,"scene":"若说法时","orig":"若说法时，当愿众生，得无尽辩，广宣法要","trans":"如果说法的时候，应当祝愿众生：得到无尽的辩才，广泛宣说法的要点","notes":[],"marker_ids":[]},{"no":124,"scene":"从舍出时","orig":"从舍出时，当愿众生，深入佛智，永出三界","trans":"从房舍出来的时候，应当祝愿众生：深入佛的智慧，永远出离三界","notes":[],"marker_ids":[]},{"no":125,"scene":"若入水时","orig":"若入水时，当愿众生，入一切智，知三世等","trans":"如果入水的时候，应当祝愿众生：契入一切智慧，了知三世平等","notes":[],"marker_ids":[]},{"no":126,"scene":"洗浴身体","orig":"洗浴身体，当愿众生，身心无垢，内外光洁","trans":"洗浴身体的时候，应当祝愿众生：身心都没有污垢，内外都光明洁净","notes":[],"marker_ids":[]},{"no":127,"scene":"盛暑炎毒","orig":"盛暑炎毒，当愿众生，舍离众恼，一切皆尽","trans":"酷暑炎热的时候，应当祝愿众生：舍离所有烦恼，一切都消尽","notes":[],"marker_ids":[]},{"no":128,"scene":"暑退凉初","orig":"暑退凉初，当愿众生，证无上法，究竟清凉","trans":"暑气消退，凉意初生时，应当祝愿众生：证得无上之法，达到究竟的清凉","notes":[],"marker_ids":[]},{"no":129,"scene":"讽诵经时","orig":"讽诵经时，当愿众生，顺佛所说，总持不忘","trans":"讽诵经文的时候，应当祝愿众生：随顺佛所说的法，全部领会并永不忘记","notes":[],"marker_ids":[]},{"no":130,"scene":"若得见佛","orig":"若得见佛，当愿众生，得无碍眼，见一切佛","trans":"如果得以见到佛，应当祝愿众生：得到无碍之眼，能看见一切佛","notes":[],"marker_ids":[]},{"no":131,"scene":"谛观佛时","orig":"谛观佛时，当愿众生，皆如普贤，端正严好","trans":"仔细观察佛的时候，应当祝愿众生：都像普贤菩萨一样，相貌端正庄严","notes":[],"marker_ids":[]},{"no":132,"scene":"见佛塔时","orig":"见佛塔时，当愿众生，尊重如塔，受天人供","trans":"看见佛塔的时候，应当祝愿众生：像佛塔一样受人尊重，接受天人的供养","notes":[],"marker_ids":[]},{"no":133,"scene":"敬心观塔","orig":"敬心观塔，当愿众生，诸天及人，所共瞻仰","trans":"以恭敬心观看佛塔时，应当祝愿众生：成为诸天和人，所共同瞻仰的对象","notes":[],"marker_ids":[]},{"no":134,"scene":"顶礼于塔","orig":"顶礼于塔，当愿众生，一切天人，无能见顶","trans":"向佛塔顶礼时，应当祝愿众生：一切天人，都无法看见其头顶（福德巍巍之故）","notes":[],"marker_ids":[]},{"no":135,"scene":"右绕于塔","orig":"右绕于塔，当愿众生，所行无逆，成一切智","trans":"向右绕行佛塔时，应当祝愿众生：所作所为都没有逆缘，成就一切智慧","notes":[],"marker_ids":[]},{"no":136,"scene":"绕塔三匝","orig":"绕塔三匝，当愿众生，勤求佛道，心无懈歇","trans":"绕塔三圈时，应当祝愿众生：勤奋追求佛道，内心没有懈怠和停歇","notes":[],"marker_ids":[]},{"no":137,"scene":"赞佛功德","orig":"赞佛功德，当愿众生，众德悉具，称叹无尽","trans":"赞叹佛的功德时，应当祝愿众生：所有功德都已具足，称赞无穷无尽","notes":[],"marker_ids":[]},{"no":138,"scene":"赞佛相好","orig":"赞佛相好，当愿众生，成就佛身，证无相法","trans":"赞叹佛的相好时，应当祝愿众生：成就佛的身体，证得无相之法","notes":[],"marker_ids":[]},{"no":139,"scene":"若洗足时","orig":"若洗足时，当愿众生，具神足力，所行无碍","trans":"如果洗脚的时候，应当祝愿众生：具足神足之力，所行无碍","notes":[],"marker_ids":[]},{"no":140,"scene":"以时寝息","orig":"以时寝息，当愿众生，身得安隐，心无动乱","trans":"按时休息睡眠时，应当祝愿众生：身体得到安稳，内心没有动乱","notes":[],"marker_ids":[]},{"no":141,"scene":"睡眠始寤","orig":"睡眠始寤，当愿众生，一切智觉，周顾十方","trans":"从睡眠中刚醒来时，应当祝愿众生：以一切智慧觉悟，遍观十方世界","notes":[],"marker_ids":[]}],"groups":[{"id":0,"start":1,"end":11,"name":"在家生活","note":"居家处世，随事发愿","d":"从家宅、眷属、妻子到五欲受用，愿都落在性空知足离染。在家不是修行的障碍，正是观缘起、练习不执着的道场。"},{"id":1,"start":12,"end":26,"name":"出家受戒","note":"辞亲割爱，剃度受具","d":"剃发、披衣、受戒、礼僧，愿从「舍居家、心得解脱」到「受具足戒、得最胜法」。重点不在仪式本身，而在把外在的舍离转成内在的出离。"},{"id":2,"start":27,"end":33,"name":"坐禅修观","note":"入堂敷座，止观双运","d":"敷座、结跏、端身、观息，愿坐菩提座得不动三昧。静坐的终点不是舒适，而是把身体摆成觉悟的姿势。"},{"id":3,"start":34,"end":39,"name":"着衣威仪","note":"下足整衣，动静有仪","d":"下足、整衣、系带，愿心得解脱、安住不动，服诸善根、入第一位。威仪不是表演，而是戒学最可见的形状。"},{"id":4,"start":40,"end":46,"name":"盥洗清洁","note":"杨枝净水，涤形去秽","d":"杨枝净水、洗手漱口，愿得净法门具足清净。以事相上的洗除，转成法上的净心。"},{"id":5,"start":47,"end":58,"name":"出行持钵","note":"执锡持器，升道涉路","d":"执锡、持钵、涉路、见道，愿升涅槃道具足法器。把每一步路都当作趋向解脱的行走。"},{"id":6,"start":59,"end":77,"name":"所见·山河草木","note":"林泉池井，触目菩提","d":"见树、见山、见水、见泉，愿一切和合、众相如华、趣佛菩提。触目所见，都可以当场转成观照。"},{"id":7,"start":78,"end":101,"name":"所见·各色人等","note":"美丑恩怨，皆是老师","d":"见长者、病人、冤家、端正或丑陋的人，愿具三十二相、常得安乐、得为法王。最难的人事，正是最锋利的观心处。"},{"id":8,"start":102,"end":104,"name":"所见·城廓林野","note":"王都广漠，人间聚落","d":"见城郭、聚落、旷野，愿得坚固身、功德共聚、为天人之所叹仰。把空间的相，转成法的相。"},{"id":9,"start":105,"end":111,"name":"乞食","note":"入里乞食，空满平等","d":"入里乞食、得食或不得食，愿入深法界、得入佛乘、具足成满一切善法。以空满平等，调伏贪与嗔。"},{"id":10,"start":112,"end":115,"name":"毁誉得失","note":"恭敬毁辱，惭愧为服","d":"得恭敬或不得恭敬，见惭耻人或无惭耻人，愿恭敬修行、具惭耻行、住大慈道。别人的评价，都可以还原成修行材料。"},{"id":11,"start":116,"end":122,"name":"饭食","note":"粗软美恶，禅悦为食","d":"食时、尝味、食讫，愿禅悦为食、甘露满足、所作皆办。在饮食中知量知足，而不是被味道牵走。"},{"id":12,"start":123,"end":128,"name":"说法洗浴","note":"说法度人，浴身除热","d":"说法、入水浴身，愿得无尽辩、舍离众恼、究竟清凉。外洗与内净同时进行。"},{"id":13,"start":129,"end":138,"name":"诵经礼塔","note":"讽诵观佛，绕塔赞叹","d":"诵经、绕塔、礼佛，愿得总持见佛闻法。让礼拜成为忆念佛德、开启智慧的入口。"},{"id":14,"start":139,"end":141,"name":"睡眠醒寤","note":"洗足寝息，智觉周顾","d":"洗足、寝息、睡眠始寤，愿身得安隐、一切智觉周顾十方。连睡眠与醒来，也收进菩提愿里。"}]};
+function ensureVisible(el){const r=el.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight-8)el.scrollIntoView({behavior:"smooth",block:"center"});}
+
 const WISHES = DATA.wishes, GROUPS = DATA.groups;
 
 (()=>{const s=document.getElementById("stars");for(let i=0;i<40;i++){const d=document.createElement("i");
@@ -304,8 +309,8 @@ const QG=[
  {n:"十种慧",d:"云何得胜慧、第一慧、最上慧、最胜慧、无量慧、无数慧、不思议慧、无与等慧、不可量慧、<span class='qq'>不可说慧</span>？"},
  {n:"十种力",d:"云何得因力、欲力、方便力、缘力、所缘力、根力、观察力、奢摩他力、毗钵舍那力、<span class='qq'>思惟力</span>？"},
  {n:"十种善巧",d:"云何得蕴善巧、界善巧、处善巧、缘起善巧、欲界色界无色界善巧、过去未来现在<span class='qq'>三世善巧</span>？"},
- {n:"觉分与解脱十问",d:"云何善修习念觉分……乃至舍觉分？云何得<span class='qq'>空、无相、无愿</span>三解脱门？"},
- {n:"六度与四无量",d:"云何得圆满檀波罗蜜、尸罗、羼提、毗梨耶、禅那、<span class='qq'>般若波罗蜜</span>，及以圆满慈、悲、喜、舍？"},
+ {n:"觉分与解脱十问",d:"云何善修习念觉分……乃至舍觉分、<span class='qq'>空、无相、无愿</span>？"},
+ {n:"六度与四无量",d:"云何得圆满檀波罗蜜、尸波罗蜜、羼提波罗蜜、毗梨耶波罗蜜、禅那波罗蜜、<span class='qq'>般若波罗蜜</span>，及以圆满慈、悲、喜、舍？"},
  {n:"佛十力",d:"云何得处非处智力、业报智力、根胜劣智力……<span class='qq'>断诸习智力</span>？——佛的十种知力。"},
  {n:"诸王守护",d:"云何常得天王、龙王、夜叉王……人王、<span class='qq'>梵王之所守护</span>恭敬供养？"},
  {n:"为众生依怙",d:"云何得与一切众生为依、为救、为归、为趣、为炬、为明、为照、为导、为胜导、<span class='qq'>为普导</span>？"},
@@ -343,6 +348,12 @@ AN.forEach((s,i)=>{
 /* 愿列表 */
 const wlEl=document.getElementById("wl"), gchips=document.getElementById("gchips");
 let curGroup=null;
+const DEFAULT_NOTE="每一愿都是「事相 → 当愿众生 → 慧观 → 悲用」四句。点选下方一组，看这一组生活场景各自在修什么。";
+const gNote=document.getElementById("groupNote");
+function setGroupNote(){
+  const g=GROUPS.find(x=>x.id===curGroup);
+  gNote.innerHTML=g?`<b>${g.name} · 第${g.start}–${g.end}愿</b> —— ${g.d}`:DEFAULT_NOTE;
+}
 GROUPS.forEach(g=>{
   const d=document.createElement("span");d.className="gc";d.dataset.g=g.id;
   d.textContent=`${g.name}（${g.end-g.start+1}）`;
@@ -350,6 +361,7 @@ GROUPS.forEach(g=>{
   d.addEventListener("click",()=>{
     curGroup=curGroup===g.id?null:g.id;
     document.querySelectorAll(".gc").forEach(x=>x.classList.toggle("hot",+x.dataset.g===curGroup));
+    setGroupNote();
     applyFilter();
   });
   gchips.appendChild(d);
@@ -374,7 +386,7 @@ WISHES.forEach(w=>{
   wlEl.appendChild(d);
 });
 function applyFilter(){
-  const q=document.getElementById("q").value.trim();
+  const q="";
   let shown=0;
   document.querySelectorAll(".wish").forEach(el=>{
     const w=WISHES[+el.dataset.no-1];
@@ -386,7 +398,7 @@ function applyFilter(){
   });
   document.getElementById("counter").textContent=`显示 ${shown} / ${WISHES.length} 愿`;
 }
-document.getElementById("q").addEventListener("input",applyFilter);
+setGroupNote();
 applyFilter();
 
 /* 随机一愿 */

@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>如来出现 · 喻林</title>
 <style>
-:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#e2c98f;--gold-dim:#8a7340;
---ivory:#e9e1cd;--muted:#a89f8a;--faint:#7d7666;--line:rgba(201,164,92,.22);--line2:rgba(201,164,92,.4);
+:root{--ink:#0c1220;--ink2:#121a2e;--ink3:#182238;--gold:#c9a45c;--gold2:#ecd6a4;--gold-dim:#a98f54;
+--ivory:#f4eee0;--muted:#cfc6b2;--faint:#aaa18d;--line:rgba(201,164,92,.3);--line2:rgba(201,164,92,.52);
 --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:16px}
+body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}a{color:var(--gold2);text-decoration:none}a:hover{color:#fff}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}section{padding:56px 0 20px}
-.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:13px;letter-spacing:.5em;text-indent:.5em}
-.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:14.5px}
+.sec-head{text-align:center;margin-bottom:34px}.sec-head .no{color:var(--gold);font-size:15.5px;letter-spacing:.5em;text-indent:.5em}
+.sec-head h2{font-size:26px;font-weight:600;letter-spacing:.12em;margin:8px 0 6px}.sec-head .sub{color:var(--muted);font-size:16.5px}
 .rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;width:280px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line2))}
 .rule::after{background:linear-gradient(90deg,var(--line2),transparent)}.rule .diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
-.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:14px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
+.tip-note{background:rgba(201,164,92,.06);border-left:2px solid var(--gold-dim);padding:10px 16px;font-size:16.5px;color:var(--muted);border-radius:0 6px 6px 0;margin:18px 0}
 details.fold{border:1px solid var(--line);border-radius:8px;background:var(--ink2);margin-top:10px}
-details.fold summary{cursor:pointer;padding:11px 16px;font-size:14.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
-details.fold summary::before{content:"◈";font-size:11px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
-details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:14.5px;border-top:1px dashed var(--line)}
+details.fold summary{cursor:pointer;padding:11px 16px;font-size:16.5px;color:var(--gold2);list-style:none;display:flex;align-items:center;gap:8px}
+details.fold summary::before{content:"◈";font-size:14.5px;color:var(--gold-dim)}details.fold summary:hover{color:#fff}
+details.fold .body{padding:4px 18px 16px;color:var(--muted);font-size:16.5px;border-top:1px dashed var(--line)}
 details.fold .body p{margin:8px 0}details.fold .body b{color:var(--ivory);font-weight:600}
 .hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
 background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.12),transparent 60%),radial-gradient(760px 380px at 85% 25%,rgba(210,154,94,.07),transparent 60%),var(--ink)}
@@ -30,55 +30,58 @@ background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.12),transp
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
 .hero .ornament{color:var(--gold);font-size:19px;letter-spacing:.55em;text-indent:.55em;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:.16em}.hero h1 span{color:var(--gold2)}
-.hero .meta{margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.18em}
-.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:15.5px}.hero .lead b{color:var(--ivory);font-weight:600}
+.hero .meta{margin-top:14px;color:var(--muted);font-size:16.5px;letter-spacing:.18em}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:17px}.hero .lead b{color:var(--ivory);font-weight:600}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
+.hero .cta a{padding:11px 26px;border:1px solid var(--line2);border-radius:999px;font-size:16.5px;color:var(--gold2);letter-spacing:.1em;transition:.25s}
 .hero .cta a.primary{background:linear-gradient(135deg,rgba(201,164,92,.20),rgba(201,164,92,.08));border-color:var(--gold)}
 .hero .cta a:hover{color:#fff;border-color:var(--gold);transform:translateY(-1px)}
 .gtabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 16px}
-.gtab{font-size:13.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 15px;cursor:pointer;transition:.2s;user-select:none}
+.gtab{font-size:15.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 15px;cursor:pointer;transition:.2s;user-select:none}
 .gtab:hover{color:var(--ivory)}.gtab.hot{border-color:var(--gold);background:rgba(201,164,92,.12);color:var(--gold2)}
 .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:10px}
 .mcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:14px 16px;cursor:pointer;transition:.2s;position:relative}
 .mcard:hover{transform:translateY(-2px);border-color:var(--line2)}
-.mcard .mn{font-size:11px;color:var(--gold-dim);letter-spacing:.15em}
-.mcard .mp{font-size:15px;color:var(--ivory);margin-top:2px}
-.mcard .mf{display:none;font-size:13px;color:var(--gold2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mcard .mn{font-size:14.5px;color:var(--gold-dim);letter-spacing:.15em}
+.mcard .mp{font-size:16.5px;color:var(--ivory);margin-top:2px}
+.mcard .mf{display:none;font-size:15.5px;color:var(--gold2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
 .mcard.open .mf{display:block}
 .mcard.star{border-color:var(--gold)}
 .mcard.dim{display:none}
 .spot{border:1px solid var(--gold);border-radius:14px;background:linear-gradient(160deg,rgba(201,164,92,.12),rgba(201,164,92,.03));padding:30px 30px 24px;max-width:820px;margin:0 auto;position:relative}
-.spot .sl{font-size:12px;color:var(--gold);letter-spacing:.3em}
+.spot .sl{font-size:15px;color:var(--gold);letter-spacing:.3em}
 .spot h3{font-size:21px;margin:8px 0 10px;color:var(--gold2)}
-.spot .sq{font-size:16px;color:var(--ivory);line-height:2.2;text-align:justify}
-.spot .st{font-size:13.5px;color:var(--muted);margin-top:14px}
+.spot .sq{font-size:17.5px;color:var(--ivory);line-height:2.2;text-align:justify}
+.spot .st{font-size:15.5px;color:var(--muted);margin-top:14px}
 .pos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:760px){.pos{grid-template-columns:1fr}}
 .pcard{border:1px solid var(--line);border-radius:12px;background:var(--ink2);padding:22px}
-.pcard h3{font-size:16.5px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:14px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:13px;text-align:center}footer p{margin:6px 0}
+.pcard h3{font-size:18px;color:var(--gold2);margin-bottom:8px}.pcard p{font-size:16.5px;color:var(--muted);margin:6px 0}.pcard b{color:var(--ivory);font-weight:600}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--faint);font-size:15.5px;text-align:center}footer p{margin:6px 0}
 .topnav{position:fixed;right:18px;bottom:18px;z-index:50}.topnav a{width:38px;height:38px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);display:flex;align-items:center;justify-content:center;transition:.2s}.topnav a:hover{color:#fff;border-color:var(--gold)}
 
+.gdesc{margin:10px 0 14px;border:1px dashed var(--line2);border-radius:10px;padding:11px 16px;font-size:15.5px;color:var(--muted);line-height:1.9;min-height:44px}
+.gdesc b{color:var(--gold2);font-weight:600}
+
 /* ---------- 侧边导航（跨页） ---------- */
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:196px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:228px;z-index:60;background:linear-gradient(180deg,var(--ink2),var(--ink) 70%);border-right:1px solid var(--line);padding:22px 14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
 .sidenav::-webkit-scrollbar{width:4px}
 .sidenav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
 .sn-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.sn-brand b{display:block;font-size:16px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
-.sn-brand small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
-.sn-sub{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
-.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
+.sn-brand .sn-mark{width:34px;height:34px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:17.5px;flex-shrink:0}
+.sn-brand b{display:block;font-size:17.5px;letter-spacing:.18em;color:var(--ivory);font-weight:600}
+.sn-brand small{display:block;font-size:13.5px;letter-spacing:.22em;color:var(--faint);margin-top:1px}
+.sn-sub{font-size:13.5px;letter-spacing:.3em;color:var(--gold-dim);padding:16px 8px 6px}
+.sn-item{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:6px;font-size:15.5px;color:var(--muted);border-left:2px solid transparent;line-height:1.6;transition:.18s}
 .sn-item:hover{color:var(--ivory);background:rgba(201,164,92,.06)}
 .sn-item.on{color:var(--gold2);background:rgba(201,164,92,.09);border-left-color:var(--gold)}
-.sn-glyph{font-size:12px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
+.sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
-.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:10.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
-.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:17px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
+.sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+.sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
-@media(min-width:1100px){body{padding-left:196px}.sn-mask{display:none!important}}
+@media(min-width:1100px){body{padding-left:228px}.sn-mask{display:none!important}}
 @media(max-width:1099px){
   .sidenav{width:min(78vw,260px);transform:translateX(-102%);transition:transform .28s ease;box-shadow:14px 0 40px rgba(0,0,0,.45);padding-top:64px}
   .sidenav.open{transform:none}
@@ -89,11 +92,11 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 /* ---------- 专题学习页快捷条 ---------- */
 .pagebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:22px}
-.pagebar .pb-label{font-size:11px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
-.pagebar a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
+.pagebar .pb-label{font-size:14.5px;letter-spacing:.28em;color:var(--faint);margin-right:4px}
+.pagebar a{font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 13px;line-height:1.7;transition:.2s;white-space:nowrap}
 .pagebar a:hover{color:var(--ivory);border-color:var(--line2)}
 .pagebar a.on{color:var(--gold2);border-color:var(--gold);background:rgba(201,164,92,.10)}
-@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:12px;padding:4px 11px}}
+@media(max-width:760px){.pagebar .pb-label{display:none}.pagebar{gap:6px;margin-top:16px}.pagebar a{font-size:15px;padding:4px 11px}}
 </style>
 </head>
 <body id="top">
@@ -118,9 +121,9 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
   <div class="stars" id="stars"></div>
   <div class="ornament">❖ 如 來 出 現 ❖</div>
   <h1>如来出现<span>喻林</span></h1>
-  <div class="meta">卷五十至五十二 · 第八会普光明殿 · 佛果之境</div>
+  <div class="meta">卷五十至五十二 · 第七会普光明殿 · 佛果之境</div>
   <p class="lead">「出现」不是诞生，而是<b>因缘和合的显现</b>。妙德菩萨请法时特意说：
-  「愿以因缘及譬喻说」——于是普贤菩萨用<b>四十个譬喻</b>回答了「佛果如何出现」：<br>
+  「愿以因缘及譬谕」——于是普贤菩萨用<b>四十个譬喻</b>回答了「佛果如何出现」：<br>
   大云降雨、天鼓无腔、大海潜流、微尘内的经卷……每一喻都是一扇门。</p>
   <div class="cta">
     <a class="primary" href="#forest">进入喻林</a>
@@ -134,7 +137,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
   <div class="wrap">
     <div class="sec-head"><div class="no">壹</div><h2>怎样问，怎样答</h2>
       <div class="sub">两番放光 · 一个请求 · 三卷譬喻</div><div class="rule"><i class="diamond"></i></div></div>
-    <p style="max-width:720px;margin:0 auto;color:var(--muted);font-size:15px;text-align:justify">
+    <p style="max-width:720px;margin:0 auto;color:var(--muted);font-size:16.5px;text-align:justify">
       品首先有仪式感十足的两番放光：佛眉间放「如来出现」光，入<b style="color:var(--ivory)">妙德菩萨</b>顶——加被「问」主；
       佛口放「无碍无畏」光，入<b style="color:var(--ivory)">普贤菩萨</b>口——加被「答」主。妙德代众发问后，普贤分四层作答，
       每一层都是「十相」，每一相都是「世间譬喻 → 如来亦复如是 → 是为第N相」的三段式。结构对称得像一座塔：
@@ -149,6 +152,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <div class="sec-head"><div class="no">贰</div><h2>四十喻 · 喻林</h2>
       <div class="sub">点击任一喻，展开它所表的法 · 按品内四层分组</div><div class="rule"><i class="diamond"></i></div></div>
     <div class="gtabs" id="gtabs"></div>
+    <div class="gdesc" id="gNote"></div>
     <div class="mgrid" id="mgrid"></div>
   </div>
 </section>
@@ -163,7 +167,7 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
       <div class="sq">「如来智慧无处不至。何以故？无一众生而不具有如来智慧，但以妄想颠倒执着而不证得；若离妄想，一切智、自然智、无碍智则得现前。<br>
       佛子！譬如有大经卷，量等三千大千世界，书写三千大千世界中事，一切皆尽……此大经卷虽复量等大千世界，而全住在一微尘中；如一微尘，一切微尘皆亦如是。<br>
       时，有一人智慧明达，具足成就清净天眼，见此经卷在微尘内，于诸众生无少利益，即作是念：我当以精进力，破彼微尘，出此经卷，令得饶益一切众生……如于一尘，一切微尘应知悉然。<br>
-      佛子！如来智慧亦复如是……具足在于众生身中；但诸凡愚妄想执着，不得利益。」</div>
+      佛子！如来智慧亦复如是……具足在于众生身中；但诸凡愚妄想执着，不知不觉，不得利益。」</div>
       <div class="st">一部大千世界的经卷，全在一粒微尘之内，微尘不曾缺少经卷，只是无人打开。佛的出现，就是那个「破尘出经」的人。
       这段是华严「一切众生皆具佛智」的宣言，也是后世禅宗「本来具足」的思想源头之一。</div>
     </div>
@@ -177,11 +181,11 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
     <div class="pos">
       <div class="pcard">
         <h3>最后的五问</h3>
-        <p>心宝菩萨代众问如来<b>境界</b>、如来<b>行</b>（「非有亦非无」的行相）、云何<b>成正觉</b>（非于一处一时，遍一切处成）、云何<b>转法轮</b>（法轮无处无性，应机而转）、云何<b>般涅槃</b>（非实灭度，为调伏众生示现）——五问层层收拢，全品归寂。</p>
+        <p>承性起妙德菩萨最初所请，普贤菩萨分五段自问自答：如来<b>境界</b>、如来<b>行</b>（「非量、非无量」的行相）、云何<b>成正觉</b>（非于一处一时，遍一切处成）、云何<b>转法轮</b>（法轮无处无性，应机而转）、云何<b>般涅槃</b>（非实灭度，为调伏众生示现）——五问层层收拢，全品归寂。</p>
       </div>
       <div class="pcard">
         <h3>压卷之宝 · 善根金刚</h3>
-        <p>卷末说：见佛闻法所种善根，<b>「如金刚王，悉能破坏一切烦恼，终不损坏」</b>——哪怕一念供养，善根金刚永不磨灭。历经三卷的宇宙级譬喻之后，落点如此之小、如此之近：<b>你此刻的一念，也在其中。</b></p>
+        <p>卷末说：见佛闻法所种善根，<b>「譬如丈夫，食少金刚，终竟不消，要穿其身，出在于外」</b>——于如来所种少善根亦复如是，「必能烧尽一切烦恼」。哪怕一念供养，善根金刚永不磨灭。历经三卷的宇宙级譬喻之后，落点如此之小、如此之近：<b>你此刻的一念，也在其中。</b></p>
       </div>
     </div>
     <div class="tip-note">读完本品，回头再看<a href="huazang.html">华藏世界</a>——果界的空间；再看<a href="shancai.html">五十三参</a>——佛果如何被一个凡夫一步步走成。果不在别处。</div>
@@ -190,23 +194,32 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:34px 0 44px;colo
 
 <footer>
   <div class="wrap">
-    <p style="font-size:15px;color:var(--gold2)">佛果非造作而有，乃因缘之所显现</p>
+    <p style="font-size:16.5px;color:var(--gold2)">佛果非造作而有，乃因缘之所显现</p>
     <p><a href="index.html">← 全经地图</a> · <a href="huazang.html">华藏世界</a> · <a href="jieti.html">菩萨道阶梯</a> · <a href="shancai.html">五十三参</a></p>
     <p>譬喻条目依据《大方广佛华严经》卷五十至五十二原文及本站各卷导读整理；引文均核对自原文。</p>
   </div>
 </footer>
 <div class="topnav"><a href="#top" title="回到顶部">↑</a></div>
 <script>
-const DATA = {"groups": [{"name": "出现十相", "list": [{"n": "一", "p": "大云降雨·四风轮相依", "f": "非一缘一事，无量因缘乃成佛果"}, {"n": "二", "p": "洪霔大雨", "f": "二乘根器不能尽受"}, {"n": "三", "p": "雨无所从来", "f": "法雨不从一方来"}, {"n": "四", "p": "摩醯首罗知雨滴数", "f": "唯佛与大方能知佛境界多少"}, {"n": "五", "p": "灭起止成·分别五味", "f": "一味法雨，随缘成诸味"}, {"n": "六", "p": "一味之水随器差别", "f": "法云一味，众生器异所见各别"}, {"n": "七", "p": "先色界后欲界", "f": "成熟众生有其先后"}, {"n": "八", "p": "世界初成大莲华瑞", "f": "佛功德非神力造，众生善根与佛威德共成"}, {"n": "九", "p": "地依水·水依风·风依空", "f": "慈悲依方便……无碍慧无所依，相待缘起"}, {"n": "十", "p": "成已饶益水陆空居", "f": "如来出现，见者持戒修禅各得其益"}]}, {"name": "佛身十相", "list": [{"n": "一", "p": "虚空遍至一切处", "f": "佛身遍一切处，无身而示现"}, {"n": "二", "p": "虚空现色无分别", "f": "智光普照，无戏论分别"}, {"n": "三", "p": "日出阎浮提", "f": "佛智日随根器普益"}, {"n": "四", "p": "日照山原有先后", "f": "照有先后，益无先后"}, {"n": "五", "p": "生盲不见日而蒙益", "f": "无信众生不见佛智，仍得饶益"}, {"n": "六", "p": "月轮四奇特", "f": "佛身常恒，应现奇特"}, {"n": "七", "p": "梵王不分身普现", "f": "不分身而普现一切会"}, {"n": "八", "p": "医王涂身不坏", "f": "光明触身，烦恼不坏善根"}, {"n": "九", "p": "海中集光摩尼", "f": "众流皆朝，佛智海摄受"}, {"n": "十", "p": "如意宝王少福不见", "f": "薄福众生不见，宝王无咎"}]}, {"name": "音声十相", "list": [{"n": "一", "p": "世界将坏四种音", "f": "如来出四种音，度四类根机"}, {"n": "二", "p": "虚空呼响", "f": "音无形无方所，随欲解缘出"}, {"n": "三", "p": "天鼓无腔自鸣", "f": "无主无作，警觉放逸"}, {"n": "四", "p": "善口天女一口千声", "f": "一音出生无量声，各闻其宜"}, {"n": "五", "p": "大梵王音不出众外", "f": "各谓佛独为我说"}, {"n": "六", "p": "众水一味随器", "f": "唯解脱味，随心差别"}, {"n": "七", "p": "阿那婆达多兴云", "f": "不从内外出而普润"}, {"n": "八", "p": "摩那斯七日凝云", "f": "先兴法云待熟乃降，免于惊怖"}, {"n": "九", "p": "大庄严龙王雨", "f": "一音无量差别，随根所宜"}, {"n": "十", "p": "娑竭罗龙王云网", "f": "身云·光明·雷声·法雨四重遍覆法界"}]}, {"name": "心十相", "list": [{"n": "一", "p": "虚空无所依", "f": "如来智为众智所依而自无所依"}, {"n": "二", "p": "法界无增减", "f": "出一切智而智海无增减"}, {"n": "三", "p": "大海潜流四天下", "f": "佛智潜入一切众生心海"}, {"n": "四", "p": "海底四宝珠", "f": "四智宝出生三乘慧，薄福不见"}, {"n": "五", "p": "海底四炽然大宝", "f": "四智宝光令菩萨层层舍着"}, {"n": "六", "p": "三界依虚空住", "f": "三乘一切智皆依如来智起住"}, {"n": "七", "p": "雪山药王树", "f": "大悲为根、方便为茎、波罗蜜为枝"}, {"n": "八", "p": "劫火烧干草", "f": "无所不照，不知无有是处"}, {"n": "九", "p": "散坏·能障二风", "f": "一灭习气，一护未熟"}, {"n": "十", "p": "大经卷在一微尘内", "f": "如来智慧具足在众生身中，破妄想则现前", "star": true}]}]};
+const DATA = {"groups":[{"name":"出现十相","list":[{"n":"一","p":"大云降雨·四风轮相依","f":"非一缘一事，无量因缘乃成佛果"},{"n":"二","p":"洪霔大雨","f":"二乘根器不能尽受"},{"n":"三","p":"雨无所从来","f":"法雨不从一方来"},{"n":"四","p":"摩醯首罗知雨滴数","f":"唯大菩萨（世间主）能明了，二乘所不能知"},{"n":"五","p":"五种云雨·能灭能起能止能成分别","f":"法雨五种作用：灭烦恼、起善根、止见惑、成法宝、分别众生心乐"},{"n":"六","p":"一味之水随器差别","f":"法雨一味，随众生器而有差别"},{"n":"七","p":"先色界后欲界","f":"成熟众生有其先后"},{"n":"八","p":"世界初成大莲华瑞","f":"佛功德非神力造，众生善根与佛威德共成"},{"n":"九","p":"地依水·水依风·风依空","f":"慈悲依方便……无碍慧无所依，相待缘起"},{"n":"十","p":"成已饶益水陆空居","f":"如来出现，见者持戒修禅各得其益"}],"d":"十喻从「大云降雨」讲到「大莲华瑞」，回答一个问题：如来出现不是单一原因，而是无量因缘共同成就；法雨一味，随众生器而有差别。"},{"name":"佛身十相","list":[{"n":"一","p":"虚空遍至一切处","f":"佛身遍一切处，无身而示现"},{"n":"二","p":"虚空现色无分别","f":"智光普照，无戏论分别"},{"n":"三","p":"日出阎浮提","f":"佛智日随根器普益"},{"n":"四","p":"日照山原有先后","f":"照有先后，益无先后"},{"n":"五","p":"生盲不见日而蒙益","f":"无信众生不见佛智，仍得饶益"},{"n":"六","p":"月轮四奇特","f":"佛身常恒，应现奇特"},{"n":"七","p":"梵王不分身普现","f":"不分身而普现一切会"},{"n":"八","p":"医王涂身不坏","f":"佛身常住不休息，见者烦恼病悉灭"},{"n":"九","p":"海中集光摩尼","f":"触光者同其色，见者眼净离贫苦"},{"n":"十","p":"如意宝王少福不见","f":"薄福众生不见，宝王无咎"}],"d":"以虚空、日、月、梵王、医王等喻法身与应身：佛身遍一切处而无来去，照有先后而益无先后，不分身而普现诸会。"},{"name":"音声十相","list":[{"n":"一","p":"世界将坏四种音","f":"如来出四种音，度四类根机"},{"n":"二","p":"虚空呼响","f":"音无形无方所，随欲解缘出"},{"n":"三","p":"天鼓无腔自鸣","f":"无主无作，警觉放逸"},{"n":"四","p":"善口天女一口千声","f":"一音出生无量声，各闻其宜"},{"n":"五","p":"大梵王音不出众外","f":"各谓佛独为我说"},{"n":"六","p":"众水一味随器","f":"唯解脱味，随心差别"},{"n":"七","p":"阿那婆达多兴云","f":"不从内外出而普润"},{"n":"八","p":"摩那斯七日凝云","f":"先兴法云待熟乃降，免于惊怖"},{"n":"九","p":"大庄严龙王雨","f":"一音无量差别，随根所宜"},{"n":"十","p":"娑竭罗龙王云网","f":"身云·光明·雷声·法雨四重遍覆法界"}],"d":"以天鼓、呼响、众水一味等喻如来音声：无主而鸣、应缘而响、一音演法而众生随类各解；说而无说，不常不断。"},{"name":"心十相","list":[{"n":"一","p":"虚空无所依","f":"如来智为众智所依而自无所依"},{"n":"二","p":"法界无增减","f":"出一切智而智海无增减"},{"n":"三","p":"大海潜流四天下","f":"佛智潜入一切众生心海"},{"n":"四","p":"海底四宝珠","f":"四智宝出生三乘慧，薄福不见"},{"n":"五","p":"海底四炽然大宝","f":"四智宝光令菩萨层层舍着"},{"n":"六","p":"三界依虚空住","f":"三乘一切智皆依如来智起住"},{"n":"七","p":"雪山药王树","f":"大悲为根、方便为茎、波罗蜜为枝"},{"n":"八","p":"劫火烧干草","f":"无所不照，不知无有是处"},{"n":"九","p":"散坏·能障二风","f":"一灭习气，一护未熟"},{"n":"十","p":"大经卷在一微尘内","f":"如来智慧具足在众生身中，破妄想则现前","star":true}],"d":"以虚空无依、法界无增减、大海潜流等喻如来大智心：无所依而遍一切，不增不减而潜润不息，寂而常用。"}]};
+function ensureVisible(el){const r=el.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight-8)el.scrollIntoView({behavior:"smooth",block:"center"});}
+
 (()=>{const s=document.getElementById("stars");for(let i=0;i<48;i++){const d=document.createElement("i");
 d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";d.style.animationDelay=(Math.random()*4)+"s";s.appendChild(d);}})();
 const gtabs=document.getElementById("gtabs"),mgrid=document.getElementById("mgrid");
 let cur=null;
+const DEFAULT_NOTE="四十喻分四组：出现、佛身、音声、心。点选一组，看这十喻共同在答什么问题；每张卡片下方的一句，是它的法义落点。";
+const gNote=document.getElementById("gNote");
+function setGroupNote(){
+  const g=cur===null?null:DATA.groups[cur];
+  gNote.innerHTML=g?`<b>${g.name}</b> —— ${g.d}`:DEFAULT_NOTE;
+        ensureVisible(gNote);
+}
 DATA.groups.forEach((g,gi)=>{
   const t=document.createElement("span");t.className="gtab";t.dataset.g=gi;
   t.textContent=`${g.name}（${g.list.length}）`;
   t.addEventListener("click",()=>{cur=cur===gi?null:gi;
-    document.querySelectorAll(".gtab").forEach(x=>x.classList.toggle("hot",+x.dataset.g===cur));apply();});
+    document.querySelectorAll(".gtab").forEach(x=>x.classList.toggle("hot",+x.dataset.g===cur));setGroupNote();apply();});
   gtabs.appendChild(t);
   g.list.forEach((m,mi)=>{
     const c=document.createElement("div");c.className="mcard"+(m.star?" star":"");c.dataset.g=gi;
@@ -215,6 +228,7 @@ DATA.groups.forEach((g,gi)=>{
     mgrid.appendChild(c);
   });
 });
+setGroupNote();
 function apply(){document.querySelectorAll(".mcard").forEach(c=>c.classList.toggle("dim",cur!==null&&+c.dataset.g!==cur));}
 
 /* 侧边导航：移动端抽屉 */

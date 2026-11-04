@@ -82,33 +82,33 @@ ROWS = [
      "十种神通之用与十忍之体（幻焰梦响影化空七喻）"),
     (45, 45, "阿僧祇品·寿量品·诸菩萨住处品", 7, "等觉", "cat", "doc",
      "数之极、时之极、方之极：华严的大数与大劫"),
-    (46, 46, "佛不思议法品（一）", 8, "佛果·妙觉", "cat", "doc",
+    (46, 46, "佛不思议法品（一）", 7, "等觉 · 佛果", "cat", "doc",
      "以「十种×二十一」枚举诸佛不思议功德"),
-    (47, 47, "佛不思议法品（二）", 8, "佛果·妙觉", "cat", "doc",
+    (47, 47, "佛不思议法品（二）", 7, "等觉 · 佛果", "cat", "doc",
      "广大佛事、无二行、一毛持世界等十二组佛德"),
-    (48, 48, "十身相海品·随好光明品", 8, "佛果·妙觉", "cat", "story",
+    (48, 48, "十身相海品·随好光明品", 7, "等觉 · 佛果", "cat", "story",
      "九十七大人相各以云名放光；随好光拔地狱苦、天鼓说法"),
-    (49, 49, "普贤行品", 8, "佛果·妙觉", "prac", "verse",
+    (49, 49, "普贤行品", 7, "等觉 · 佛果", "prac", "verse",
      "「一瞋成百万障门」警策，全经最长偈段之一"),
-    (50, 50, "如来出现品（一）", 8, "佛果·妙觉", "doc", "verse",
+    (50, 50, "如来出现品（一）", 7, "等觉 · 佛果", "doc", "verse",
      "以大云降雨、四风轮等十相喻如来出现"),
-    (51, 51, "如来出现品（二）", 8, "佛果·妙觉", "doc", "verse",
+    (51, 51, "如来出现品（二）", 7, "等觉 · 佛果", "doc", "verse",
      "音声十相（天鼓、四龙王兴云）与心十相（大海潜流）"),
-    (52, 52, "如来出现品（三）", 8, "佛果·妙觉", "doc", "verse",
+    (52, 52, "如来出现品（三）", 7, "等觉 · 佛果", "doc", "verse",
      "境界、行、成正觉、转法轮、涅槃五重问答收束"),
-    (53, 53, "离世间品（一）", 8, "佛果·妙觉", "doc", "cat",
-     "普慧一口气近二百问，普贤自「十依」起叠答"),
-    (54, 54, "离世间品（二）", 8, "佛果·妙觉", "cat", "doc",
+    (53, 53, "离世间品（一）", 8, "菩萨行", "doc", "cat",
+     "普慧一口气一百七十余问，普贤自「十依」起叠答"),
+    (54, 54, "离世间品（二）", 8, "菩萨行", "cat", "doc",
      "大欣慰至无等住二十六组「十法」枚举"),
-    (55, 55, "离世间品（三）", 8, "佛果·妙觉", "cat", "doc",
+    (55, 55, "离世间品（三）", 8, "菩萨行", "cat", "doc",
      "无下劣心至十自在，发心→解行→誓愿因果链"),
-    (56, 56, "离世间品（四）", 8, "佛果·妙觉", "cat", "doc",
+    (56, 56, "离世间品（四）", 8, "菩萨行", "cat", "doc",
      "无碍用、游戏、无畏、不共法等二十余组"),
-    (57, 57, "离世间品（五）", 8, "佛果·妙觉", "cat", "doc",
+    (57, 57, "离世间品（五）", 8, "菩萨行", "cat", "doc",
      "习气道足手腹藏心，行住坐卧全幅庄严化"),
-    (58, 58, "离世间品（六）", 8, "佛果·妙觉", "cat", "doc",
+    (58, 58, "离世间品（六）", 8, "菩萨行", "cat", "doc",
      "清净六度四无量、十种魔与魔业对治、兜率下生十事"),
-    (59, 59, "离世间品（七）", 8, "佛果·妙觉", "cat", "verse",
+    (59, 59, "离世间品（七）", 8, "菩萨行", "cat", "verse",
      "处胎至涅槃八相各十事，普贤长颂总摄全品"),
     (60, 60, "入法界品（一）", 9, "证·入法界", "scene", "doc",
      "逝多林序分：师子频申三昧现神变，声闻同在而不见"),
@@ -154,23 +154,25 @@ ROWS = [
      "文殊遥伸按顶，善财见普贤毛孔含刹海，与普贤同等"),
 ]
 
-SIZES = dict(l.split() for l in open("/dev/stdin").read().split("\n") if l)  # unused
-
 if __name__ == "__main__":
     import json, os
     sizes = {}
     for n in range(1, 81):
         p = f"/Users/zhangwei/work/huayan/docs/{n}.md"
         sizes[n] = os.path.getsize(p)
+    # ov / tip 等字段直接维护在 atlas_data.json 中：重跑时保留旧条目的非脚本字段，只刷新脚本所辖字段
+    out_path = "/Users/zhangwei/work/huayan/study/atlas_data.json"
+    old = {x["n"]: x for x in json.load(open(out_path))} if os.path.exists(out_path) else {}
     atlas = []
     for (a, b, pin, hui, stage, t1, t2, brief) in ROWS:
         for n in range(a, b + 1):
-            atlas.append({
+            row = dict(old.get(n, {}))  # 保留 ov/tip 等手工维护字段
+            row.update({
                 "n": n, "pin": pin, "hui": hui, "stage": stage,
                 "types": [t1] + ([t2] if t2 else []),
                 "brief": brief, "size": sizes[n],
             })
+            atlas.append(row)
     assert len(atlas) == 80 and [x["n"] for x in atlas] == list(range(1, 81))
-    json.dump(atlas, open("/Users/zhangwei/work/huayan/study/atlas_data.json", "w"),
-              ensure_ascii=False, indent=1)
+    json.dump(atlas, open(out_path, "w"), ensure_ascii=False, indent=1)
     print("atlas_data.json:", len(atlas), "卷")
