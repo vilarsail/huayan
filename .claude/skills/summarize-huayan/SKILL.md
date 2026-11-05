@@ -81,7 +81,7 @@ python3 .claude/skills/summarize-huayan/verify_summary.py <start> <end>
 
 - **只读原文**：输入只有 `docs/reading_{N}_orig.txt`，不读 `docs/{N}.md` 的译文部分。
 - **白话优先**：条目默认现代白话，文言只作点缀引用；术语首现带白话定义；一级主题点明问题；名录写公式不写名单、偈颂写主题不逐句复述。详见 `AGENT_INSTRUCTIONS.md`。
-- **风格参考**：若 `study/{N}-study.html` 或 `docs/{N}.guide.md` 存在，LLM 可参考其章节划分与口吻，但内容以原文为准。
+- **风格参考**：若 `study/pages/{N}-study.html` 或 `docs/{N}.guide.md` 存在，LLM 可参考其章节划分与口吻，但内容以原文为准。
 - **重跑幂等**：`summary.md` 每次由 LLM 全量重写，不叠加。
 - **条目数与层级**：由脚本打印统计，仅为参考信息；内容完整覆盖全卷（从开头到结尾）比条目数更重要，脚本对条目数只警告不阻断。
 - **与其他产物的关系**：`{N}.summary.md` 是独立笔记文件，不写入 `docs/{N}.md`，不影响翻译/校对/导读流水线；它是 `/mindmap-huayan` 的唯一输入。

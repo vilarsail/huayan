@@ -8,7 +8,7 @@ build_mindmap.py - 把 docs/{N}.summary.md（层级列表笔记）转成单文�
 - 子节点 x 跟随父节点实际宽度阶梯推进，行距紧凑
 
 - 输入：docs/{N}.summary.md（每个非空行是列表项，缩进 2 空格 = 一层）
-- 输出：study/{N}-mindmap.html（零依赖：SVG，节点可折叠、滚轮缩放、拖拽平移，自动适配视图）
+- 输出：study/pages/{N}-mindmap.html（零依赖：SVG，节点可折叠、滚轮缩放、拖拽平移，自动适配视图）
 
 用法：
     python3 build_mindmap.py <N> [<M> ...]
@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 
 OUTPUT_DIR = Path('docs')
-STUDY_DIR = Path('study')
+STUDY_DIR = Path('study/pages')
 ITEM_RE = re.compile(r'^( *)- (.*)$')
 
 FONT = 13
@@ -204,7 +204,7 @@ def build(n: int) -> bool:
         print(f'  [{n}] ✗ {src} 不存在')
         return False
     dst = STUDY_DIR / f'{n}-mindmap.html'
-    STUDY_DIR.mkdir(exist_ok=True)
+    STUDY_DIR.mkdir(parents=True, exist_ok=True)
     parsed = parse(src)
     if parsed is None:
         print(f'  [{n}] ✗ 解析失败：没有任何列表项')

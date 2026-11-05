@@ -4,7 +4,7 @@ import re, json
 
 SRC = "/Users/zhangwei/work/huayan/docs/14.md"
 NOTES = "/Users/zhangwei/work/huayan/docs/14.notes.md"
-OUT = "/Users/zhangwei/work/huayan/study/jingxing_data.json"
+OUT = "/Users/zhangwei/work/huayan/study/data/jingxing_data.json"
 
 CIRCLED = re.compile(r'[\u2460-\u2473\u3251-\u325F\u32B1-\u32BF]')
 def circled_val(ch):

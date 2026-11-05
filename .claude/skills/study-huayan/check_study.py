@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""校验 study/{N}-study.html 的结构完整性与内容规范（华严经版）。
+"""校验 study/pages/{N}-study.html 的结构完整性与内容规范（华严经版）。
 
 额外校验：所有 .quote 块中的引文必须是 docs/{N}.md 原文的精确子串
 （比对前剥离标签、圈号与空白）。
@@ -62,7 +62,7 @@ def extract_quotes(s: str):
 
 
 def check(n: int) -> list:
-    path = f"study/{n}-study.html"
+    path = f"study/pages/{n}-study.html"
     errs = []
     if not os.path.exists(path):
         return [f"文件不存在: {path}"]

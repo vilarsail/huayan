@@ -161,7 +161,7 @@ if __name__ == "__main__":
         p = f"/Users/zhangwei/work/huayan/docs/{n}.md"
         sizes[n] = os.path.getsize(p)
     # ov / tip 等字段直接维护在 atlas_data.json 中：重跑时保留旧条目的非脚本字段，只刷新脚本所辖字段
-    out_path = "/Users/zhangwei/work/huayan/study/atlas_data.json"
+    out_path = "/Users/zhangwei/work/huayan/study/data/atlas_data.json"
     old = {x["n"]: x for x in json.load(open(out_path))} if os.path.exists(out_path) else {}
     atlas = []
     for (a, b, pin, hui, stage, t1, t2, brief) in ROWS:

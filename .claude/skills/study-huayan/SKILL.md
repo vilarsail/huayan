@@ -1,11 +1,11 @@
 ---
 name: study-huayan
-description: 为《大方广佛华严经》某一卷（docs/{N}.md 原文译文对照版）生成单文件交互式学习网页 study/{N}-study.html。针对华严经「经」的特点设计——意象解码（原文引用+解码+落点三件套）、九会定位条、众类表法翻转卡、场景漫游/名数阶梯流程推演、偈颂导读，名录名单一律折叠不逐名罗列。结构与模板固定，仅内容随卷与卷型变化。无测验区。当用户输入 /study-huayan <start> <end> 或要求"生成第 X-Y 卷的交互学习网页/学习模块"时触发。
+description: 为《大方广佛华严经》某一卷（docs/{N}.md 原文译文对照版）生成单文件交互式学习网页 study/pages/{N}-study.html。针对华严经「经」的特点设计——意象解码（原文引用+解码+落点三件套）、九会定位条、众类表法翻转卡、场景漫游/名数阶梯流程推演、偈颂导读，名录名单一律折叠不逐名罗列。结构与模板固定，仅内容随卷与卷型变化。无测验区。当用户输入 /study-huayan <start> <end> 或要求"生成第 X-Y 卷的交互学习网页/学习模块"时触发。
 ---
 
 # 角色与目标
 
-为 `docs/{N}.md`（原文+译文对照）生成**交互式学习网页** `study/{N}-study.html`：让没有佛学基础的读者不读文言也能弄懂这一卷在演什么、表什么法。华严是「经」不是「论」——不靠定义与论证，而靠场景、意象、名单、偈颂表法，所以本 skill 的重心是**解码**而非**讲解**。
+为 `docs/{N}.md`（原文+译文对照）生成**交互式学习网页** `study/pages/{N}-study.html`：让没有佛学基础的读者不读文言也能弄懂这一卷在演什么、表什么法。华严是「经」不是「论」——不靠定义与论证，而靠场景、意象、名单、偈颂表法，所以本 skill 的重心是**解码**而非**讲解**。
 
 # 架构
 
@@ -15,7 +15,7 @@ description: 为《大方广佛华严经》某一卷（docs/{N}.md 原文译文�
 template.html（CSS + 固定 JS + HTML 外壳，占位符）
         │  原样复制，替换占位符
         ▼
-study/{N}-study.html
+study/pages/{N}-study.html
         │
         ▼
 check_study.py（确定性校验：组件齐全、无占位符残留、落点≥8、引文为原文精确子串等）
@@ -30,14 +30,14 @@ check_study.py（确定性校验：组件齐全、无占位符残留、落点≥
 ## 步骤一：准备
 
 ```
-mkdir -p study
+mkdir -p study/pages
 ```
 
 ## 步骤二：生成（LLM 全文通读 docs/{N}.md 后撰写）
 
 ### 小范围（≤5 卷）：主代理直接处理
 
-逐卷处理：Read `docs/{N}.md` 全文（可参考 `docs/{N}.guide.md`、`docs/{N}.notes.md`）→ Read `template.html` 与 `AGENT_INSTRUCTIONS.md` → Write `study/{N}-study.html`。
+逐卷处理：Read `docs/{N}.md` 全文（可参考 `docs/{N}.guide.md`、`docs/{N}.notes.md`）→ Read `template.html` 与 `AGENT_INSTRUCTIONS.md` → Write `study/pages/{N}-study.html`。
 
 ### 大范围（≥6 卷）：并行子 Agent
 
@@ -48,7 +48,7 @@ mkdir -p study
 
 输入：docs/{N}.md（通读全文；可参考 docs/{N}.guide.md 与 docs/{N}.notes.md）
 模板：.claude/skills/study-huayan/template.html（骨架原样复制，替换占位符）
-输出：study/{N}-study.html
+输出：study/pages/{N}-study.html
 ```
 
 子 Agent 只写 HTML，不跑校验——校验由步骤三完成。
@@ -75,7 +75,7 @@ python3 .claude/skills/study-huayan/check_study.py <start> <end>
 ## 步骤五：交付
 
 - 报告：卷数、每卷文件路径、校验结果。
-- 单卷时可 `open study/{N}-study.html` 在浏览器中打开（先询问或按用户习惯）。
+- 单卷时可 `open study/pages/{N}-study.html` 在浏览器中打开（先询问或按用户习惯）。
 
 # 注意事项
 

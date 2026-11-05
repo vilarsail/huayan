@@ -1,26 +1,43 @@
 ---
 name: huayan-module
-description: 为《大方广佛华严经》教学网站（study/ 目录）继续构建下一个学习模块。先读 study/ROADMAP.md 确定进度与下一个待做模块，按既有三层体系（总揽地图＋文体模块＋主题页）与固定视觉/数据/测试约定产出单文件 HTML，完成后更新 ROADMAP。当用户说「继续华严学习页 / 做下一个模块 / 继续 huayan-module / 做〈某模块名〉学习页」时使用。
+description: 为《大方广佛华严经》教学网站（study/ 目录）继续构建下一个学习模块。先读 study/_notes/ROADMAP.md 确定进度与下一个待做模块，按既有三层体系（总揽地图＋文体模块＋主题页）与固定视觉/数据/测试约定产出单文件 HTML，完成后更新 ROADMAP。当用户说「继续华严学习页 / 做下一个模块 / 继续 huayan-module / 做〈某模块名〉学习页」时使用。
 ---
 
 # 华严教学网站 · 模块构建流程
 
+## 第零步：认目录（硬约定）
+
+```
+study/
+├── index.html          # 根目录唯一文件，站点入口（全经地图）
+├── pages/              # 所有模块页（含 {N}-study.html、{N}-mindmap.html）
+├── data/               # 全部 *_data.json
+├── _templates/         # 模板 _*_t.html
+├── scripts/            # 数据/注入类脚本
+└── _notes/             # ROADMAP.md、KICKOFF.md 等进度与流程笔记
+```
+
+- **根目录只允许 `index.html`**，新增页面一律进 `pages/`，新增数据进 `data/`，不要往根目录丢文件。
+- 互链写法：`index.html` 指向 `pages/<名>.html`；`pages/` 内的页面返回入口用 `../index.html`，兄弟页互链直接用同目录文件名。
+- 模板要与生成物目录一致：`_templates/_index_t.html` 生成 `study/index.html`，`_templates/_<名>_t.html` 生成 `study/pages/<名>.html`（对应链接前缀分别为 `pages/`、`../`）。
+- 改完目录或链接后必须跑一遍全站链接检查（逐文件解析 href/src 相对路径确认目标存在）。
+
 ## 第一步：读进度，定模块
 
-1. 读 `study/ROADMAP.md`：模块清单里第一个 ⬜ 即默认下一个（除非用户点名）。
+1. 读 `study/_notes/ROADMAP.md`：模块清单里第一个 ⬜ 即默认下一个（除非用户点名）。
 2. 读 ROADMAP 的「关键决策记录」——尤其是第 4 条（经文已校订，不得出现旧的缺参表述）。
 3. 精读对应卷的 `docs/N.md`（原文+白话）、`docs/N.notes.md`（词语注释）、`docs/N.guide.md`（导读）。**模块内容必须来自实际读到的经文与 guide，禁止凭佛学常识编造名号、法门名、处所**；凡引用原文用字，先用 grep 在 docs/ 里核实。
 
 ## 第二步：抽数据（脚本做确定性工作）
 
-- 数据落地为 `study/<模块名>_data.json`，页面不直接手写数据。
+- 数据落地为 `study/data/<模块名>_data.json`，页面不直接手写数据。
 - `docs/N.md` 段落格式（与 split-huayan/check-huayan 一致）：译文段首行以 `*` 开头（续行无 `*`）；原文段顶格或以全角空格开头；偈颂为多行同段；卷尾有「大方广佛华严经卷第…／大正新修大藏经…」杂行要剔除。**解析必须按「空行分段」而非按行过滤**（译文续行没有前缀，按行过滤会把白话混进原文）。
 - 解析后必须做计数断言（如 141 愿、53 参这类刚性数字），对不上就修解析，不要硬凑。
 - 原文中带圈号注释（①-㊿），剥离后按 marker 挂接 notes.md 的词条。
 
 ## 第三步：建页面（单文件、离线、无依赖）
 
-- 模板写 `study/_<名>_t.html`，数据占位符 `__DATA__` 注入生成 `study/<名>.html`（参考 `_jingxing_t.html` 的做法）。改数据/模板后重跑注入，**不要直接编辑生成物**。
+- 模板写 `study/_templates/_<名>_t.html`，数据占位符 `__DATA__` 注入生成 `study/pages/<名>.html`（参考 `_jingxing_t.html` 的做法）。改数据/模板后重跑注入，**不要直接编辑生成物**。
 - 视觉体系（CSS 变量与组件全部从现有页面复制）：藏青底 `--ink:#0c1220`、金 `--gold:#c9a45c`、象牙白 `--ivory`、衬线字体栈（Noto Serif SC/Songti SC 优先）、starfield hero、`.sec-head`（壹贰叁…编号）、`details.fold` 零基础折叠、`.tip-note`、`.topnav`。庄严但不素朴，克制、有秩序感。
 - 页面骨架：hero（品名＋位置＋一句钩子＋互链按钮）→ 零基础折叠 → 该文体/主题的**读法工具**（模板解剖、句式、结构图——这是每个模块的灵魂）→ 核心交互正文 → 「位置与延伸读法」→ 页脚互链 index 与兄弟模块。
 - 文体对应的交互范式（延续已成模块）：
@@ -31,8 +48,8 @@ description: 为《大方广佛华严经》教学网站（study/ 目录）继续
 
 ## 第四步：接线与测试
 
-1. 在 `_index_t.html` 的「专题学习页」区加卡片；给覆盖卷的 `.blk` 加 pilot 角标逻辑（现有写法：`v.n===14||(v.n>=60&&v.n<=80)` 这类条件，按新模块的卷区间扩展）；重新注入生成 index.html。
-2. `cd study && python3 -m http.server 8765`，浏览器逐项断言：
+1. 在 `study/_templates/_index_t.html` 的「专题学习页」区加卡片；给覆盖卷的 `.blk` 加 pilot 角标逻辑（现有写法：`v.n===14||(v.n>=60&&v.n<=80)` 这类条件，按新模块的卷区间扩展）；重新注入生成 study/index.html。
+2. `cd study && python3 -m http.server 8765`（访问 /index.html），浏览器逐项断言：
    - 核心节点/条目计数正确（对照数据 JSON）；
    - 桌面 1280 与手机 390 宽均无横向溢出（`scrollWidth - innerWidth === 0`）；
    - 每个交互（筛选、搜索、展开、点击详情）至少触发一次并验证结果；
@@ -41,5 +58,5 @@ description: 为《大方广佛华严经》教学网站（study/ 目录）继续
 
 ## 第五步：收账
 
-1. 更新 `study/ROADMAP.md`：该模块行改 ✅，一句话备注（核心交互是什么、数据文件名）。
+1. 更新 `study/_notes/ROADMAP.md`：该模块行改 ✅，一句话备注（核心交互是什么、数据文件名）。
 2. 向用户报告：做了什么、依据哪些卷、发现的问题（若校出经文/译文疑误，如实报告但不要自行改 docs/——那是用户的校对领域）。
