@@ -44,12 +44,12 @@ STATUS_LABEL = {
 # 页脚/杂行（与 prepare_fix.py 保持一致）
 NOISE_PATTERNS = (
     re.compile(r'^大正新修大藏经'),
-    re.compile(r'^大[方广佛华严经]+卷第'),
+    re.compile(r'^《?大[方广佛华严经]+》?卷第'),
 )
 
 
 def is_noise(line: str) -> bool:
-    s = line.strip().lstrip('*').strip()
+    s = line.strip().strip('*').strip()
     if s in ('.', '。'):
         return True
     return any(p.match(s) for p in NOISE_PATTERNS)
@@ -226,6 +226,9 @@ def locate_paragraph_block(lines: list[str], para_num: int):
             if rng is None:
                 return orig_start, orig_end, -1, -1, []
             return orig_start, orig_end, rng[0], rng[1], rng[2]
+        rng = find_trans_block_range(lines, orig_end)
+        if rng is not None:
+            i = rng[1] + 1
     return None
 
 
