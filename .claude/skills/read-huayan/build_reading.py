@@ -1,33 +1,41 @@
 #!/usr/bin/env python3
 """
-build_reading.py - 由 notes_{N}.json 生成 docs/{N}.guide.md（导读）与 docs/{N}.notes.md（注释表），并把圈号标注写入 docs/{N}.md 的原文。
+build_reading.py - 由 notes_{N}.json 生成 docs/{N}.notes.md（注释表），并把〔n〕编号标注写入 docs/{N}.md 的原文。
+导读 docs/{N}.guide.md 不在本 skill 范围内：不读取、不生成、不覆盖。
 
-LLM 已写好 notes_{N}.json：{"guide": "...", "terms": [{"term": "...", "note": "..."}, ...]}
+LLM 已写好 notes_{N}.json：{"terms": [{"term": "...", "note": "..."}, ...]}（兼容多余的 guide 键，忽略）
 本脚本做全部确定性工作（LLM 不做任何序号与定位）：
 1. 解析 docs/{N}.md → 标题 + 原文段（任意非 #/* 行，多行颂偈合并为一段）
-2. 校验术语：每 term 必须出现在原文中、≤50 个、无重复、guide 非空
-3. 按首次出现位置分配 ①-㊿；重叠冲突自动顺延；右向左插入
-4. 圈号标注写回 docs/{N}.md 原文（译文/标题/空行不动）；生成 notes.md（注释表）与 guide.md（导读）
-5. 校验：字符流完整性、圈号连续性、注释表与标注一一对应
+2. 全量重跑：先剥离全部旧标注（圈号 ①-㊿ 与旧〔n〕，含误混入译文行的残留）
+3. 校验词条：每 term 必须出现在原文中、无重复（数量不设上限）
+4. 按首次出现位置分配〔1〕〔2〕…；重叠冲突自动顺延；右向左插入
+5. 标注写回 docs/{N}.md 原文（译文/标题/空行不动）；生成 notes.md（注释表）
+6. 校验：字符流完整性、编号连续性、注释表与标注一一对应
 
 用法：
-    python3 build_reading.py <N>            # 单章
+    python3 build_reading.py <N>            # 单卷
     python3 build_reading.py <s> <e>        # 区间
 """
 
 from __future__ import annotations
 import json
+import re
 import sys
 from pathlib import Path
 
 DOCS_DIR = Path('docs')
 
+# 统一标注样式为〔n〕（无上限）。圈号字符表 ①-㊿ 仅用于剥离历史版本遗留标注（幂等重跑）。
 CIRCLED = ('①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳'
            '㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚'
            '㉛㉜㉝㉞㉟'
            '㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿')
-CIRCLED_SET = set(CIRCLED)
-MAX_TERMS = len(CIRCLED)
+MARKER_RE = re.compile(r'〔\d+〕|[' + ''.join(CIRCLED) + ']')
+
+
+def marker(i: int) -> str:
+    """第 i 个编号对应的标注记号（统一样式）。"""
+    return f'〔{i}〕'
 
 
 def is_translation(line: str) -> bool:
@@ -43,16 +51,17 @@ def is_blank(line: str) -> bool:
     return not line.strip()
 
 
-def strip_circled(line: str) -> str:
-    if not any(ch in CIRCLED_SET for ch in line):
+def strip_markers(line: str) -> str:
+    """剥离旧标注（全量重跑：清除历史圈号与〔n〕，含混入译文/标题行的残留）"""
+    if '〔' not in line and not any(ch in line for ch in CIRCLED):
         return line
-    return ''.join(ch for ch in line if ch not in CIRCLED_SET)
+    return MARKER_RE.sub('', line)
 
 
 def parse_md(n: int):
     path = DOCS_DIR / f'{n}.md'
     if not path.exists():
-        print(f'[ERROR] {path} not found')
+        print(f'[ERROR] {path} 不存在')
         return None
     text = path.read_text(encoding='utf-8')
     lines = text.split('\n')
@@ -61,7 +70,7 @@ def parse_md(n: int):
     paragraphs = []
     cur = None
     for line in lines:
-        line = strip_circled(line)
+        line = strip_markers(line)
         if is_heading(line):
             if cur is not None:
                 paragraphs.append('\n'.join(cur))
@@ -93,6 +102,7 @@ def ws_strip(s: str) -> str:
 
 
 def all_occurrences(paragraphs: list[str], term: str):
+    """返回所有出现位置 [(pi, start_char, end_char)]，按阅读顺序排序。"""
     t = ws_strip(term)
     if not t:
         return []
@@ -114,6 +124,11 @@ def all_occurrences(paragraphs: list[str], term: str):
 
 
 def assign(paragraphs: list[str], terms_notes: list[tuple[str, str]]):
+    """贪心分配出现位：先出现的（同位置时较长者优先）先占位，重叠自动顺延。
+
+    返回 (assigned, dropped)。assigned 按阅读顺序排序，含 marker。
+    dropped: 找不到独立出现位而被丢弃的术语。
+    """
     occs = []
     for term, note in terms_notes:
         occ = all_occurrences(paragraphs, term)
@@ -140,7 +155,7 @@ def assign(paragraphs: list[str], terms_notes: list[tuple[str, str]]):
                          'term': o['term'], 'note': o['note']})
     assigned.sort(key=lambda a: (a['pi'], a['s']))
     for i, a in enumerate(assigned):
-        a['marker'] = CIRCLED[i]
+        a['marker'] = marker(i + 1)
     return assigned, dropped
 
 
@@ -156,21 +171,23 @@ def insert_markers(paragraphs: list[str], assigned: list[dict]) -> list[str]:
 
 
 def verify(original: list[str], marked: list[str], assigned: list[dict]) -> list[str]:
+    """返回问题列表（空 = 全部通过）。"""
     problems = []
 
-    def collapse(paras, drop_circled):
+    def collapse(paras, drop_markers):
         s = ''.join(paras)
-        if drop_circled:
-            return ''.join(ch for ch in s if not ch.isspace() and ch not in CIRCLED_SET)
+        if drop_markers:
+            s = MARKER_RE.sub('', s)
         return ''.join(ch for ch in s if not ch.isspace())
 
     if collapse(marked, True) != collapse(original, False):
         problems.append('字符流校验失败：标注后文本与原文不一致')
 
-    seq = [ch for ch in ''.join(marked) if ch in CIRCLED_SET]
-    expect = list(CIRCLED[:len(assigned)])
+    seq = MARKER_RE.findall(''.join(marked))
+    expect = [marker(i + 1) for i in range(len(assigned))]
     if seq != expect:
-        problems.append(f'圈号顺序不连续：正文出现 {len(seq)} 个，应为 {len(expect)} 个且递增无跳号')
+        problems.append(f'编号顺序不连续：正文出现 {len(seq)} 个，'
+                        f'应为 {len(expect)} 个且递增无跳号')
 
     if len(assigned) != len(seq):
         problems.append(f'注释表 {len(assigned)} 条 与 正文标注 {len(seq)} 个 不一致')
@@ -180,17 +197,20 @@ def verify(original: list[str], marked: list[str], assigned: list[dict]) -> list
 
 def build_notes_md(title: str, assigned: list[dict]) -> str:
     out = [f'# {title} 词语注释', '']
-    for a in assigned:
-        out.append(f'{a["marker"]} {a["term"]}　{a["note"]}')
+    for i, a in enumerate(assigned):
+        out.append(f'{marker(i + 1)} {a["term"]}　{a["note"]}')
     out.append('')
     return '\n'.join(out)
 
 
 def rewrite_md(n: int, marked: list[str]) -> bool:
-    """把带圈号的原文段写回 docs/{N}.md，译文/标题/空行原样保留。"""
+    """把带〔n〕标注的原文段写回 docs/{N}.md，译文/标题/空行原样保留（旧标注已剥离）。
+
+    逐行扫描：连续原文行（一个原文段）用 marked 中对应段替换。
+    返回 False 表示段落数与原文不匹配（不应发生，防御）。
+    """
     path = DOCS_DIR / f'{n}.md'
-    text = path.read_text(encoding='utf-8')
-    lines = text.split('\n')
+    lines = path.read_text(encoding='utf-8').split('\n')
     out = []
     qi = 0
     cur_orig = None
@@ -206,7 +226,7 @@ def rewrite_md(n: int, marked: list[str]) -> bool:
         return True
 
     for line in lines:
-        line = strip_circled(line)
+        line = strip_markers(line)
         if is_heading(line) or is_translation(line) or is_blank(line):
             if not flush():
                 return False
@@ -225,46 +245,43 @@ def rewrite_md(n: int, marked: list[str]) -> bool:
     return True
 
 
-def build_guide_md(title: str, guide: str) -> str:
-    head = f'# {title} 导读\n'
-    return head + '\n' + guide.rstrip() + '\n'
+
 
 
 def load_notes(n: int):
+    """加载 notes_{N}.json，返回 (terms_notes, errors)。忽略可能存在的 guide 键。"""
     path = DOCS_DIR / f'notes_{n}.json'
     if not path.exists():
-        return '', [], [f'missing notes_{n}.json']
+        return '', [], [f'缺少 notes_{n}.json']
     try:
         data = json.loads(path.read_text(encoding='utf-8'))
     except Exception as e:
-        return '', [], [f'parse failed: {e}']
+        return '', [], [f'notes_{N}.json 解析失败: {e}'.replace('{N}', str(n))]
+
     errors = []
-    guide = data.get('guide') if isinstance(data, dict) else ''
-    if not guide or not guide.strip():
-        errors.append('guide empty')
     raw_terms = data.get('terms') if isinstance(data, dict) else None
     if not isinstance(raw_terms, list) or not raw_terms:
-        errors.append('terms empty')
-        return guide, [], errors
+        errors.append('terms 为空或缺失')
+        return [], errors
+
     terms_notes = []
     seen = set()
     for t in raw_terms:
         if not isinstance(t, dict) or not t.get('term') or not t.get('note'):
-            errors.append(f'bad entry: {t}')
+            errors.append(f'术语条目格式错误: {t}')
             continue
         term, note = t['term'].strip(), t['note'].strip()
         key = ws_strip(term)
         if not key:
-            errors.append(f'blank: {t!r}')
+            errors.append(f'术语为空白: {t!r}')
             continue
         if key in seen:
-            errors.append(f'dup: {term}')
+            errors.append(f'重复术语: {term}')
             continue
         seen.add(key)
         terms_notes.append((term, note))
-    if len(terms_notes) > MAX_TERMS:
-        errors.append(f'too many: {len(terms_notes)} > {MAX_TERMS}')
-    return guide, terms_notes, errors
+
+    return terms_notes, errors
 
 
 def build_file(n: int):
@@ -272,50 +289,57 @@ def build_file(n: int):
     if parsed is None:
         return 1
     title, _, paragraphs = parsed
-    guide, terms_notes, errors = load_notes(n)
+
+    terms_notes, errors = load_notes(n)
     if errors:
         for e in errors:
-            print(f'  [{n}] X {e}')
+            print(f'  [{n}] ✗ {e}')
         return 1
-    guide = guide or ''
     terms_notes = terms_notes or []
-    missing = [t for t, _ in terms_notes if not all_occurrences(paragraphs, t)]
+
+    # 术语必须在原文中出现
+    missing = [term for term, _ in terms_notes if not all_occurrences(paragraphs, term)]
     if missing:
-        for t in missing:
-            print(f'  [{n}] X term not found: [{t}]')
+        for term in missing:
+            print(f'  [{n}] ✗ 术语未在原文中找到: 「{term}」')
+        print(f'  [{n}] 请在 notes_{n}.json 中改为原文精确子串后重跑 build')
         return 1
+
     assigned, dropped = assign(paragraphs, terms_notes)
-    for t in dropped:
-        print(f'  [{n}] ! dropped: [{t}]')
+    if dropped:
+        for term in dropped:
+            print(f'  [{n}] ⚠ 术语被丢弃（与已标注术语重叠且无独立出现位）: 「{term}」')
+
     marked = insert_markers(paragraphs, assigned)
     problems = verify(paragraphs, marked, assigned)
     if problems:
         for p in problems:
-            print(f'  [{n}] X {p}')
+            print(f'  [{n}] ✗ {p}')
         return 1
+
     if not rewrite_md(n, marked):
-        print(f'  [{n}] X rewrite failed')
+        print(f'  [{n}] ✗ 重写 docs/{n}.md 失败：原文段落数不匹配')
         return 1
-    (DOCS_DIR / f'{n}.notes.md').write_text(build_notes_md(title, assigned), encoding='utf-8')
-    (DOCS_DIR / f'{n}.guide.md').write_text(build_guide_md(title, guide), encoding='utf-8')
-    glen = len(ws_strip(guide))
-    flag = '' if 400 <= glen <= 1500 else f' ! guide {glen} chars'
-    print(f'  [{n}] OK {title}: terms={len(assigned)}, markers={len(assigned)}, guide={glen}{flag}')
+    (DOCS_DIR / f'{n}.notes.md').write_text(
+        build_notes_md(title, assigned), encoding='utf-8')
+
+    print(f'  [{n}] ✓ {title}: 注释={len(assigned)}, 编号=〔1〕..〔{len(assigned)}〕')
     return 0
 
 
 def main():
     args = sys.argv[1:]
     if not args:
-        print('usage: python3 build_reading.py <N> | <s> <e>')
+        print('用法: python3 build_reading.py <N> | <s> <e>')
         return 2
     if len(args) == 2:
         s, e = int(args[0]), int(args[1])
         ns = list(range(s, e + 1))
     else:
         ns = [int(a) for a in args]
+
     print('=' * 60)
-    print(f'build_reading: {len(ns)} chapters')
+    print(f'build_reading: 共 {len(ns)} 章')
     print('=' * 60)
     code = 0
     for n in ns:

@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
-"""verify_reading.py - verify integrity of docs/{N}.md / {N}.guide.md / {N}.notes.md."""
+"""verify_reading.py - 独立复核 docs/{N}.md / {N}.notes.md 的完整性（导读不在检查范围）。
+
+检查项：
+- docs/{N}.md 与 {N}.notes.md 存在且非空（导读 {N}.guide.md 不在检查范围）
+- 旧版圈号 ①-㊿ 已全部清除（正文/标题/译文任何位置残留即报错）
+- 标注只出现在原文行（标题/译文行含〔n〕即报错）
+- 正文〔n〕编号连续递增：〔1〕..〔k〕
+- notes.md 注释表与正文编号 1:1、顺序一致
+- 每个标注的左邻字符与注释表词条精确匹配
+
+用法：
+    python3 verify_reading.py <start> <end>
+"""
 
 from __future__ import annotations
 import re
@@ -13,10 +25,8 @@ CIRCLED = ('①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳'
            '㉛㉜㉝㉞㉟'
            '㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿')
 CIRCLED_SET = set(CIRCLED)
-CIRCLED_INDEX = {ch: i + 1 for i, ch in enumerate(CIRCLED)}
-
-GUIDE_SECTIONS = ['## 一、', '## 二、', '## 三、', '## 四、', '## 五、']
-
+MARKER_RE = re.compile(r'〔(\d+)〕')
+NUM_RE = re.compile(r'〔(\d+)〕')
 
 def ws_strip(s: str) -> str:
     return ''.join(ch for ch in s if not ch.isspace())
@@ -34,22 +44,15 @@ def is_blank(line: str) -> bool:
     return not line.strip()
 
 
-def strip_circled(line: str) -> str:
-    if not any(ch in CIRCLED_SET for ch in line):
-        return line
-    return ''.join(ch for ch in line if ch not in CIRCLED_SET)
-
-
-def parse_md_with_markers(n: int):
+def parse_md(n: int):
     path = DOCS_DIR / f'{n}.md'
     if not path.exists():
         return None
     text = path.read_text(encoding='utf-8')
-    lines = text.split('\n')
     title = ''
     paragraphs = []
     cur = None
-    for line in lines:
+    for line in text.split('\n'):
         if is_heading(line):
             if cur is not None:
                 paragraphs.append('\n'.join(cur))
@@ -69,29 +72,24 @@ def parse_md_with_markers(n: int):
     if cur is not None:
         paragraphs.append('\n'.join(cur))
     if not title and paragraphs:
-        first_line = paragraphs[0].split('\n')[0]
-        title = first_line.lstrip('　 \t').strip()
-    return title, paragraphs, lines
+        title = paragraphs[0].split('\n')[0].lstrip('　 \t').strip()
+    return title, paragraphs, text
 
 
 def parse_notes_md(n: int):
     path = DOCS_DIR / f'{n}.notes.md'
     if not path.exists():
         return None
-    text = path.read_text(encoding='utf-8')
     items = []
-    for line in text.split('\n'):
-        if not line or line.startswith('#'):
+    for line in path.read_text(encoding='utf-8').split('\n'):
+        if not line.strip() or line.lstrip().startswith('#'):
             continue
-        m = re.match(r'^(\S+)\s+(\S.*?)　(.*)$', line)
+        m = re.match(r'^〔(\d+)〕\s*(\S.*?)　(.*)$', line.strip())
         if not m:
-            m2 = re.match(r'^(\S+)\s+(\S+?)\s+(.*)$', line)
-            if not m2:
+            m = re.match(r'^〔(\d+)〕\s+(\S.*?)\s+(.*)$', line.strip())
+            if not m:
                 continue
-            marker, term, note = m2.group(1), m2.group(2), m2.group(3)
-        else:
-            marker, term, note = m.group(1), m.group(2), m.group(3)
-        items.append((marker, term, note))
+        items.append((int(m.group(1)), m.group(2), m.group(3)))
     return items
 
 
@@ -100,140 +98,101 @@ def verify_volume(n: int) -> tuple[list[str], list[str]]:
     problems = []
     warnings = []
 
-    for fname in (f'{n}.md', f'{n}.guide.md', f'{n}.notes.md'):
+    for fname in (f'{n}.md', f'{n}.notes.md'):
         p = DOCS_DIR / fname
         if not p.exists():
-            problems.append(f'missing file {fname}')
-            return problems
+            problems.append(f'缺少文件 {fname}')
+            return problems, warnings
         if not p.read_text(encoding='utf-8').strip():
-            problems.append(f'empty file {fname}')
+            problems.append(f'空文件 {fname}')
 
-    parsed = parse_md_with_markers(n)
+    parsed = parse_md(n)
     if parsed is None:
-        problems.append(f'cannot parse {n}.md')
-        return problems
-    title, paragraphs, all_lines = parsed
+        problems.append(f'无法解析 {n}.md')
+        return problems, warnings
+    title, paragraphs, full_text = parsed
 
-    # 圈号越界检查：标题行/译文行不应含圈号
-    for line in all_lines:
-        if is_heading(line) or is_translation(line):
-            for ch in line:
-                if ch in CIRCLED_SET:
-                    problems.append(f'marker out of bounds: {n}.md heading/translation line contains {ch}: {line[:40]}')
-                    break
+    # 1) 旧版圈号必须已全部清除（全文任何位置）
+    stray = sorted({ch for ch in full_text if ch in CIRCLED_SET})
+    if stray:
+        problems.append(f'旧版圈号残留: {"".join(stray)}（应重跑 build_reading.py 清除）')
 
-    # 原文圈号连续性
-    seq_in_text = []
-    for pi, para in enumerate(paragraphs):
-        for ch in para:
-            if ch in CIRCLED_SET:
-                seq_in_text.append(ch)
+    # 2) 标注只允许出现在原文行
+    for line in full_text.split('\n'):
+        if (is_heading(line) or is_translation(line)) and MARKER_RE.search(line):
+            problems.append(f'标注越界（标题/译文行含〔n〕）: {line[:40]}')
+            break
 
-    illegal = [ch for ch in seq_in_text if ch not in CIRCLED_INDEX]
-    if illegal:
-        problems.append(f'illegal markers in source: {illegal[:5]}')
-
-    expected = list(CIRCLED[:len(seq_in_text)])
-    if seq_in_text != expected:
-        first_break = -1
-        for i, ch in enumerate(seq_in_text):
-            if i >= len(expected) or ch != expected[i]:
-                first_break = i
-                break
+    # 3) 正文编号连续递增
+    seq = [int(m.group(1)) for m in MARKER_RE.finditer(''.join(paragraphs))]
+    expect = list(range(1, len(seq) + 1))
+    if seq != expect:
+        first_break = next((i for i, (a, b) in enumerate(zip(seq, expect)) if a != b),
+                           len(seq))
         problems.append(
-            f'markers not sequential: {len(seq_in_text)} total, '
-            f'first break at pos {first_break + 1}'
-            f' (expected {expected[first_break] if first_break < len(expected) else "none"}, '
-            f'actual {seq_in_text[first_break] if first_break < len(seq_in_text) else "none"})'
-        )
+            f'正文编号不连续: 共 {len(seq)} 个，首个断点在第 {first_break + 1} 个'
+            f'（期望〔{expect[first_break] if first_break < len(expect) else "?"}〕'
+            f' 实际〔{seq[first_break] if first_break < len(seq) else "?"}〕）')
 
+    # 4) 注释表
     notes_items = parse_notes_md(n)
     if notes_items is None:
-        problems.append(f'cannot parse {n}.notes.md')
-        return problems
+        problems.append(f'无法解析 {n}.notes.md')
+        return problems, warnings
 
-    notes_markers = [m for m, _, _ in notes_items]
-    notes_illegal = [m for m in notes_markers if m not in CIRCLED_INDEX]
-    if notes_illegal:
-        problems.append(f'illegal markers in notes: {notes_illegal[:5]}')
+    notes_nums = [num for num, _, _ in notes_items]
+    if notes_nums != expect:
+        problems.append(f'注释表编号与正文不一致: 表 {len(notes_nums)} 条 / 正文 {len(seq)} 个，'
+                        f'或顺序不符')
 
-    expected_notes = list(CIRCLED[:len(notes_markers)])
-    if notes_markers != expected_notes:
-        problems.append(f'notes markers not sequential: {len(notes_markers)} total')
-
-    text_set = set(seq_in_text)
-    notes_set = set(notes_markers)
-    if text_set != notes_set:
-        only_text = text_set - notes_set
-        only_notes = notes_set - text_set
-        if only_text:
-            problems.append(f'markers only in source: {sorted(only_text, key=lambda c: CIRCLED_INDEX.get(c, 0))}')
-        if only_notes:
-            problems.append(f'markers only in notes: {sorted(only_notes, key=lambda c: CIRCLED_INDEX.get(c, 0))}')
-
-    if len(notes_items) != len(seq_in_text):
-        problems.append(f'notes {len(notes_items)} vs source {len(seq_in_text)} mismatch')
-
+    # 5) 标注位置与词条左邻匹配
     marker_to_term = {}
-    for m, term, _ in notes_items:
-        if m in marker_to_term:
-            problems.append(f'duplicate marker in notes: {m}')
+    for num, term, _ in notes_items:
+        if num in marker_to_term:
+            problems.append(f'注释表重复编号: 〔{num}〕')
             continue
-        marker_to_term[m] = term
+        marker_to_term[num] = term
 
     for pi, para in enumerate(paragraphs):
-        for ci, ch in enumerate(para):
-            if ch not in CIRCLED_INDEX:
-                continue
-            term = marker_to_term.get(ch)
+        for ci, m in enumerate(MARKER_RE.finditer(para)):
+            num = int(m.group(1))
+            term = marker_to_term.get(num)
             if term is None:
                 continue
-            term_ws = ws_strip(term)
-            left = ws_strip(para[:ci])
-            if not left.endswith(term_ws):
-                tail = left[-min(len(term_ws) + 5, len(left)):]
-                problems.append(f'position mismatch: {n}.md para {pi + 1} marker {ch} left should be [{term}], actual [...{tail}]')
+            left = ws_strip(para[:m.start()])
+            if not left.endswith(ws_strip(term)):
+                tail = left[-min(len(ws_strip(term)) + 5, len(left)):]
+                problems.append(
+                    f'位置不匹配: 第 {pi + 1} 段〔{num}〕左邻应为「{term}」，'
+                    f'实际「…{tail}」')
 
-    guide_path = DOCS_DIR / f'{n}.guide.md'
-    guide_text = guide_path.read_text(encoding='utf-8')
-    missing_sections = [s for s in GUIDE_SECTIONS if s not in guide_text]
-    if missing_sections:
-        problems.append(f'guide missing sections: {missing_sections}')
-    guide_body = guide_text.split('\n', 2)[-1] if '\n' in guide_text else guide_text
-    glen = len(ws_strip(guide_body))
-    if glen < 400:
-        problems.append(f'guide too short: {glen} chars')
-    elif glen > 1500:
-        warnings.append(f'guide too long: {glen} chars (info only)')
     return problems, warnings
 
 
 def main():
     args = sys.argv[1:]
     if len(args) != 2:
-        print('usage: python3 verify_reading.py <start> <end>')
+        print('用法: python3 verify_reading.py <start> <end>')
         return 2
     s, e = int(args[0]), int(args[1])
     ns = list(range(s, e + 1))
     print('=' * 60)
-    print(f'verify_reading: {len(ns)} chapters ({s}-{e})')
+    print(f'verify_reading: 共 {len(ns)} 章（{s}-{e}）')
     print('=' * 60)
-    total_ok = 0
-    total_issues = 0
-    total_warns = 0
+    total_ok = total_issues = total_warns = 0
     for n in ns:
         problems, warnings = verify_volume(n)
         if not problems:
-            tag = 'OK all pass'
+            tag = '✓ 全部通过'
             if warnings:
-                tag += f' ({len(warnings)} warnings)'
+                tag += f'（{len(warnings)} 条提示）'
             print(f'  [{n}] {tag}')
             for w in warnings:
                 print(f'       - {w}')
             total_ok += 1
             total_warns += len(warnings)
         else:
-            print(f'  [{n}] X {len(problems)} problems:')
+            print(f'  [{n}] ✗ {len(problems)} 个问题:')
             for p in problems:
                 print(f'       - {p}')
             for w in warnings:
@@ -241,7 +200,7 @@ def main():
             total_issues += len(problems)
             total_warns += len(warnings)
     print('=' * 60)
-    print(f'summary: {total_ok}/{len(ns)} chapters pass, {total_issues} blocking, {total_warns} warnings')
+    print(f'汇总: {total_ok}/{len(ns)} 章通过，{total_issues} 项阻断，{total_warns} 条提示')
     return 0 if total_issues == 0 else 1
 
 

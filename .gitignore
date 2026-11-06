@@ -1,3 +1,5 @@
 *.~undo-tree~
 .#*
 .DS_Store
+# 小红书素材（截图与卡片，不入库）
+study/xhs/

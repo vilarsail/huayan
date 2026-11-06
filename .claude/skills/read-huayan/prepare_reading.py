@@ -1,39 +1,38 @@
 #!/usr/bin/env python3
 """
-prepare_reading.py - 从 docs/{N}.md 提取「原文-only 紧凑文本」供 LLM 生成导读与词语注释。
+prepare_reading.py - 从 docs/{N}.md 提取「原文-only 紧凑文本」供 LLM 生成导读与注释。
 
 提取内容：
 - 标题行（# 原样保留；无 # 标题时取首段首行为标题）
 - 原文段落（任意非 #、非 *、非空行；多行连续合并为一段，段号 P{n} 标注首行）
-- 跳过 * 译文行、空行、其他行
+- 跳过 * 译文行、空行
 
-docs/ 格式说明：
-华严经 docs/{N}.md 有多种格式混用——
-- 部分卷原文段以 　　（双全角空格）开头，部分卷无前缀
-- 部分卷原文与译文间有空行，部分卷紧接
-- 部分卷译文行带 　　前缀（如 　　 * 译文 * ）
+全量重跑第一步：所有行先剥离旧标注（旧版圈号 ①-㊿ 与旧〔n〕编号），幂等。
+
+docs/ 格式说明（多种格式混用，脚本统一识别）：
+- 以 * 或 　　* 开头的行是译文，以 # 开头的是标题，空行是分隔，其余行都是原文
+- 部分卷原文段以 　　（双全角空格）开头，部分卷无前缀；均按原文处理
 - docs/80.md 无 # 标题，首行直接为卷名
 
-脚本统一识别：以 * 或 　　* 开头的是译文，以 # 开头的是标题，空行是分隔，其余行都是原文。
-
 用法：
-    python3 prepare_reading.py <N>            # 单章
+    python3 prepare_reading.py <N>            # 单卷
     python3 prepare_reading.py <s> <e>        # 区间
 """
 
 from __future__ import annotations
+import re
 import sys
 from pathlib import Path
 
 DOCS_DIR = Path('docs')
 TMP_PREFIX = 'reading_{n}_orig.txt'
 
-# 圈号 1-50（与 build_reading.py 保持一致），用于剥离上一轮残留标注
+# 标注样式与 build_reading.py 保持一致：统一〔n〕；圈号表仅用于剥离历史遗留
 CIRCLED = ('①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳'
            '㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚'
            '㉛㉜㉝㉞㉟'
            '㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿')
-CIRCLED_SET = set(CIRCLED)
+MARKER_RE = re.compile(r'〔\d+〕|[' + ''.join(CIRCLED) + ']')
 
 
 def is_translation(line: str) -> bool:
@@ -52,11 +51,11 @@ def is_blank(line: str) -> bool:
     return not line.strip()
 
 
-def strip_circled(line: str) -> str:
-    """剥离圈号字符（幂等：重跑时清除上一轮标注，避免 LLM 把圈号当原文）"""
-    if not any(ch in CIRCLED_SET for ch in line):
+def strip_markers(line: str) -> str:
+    """剥离旧标注（幂等：清除历史圈号与〔n〕，避免 LLM 把标记当原文）"""
+    if '〔' not in line and not any(ch in line for ch in CIRCLED):
         return line
-    return ''.join(ch for ch in line if ch not in CIRCLED_SET)
+    return MARKER_RE.sub('', line)
 
 
 def parse_md(n: int):
@@ -75,7 +74,7 @@ def parse_md(n: int):
     paragraphs = []
     cur = None
     for line in lines:
-        line = strip_circled(line)
+        line = strip_markers(line)
         if is_heading(line):
             if cur is not None:
                 paragraphs.append('\n'.join(cur))

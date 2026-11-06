@@ -13,8 +13,18 @@
   --serif:"Noto Serif SC","Songti SC","STSong","STSongti-SC","SimSun",serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
+html{scroll-behavior:smooth;background-color:var(--ink)}
+/* 金丝背景：两层 SVG 丝线，缓慢漂移 + 光泽呼吸；曲线偏边缘，阅读区留白 */
+body::before{content:"";position:fixed;inset:-14%;z-index:-1;pointer-events:none;opacity:.5;
+background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' fill='none'%3E%3Cdefs%3E%3CradialGradient id='r' cx='.5' cy='.5' r='.5'%3E%3Cstop offset='0' stop-color='%23c9a45c' stop-opacity='.13'/%3E%3Cstop offset='1' stop-color='%23c9a45c' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='c' x1='0' y1='0' x2='1600' y2='1000' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23c9a45c' stop-opacity='0'/%3E%3Cstop offset='.28' stop-color='%23dfbd74' stop-opacity='.38'/%3E%3Cstop offset='.5' stop-color='%23f8ecc6' stop-opacity='.85'/%3E%3Cstop offset='.72' stop-color='%23c9a45c' stop-opacity='.32'/%3E%3Cstop offset='1' stop-color='%23c9a45c' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='360' cy='840' rx='600' ry='330' fill='url(%23r)'/%3E%3Cellipse cx='1400' cy='130' rx='540' ry='300' fill='url(%23r)'/%3E%3Cpath d='M-60 960 C380 820 760 1040 1180 880 C1400 800 1540 860 1660 820' stroke='url(%23c)' stroke-width='1' opacity='.55'/%3E%3C/svg%3E") center/cover no-repeat;
+animation:silk-b 36s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:-14%;z-index:-1;pointer-events:none;opacity:.6;
+background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='1000' x2='1600' y2='0' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23c9a45c' stop-opacity='0'/%3E%3Cstop offset='.28' stop-color='%23dfbd74' stop-opacity='.38'/%3E%3Cstop offset='.5' stop-color='%23f8ecc6' stop-opacity='.85'/%3E%3Cstop offset='.72' stop-color='%23c9a45c' stop-opacity='.32'/%3E%3Cstop offset='1' stop-color='%23c9a45c' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1600' y2='1000' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23c9a45c' stop-opacity='0'/%3E%3Cstop offset='.28' stop-color='%23dfbd74' stop-opacity='.38'/%3E%3Cstop offset='.5' stop-color='%23f8ecc6' stop-opacity='.85'/%3E%3Cstop offset='.72' stop-color='%23c9a45c' stop-opacity='.32'/%3E%3Cstop offset='1' stop-color='%23c9a45c' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M-60 150 C260 40 560 260 900 150 C1180 60 1380 190 1660 110' stroke='url(%23a)' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M-60 178 C280 66 580 288 910 176 C1186 88 1386 216 1660 140' stroke='url(%23a)' stroke-width='6' opacity='.14'/%3E%3Cpath d='M-60 840 C300 700 520 960 860 800 C1150 670 1330 880 1660 700' stroke='url(%23b)' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M-60 868 C320 728 540 988 870 828 C1156 698 1336 906 1660 728' stroke='url(%23b)' stroke-width='6' opacity='.14'/%3E%3Cpath d='M1240 -40 C1330 220 1160 420 1320 640 C1430 800 1560 820 1620 1040' stroke='url(%23b)' stroke-width='1.1' opacity='.7'/%3E%3C/svg%3E") center/cover no-repeat;
+animation:silk-a 26s ease-in-out infinite alternate}
+@keyframes silk-a{0%{transform:translate3d(-2.2%,1.4%,0) rotate(-.7deg) scale(1.03);opacity:.46}100%{transform:translate3d(2.2%,-1.6%,0) rotate(.7deg) scale(1.08);opacity:.7}}
+@keyframes silk-b{0%{transform:translate3d(2%,1.1%,0) rotate(.6deg) scale(1.05);opacity:.4}100%{transform:translate3d(-2%,-1.2%,0) rotate(-.6deg) scale(1.02);opacity:.6}}
+@media (prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
+body{background:transparent;color:var(--ivory);font-family:var(--serif);line-height:1.9;font-size:17.5px}
 ::selection{background:rgba(201,164,92,.35)}
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:#fff}
@@ -40,7 +50,7 @@ details.fold .body b{color:var(--ivory);font-weight:600}
 /* hero */
 .hero{position:relative;text-align:center;padding:92px 20px 60px;overflow:hidden;
   background:radial-gradient(1100px 460px at 50% -80px,rgba(201,164,92,.10),transparent 60%),
-             radial-gradient(760px 380px at 88% 22%,rgba(143,159,217,.07),transparent 60%),var(--ink)}
+             radial-gradient(760px 380px at 88% 22%,rgba(143,159,217,.07),transparent 60%)}
 .hero .stars{position:absolute;inset:0;pointer-events:none;opacity:.5}
 .hero .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold2);opacity:.5;animation:tw 4s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.7}}
@@ -171,6 +181,18 @@ footer p{margin:6px 0}
 .sn-glyph{font-size:15px;color:var(--gold-dim);flex-shrink:0;width:14px;text-align:center}
 .sn-item:hover .sn-glyph,.sn-item.on .sn-glyph{color:var(--gold2)}
 .sn-foot{margin-top:auto;padding:16px 8px 0;font-size:13.5px;color:var(--faint);letter-spacing:.08em;line-height:1.8;border-top:1px solid var(--line)}
+/* 一级页面 + 二级小节 */
+.sn-group{display:flex;flex-direction:column}
+.sn-ghead{display:flex;align-items:center;gap:2px}
+.sn-glink{flex:1;display:flex;align-items:center;gap:9px;min-width:0;padding:7px 9px;border-radius:6px;border-left:2px solid transparent;color:var(--ivory);font-size:15.5px;letter-spacing:.08em;line-height:1.6;transition:.18s}
+.sn-glink:hover{background:rgba(201,164,92,.07);color:var(--gold2)}
+.sn-glink .sn-gt{letter-spacing:.14em}
+.sn-caret{flex-shrink:0;width:26px;height:26px;margin-right:2px;border:0;border-radius:50%;background:none;color:var(--gold-dim);font-size:12.5px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .22s}
+.sn-caret:hover{color:var(--gold2);background:rgba(201,164,92,.1)}
+.sn-group.open>.sn-ghead .sn-caret{transform:rotate(180deg);color:var(--gold)}
+.sn-group.on>.sn-ghead .sn-glink{color:var(--gold2);border-left-color:var(--gold);background:rgba(201,164,92,.09)}
+.sn-children{display:none;flex-direction:column;gap:1px;margin:3px 0 5px 10px;padding-left:9px;border-left:1px solid var(--line)}
+.sn-group.open>.sn-children{display:flex}
 .sn-toggle{display:none;position:fixed;left:12px;top:12px;z-index:75;width:42px;height:42px;border-radius:50%;background:var(--ink2);border:1px solid var(--line2);color:var(--gold2);font-size:18.5px;cursor:pointer;align-items:center;justify-content:center;transition:.2s}
 .sn-toggle:hover{border-color:var(--gold);color:#fff}
 .sn-mask{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,8,15,.62)}
@@ -197,16 +219,112 @@ footer p{margin:6px 0}
 <div class="sn-mask" id="snMask"></div>
 <aside class="sidenav" id="sideNav" aria-label="全页导航">
   <div class="sn-brand"><span class="sn-mark">華</span><div><b>华严</b><small>全经地图</small></div></div>
-  <a class="sn-item" href="../index.html"><span class="sn-glyph">圖</span>返回全经地图</a>
-  <div class="sn-sub">专题学习页</div>
-  <a class="sn-item" href="jingxing.html"><span class="sn-glyph">願</span>净行品一百四十一愿</a>
-  <a class="sn-item on" href="shancai.html" aria-current="page"><span class="sn-glyph">參</span>善财五十三参</a>
-  <a class="sn-item" href="shengzhong.html"><span class="sn-glyph">衆</span>世主妙严圣众</a>
-  <a class="sn-item" href="huazang.html"><span class="sn-glyph">藏</span>华藏世界地图</a>
-  <a class="sn-item" href="jieti.html"><span class="sn-glyph">階</span>菩萨道阶梯</a>
-  <a class="sn-item" href="shidi.html"><span class="sn-glyph">地</span>十地品精读</a>
-  <a class="sn-item" href="wenming.html"><span class="sn-glyph">問</span>问明品九问</a>
-  <a class="sn-item" href="chuxian.html"><span class="sn-glyph">現</span>如来出现喻林</a>
+  <div class="sn-group" data-page="index">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="../index.html"><span class="sn-glyph">圖</span><span class="sn-gt">全经地图</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「全经地图」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="../index.html"><span class="sn-no">1</span>卷首</a>
+      <a class="sn-item" href="../index.html#intro"><span class="sn-no">2</span>先看一眼地图</a>
+      <a class="sn-item" href="../index.html#hui"><span class="sn-no">3</span>九会升处</a>
+      <a class="sn-item" href="../index.html#stages"><span class="sn-no">4</span>位阶梯</a>
+      <a class="sn-item" href="../index.html#map"><span class="sn-no">5</span>八十卷全景</a>
+      <a class="sn-item" href="../index.html#modes"><span class="sn-no">6</span>四种读法</a>
+      <a class="sn-item" href="../index.html#routes"><span class="sn-no">7</span>从哪里开始读</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="jingxing">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="jingxing.html"><span class="sn-glyph">願</span><span class="sn-gt">净行品一百四十一愿</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「净行品一百四十一愿」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="jingxing.html#ask"><span class="sn-no">1</span>一百一十问，四字答</a>
+      <a class="sn-item" href="jingxing.html#anatomy"><span class="sn-no">2</span>一愿的解剖</a>
+      <a class="sn-item" href="jingxing.html#wishes"><span class="sn-no">3</span>一百四十一愿全文</a>
+      <a class="sn-item" href="jingxing.html#more"><span class="sn-no">4</span>接着读什么</a>
+    </div>
+  </div>
+  <div class="sn-group open on" data-page="shancai">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="shancai.html"><span class="sn-glyph">參</span><span class="sn-gt">善财五十三参</span></a>
+      <button class="sn-caret" type="button" aria-expanded="true" aria-label="展开「善财五十三参」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="#before"><span class="sn-no">1</span>旅程开始之前</a>
+      <a class="sn-item" href="#pattern"><span class="sn-no">2</span>五步模板</a>
+      <a class="sn-item" href="#journey"><span class="sn-no">3</span>旅程图</a>
+      <a class="sn-item" href="#stories"><span class="sn-no">4</span>本生套盒</a>
+      <a class="sn-item" href="#colophon"><span class="sn-no">5</span>版本说明</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="shengzhong">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="shengzhong.html"><span class="sn-glyph">衆</span><span class="sn-gt">世主妙严圣众</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「世主妙严圣众」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="shengzhong.html#howto"><span class="sn-no">1</span>名录体读法</a>
+      <a class="sn-item" href="shengzhong.html#list"><span class="sn-no">2</span>圣众名录四十类</a>
+      <a class="sn-item" href="shengzhong.html#next"><span class="sn-no">3</span>读卷一，然后呢</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="huazang">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="huazang.html"><span class="sn-glyph">藏</span><span class="sn-gt">华藏世界地图</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「华藏世界地图」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="huazang.html#core"><span class="sn-no">1</span>从风轮说起</a>
+      <a class="sn-item" href="huazang.html#stack"><span class="sn-no">2</span>二十重世界</a>
+      <a class="sn-item" href="huazang.html#seas"><span class="sn-no">3</span>十方海网</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="jieti">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="jieti.html"><span class="sn-glyph">階</span><span class="sn-gt">菩萨道阶梯</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「菩萨道阶梯」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="jieti.html#template"><span class="sn-no">1</span>六步模板</a>
+      <a class="sn-item" href="jieti.html#ladder"><span class="sn-no">2</span>四十阶全景</a>
+      <a class="sn-item" href="jieti.html#same"><span class="sn-no">3</span>同构的卷怎么读</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="shidi">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="shidi.html"><span class="sn-glyph">地</span><span class="sn-gt">十地品精读</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「十地品精读」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="shidi.html#drama"><span class="sn-no">1</span>三请三默</a>
+      <a class="sn-item" href="shidi.html#ten"><span class="sn-no">2</span>十地精读</a>
+      <a class="sn-item" href="shidi.html#close"><span class="sn-no">3</span>三重譬喻收束</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="wenming">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="wenming.html"><span class="sn-glyph">問</span><span class="sn-gt">问明品九问</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「问明品九问」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="wenming.html#nine"><span class="sn-no">1</span>九问总览</a>
+      <a class="sn-item" href="wenming.html#dialogue"><span class="sn-no">2</span>九番问答</a>
+    </div>
+  </div>
+  <div class="sn-group" data-page="chuxian">
+    <div class="sn-ghead">
+      <a class="sn-glink" href="chuxian.html"><span class="sn-glyph">現</span><span class="sn-gt">如来出现喻林</span></a>
+      <button class="sn-caret" type="button" aria-expanded="false" aria-label="展开「如来出现喻林」的小节">▾</button>
+    </div>
+    <div class="sn-children">
+      <a class="sn-item" href="chuxian.html#how"><span class="sn-no">1</span>怎样问，怎样答</a>
+      <a class="sn-item" href="chuxian.html#forest"><span class="sn-no">2</span>四十喻喻林</a>
+      <a class="sn-item" href="chuxian.html#spotlight"><span class="sn-no">3</span>微尘内的经卷</a>
+      <a class="sn-item" href="chuxian.html#five"><span class="sn-no">4</span>五重问答收束</a>
+    </div>
+  </div>
   <div class="sn-foot">八十卷 · 七处九会<br>当前：五十三参</div>
 </aside>
 
@@ -226,7 +344,7 @@ footer p{margin:6px 0}
   <div class="pagebar" aria-label="专题学习页"><span class="pb-label">专题学习页</span><a href="jingxing.html">净行品</a><a class="on" href="shancai.html" aria-current="page">五十三参</a><a href="shengzhong.html">世主妙严</a><a href="huazang.html">华藏世界</a><a href="jieti.html">菩萨道阶梯</a><a href="shidi.html">十地品</a><a href="wenming.html">问明品</a><a href="chuxian.html">如来出现</a></div>
 </div>
 
-<section>
+<section id="before">
   <div class="wrap">
     <div class="sec-head"><div class="no">壹</div><h2>旅程开始之前</h2>
       <div class="sub">三段序幕 · 卷六十至六十二</div><div class="rule"><i class="diamond"></i></div></div>
@@ -242,7 +360,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
-<section>
+<section id="pattern">
   <div class="wrap">
     <div class="sec-head"><div class="no">贰</div><h2>每一参，都是同一个五步模板</h2>
       <div class="sub">认出模板，你就获得了阅读这二十一卷的钥匙</div><div class="rule"><i class="diamond"></i></div></div>
@@ -265,7 +383,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
-<section>
+<section id="stories">
   <div class="wrap">
     <div class="sec-head"><div class="no">肆</div><h2>故事里的故事 · 本生套盒</h2>
       <div class="sub">本生里有本生：华严叙事的最深处</div><div class="rule"><i class="diamond"></i></div></div>
@@ -284,7 +402,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
-<section>
+<section id="colophon">
   <div class="wrap">
     <div class="sec-head"><div class="no">伍</div><h2>版本说明</h2>
       <div class="sub">一条会自己校经的旅程</div><div class="rule"><i class="diamond"></i></div></div>
@@ -419,6 +537,13 @@ function applyFilter(){
 }
 applyFilter();
 
+/* 侧边导航：一级页面的小节展开收起 */
+document.querySelectorAll(".sn-caret").forEach(c=>{
+  c.addEventListener("click",()=>{
+    const g=c.closest(".sn-group"), open=g.classList.toggle("open");
+    c.setAttribute("aria-expanded",open?"true":"false");
+  });
+});
 /* 侧边导航：移动端抽屉 */
 (()=>{
   const nav=document.getElementById("sideNav"), mask=document.getElementById("snMask"), toggle=document.getElementById("snToggle");
