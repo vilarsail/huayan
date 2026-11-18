@@ -23,18 +23,36 @@ NOISE_PATTERNS = (
 
 
 def is_noise(line: str) -> bool:
-    s = line.strip().lstrip('*').strip()
+    s = line.strip()
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
+    s = s.lstrip('*').strip()
     if s in ('.', '。'):
         return True
     return any(p.match(s) for p in NOISE_PATTERNS)
 
 
 def is_trans_line(line: str) -> bool:
-    return line.lstrip('　').startswith('*')
+    s = line.lstrip(' \u3000\t')
+    return s.startswith('> ') or s.startswith('*')
+
+
+def trans_text(line: str) -> str:
+    """取一行译文内容：剥掉 `> ` 前缀与 `*` 包裹。"""
+    s = line.strip()
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
+    if s.startswith('*'):
+        s = s[1:]
+    if s.rstrip().endswith('*') and len(s.rstrip()) > 1:
+        s = s.rstrip()[:-1]
+    return s.strip()
 
 
 def extract_pairs(filepath: str) -> dict[str, dict]:
-    """从 docs/{N}.md 提取 原文段->译文段 对（与 check-huayan 完全相同的逻辑）。"""
+    """从 docs/{N}.md 提取 原文段->译文段 对（与 check-huayan 完全相同的逻辑）。
+
+    译文段 = 紧随其后的译文块（`> ` 引用行；旧斜体 * 行 + 跨行续行兼容）。"""
     with open(filepath, 'r', encoding='utf-8') as f:
         lines = f.read().split('\n')
 
@@ -59,15 +77,17 @@ def extract_pairs(filepath: str) -> dict[str, dict]:
         # 跳过空行与杂行
         while i < n and (lines[i].strip() == '' or is_noise(lines[i])):
             i += 1
-        # 收集译文块（* 行 + 跨行续行）
+        # 收集译文块（`> ` 引用行逐行自识别；旧斜体 * 行 + 跨行续行兼容）
         trans_lines = []
+        last_raw = None  # 最近一个原始译文行（旧斜体未闭合判断用）
         while i < n:
             l = lines[i]
             if is_noise(l):
                 i += 1
                 continue
             if is_trans_line(l):
-                trans_lines.append(l)
+                trans_lines.append(trans_text(l))
+                last_raw = l
                 i += 1
                 continue
             if l.strip() == '':
@@ -78,8 +98,11 @@ def extract_pairs(filepath: str) -> dict[str, dict]:
                     i = j
                     continue
                 break
-            if trans_lines and not trans_lines[-1].rstrip().endswith('*'):
+            # 非译文、非空行：仅当译文块为未闭合的旧斜体 * 行时视为续行
+            if (last_raw is not None and not last_raw.lstrip().startswith('>')
+                    and not last_raw.rstrip().endswith('*')):
                 trans_lines.append(l)
+                last_raw = l
                 i += 1
                 continue
             break

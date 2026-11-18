@@ -33,7 +33,9 @@ def ws_strip(s: str) -> str:
 
 
 def is_translation(line: str) -> bool:
-    return line.lstrip('　 \t').startswith('*')
+    """译文行：`> ` 引用行（现行）；兼容旧斜体（* 或 　　* 开头）"""
+    s = line.lstrip('　 \t')
+    return s.startswith('> ') or s.startswith('*')
 
 
 def is_heading(line: str) -> bool:

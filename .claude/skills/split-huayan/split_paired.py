@@ -11,12 +11,12 @@
     python3 split_paired.py prepare <start> <end> [--split-dir DIR] [--work-dir DIR] [--max-len N]
     python3 split_paired.py apply    <start> <end> [--split-dir DIR] [--work-dir DIR] [--max-out N]
 
-docs/{N}.md 格式（多种混用，统一识别规则，与 check-huayan 一致）:
-    - 译文行：以 * 开头（可能带 　　前缀，如 　　*译文*）
+docs/{N}.md 格式（现行：译文为 quote 引用行；兼容旧斜体，与 check-huayan 一致）:
+    - 译文行：以 `> ` 开头的引用行（现行格式）；旧斜体行（`*译文*`，可带 　　前缀）仍兼容
     - 标题行：以 # 开头
     - 原文行：其余所有非空行（可能带 　　前缀，也可能顶格）
     - 原文段 = 连续原文行（多行颂偈为同一段，永不分割）
-    - 译文块：整块 *...* 包裹（可跨行续行），或每行独立 *...* 包裹
+    - 译文内容 = 引用行去 `> ` 前缀 / 旧斜体去 * 包裹；旧斜体未闭合时可跨行续行
     - 页脚杂行（大方广佛华严经卷第… / 大正新修大藏经… / 孤立的 . 或 。）：跳过
     - 重组时统一格式：去 　　前缀、块间空行分隔（字符内容不变）
 
@@ -80,19 +80,25 @@ def clean_line(line):
 
 def is_noise(line):
     """页脚杂行：不算原文也不算译文。"""
-    s = line.strip().lstrip('*').strip()
+    s = line.strip()
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
+    s = s.lstrip('*').strip()
     if s in ('.', '。'):
         return True
     return any(p.match(s) for p in NOISE_PATTERNS)
 
 
 def is_trans_line(line):
-    return clean_line(line).startswith('*')
+    s = clean_line(line)
+    return s.startswith('> ') or s.startswith('*')
 
 
 def trans_inner(line):
-    """取一行译文的内容：剥掉行首尾的 * 和空白。"""
+    """取一行译文的内容：剥掉 `> ` 前缀与行首尾的 * 包裹和空白。"""
     s = clean_line(line)
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
     if s.startswith('*'):
         s = s[1:]
     if s.endswith('*'):
@@ -146,7 +152,7 @@ def parse_text(text):
             i += 1
             continue
         if is_trans_line(line):
-            # 收集译文块：* 行 + 跨行续行（前行未以 * 结尾时，下一非空行为续行）
+            # 收集译文块：`> ` 引用行逐行自识别；旧斜体 * 行可跨行续行
             t_lines = [line]
             i += 1
             while i < n:
@@ -166,7 +172,9 @@ def parse_text(text):
                         i = j
                         continue
                     break
-                if not clean_line(t_lines[-1]).endswith('*'):
+                # 旧斜体块未闭合（最近译文行非引用行且未以 * 结尾）→ 硬换行续行
+                if not clean_line(t_lines[-1]).startswith('> ') \
+                        and not clean_line(t_lines[-1]).endswith('*'):
                     t_lines.append(l)
                     i += 1
                     continue
@@ -426,8 +434,8 @@ def validate_splits(items, splits, max_out):
 def rebuild_file(items, splits):
     """按 splits 重组文件内容。
 
-    未切分的条目按原始行原样保留（偈颂逐行译文结构不变）；
-    只有被切分的配对用规整格式输出（o_chunk / *t_chunk*，块间空行）。
+    未切分的条目按原始行原样保留（引用行/偈颂逐行译文结构不变）；
+    只有被切分的配对用规整格式输出（o_chunk / `> ` 引用译文块，块间空行）。
     """
     out = []
     for it in items:
@@ -445,7 +453,8 @@ def rebuild_file(items, splits):
                     t_chunk = g['t'].strip()
                     out.append(o_chunk)
                     out.append('')
-                    out.append(f'*{t_chunk}*')
+                    out.append('\n'.join(f'> {ln.strip()}'
+                                         for ln in t_chunk.split('\n') if ln.strip()))
                     out.append('')
                 continue
         if it['type'] == 'heading':

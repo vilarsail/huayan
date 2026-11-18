@@ -12,8 +12,8 @@ apply_fix.py - 合并各批修复判断，对 docs/{N}.md 应用 ACCEPT 的修�
 - 生成 docs/{N}.fix.md（格式化修复记录）
 
 段落提取/定位规则与 check-huayan、prepare_fix.py 完全一致，保证段落号严格对应。
-只替换译文块——原文段（含圈号标注 ①②）、标题、空行不动。
-替换时保留原译文首行的 　　 前缀（如有）与混入译文块的页脚杂行。
+只替换译文块——原文段（含〔n〕标注）、标题、空行不动。
+译文写回格式：`> ` 引用行（每行 `> ` 前缀；new_trans 为纯文本，由此统一加前缀）。
 从后往前处理以避免行索引偏移。
 """
 
@@ -49,14 +49,18 @@ NOISE_PATTERNS = (
 
 
 def is_noise(line: str) -> bool:
-    s = line.strip().strip('*').strip()
+    s = line.strip()
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
+    s = s.strip('*').strip()
     if s in ('.', '。'):
         return True
     return any(p.match(s) for p in NOISE_PATTERNS)
 
 
 def is_trans_line(line: str) -> bool:
-    return line.lstrip('　').startswith('*')
+    s = line.lstrip(' \u3000\t')
+    return s.startswith('> ') or s.startswith('*')
 
 
 def load_verdicts_json(path: str) -> dict | None:
@@ -131,22 +135,33 @@ def load_verdicts_json(path: str) -> dict | None:
     return None
 
 
+def normalize_new_trans(new_trans: str) -> str:
+    """规范化 LLM 产出的 new_trans 为纯文本多行：
+    逐行剥掉 `> ` 前缀与首尾 `*` 包裹（容错 LLM 仍按旧格式输出），
+    去除空行（行数与原文偈颂对齐需要）。"""
+    out = []
+    for ln in new_trans.split('\n'):
+        s = ln.strip()
+        if s.startswith('>'):
+            s = s.lstrip('> ').strip()
+        if s.startswith('*'):
+            s = s[1:].strip()
+        if s.endswith('*') and len(s) > 1:
+            s = s[:-1].strip()
+        if s:
+            out.append(s)
+    return '\n'.join(out)
+
+
 def validate_new_trans(new_trans: str, orig: str) -> tuple[bool, str]:
-    """校验 new_trans 格式是否合规。
+    """校验规范化后的 new_trans 是否合规。
 
     检查项：
-    1. 非空且长度 >= 2（至少 *x*）
-    2. 以 * 开头且以 * 结尾
-    3. 颂偈行数匹配：若原文多行（颂偈），新译文行数必须与原文一致
-
-    注：不校验格式 A/B 与原 trans 的一致性——check-huayan 视两种格式均为合法。
+    1. 非空且长度 >= 2
+    2. 颂偈行数匹配：若原文多行（颂偈），新译文行数必须与原文一致
     """
     if not new_trans or len(new_trans) < 2:
         return False, 'new_trans 为空或过短'
-    if not new_trans.startswith('*'):
-        return False, 'new_trans 未以 * 开头'
-    if not new_trans.endswith('*'):
-        return False, 'new_trans 未以 * 结尾'
     orig_lines = orig.split('\n') if orig else []
     if len(orig_lines) > 1:
         new_lines = new_trans.split('\n')
@@ -188,8 +203,10 @@ def find_trans_block_range(lines: list[str], orig_end_idx: int) -> tuple[int, in
                 i = j
             else:
                 break
-        elif i > start and not lines[last_content_idx].rstrip().endswith('*'):
-            # 译文块未闭合（最近的译文行未以 * 结尾）→ 硬换行续行
+        elif i > start and not lines[last_content_idx].lstrip().startswith('> ') \
+                and not lines[last_content_idx].rstrip().endswith('*'):
+            # 旧斜体块未闭合（最近的译文行未以 * 结尾）→ 硬换行续行
+            # 引用行逐行自识别，不会进入此分支
             last_content_idx = i
             i += 1
         else:
@@ -234,22 +251,19 @@ def locate_paragraph_block(lines: list[str], para_num: int):
 
 def replace_trans_block(lines: list[str], trans_start: int, trans_end: int,
                         noise_idxs: list[int], new_trans: str) -> list[str]:
-    """用 new_trans 替换 [trans_start, trans_end] 的译文块。
+    """用 new_trans（纯文本多行）替换 [trans_start, trans_end] 的译文块。
 
-    保留：① 原译文首行的 　　 前缀（如有）；② 块内杂行（页脚等，追加到块尾）。"""
-    old_first = lines[trans_start]
-    prefix = '　　' if old_first.startswith('　　') else ''
-    new_lines = new_trans.split('\n')
-    new_lines[0] = prefix + new_lines[0]
+    写回为 `> ` 引用行格式；块内杂行（页脚等）保留追加到块尾。"""
+    new_lines = [f'> {ln}' for ln in new_trans.split('\n')]
     kept_noise = [lines[k] for k in noise_idxs if trans_start <= k <= trans_end]
     return lines[:trans_start] + new_lines + kept_noise + lines[trans_end + 1:]
 
 
 def insert_trans_block(lines: list[str], orig_end: int, new_trans: str) -> list[str]:
-    """在原文段后插入新译文块（MISSING 情况）。
+    """在原文段后插入新译文块（MISSING 情况），写回为 `> ` 引用行格式。
 
     华严 docs 原文与译文多数紧邻（无空行），故直接紧随原文段插入。"""
-    new_lines = new_trans.split('\n')
+    new_lines = [f'> {ln}' for ln in new_trans.split('\n')]
     return lines[:orig_end + 1] + new_lines + lines[orig_end + 1:]
 
 
@@ -312,7 +326,8 @@ def main():
             continue
         v = verdicts[k]
         verdict = v.get('verdict', '').upper()
-        new_trans = v.get('new_trans', '').strip()
+        new_trans = normalize_new_trans(v.get('new_trans', ''))
+        v['new_trans'] = new_trans  # 规范化后回写，第二遍应用与报告共用
         reason = v.get('reason', '')
         if verdict != 'ACCEPT':
             status[k] = ('rejected', t, reason)

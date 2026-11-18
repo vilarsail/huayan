@@ -37,7 +37,7 @@ def _strip_circled_ws(s: str) -> str:
 
 
 def load_original(n: int) -> str:
-    """docs/{N}.md 的原文流（跳过译文 * 行、标题 # 行、空行），剥圈号与空白。"""
+    """docs/{N}.md 的原文流（跳过译文 `> ` 引用行、旧斜体 * 行、标题 # 行、空行），剥圈号与空白。"""
     path = os.path.join(DOCS_DIR, f'{n}.md')
     if not os.path.exists(path):
         return ''
@@ -45,7 +45,7 @@ def load_original(n: int) -> str:
     with open(path, encoding='utf-8') as f:
         for line in f:
             s = line.lstrip('　 \t')
-            if s.startswith('*') or s.startswith('#'):
+            if s.startswith('> ') or s.startswith('*') or s.startswith('#'):
                 continue
             lines.append(line)
     return _strip_circled_ws(''.join(lines))

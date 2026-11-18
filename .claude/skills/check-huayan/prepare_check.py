@@ -9,12 +9,14 @@ prepare_check.py — 校对前置：从 docs/{N}.md 提取「原文段 → 译�
 - docs/pairs_{N}.json：所有段对 {"1": {"orig": "...", "trans": "..."}, ...}
 - docs/check_{N}_batch{b}.json：每批最多 BATCH 个段对，含前 2 段上下文，供子 Agent 逐段判断
 
-docs/{N}.md 格式（多种混用，统一识别规则）：
-- 译文行：以 * 开头（可能带 　　 前缀，如 　　*译文*）
+docs/{N}.md 格式（现行：译文为 quote 引用行；兼容旧斜体）：
+- 译文行：以 `> ` 开头的引用行（现行格式）；旧斜体行（`*译文*`，可带 　　前缀）仍兼容
 - 标题行：以 # 开头
 - 原文行：其余所有非空行（可能带 　　 前缀，也可能顶格）
-- 译文块跨行：前一行以 * 开头但未以 * 结尾时，后续非译文行视为续行并入
+- 引用/斜体行均逐行自识别，无跨行续行（保留旧斜体未闭合续行兼容逻辑）
 - 页脚杂行（大方广佛华严经卷第… / 大正新修大藏经… / 孤立的 .）：跳过，不算段落
+
+trans 字段输出纯文本：剥离 `> ` 前缀与 `*` 包裹，多行用 \n 连接。
 """
 
 import json, sys, os, re
@@ -29,21 +31,37 @@ NOISE_PATTERNS = (
 
 
 def is_noise(line: str) -> bool:
-    s = line.strip().lstrip('*').strip()
+    s = line.strip()
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
+    s = s.lstrip('*').strip()
     if s in ('.', '。'):
         return True
     return any(p.match(s) for p in NOISE_PATTERNS)
 
 
 def is_trans_line(line: str) -> bool:
-    return line.lstrip('　').startswith('*')
+    s = line.lstrip(' \u3000\t')
+    return s.startswith('> ') or s.startswith('*')
+
+
+def trans_text(line: str) -> str:
+    """取一行译文内容：剥掉 `> ` 前缀与 `*` 包裹。"""
+    s = line.strip()
+    if s.startswith('>'):
+        s = s.lstrip('> ').strip()
+    if s.startswith('*'):
+        s = s[1:]
+    if s.rstrip().endswith('*') and len(s.rstrip()) > 1:
+        s = s.rstrip()[:-1]
+    return s.strip()
 
 
 def extract_pairs(filepath: str) -> dict[str, dict]:
     """从 docs/{N}.md 提取 原文段→译文段 对。
 
     原文段 = 连续的非译文、非标题、非空、非杂行（可多行颂偈，前缀有无均可）。
-    译文段 = 紧随其后的译文块（* 行 + 跨行续行）。"""
+    译文段 = 紧随其后的译文块（`> ` 引用行；旧斜体 * 行 + 跨行续行兼容）。"""
     with open(filepath, 'r', encoding='utf-8') as f:
         lines = f.read().split('\n')
 
@@ -68,18 +86,21 @@ def extract_pairs(filepath: str) -> dict[str, dict]:
         # 跳过空行与杂行
         while i < n and (lines[i].strip() == '' or is_noise(lines[i])):
             i += 1
-        # 收集译文块。有两种合法多行格式：
+        # 收集译文块。现行格式：每行 `> ` 引用，逐行自识别。
+        # 旧斜体兼容两种多行格式：
         #   格式A：每行独立以 * 包裹（*行1* / *行2*）
         #   格式B：整块跨行包裹（首行 * 开头、末行 * 结尾，中间行无 *，含长段硬换行续行）
-        # 跨行续行判别：前一个已收集的译文行未以 * 结尾 → 下一非空行为续行
+        # 旧斜体跨行续行判别：前一个已收集的译文行为未闭合 * 行（非引用行）→ 下一非空行为续行
         trans_lines = []
+        last_raw = None  # 最近一个原始译文行（旧斜体未闭合判断用）
         while i < n:
             l = lines[i]
             if is_noise(l):
                 i += 1
                 continue
             if is_trans_line(l):
-                trans_lines.append(l)
+                trans_lines.append(trans_text(l))
+                last_raw = l
                 i += 1
                 continue
             if l.strip() == '':
@@ -87,12 +108,14 @@ def extract_pairs(filepath: str) -> dict[str, dict]:
                 while j < n and (lines[j].strip() == '' or is_noise(lines[j])):
                     j += 1
                 if j < n and is_trans_line(lines[j]):
-                    i = j  # 空行后仍是 * 译文，跳过空行继续
+                    i = j  # 空行后仍是译文，跳过空行继续
                     continue
                 break
-            # 非译文、非空行：仅当译文块未闭合（前行未以 * 结尾）时视为续行
-            if trans_lines and not trans_lines[-1].rstrip().endswith('*'):
+            # 非译文、非空行：仅当译文块为未闭合的旧斜体 * 行时视为续行
+            if (last_raw is not None and not last_raw.lstrip().startswith('>')
+                    and not last_raw.rstrip().endswith('*')):
                 trans_lines.append(l)
+                last_raw = l
                 i += 1
                 continue
             break

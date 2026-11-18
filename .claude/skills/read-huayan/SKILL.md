@@ -82,7 +82,7 @@ python3 .claude/skills/read-huayan/verify_reading.py <s> <e>
 ## 注意事项
 
 - **华严 docs 原文与译文均不含〔〕字符**（已核查 0-80 全部卷文件），〔n〕编号标注无冲突
-- **docs 格式混用**（脚本已统一处理，LLM 无需关心）：`*` 行（含 `　　*`）是译文，`#` 行是标题，空行是分隔，其余行都是原文；多行颂偈合并为一段。LLM 只读规整后的 `reading_{N}_orig.txt`
+- **docs 格式（脚本已统一处理，LLM 无需关心）**：`> ` 引用行是译文（现行格式，旧斜体 `*`/`　　*` 行兼容识别），`#` 行是标题，空行是分隔，其余行都是原文；多行颂偈合并为一段。LLM 只读规整后的 `reading_{N}_orig.txt`
 - 编号按全文首次出现位置分配；term 重叠时较长者优先、冲突自动顺延；找不到独立出现位的词脚本打印 ⚠ 丢弃，不阻断
 - **顺序依赖**：read-huayan 在 translate/fix-huayan 之后跑（标注插入原文行）。check-huayan / fix-huayan 只动译文块，不影响标注；summarize-huayan 复用本 skill 的 prepare_reading.py
 - 编号跳号、旧格式残留等问题一律**重跑 build_reading.py 解决**（全量重写即修复），无需手工修补脚本

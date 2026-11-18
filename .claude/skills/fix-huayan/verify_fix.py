@@ -132,29 +132,46 @@ def verify_file(n: int, use_git: bool = False):
 
     # 校验新译文是否出现在 .md 中
     md_text = md.read_text(encoding='utf-8')
+
+    def _norm(t: str) -> str:
+        """剥离 `> ` 前缀与 `*` 包裹（兼容新旧报告），去空行。"""
+        out = []
+        for ln in t.split('\n'):
+            s = ln.strip()
+            if s.startswith('>'):
+                s = s.lstrip('> ').strip()
+            if s.startswith('*'):
+                s = s[1:].strip()
+            if s.endswith('*') and len(s) > 1:
+                s = s[:-1].strip()
+            if s:
+                out.append(s)
+        return '\n'.join(out)
+
+    def _quoted(t: str) -> str:
+        return '\n'.join(f'> {ln}' for ln in t.split('\n'))
+
     for para_num, new_trans in applied_entries:
         if new_trans is None:
             issues.append(f'段落 {para_num} 标记已修复但缺少「新译文」字段')
             summary['missing'] += 1
             continue
-        # 正常态：new_trans 以 * 开头，直接做整串匹配
-        if new_trans.startswith('*'):
-            if new_trans in md_text:
-                summary['verified'] += 1
-            else:
-                summary['missing'] += 1
-                issues.append(f'段落 {para_num} 的新译文未在 {md.name} 中找到')
+        norm = _norm(new_trans)
+        # 正常态：新译文（纯文本）加 `> ` 前缀后应完整出现在 .md 中
+        if norm and _quoted(norm) in md_text:
+            summary['verified'] += 1
             continue
-        # 描述态（手动应用，如颂偈行数不匹配）：从描述里提取 *...* 片段，
-        # 取「改为」之后的作为新译文片段，校验是否出现在 .md 中
+        # 描述态（手动应用等）：从描述里提取可匹配片段，
+        # 先取「改为」之后的引用行/斜体片段，校验是否出现在 .md 中
         after_change = new_trans.split('改为')[-1]
-        snippets = re.findall(r'\*[^*\n]+\*', after_change)
-        if snippets and any(s in md_text for s in snippets):
+        snippets = re.findall(r'^> .+$', after_change, flags=re.MULTILINE) \
+            or re.findall(r'\*[^*\n]+\*', after_change)
+        if snippets and any(_norm(s) and _quoted(_norm(s)) in md_text for s in snippets):
             summary['verified'] += 1
         else:
             summary['missing'] += 1
             issues.append(
-                f'段落 {para_num} 为描述型新译文，未能从描述中匹配到已应用片段'
+                f'段落 {para_num} 的新译文未在 {md.name} 中找到'
             )
 
     # 可选：git 改动校验

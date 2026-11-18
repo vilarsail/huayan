@@ -5,7 +5,7 @@ build_reading.py - 由 notes_{N}.json 生成 docs/{N}.notes.md（注释表），
 
 LLM 已写好 notes_{N}.json：{"terms": [{"term": "...", "note": "..."}, ...]}（兼容多余的 guide 键，忽略）
 本脚本做全部确定性工作（LLM 不做任何序号与定位）：
-1. 解析 docs/{N}.md → 标题 + 原文段（任意非 #/* 行，多行颂偈合并为一段）
+1. 解析 docs/{N}.md → 标题 + 原文段（任意非 #/译文行，多行颂偈合并为一段）
 2. 全量重跑：先剥离全部旧标注（圈号 ①-㊿ 与旧〔n〕，含误混入译文行的残留）
 3. 校验词条：每 term 必须出现在原文中、无重复（数量不设上限）
 4. 按首次出现位置分配〔1〕〔2〕…；重叠冲突自动顺延；右向左插入
@@ -39,8 +39,9 @@ def marker(i: int) -> str:
 
 
 def is_translation(line: str) -> bool:
+    """译文行：`> ` 引用行（现行）；兼容旧斜体（* 或 　　* 开头）"""
     s = line.lstrip('　 \t')
-    return s.startswith('*')
+    return s.startswith('> ') or s.startswith('*')
 
 
 def is_heading(line: str) -> bool:
